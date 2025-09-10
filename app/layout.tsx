@@ -1,6 +1,8 @@
 
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";   // ← keep this up here
+
 
 export const metadata = {
   title: "Whitetail Land Solutions",
@@ -19,12 +21,12 @@ import Image from "next/image";
 
 // inside <header> logo area
 <Link href="/" className="flex items-center gap-3">
-  <div className="relative h-10 w-10">
+  <div className="relative h-10 w-40">
     <Image
       src="/logo-400.png"
       alt="Whitetail Land Solutions"
       fill
-      sizes="40px"
+      sizes="160px"
       className="object-contain"
       priority
     />
