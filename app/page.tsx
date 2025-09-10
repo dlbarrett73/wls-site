@@ -1,0 +1,72 @@
+
+import Link from "next/link";
+
+export default function Page() {
+  return (
+    <main>
+      <section className="container py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+            Properties engineered to attract and kill <span className="underline decoration-4 underline-offset-4">mature whitetails</span>.
+          </h1>
+          <p className="mt-5 text-neutral-600 max-w-prose">
+            We design, build, and sell whitetail‑optimized properties in Pennsylvania—and consult with landowners to transform their ground into a big buck paradise.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/contact" className="btn btn-primary">Get a Free 15‑Minute Strategy Call</Link>
+            <Link href="/properties" className="btn btn-outline">See Land for Sale</Link>
+          </div>
+          <dl className="mt-8 grid grid-cols-2 gap-6 text-sm">
+            <div>
+              <dt className="text-neutral-500">Service Area</dt>
+              <dd className="font-semibold">Pennsylvania (and nearby)</dd>
+            </div>
+            <div>
+              <dt className="text-neutral-500">Core Services</dt>
+              <dd className="font-semibold">Land for Sale · Consulting · Habitat Implementation</dd>
+            </div>
+          </dl>
+        </div>
+        <div className="card overflow-hidden p-2 bg-neutral-50">
+          <div className="aspect-[16/10] w-full rounded-xl bg-[url('/hero-placeholder.jpg')] bg-cover bg-center" />
+          <div className="p-4 text-xs text-neutral-500">Placeholder image — replace with your hero photo/video.</div>
+        </div>
+      </section>
+
+      <section className="border-t bg-neutral-50">
+        <div className="container py-14">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What we do</h2>
+          <p className="mt-2 text-neutral-600 max-w-prose">Simple offers that solve real hunter problems.</p>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {['Consulting','Habitat Implementation','Land for Sale'].map((title) => (
+              <div key={title} className="card p-6 hover:shadow-md transition">
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="mt-3 text-sm text-neutral-700">Learn how we can help you create a big buck paradise.</p>
+                <Link href="/services" className="mt-5 inline-block text-sm font-semibold">Learn more →</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container py-14 grid lg:grid-cols-2 gap-8 items-start">
+        <div>
+          <h3 className="text-xl md:text-2xl font-bold">See the work in action</h3>
+          <p className="mt-2 text-neutral-600 max-w-prose">Follow our YouTube channel for habitat breakdowns and property tours.</p>
+          <div className="mt-6 aspect-video rounded-xl overflow-hidden border bg-black">
+            <iframe className="w-full h-full" src="https://www.youtube.com/embed?listType=user_uploads&list=GiantLegacy_WLS" title="Giant Legacy – Whitetail Land Solutions" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+          </div>
+        </div>
+        <div className="card p-6 bg-neutral-50">
+          <h4 className="text-lg font-semibold">Why hunters choose WLS</h4>
+          <ul className="mt-4 space-y-3 text-sm">
+            <li>Plans designed to hold and hunt mature bucks.</li>
+            <li>Access‑first design: wind, thermal, undetectable entry/exit.</li>
+            <li>Forestry intelligence to maximize value and habitat.</li>
+            <li>Simple packages and straight talk—no fluff.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  );
+}
