@@ -21,7 +21,7 @@ import Image from "next/image";
 <Link href="/" className="flex items-center gap-3">
   <div className="relative h-10 w-10">
     <Image
-      src="/public/logo-400.png"
+      src="/logo-400.png"
       alt="Whitetail Land Solutions"
       fill
       sizes="40px"
