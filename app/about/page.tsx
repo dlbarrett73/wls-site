@@ -42,7 +42,7 @@ export default function About() {
             <article className="rounded-2xl border bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
                 <Image
-  src="/team-david.jpg"
+  src="/David_Barrett_with_8-Point_Buck.jpg"
   alt="David Barrett — CEO, Whitetail Land Solutions"
   fill
   sizes="(min-width: 640px) 50vw, 100vw"
