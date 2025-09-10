@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "About Us — Whitetail Land Solutions",
@@ -11,65 +12,75 @@ export default function About() {
     <main>
       {/* Hero */}
       <section className="container py-16 md:py-24">
-        <p className="text-sm font-semibold tracking-widest text-neutral-500">
-          ABOUT US
-        </p>
+        <p className="text-sm font-semibold tracking-widest text-neutral-500">ABOUT US</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
           Engineered for Giants. Built for Legacy.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
-          At <span className="font-semibold">Whitetail Land Solutions</span>, we
-          believe every acre can become a legacy—where families gather, memories
-          are made, and mature bucks daylight. We design and deliver{" "}
-          <span className="font-semibold">turnkey hunting properties</span> and
-          <span className="font-semibold"> custom consulting</span> that turns
-          ordinary ground into a big-buck paradise.
+          At <span className="font-semibold">Whitetail Land Solutions</span>, we believe every acre can
+          become a legacy—where families gather, memories are made, and mature bucks daylight. We design
+          and deliver <span className="font-semibold">turnkey hunting properties</span> and
+          <span className="font-semibold"> custom consulting</span> that turns ordinary ground into a
+          big-buck paradise.
         </p>
       </section>
 
-      {/* Who We Are */}
+      {/* Who We Are + Team */}
       <section className="border-t bg-neutral-50">
         <div className="container py-14 grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Who We Are
-            </h2>
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Who We Are</h2>
             <p className="mt-4 text-neutral-700">
-              We’re lifelong hunters, land stewards, and entrepreneurs from
-              Pennsylvania who combine <span className="font-semibold">
-                whitetail biology, forestry know-how, and sound business
-                strategy
-              </span>{" "}
-              to build properties that consistently create trophy opportunities
-              and lasting family memories.
+              We’re lifelong hunters, land stewards, and entrepreneurs from Pennsylvania who combine{" "}
+              <span className="font-semibold">whitetail biology, forestry know-how, and sound business strategy</span>{" "}
+              to build properties that consistently create trophy opportunities and lasting family memories.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            <div className="rounded-2xl border bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold">David Barrett — CEO</h3>
+            {/* David */}
+            <article className="rounded-2xl border bg-white p-6 shadow-sm">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <Image
+                  src="/David_Barrett_with_8-Point_Buck.jpg"
+                  alt="David Barrett — CEO, Whitetail Land Solutions"
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold">David Barrett — CEO</h3>
               <p className="mt-2 text-sm text-neutral-700">
-                Vision, marketing, finance, and execution systems. A seasoned
-                entrepreneur focused on scalable growth and client experience.
+                Vision, marketing, finance, and execution systems. A seasoned entrepreneur focused on scalable
+                growth and client experience.
               </p>
-            </div>
-            <div className="rounded-2xl border bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold">Kent Shick — COO</h3>
+            </article>
+
+            {/* Kent */}
+            <article className="rounded-2xl border bg-white p-6 shadow-sm">
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+                <Image
+                  src="/team-kent.jpg"
+                  alt="Kent Shick — COO, Whitetail Land Solutions"
+                  fill
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold">Kent Shick — COO</h3>
               <p className="mt-2 text-sm text-neutral-700">
-                Consulting forester &amp; habitat expert. Decades of
-                boots-on-the-ground experience designing and implementing plans
-                that actually hunt.
+                Consulting forester & habitat expert. Decades of boots-on-the-ground experience designing and
+                implementing plans that actually hunt.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
       {/* What We Do */}
       <section className="container py-14">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-          What We Do
-        </h2>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What We Do</h2>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           <Card
             title="Land for Sale"
@@ -89,9 +100,7 @@ export default function About() {
       {/* Values */}
       <section className="border-t bg-neutral-50">
         <div className="container py-14">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Our Values
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Our Values</h2>
           <ul className="mt-6 grid md:grid-cols-4 gap-6 text-sm">
             <Value title="Integrity" body="Do the right thing—even when no one’s looking." />
             <Value title="Stewardship" body="Care for the land, wildlife, and legacy it carries." />
@@ -103,26 +112,12 @@ export default function About() {
 
       {/* Why WLS */}
       <section className="container py-14">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-          Why Hunters Choose WLS
-        </h2>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Why Hunters Choose WLS</h2>
         <div className="mt-6 grid lg:grid-cols-2 gap-6">
-          <Bullet
-            title="Proven Habitat Expertise"
-            body="Designs rooted in whitetail biology and forestry science—not landscaping theory."
-          />
-          <Bullet
-            title="Access-First Philosophy"
-            body="Every layout is engineered for undetectable entry/exit to keep deer unpressured and daylight-active."
-          />
-          <Bullet
-            title="Turnkey Properties"
-            body="We don’t just sell land—we deliver hunt-ready, whitetail-optimized properties."
-          />
-          <Bullet
-            title="Trusted Partnership"
-            body="From plan to implementation, we’re in the field—measuring success by results, not reports."
-          />
+          <Bullet title="Proven Habitat Expertise" body="Designs rooted in whitetail biology and forestry science—not landscaping theory." />
+          <Bullet title="Access-First Philosophy" body="Every layout is engineered for undetectable entry/exit to keep deer unpressured and daylight-active." />
+          <Bullet title="Turnkey Properties" body="We don’t just sell land—we deliver hunt-ready, whitetail-optimized properties." />
+          <Bullet title="Trusted Partnership" body="From plan to implementation, we’re in the field—measuring success by results, not reports." />
         </div>
       </section>
 
@@ -132,13 +127,10 @@ export default function About() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold">Ready to talk?</h2>
             <p className="mt-3 text-neutral-300">
-              Tell us about your acreage, goals, and timeline. We’ll map the
-              fastest path to a hunt-ready property.
+              Tell us about your acreage, goals, and timeline. We’ll map the fastest path to a hunt-ready property.
             </p>
             <div className="mt-6">
-              <Link href="/contact" className="btn btn-primary">
-                Get a Free 15-Minute Strategy Call
-              </Link>
+              <Link href="/contact" className="btn btn-primary">Get a Free 15-Minute Strategy Call</Link>
             </div>
           </div>
           <div className="rounded-2xl bg-white text-neutral-900 p-6 text-sm">
@@ -154,13 +146,7 @@ export default function About() {
               <div>
                 <dt className="text-neutral-500">YouTube</dt>
                 <dd className="font-semibold">
-                  <a
-                    className="underline"
-                    href="https://www.youtube.com/@GiantLegacy_WLS"
-                    target="_blank"
-                  >
-                    @GiantLegacy_WLS
-                  </a>
+                  <a className="underline" href="https://www.youtube.com/@GiantLegacy_WLS" target="_blank">@GiantLegacy_WLS</a>
                 </dd>
               </div>
             </dl>
