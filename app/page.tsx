@@ -27,10 +27,20 @@ export default function Page() {
             </div>
           </dl>
         </div>
-        <div className="card overflow-hidden p-2 bg-neutral-50">
-          <div className="aspect-[16/10] w-full rounded-xl bg-[url('/hero-placeholder.jpg')] bg-cover bg-center" />
-          <div className="p-4 text-xs text-neutral-500">Placeholder image — replace with your hero photo/video.</div>
-        </div>
+        import Image from "next/image";
+
+<div className="card overflow-hidden p-2 bg-neutral-50">
+  <Image
+    src="/hero.jpg"
+    alt="Hunter with a mature whitetail—proof of results on well-designed habitat"
+    width={1920}
+    height={1080}
+    className="w-full rounded-xl object-cover"
+    priority
+    style={{ objectPosition: '50% 30%' }}
+  />
+</div>
+
       </section>
 
       <section className="border-t bg-neutral-50">
