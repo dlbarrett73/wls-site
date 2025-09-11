@@ -47,15 +47,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {children}
 
-        <footer className="border-t">
-          <div className="container py-10 text-sm text-neutral-500 grid md:grid-cols-2 gap-6">
-            <div>
-              <div className="font-semibold text-neutral-900">Whitetail Land Solutions</div>
-              <div>Engineered for Giants. Built for Legacy.</div>
-            </div>
-            <div className="md:text-right">© {new Date().getFullYear()} Whitetail Land Solutions LLC</div>
-          </div>
-        </footer>
+       <footer className="border-t border-wood-200 bg-wood-50">
+  <div className="container py-10 ...">
       </body>
     </html>
   );
