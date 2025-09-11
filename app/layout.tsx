@@ -12,8 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        {/* Header */}
         <header className="border-b border-wood-200 sticky top-0 bg-white/80 backdrop-blur z-50">
           <div className="container py-3 flex items-center justify-between">
+            {/* Brand */}
             <Link href="/" className="flex items-center gap-3">
               <div className="relative h-10 w-40">
                 <Image
@@ -32,23 +34,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
             </Link>
+
+            {/* Nav */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
-  <Link href="/services" className="hover:text-brand-700">Services</Link>
-  <Link href="/properties" className="hover:text-brand-700">Land for Sale</Link>
-  <Link href="/about" className="hover:text-brand-700">About</Link>
-  <Link href="/contact" className="hover:text-brand-700">Contact</Link>
-  <Link
-    href="/contact"
-    className="inline-flex items-center gap-2 rounded-full border-2 border-brand-700 text-brand-800 px-4 py-2 hover:bg-brand-50"
-  >
-    Free Strategy Call
-  </Link>
-</nav>
+              <Link href="/services" className="hover:text-brand-700">Services</Link>
+              <Link href="/properties" className="hover:text-brand-700">Land for Sale</Link>
+              <Link href="/about" className="hover:text-brand-700">About</Link>
+              <Link href="/contact" className="hover:text-brand-700">Contact</Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-brand-700 text-brand-800 px-4 py-2 hover:bg-brand-50"
+              >
+                Free Strategy Call
+              </Link>
+            </nav>
           </div>
         </header>
 
+        {/* Page Content */}
         {children}
 
+        {/* Footer */}
         <footer className="border-t border-wood-200 bg-wood-50">
           <div className="container py-10 text-sm text-neutral-500 grid md:grid-cols-2 gap-6">
             <div>
