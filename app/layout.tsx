@@ -32,19 +32,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
             </Link>
-
             <nav className="hidden md:flex items-center gap-6 text-sm">
-              <Link href="/services" className="hover:text-brand-700">Services</Link>
-              <Link href="/properties" className="hover:text-brand-700">Land for Sale</Link>
-              <Link href="/about" className="hover:text-brand-700">About</Link>
-              <Link href="/contact" className="hover:text-brand-700">Contact</Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-brand-700 text-brand-800 px-4 py-2 hover:bg-brand-50"
-              >
-                Free Strategy Call
-              </Link>
-            </nav>
+  <Link href="/services" className="hover:text-brand-700">Services</Link>
+  <Link href="/properties" className="hover:text-brand-700">Land for Sale</Link>
+  <Link href="/about" className="hover:text-brand-700">About</Link>
+  <Link href="/contact" className="hover:text-brand-700">Contact</Link>
+  <Link
+    href="/contact"
+    className="inline-flex items-center gap-2 rounded-full border-2 border-brand-700 text-brand-800 px-4 py-2 hover:bg-brand-50"
+  >
+    Free Strategy Call
+  </Link>
+</nav>
           </div>
         </header>
 
