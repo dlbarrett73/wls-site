@@ -13,7 +13,7 @@ body { @apply bg-white text-neutral-900; }
 .btn-primary { @apply bg-brand-700 text-white hover:bg-brand-800; }
 .btn-outline { @apply border-2 border-brand-700 text-brand-800 hover:bg-brand-50; }
 
-/* Cards + accents */
+/* Cards */
 .card { @apply rounded-2xl border border-wood-200 bg-white shadow-sm; }
 
 /* Links */
