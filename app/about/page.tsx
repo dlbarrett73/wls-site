@@ -20,7 +20,7 @@ export default function About() {
           At <span className="font-semibold">Whitetail Land Solutions</span>, we believe every acre can
           become a legacy—where families gather, memories are made, and mature bucks daylight. We design
           and deliver <span className="font-semibold">turnkey hunting properties</span> and
-          <span className="font-semibold"> custom consulting</span> that turns ordinary ground into a
+          <span className="font-semibold"> custom consulting</span> that turn ordinary ground into a
           big-buck paradise.
         </p>
       </section>
@@ -39,7 +39,7 @@ export default function About() {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {/* David */}
-            <article className="rounded-2xl border bg-white p-6 shadow-sm">
+            <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
                 <Image
                   src="/team-david.jpg"
@@ -48,6 +48,7 @@ export default function About() {
                   sizes="(min-width: 640px) 50vw, 100vw"
                   className="object-cover"
                   priority
+                  style={{ objectPosition: "50% 20%" }} // keep headroom
                 />
               </div>
               <h3 className="mt-4 text-lg font-semibold">David Barrett — CEO</h3>
@@ -58,7 +59,7 @@ export default function About() {
             </article>
 
             {/* Kent */}
-            <article className="rounded-2xl border bg-white p-6 shadow-sm">
+            <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
                 <Image
                   src="/team-kent.jpg"
@@ -66,6 +67,7 @@ export default function About() {
                   fill
                   sizes="(min-width: 640px) 50vw, 100vw"
                   className="object-cover"
+                  style={{ objectPosition: "50% 28%" }} // slight top bias
                 />
               </div>
               <h3 className="mt-4 text-lg font-semibold">Kent Shick — COO</h3>
@@ -130,7 +132,9 @@ export default function About() {
               Tell us about your acreage, goals, and timeline. We’ll map the fastest path to a hunt-ready property.
             </p>
             <div className="mt-6">
-              <Link href="/contact" className="btn btn-primary">Get a Free 15-Minute Strategy Call</Link>
+              <Link href="/contact" className="btn btn-primary">
+                Get a Free 15-Minute Strategy Call
+              </Link>
             </div>
           </div>
           <div className="rounded-2xl bg-white text-neutral-900 p-6 text-sm">
@@ -146,7 +150,9 @@ export default function About() {
               <div>
                 <dt className="text-neutral-500">YouTube</dt>
                 <dd className="font-semibold">
-                  <a className="underline" href="https://www.youtube.com/@GiantLegacy_WLS" target="_blank">@GiantLegacy_WLS</a>
+                  <a className="underline" target="_blank" href="https://www.youtube.com/@GiantLegacy_WLS">
+                    @GiantLegacy_WLS
+                  </a>
                 </dd>
               </div>
             </dl>
@@ -160,7 +166,7 @@ export default function About() {
 /* --- small helpers --- */
 function Card({ title, body }: { title: string; body: string }) {
   return (
-    <div className="rounded-2xl border bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
       <h3 className="text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-sm text-neutral-700">{body}</p>
     </div>
@@ -169,7 +175,7 @@ function Card({ title, body }: { title: string; body: string }) {
 
 function Value({ title, body }: { title: string; body: string }) {
   return (
-    <li className="rounded-2xl border bg-white p-6 shadow-sm">
+    <li className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
       <div className="font-semibold">{title}</div>
       <div className="mt-2 text-neutral-700">{body}</div>
     </li>
@@ -178,7 +184,7 @@ function Value({ title, body }: { title: string; body: string }) {
 
 function Bullet({ title, body }: { title: string; body: string }) {
   return (
-    <div className="rounded-2xl border bg-white p-6 shadow-sm">
+    <div className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
       <div className="font-semibold">{title}</div>
       <div className="mt-2 text-neutral-700 text-sm">{body}</div>
     </div>
