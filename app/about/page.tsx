@@ -26,7 +26,7 @@ export default function About() {
       </section>
 
       {/* Who We Are + Team */}
-      <section className="border-t bg-neutral-50">
+      <section className="border-t border-wood-200 bg-wood-50">
         <div className="container py-14 grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Who We Are</h2>
@@ -98,7 +98,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="border-t bg-neutral-50">
+      <section className="border-t border-wood-200 bg-wood-50">
         <div className="container py-14">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Our Values</h2>
           <ul className="mt-6 grid md:grid-cols-4 gap-6 text-sm">
