@@ -2,19 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
+:root { 
+  color-scheme: light; 
+}
 
-body { @apply bg-white text-neutral-900; }
-.container { @apply mx-auto max-w-7xl px-4; }
+body { 
+  @apply bg-white text-neutral-900; 
+}
+
+.container { 
+  @apply mx-auto max-w-7xl px-4; 
+}
 
 /* Buttons */
-.btn { @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-semibold transition; }
-.btn-primary { @apply bg-brand-700 text-white hover:bg-brand-800; }
-.btn-outline { @apply border-2 border-brand-700 text-brand-800 hover:bg-brand-50; }
+.btn { 
+  @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-semibold transition; 
+}
+
+.btn-primary { 
+  @apply bg-brand-700 text-white hover:bg-brand-800; 
+}
+
+.btn-outline { 
+  @apply border-2 border-brand-700 text-brand-800 hover:bg-brand-50; 
+}
 
 /* Cards */
-.card { @apply rounded-2xl border border-wood-200 bg-white shadow-sm; }
+.card { 
+  @apply rounded-2xl border border-wood-200 bg-white shadow-sm; 
+}
 
 /* Links */
-a { @apply text-neutral-900; }
-a:hover { @apply text-brand-700; }
+a { 
+  @apply text-neutral-900; 
+}
+
+a:hover { 
+  @apply text-brand-700; 
+}
