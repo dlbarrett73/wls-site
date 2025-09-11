@@ -34,11 +34,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Link>
 
             <nav className="hidden md:flex items-center gap-6 text-sm">
-              <Link href="/services" className="hover:text-neutral-600">Services</Link>
-              <Link href="/properties" className="hover:text-neutral-600">Land for Sale</Link>
-              <Link href="/about" className="hover:text-neutral-600">About</Link>
-              <Link href="/contact" className="hover:text-neutral-600">Contact</Link>
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-full border px-4 py-2 hover:bg-neutral-50">
+              <Link href="/services" className="hover:text-brand-700">Services</Link>
+              <Link href="/properties" className="hover:text-brand-700">Land for Sale</Link>
+              <Link href="/about" className="hover:text-brand-700">About</Link>
+              <Link href="/contact" className="hover:text-brand-700">Contact</Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-brand-700 text-brand-800 px-4 py-2 hover:bg-brand-50"
+              >
                 Free Strategy Call
               </Link>
             </nav>
@@ -47,8 +50,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {children}
 
-       <footer className="border-t border-wood-200 bg-wood-50">
-  <div className="container py-10 ...">
+        <footer className="border-t border-wood-200 bg-wood-50">
+          <div className="container py-10 text-sm text-neutral-500 grid md:grid-cols-2 gap-6">
+            <div>
+              <div className="font-semibold text-neutral-900">Whitetail Land Solutions</div>
+              <div>Engineered for Giants. Built for Legacy.</div>
+            </div>
+            <div className="md:text-right">
+              © {new Date().getFullYear()} Whitetail Land Solutions LLC
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
