@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <header className="border-b sticky top-0 bg-white/80 backdrop-blur z-50">
+        <header className="border-b border-wood-200 sticky top-0 bg-white/80 backdrop-blur z-50">
           <div className="container py-3 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative h-10 w-40">
