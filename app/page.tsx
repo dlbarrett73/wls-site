@@ -49,7 +49,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="border-t bg-neutral-50">
+      <section className="border-t border-wood-200 bg-wood-50">
         <div className="container py-14">
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What we do</h2>
           <p className="mt-2 text-neutral-600 max-w-prose">Simple offers that solve real hunter problems.</p>
