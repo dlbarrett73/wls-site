@@ -42,7 +42,7 @@ export default function About() {
             <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-200">
                 <Image
-                  src="/props/david-barrett.jpg"
+                  src="/team-david.jpg"
                   alt="David Barrett — CEO"
                   fill
                   className="object-cover object-[50%_15%]"
@@ -61,7 +61,7 @@ export default function About() {
             <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-200">
                 <Image
-                  src="/props/kent-shick.jpg"
+                  src="/team-kent.jpg"
                   alt="Kent Shick — COO"
                   fill
                   className="object-cover object-center"
