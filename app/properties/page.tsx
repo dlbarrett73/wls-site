@@ -1,46 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PROPERTIES, type Property } from "../../lib/properties";
 
 export const metadata = {
   title: "Land for Sale — Whitetail Land Solutions",
   description:
     "Turnkey, whitetail-optimized properties engineered for mature bucks. Hunt Day One.",
 };
-
-type Property = {
-  id: string;
-  title: string;
-  acres: number;
-  county: string;
-  state: string;
-  price?: string;
-  image?: string;       // path in /public e.g. /props/elm-ridge.jpg
-  slug?: string;        // optional for detail pages later
-  highlights: string[]; // 3–6 bullets
-};
-
-/** 
- * TODO: Replace with real listings
- * Drop photos into /public/props/ and point image fields to them.
- */
-const PROPERTIES: Property[] = [
-  // Example (delete when ready):
-  // {
-  //   id: "elm-ridge",
-  //   title: "Elm Ridge 72",
-  //   acres: 72,
-  //   county: "Clarion",
-  //   state: "PA",
-  //   price: "$329,000",
-  //   image: "/props/elm-ridge.jpg",
-  //   slug: "/properties/elm-ridge-72",
-  //   highlights: [
-  //     "Access-first layout, undetectable entry/exit",
-  //     "Diverse edge + strategic food plot system",
-  //     "Ready-to-hunt stand locations & travel corridors",
-  //   ],
-  // },
-];
 
 export default function PropertiesPage() {
   const hasProps = PROPERTIES.length > 0;
@@ -87,7 +53,7 @@ export default function PropertiesPage() {
         <p className="mt-2 text-neutral-600">Join the list and we’ll alert you before properties hit the site.</p>
         <div className="mt-6 flex justify-center gap-3">
           <Link href="/contact" className="btn btn-primary">Join Buyer List</Link>
-          <Link href="/services" className="btn btn-outline">See How We Build Value</Link>
+          <Link href="/services" className="btn btn-outline">See How We Build Hunt-Ready</Link>
         </div>
       </section>
     </main>
@@ -111,7 +77,7 @@ function PropertyCard({ p }: { p: Property }) {
           />
         ) : (
           <div className="w-full h-full grid place-items-center text-xs text-neutral-400">
-            Add a photo at {`/public/props/<file>.jpg`}
+            Add a photo at /public/props/&lt;file&gt;.jpg
           </div>
         )}
       </div>
@@ -133,7 +99,7 @@ function PropertyCard({ p }: { p: Property }) {
 
         <div className="mt-5 flex gap-3">
           {p.slug ? (
-            <Link href={p.slug} className="btn btn-primary">View Details</Link>
+            <Link href={`/properties/${p.slug}`} className="btn btn-primary">View Details</Link>
           ) : (
             <Link href="/contact" className="btn btn-primary">Ask About This Property</Link>
           )}
