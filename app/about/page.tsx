@@ -40,14 +40,16 @@ export default function About() {
           <div className="grid sm:grid-cols-2 gap-6">
             {/* David */}
             <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-200">
                 <Image
-                  src="/team-david.jpg"
+                  src="/props/david-barrett.jpg"
                   alt="David Barrett — CEO"
                   fill
-                  className="object-cover object-top rounded-xl"
+                  className="object-cover object-[50%_15%]"
+                  priority={false}
                 />
               </div>
+
               <h3 className="mt-4 text-lg font-semibold">David Barrett — CEO</h3>
               <p className="mt-2 text-sm text-neutral-700">
                 Vision, marketing, finance, and execution systems. A seasoned entrepreneur focused on scalable
@@ -57,16 +59,15 @@ export default function About() {
 
             {/* Kent */}
             <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
-              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-xl bg-neutral-200">
                 <Image
-                  src="/team-kent.jpg"
+                  src="/props/kent-shick.jpg"
                   alt="Kent Shick — COO"
                   fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                  className="object-cover"
-                  style={{ objectPosition: "50% 28%" }} // slight top bias
+                  className="object-cover object-center"
                 />
               </div>
+
               <h3 className="mt-4 text-lg font-semibold">Kent Shick — COO</h3>
               <p className="mt-2 text-sm text-neutral-700">
                 Consulting forester & habitat expert. Decades of boots-on-the-ground experience designing and
