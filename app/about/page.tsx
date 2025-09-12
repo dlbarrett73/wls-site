@@ -42,7 +42,7 @@ export default function About() {
             <article className="rounded-2xl border border-wood-200 bg-white p-6 shadow-sm">
               <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
                 <Image
-  src="/props/david-barrett.jpg"
+  src="/props/David_Barrett_with_8-Point_Buck.jpg"
   alt="David Barrett — CEO"
   fill
   className="object-cover object-top rounded-xl"
