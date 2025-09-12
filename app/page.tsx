@@ -55,38 +55,47 @@ export default function Page() {
         </div>
       </section>
 
-      {/* What We Do */}
-      <section className="border-t border-wood-200 bg-wood-50">
-        <div className="container py-14">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            What we do
-          </h2>
-          <p className="mt-2 text-neutral-600 max-w-prose">
-            Simple offers that solve real hunter problems.
-          </p>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {["Consulting", "Habitat Implementation", "Land for Sale"].map(
-              (title) => (
-                <div
-                  key={title}
-                  className="card p-6 hover:shadow-md transition"
-                >
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-3 text-sm text-neutral-700">
-                    Learn how we can help you create a big buck paradise.
-                  </p>
-                  <Link
-                    href="/services"
-                    className="mt-5 inline-block text-sm font-semibold text-brand-700 hover:underline"
-                  >
-                    Learn more →
-                  </Link>
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </section>
+      {/* What we do */}
+<section className="container py-14">
+  <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What we do</h2>
+  <p className="mt-2 text-neutral-600">Simple offers that solve real hunter problems.</p>
+
+  <div className="mt-8 grid md:grid-cols-3 gap-6">
+    {/* Consulting */}
+    <div className="card p-6 hover:shadow-md transition">
+      <h3 className="text-lg font-semibold">Consulting</h3>
+      <p className="mt-3 text-sm text-neutral-700">
+        Custom plans to maximize deer movement, bedding, and hunting opportunities on your land.
+      </p>
+      <Link href="/services#consulting" className="mt-5 inline-block text-sm font-semibold">
+        Learn more →
+      </Link>
+    </div>
+
+    {/* Habitat Implementation */}
+    <div className="card p-6 hover:shadow-md transition">
+      <h3 className="text-lg font-semibold">Habitat Implementation</h3>
+      <p className="mt-3 text-sm text-neutral-700">
+        From food plots to timber work, we build the improvements that hold mature bucks year-round.
+      </p>
+      <Link href="/services#implementation" className="mt-5 inline-block text-sm font-semibold">
+        Learn more →
+      </Link>
+    </div>
+
+    {/* Land for Sale */}
+    <div className="card p-6 hover:shadow-md transition">
+      <h3 className="text-lg font-semibold">Land for Sale</h3>
+      <p className="mt-3 text-sm text-neutral-700">
+        Turnkey hunting properties engineered and ready to hunt from day one.
+      </p>
+      <Link href="/properties" className="mt-5 inline-block text-sm font-semibold">
+        Learn more →
+      </Link>
+    </div>
+  </div>
+</section>
+
 
       {/* YouTube + Why WLS */}
       <section className="container py-14 grid lg:grid-cols-2 gap-8 items-start">
