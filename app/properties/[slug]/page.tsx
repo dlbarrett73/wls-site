@@ -1,9 +1,8 @@
-// app/properties/[slug]/page.tsx
 import Image from "next/image";
 import Link from "next/link";
 import { getBySlug } from "../../../lib/properties";
 
-// Render at request time so new slugs work without a rebuild
+// Render dynamically at request time
 export const dynamic = "force-dynamic";
 
 type PageProps = { params: { slug: string } };
@@ -29,11 +28,19 @@ export default function PropertyDetail({ params }: PageProps) {
   if (!p) {
     return (
       <main className="container py-16 md:py-24">
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Property not found</h1>
-        <p className="mt-4 text-neutral-600">This listing may have been sold or moved.</p>
+        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+          Property not found
+        </h1>
+        <p className="mt-4 text-neutral-600">
+          This listing may have been sold or moved.
+        </p>
         <div className="mt-6 flex gap-3">
-          <Link href="/properties" className="btn btn-outline">Back to Properties</Link>
-          <Link href="/contact" className="btn btn-primary">Tell us what you’re looking for</Link>
+          <Link href="/properties" className="btn btn-outline">
+            Back to Properties
+          </Link>
+          <Link href="/contact" className="btn btn-primary">
+            Tell us what you’re looking for
+          </Link>
         </div>
       </main>
     );
@@ -44,11 +51,17 @@ export default function PropertyDetail({ params }: PageProps) {
       {/* Hero */}
       <section className="container py-16 md:py-24 grid lg:grid-cols-2 gap-10 items-start">
         <div>
-          <p className="text-sm font-semibold tracking-widest text-neutral-500">LAND FOR SALE</p>
-          <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">{p.title}</h1>
+          <p className="text-sm font-semibold tracking-widest text-neutral-500">
+            LAND FOR SALE
+          </p>
+          <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
+            {p.title}
+          </h1>
           <p className="mt-3 text-neutral-600">
             {p.acres} acres — {p.county} County, {p.state}
-            {p.price ? <span className="ml-2 font-semibold text-brand-700">• {p.price}</span> : null}
+            {p.price ? (
+              <span className="ml-2 font-semibold text-brand-700">• {p.price}</span>
+            ) : null}
           </p>
 
           {p.description ? (
@@ -62,8 +75,12 @@ export default function PropertyDetail({ params }: PageProps) {
           </ul>
 
           <div className="mt-8 flex gap-3">
-            <Link href="/contact" className="btn btn-primary">Ask About This Property</Link>
-            <Link href="/contact" className="btn btn-outline">Request a Walkthrough</Link>
+            <Link href="/contact" className="btn btn-primary">
+              Ask About This Property
+            </Link>
+            <Link href="/contact" className="btn btn-outline">
+              Request a Walkthrough
+            </Link>
           </div>
         </div>
 
@@ -92,14 +109,24 @@ export default function PropertyDetail({ params }: PageProps) {
             {p.gallery?.length ? (
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
                 {p.gallery.map((src) => (
-                  <div key={src} className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
-                    <Image src={src} alt={`${p.title} photo`} fill sizes="50vw" className="object-cover" />
+                  <div
+                    key={src}
+                    className="relative w-full aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${p.title} photo`}
+                      fill
+                      sizes="50vw"
+                      className="object-cover"
+                    />
                   </div>
                 ))}
               </div>
             ) : (
               <p className="mt-4 text-sm text-neutral-600">
-                Add photos to <code>/public/props</code> and list them in <code>gallery</code>.
+                Add photos to <code>/public/props</code> and list them in{" "}
+                <code>gallery</code>.
               </p>
             )}
           </div>
@@ -118,7 +145,8 @@ export default function PropertyDetail({ params }: PageProps) {
               </div>
             ) : (
               <p className="mt-4 text-sm text-neutral-600">
-                Add a Google Maps embed URL as <code>mapEmbedUrl</code> in <code>lib/properties.ts</code>.
+                Add a Google Maps embed URL as <code>mapEmbedUrl</code> in{" "}
+                <code>lib/properties.ts</code>.
               </p>
             )}
           </div>
@@ -127,11 +155,19 @@ export default function PropertyDetail({ params }: PageProps) {
 
       {/* CTA */}
       <section className="container py-14 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Want first shot at new listings?</h2>
-        <p className="mt-2 text-neutral-600">Join the list and we’ll alert you before properties hit the site.</p>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+          Want first shot at new listings?
+        </h2>
+        <p className="mt-2 text-neutral-600">
+          Join the list and we’ll alert you before properties hit the site.
+        </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Link href="/contact" className="btn btn-primary">Join Buyer List</Link>
-          <Link href="/services" className="btn btn-outline">See How We Build Hunt-Ready</Link>
+          <Link href="/contact" className="btn btn-primary">
+            Join Buyer List
+          </Link>
+          <Link href="/services" className="btn btn-outline">
+            See How We Build Hunt-Ready
+          </Link>
         </div>
       </section>
     </main>
