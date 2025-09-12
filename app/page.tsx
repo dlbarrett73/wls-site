@@ -56,7 +56,7 @@ export default function Page() {
       </section>
 
       {/* What we do */}
-<section className="border-t border-wood-200 bg-amber-50">
+<section className="border-t border-wood-200 bg-green-50">
   <div className="container py-14">
     <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What we do</h2>
     <p className="mt-2 text-neutral-600">Simple offers that solve real hunter problems.</p>
