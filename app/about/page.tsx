@@ -85,16 +85,16 @@ export default function About() {
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What We Do</h2>
         <div className="mt-8 grid md:grid-cols-3 gap-6">
           <Card
-            title="Land for Sale"
-            body="We acquire undervalued tracts, engineer them for world-class hunting, and offer hunt-ready properties you can enjoy on Day One."
-          />
-          <Card
             title="Consulting"
             body="Custom habitat plans and maps that maximize access, bedding, food, and stand strategy—tailored to your goals and budget."
           />
           <Card
             title="Habitat Implementation"
             body="With trusted partners and forestry expertise, we execute the work: food plots, trails, stand sites, and timber improvements."
+          />
+          <Card
+            title="Land for Sale"
+            body="We acquire undervalued tracts, engineer them for world-class hunting, and offer hunt-ready properties you can enjoy on Day One."
           />
         </div>
       </section>
