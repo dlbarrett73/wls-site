@@ -5,7 +5,7 @@ import { PROPERTIES, type Property } from "../../lib/properties";
 export const metadata = {
   title: "Land for Sale — Whitetail Land Solutions",
   description:
-    "Turnkey, whitetail-optimized properties engineered for mature bucks. Hunt Day One.",
+    "Turnkey, Whitetail-Optimized Properties Engineered for Mature Bucks. Hunt Day One.",
 };
 
 export default function PropertiesPage() {
