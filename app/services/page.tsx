@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Services — Whitetail Land Solutions",
   description:
-    "Whitetail Land Solutions offers Consulting, Habitat Implementation, and Turnkey Land for Sale engineered for mature whitetails.",
+    "Whitetail Land Solutions offers Consulting, Habitat Implementation, and Turnkey Land for Sale Engineered for Mature Whitetails.",
 };
 
 export default function Services() {
