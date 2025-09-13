@@ -15,7 +15,7 @@ export default function ImplementationPage() {
           HABITAT IMPLEMENTATION
         </p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          From Plans to Reality: Habitat Built for Giants
+          From Plans to Reality: Habitat Built for Giants.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
           Our habitat implementation services turn your Blueprint into a living,
