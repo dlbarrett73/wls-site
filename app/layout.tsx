@@ -17,16 +17,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container py-3 flex items-center justify-between">
             {/* Brand */}
             <Link href="/" className="flex items-center gap-3">
-              <div className="relative h-10 w-40">
-                <Image
-                  src="/logo-400.png"
-                  alt="Whitetail Land Solutions"
-                  fill
-                  sizes="160px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <div className="relative h-12 w-48 md:h-14 md:w-56">
+  <Image
+    src="/logo-400.png"
+    alt="Whitetail Land Solutions"
+    fill
+    sizes="(min-width: 768px) 224px, 192px"
+    className="object-contain"
+    priority
+  />
+</div>
               <div>
                 <div className="font-bold leading-tight">Whitetail Land Solutions</div>
                 <div className="text-xs text-neutral-500">
