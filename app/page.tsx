@@ -9,9 +9,9 @@ export default function Page() {
         {/* LEFT COLUMN */}
         <div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            Properties engineered to attract and kill{" "}
+            Properties Engineered to Attract and Kill{" "}
             <span className="underline decoration-4 underline-offset-4 decoration-wood-500">
-              mature whitetails
+              Mature Whitetails
             </span>.
           </h1>
           <p className="mt-5 text-neutral-600 max-w-prose">
