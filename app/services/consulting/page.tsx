@@ -14,7 +14,7 @@ export default function ConsultingPage() {
       <section className="container py-16 md:py-24">
         <p className="text-sm font-semibold tracking-widest text-neutral-500">CONSULTING</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Transform Your Property Into a Big Buck Paradise
+          Transform Your Property Into a Big Buck Paradise.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
           We use deep knowledge of <span className="font-semibold">whitetail biology and behavior</span> to
