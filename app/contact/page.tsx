@@ -32,7 +32,7 @@ export default function Contact() {
             <Field label="Acreage" name="acreage" value={state.acreage} onChange={onChange} />
             <Field label="Timeline" name="timeline" value={state.timeline} onChange={onChange} />
           </div>
-          <Field label="Primary Goal ( trophy deer / legacy / buy land / improve land)" name="goal" value={state.goal} onChange={onChange} />
+          <Field label="Primary Goal ( trophy deer / legacy / buy land / improve land )" name="goal" value={state.goal} onChange={onChange} />
           <div>
             <label className="block text-sm font-medium">Message</label>
             <textarea name="message" value={state.message} onChange={onChange} className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-neutral-900 min-h-[100px]" placeholder="Tell us about your property and goals..." />
