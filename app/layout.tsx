@@ -28,10 +28,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   />
 </div>
               <div>
-                <div className="font-bold leading-tight">Whitetail Land Solutions</div>
-                <div className="text-xs text-neutral-500">
-                  Engineered for Giants. Built for Legacy.
-                </div>
+                <div className="leading-tight">
+  <div className="font-bold">Whitetail Land Solutions</div>
+  <div className="text-[11px] text-neutral-500 md:text-xs">
+    Engineered for Giants. Built for Legacy.
+  </div>
+</div>
+
               </div>
             </Link>
 
