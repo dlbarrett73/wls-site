@@ -59,16 +59,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer */}
         <footer className="border-t border-wood-200 bg-wood-50">
-          <div className="container py-10 text-sm text-neutral-500 grid md:grid-cols-2 gap-6">
-            <div>
-              <div className="font-semibold text-neutral-900">Whitetail Land Solutions</div>
-              <div>Engineered for Giants. Built for Legacy.</div>
-            </div>
-            <div className="md:text-right">
-              © {new Date().getFullYear()} Whitetail Land Solutions LLC
-            </div>
-          </div>
-        </footer>
+  <div className="container py-10">
+    <div className="flex items-center gap-4">
+      <div className="relative h-8 w-32">
+        <Image
+          src="/logo-400.png"
+          alt="Whitetail Land Solutions"
+          fill
+          sizes="128px"
+          className="object-contain"
+        />
+      </div>
+      <div className="text-sm text-neutral-600">
+        © {new Date().getFullYear()} Whitetail Land Solutions · PO Box 167, NuMine, PA 16244 · info@whitetaillandsolutions.com
+      </div>
+    </div>
+  </div>
+</footer>
       </body>
     </html>
   );
