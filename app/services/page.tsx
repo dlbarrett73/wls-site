@@ -37,7 +37,7 @@ export default function Services() {
               "Prioritized roadmap by effort & budget",
             ]}
             body="We walk your ground (or start remote), analyze access, pressure, food/bedding, and map a practical plan that hunts in the real world."
-            cta={{ href: "/contact", label: "Book a Discovery Call" }}
+            cta={{ href: "/services/consulting", label: "Learn more" }}
           />
 
           <OfferCard
