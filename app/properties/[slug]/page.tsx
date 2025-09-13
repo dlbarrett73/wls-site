@@ -18,7 +18,7 @@ export function generateMetadata({ params }: PageProps) {
   return {
     title: `${p.title} — ${p.acres} acres in ${p.county} Co, ${p.state} — Whitetail Land Solutions`,
     description:
-      p.description ?? "Turnkey, whitetail-optimized property engineered to hunt.",
+      p.description ?? "Turnkey, Whitetail-Optimized Property Engineered to Hunt.",
   };
 }
 
