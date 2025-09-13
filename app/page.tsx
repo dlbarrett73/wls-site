@@ -91,7 +91,7 @@ export default function Page() {
           Turnkey hunting properties engineered and ready to hunt from day one.
         </p>
         <Link href="/properties" className="mt-5 inline-block text-sm font-semibold">
-          Learn more →
+          See available land →
         </Link>
       </div>
     </div>
