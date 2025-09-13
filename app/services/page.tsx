@@ -49,7 +49,7 @@ export default function Services() {
               "Trusted partners, forestry oversight",
             ]}
             body="We execute the plan with the right sequencing so your property gets better every pass — not just prettier."
-            cta={{ href: "/contact", label: "Request an Estimate" }}
+            cta={{ href: "/services/implementation", label: "Learn more" }}
           />
 
           <OfferCard
