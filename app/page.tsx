@@ -68,7 +68,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-neutral-700">
           Custom plans to maximize deer movement, bedding, and hunting opportunities on your land.
         </p>
-        <Link href="/services#consulting" className="mt-5 inline-block text-sm font-semibold">
+        <Link href="/services/consulting" className="mt-5 inline-block text-sm font-semibold">
           Learn more →
         </Link>
       </div>
