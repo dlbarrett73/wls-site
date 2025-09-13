@@ -17,7 +17,7 @@ export default function PropertiesPage() {
       <section className="container py-16 md:py-24">
         <p className="text-sm font-semibold tracking-widest text-neutral-500">LAND FOR SALE</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Turnkey properties engineered to hunt.
+          Turnkey Properties Engineered to Hunt.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
           We buy undervalued tracts, engineer them with access-first design, habitat diversity, and
