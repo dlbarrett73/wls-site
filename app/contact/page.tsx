@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <main className="container py-16 grid lg:grid-cols-2 gap-8">
       <div>
-        <h1 className="text-3xl font-bold">Free 15‑minute property strategy call</h1>
+        <h1 className="text-3xl font-bold">Free 15‑Minute Property Strategy Call</h1>
         <p className="mt-3 text-neutral-600">Tell us about your acreage, goals, and timeline. We’ll map the fastest path to a hunt‑ready property.</p>
         <ul className="mt-6 text-sm text-neutral-700 space-y-2">
           <li>• Quick discovery and next steps</li>
