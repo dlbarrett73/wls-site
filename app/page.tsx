@@ -79,7 +79,7 @@ export default function Page() {
         <p className="mt-3 text-sm text-neutral-700">
           From food plots to timber work, we build the improvements that hold mature bucks year-round.
         </p>
-        <Link href="/services#implementation" className="mt-5 inline-block text-sm font-semibold">
+        <Link href="/services/implementation" className="mt-5 inline-block text-sm font-semibold">
           Learn more →
         </Link>
       </div>
