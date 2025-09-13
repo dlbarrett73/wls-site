@@ -13,7 +13,7 @@ export default function Services() {
       <section className="container py-16 md:py-24">
         <p className="text-sm font-semibold tracking-widest text-neutral-500">SERVICES</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Simple offers that solve real hunter problems.
+          Simple Offers That Solve Real Hunter Problems.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
           We design properties that hunt easier and produce more daylight opportunities on mature
