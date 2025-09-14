@@ -64,17 +64,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
 
         {/* Footer */}
-        <footer className="border-t border-wood-200 bg-wood-50">
+       <footer className="border-t border-wood-200 bg-wood-50">
   <div className="container py-10">
     <div className="flex items-center gap-4">
       <div className="relative h-8 w-32">
-        <Image
-          src="/logo-400.png"
-          alt="Whitetail Land Solutions"
-          fill
-          sizes="128px"
-          className="object-contain"
-        />
+        <Image src="/logo-400.png" alt="Whitetail Land Solutions" fill sizes="128px" className="object-contain" />
       </div>
       <div className="text-sm text-neutral-600">
         © {new Date().getFullYear()} Whitetail Land Solutions · PO Box 167, NuMine, PA 16244 · info@whitetaillandsolutions.com
@@ -82,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </div>
   </div>
 </footer>
+
       </body>
     </html>
   );
