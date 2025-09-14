@@ -5,7 +5,13 @@ import Link from "next/link";
 export const metadata = {
   title: "Whitetail Land Solutions",
   description: "Engineered for Giants. Built for Legacy.",
-  metadataBase: new URL("https://whitetaillandsolutions.com"),
+  icons: {
+    icon: "/icon.png",              // this file must exist in /public
+    apple: "/apple-touch-icon.png", // also in /public
+  },
+  openGraph: {
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
