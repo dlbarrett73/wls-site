@@ -30,11 +30,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         {/* Header */}
         <header className="border-b border-wood-200 sticky top-0 bg-white/80 backdrop-blur z-50">
-          <div className="container py-3 flex items-center justify-between">
+          <div className="container py-5 flex items-center justify-between">
             {/* Brand */}
            <Link href="/" className="flex items-center gap-3 min-w-0">
   {/* Bigger, non-squishy logo */}
-  <div className="relative shrink-0 h-14 w-56 md:h-16 md:w-64">
+  <div className="relative shrink-0 h-18 w-56 md:h-20 md:w-64">
     <Image
       src="/logo-400.png"
       alt="Whitetail Land Solutions"
