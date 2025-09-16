@@ -87,7 +87,10 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
         </div>
 
         <aside className="rounded-2xl border border-neutral-200 p-5 shadow-sm">
-          <CtaButton href={ctaHref} label={ctaLabel} className="w-full flex items-center justify-center" />
+          <CtaButton
+  href={ctaHref}
+  label={ctaLabel}
+  className="w-full flex items-center justify-center bg-brand-700 hover:bg-brand-600"/>
           <p className="mt-2 text-sm text-neutral-600">
             Prefer email? <a className="underline" href="/contact">Contact us</a>.
           </p>
