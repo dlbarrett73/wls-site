@@ -1,5 +1,5 @@
 import React from "react";
-import { CtaButton } from "@/app/components/CtaButton"; // adjust if your components folder is outside /app
+import { CtaButton } from "@/components/CtaButton";
 
 export default function ConsultingPage() {
   return (
