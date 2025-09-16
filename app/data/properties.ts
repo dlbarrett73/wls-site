@@ -29,3 +29,4 @@ export const propertiesBySlug: Record<string, Property> = {
 
   // Add more properties in this same shape…
 };
+
