@@ -58,7 +58,7 @@ export default function ConsultingPage() {
           and serious hunting success. The best time to start is today.
         </p>
         <div className="mt-6">
-          <CtaButton className="bg-white text-[#0f1f16] hover:bg-zinc-100 hover:shadow-xl" />
+          <CtaButton className="bg-[#1F3D2B] text-white hover:bg-[#285c3a] hover:shadow-xl" />
         </div>
       </section>
     </main>
