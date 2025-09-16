@@ -1,3 +1,4 @@
+// components/CtaButton.tsx
 "use client";
 
 import Link from "next/link";
@@ -6,7 +7,7 @@ import React from "react";
 type Props = {
   href?: string;
   label?: string;
-  className?: string;
+  className?: string; // optional extra classes if you ever need them
 };
 
 export function CtaButton({
