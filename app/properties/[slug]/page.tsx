@@ -4,19 +4,15 @@ import { notFound } from "next/navigation";
 import { propertiesBySlug, type Property } from "@/app/data/properties";
 import CtaButton from "@/components/CtaButton";
 
-// Pre-generate static params for SSG
 export function generateStaticParams() {
   return Object.keys(propertiesBySlug).map((slug) => ({ slug }));
 }
 
-// Per-page SEO (kept simple so it can't break on missing fields)
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const property = propertiesBySlug[params.slug];
   if (!property) return {};
-
   const title = `${property.title} | Whitetail Land Solutions`;
   const description = `${property.acres ? `${property.acres}± acres • ` : ""}${property.location} • Turnkey whitetail property.`;
-
   return {
     title,
     description,
@@ -67,14 +63,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
       {/* HERO */}
       <section className="mb-10 overflow-hidden rounded-3xl shadow">
         <div className="relative h-[42vh] min-h-[320px] w-full md:h-[56vh]">
-          <Image
-            src={heroImage}
-            alt={title}
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
+          <Image src={heroImage} alt={title} fill priority className="object-cover" sizes="100vw" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-black/0" />
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
             <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">{title}</h1>
@@ -98,11 +87,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
         </div>
 
         <aside className="rounded-2xl border border-neutral-200 p-5 shadow-sm">
-          <CtaButton
-            href={ctaHref}
-            label={ctaLabel}
-            className="w-full flex items-center justify-center"
-          />
+          <CtaButton href={ctaHref} label={ctaLabel} className="w-full flex items-center justify-center" />
           <p className="mt-2 text-sm text-neutral-600">
             Prefer email? <a className="underline" href="/contact">Contact us</a>.
           </p>
@@ -116,13 +101,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {photos.map((src, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-neutral-200">
-                <Image
-                  src={src}
-                  alt={`Gallery image ${i + 1} for ${title}`}
-                  width={1200}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
+                <Image src={src} alt={`Gallery image ${i + 1} for ${title}`} width={1200} height={800} className="h-full w-full object-cover" />
               </div>
             ))}
           </div>
@@ -133,12 +112,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
       <section className="mb-12">
         <h2 className="mb-3 text-xl font-bold">Location</h2>
         <div className="overflow-hidden rounded-2xl border border-neutral-200 shadow-sm">
-          <iframe
-            src={mapSrc}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="h-[420px] w-full"
-          />
+          <iframe src={mapSrc} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[420px] w-full" />
         </div>
       </section>
 
@@ -146,15 +120,9 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
       <section className="mb-6 flex items-center justify-between rounded-2xl border border-neutral-200 p-5">
         <div>
           <h3 className="text-lg font-semibold">Ready to see it in person?</h3>
-          <p className="text-sm text-neutral-600">
-            Private tours by appointment. Turnkey properties are limited — don’t miss out.
-          </p>
+          <p className="text-sm text-neutral-600">Private tours by appointment. Turnkey properties are limited — don’t miss out.</p>
         </div>
-        <CtaButton
-          href={ctaHref}
-          label={ctaLabel}
-          className="flex items-center justify-center"
-        />
+        <CtaButton href={ctaHref} label={ctaLabel} className="flex items-center justify-center" />
       </section>
     </main>
   );
