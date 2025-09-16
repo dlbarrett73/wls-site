@@ -1,17 +1,16 @@
-// components/CtaButton.tsx
 "use client";
 
 import Link from "next/link";
 import React from "react";
 
 type Props = {
-  href?: string;              // <— now optional
+  href?: string;
   label?: string;
   className?: string;
 };
 
 export function CtaButton({
-  href = "/book",             // <— sensible default so <CtaButton /> works
+  href = "/book",
   label = "Book a Free Strategy Call",
   className = "",
 }: Props) {
@@ -19,7 +18,7 @@ export function CtaButton({
     <Link
       href={href}
       className={`inline-block rounded-lg px-6 py-3 font-semibold text-white shadow-md transition
-      bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
+      bg-brand-700 hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-700 focus:ring-offset-2
       ${className}`}
     >
       {label}
@@ -27,5 +26,4 @@ export function CtaButton({
   );
 }
 
-// Optional: also export default for flexibility if some files import default
 export default CtaButton;
