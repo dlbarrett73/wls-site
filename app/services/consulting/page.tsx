@@ -50,17 +50,17 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="mt-16 rounded-2xl bg-[#0f1f16] p-10 text-white">
-        <h2 className="text-2xl font-bold">Build the Foundation of Your Legacy</h2>
-        <p className="mt-4 max-w-3xl text-zinc-200">
-          This is more than a plan—it’s a blueprint for generational memories
-          and serious hunting success. The best time to start is today.
-        </p>
-        <div className="mt-6">
-          <CtaButton className="bg-[#1F3D2B] text-white hover:bg-[#285c3a] hover:shadow-xl" />
-        </div>
-      </section>
+      {/* Closing (match Implementation style) */}
+        <section className="mt-16 rounded-2xl bg-zinc-50 p-10">
+          <h2 className="text-2xl font-bold">Build the Foundation of Your Legacy</h2>
+          <p className="mt-4 max-w-3xl text-zinc-700">
+            This is more than a plan—it’s a blueprint for generational memories
+            and serious hunting success. The best time to start is today.
+          </p>
+          <div className="mt-6">
+            <CtaButton className="bg-[#1F3D2B] text-white hover:bg-[#285c3a] hover:shadow-xl" />
+          </div>
+      section>
     </main>
   );
 }
