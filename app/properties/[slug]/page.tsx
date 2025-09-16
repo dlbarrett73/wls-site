@@ -11,6 +11,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const property = propertiesBySlug[params.slug];
   if (!property) return {};
+
   const title = `${property.title} | Whitetail Land Solutions`;
   const description = `${property.acres ? `${property.acres}± acres • ` : ""}${property.location} • Turnkey whitetail property.`;
   return {
@@ -23,9 +24,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       url: `https://yourdomain.com/properties/${property.slug}`,
       images: property.heroImage ? [{ url: property.heroImage }] : undefined,
     },
-    alternates: {
-      canonical: `https://yourdomain.com/properties/${property.slug}`,
-    },
+    alternates: { canonical: `https://yourdomain.com/properties/${property.slug}` },
   };
 }
 
@@ -87,10 +86,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
         </div>
 
         <aside className="rounded-2xl border border-neutral-200 p-5 shadow-sm">
-          <CtaButton
-  href={ctaHref}
-  label={ctaLabel}
-  className="w-full flex items-center justify-center bg-brand-700 hover:bg-brand-600"/>
+          <CtaButton href={ctaHref} label={ctaLabel} className="w-full flex items-center justify-center" />
           <p className="mt-2 text-sm text-neutral-600">
             Prefer email? <a className="underline" href="/contact">Contact us</a>.
           </p>
@@ -104,7 +100,13 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {photos.map((src, i) => (
               <div key={i} className="overflow-hidden rounded-2xl border border-neutral-200">
-                <Image src={src} alt={`Gallery image ${i + 1} for ${title}`} width={1200} height={800} className="h-full w-full object-cover" />
+                <Image
+                  src={src}
+                  alt={`Gallery image ${i + 1} for ${title}`}
+                  width={1200}
+                  height={800}
+                  className="h-full w-full object-cover"
+                />
               </div>
             ))}
           </div>
@@ -123,7 +125,9 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
       <section className="mb-6 flex items-center justify-between rounded-2xl border border-neutral-200 p-5">
         <div>
           <h3 className="text-lg font-semibold">Ready to see it in person?</h3>
-          <p className="text-sm text-neutral-600">Private tours by appointment. Turnkey properties are limited — don’t miss out.</p>
+          <p className="text-sm text-neutral-600">
+            Private tours by appointment. Turnkey properties are limited — don’t miss out.
+          </p>
         </div>
         <CtaButton href={ctaHref} label={ctaLabel} className="flex items-center justify-center" />
       </section>
