@@ -1,5 +1,5 @@
 import React from "react";
-import { CtaButton } from "@/app/components/CtaButton";
+import { CtaButton } from "../../components/CtaButton";
 
 export default function ConsultingPage() {
   return (
