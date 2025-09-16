@@ -54,6 +54,7 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
     heroImage,
     highlights,
     map,
+    photos = [],
     ctaHref = "/book",
     ctaLabel = "Book a Free Strategy Call",
   } = property;
@@ -107,6 +108,26 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
           </p>
         </aside>
       </section>
+
+      {/* GALLERY */}
+      {photos.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-3 text-xl font-bold">Image Gallery</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {photos.map((src, i) => (
+              <div key={i} className="overflow-hidden rounded-2xl border border-neutral-200">
+                <Image
+                  src={src}
+                  alt={`Gallery image ${i + 1} for ${title}`}
+                  width={1200}
+                  height={800}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* MAP */}
       <section className="mb-12">
