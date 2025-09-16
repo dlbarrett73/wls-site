@@ -1,15 +1,15 @@
 import React from "react";
-import { notFound } from "next/navigation";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { CtaButton } from "@/components/CtaButton";
-import { propertiesBySlug } from "@/app/data/properties";
+import { propertiesBySlug, type Property } from "@/app/data/properties";
 
-type Props = {
+type PageProps = {
   params: { slug: string };
 };
 
-export default function PropertyDetailPage({ params }: Props) {
-  const property = propertiesBySlug[params.slug];
+export default function PropertyDetailPage({ params }: PageProps) {
+  const property: Property | undefined = propertiesBySlug[params.slug];
 
   if (!property) {
     notFound();
@@ -35,6 +35,9 @@ export default function PropertyDetailPage({ params }: Props) {
         </h1>
         <span className="text-2xl font-bold text-brand-600">{property.price}</span>
       </header>
+
+      {/* Location */}
+      <p className="mt-1 text-zinc-600">{property.location}</p>
 
       {/* Highlights */}
       <ul className="mt-6 grid list-disc gap-2 pl-6 text-zinc-700">
