@@ -14,12 +14,12 @@ export default function ConsultingPage() {
       <section className="container py-16 md:py-24">
         <p className="text-sm font-semibold tracking-widest text-neutral-500">CONSULTING</p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Transform Your Property Into a Big Buck Paradise.
+          Blueprint for Giants: Consulting that hunts
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
           We use deep knowledge of <span className="font-semibold">whitetail biology and behavior</span> to
-          influence deer to move <span className="font-semibold">when and where you want them to</span>.
-          You get a clear, customized plan that maximizes your land’s hunting potential and builds a lasting legacy.
+          influence deer to move <span className="font-semibold">when and where you want them to</span>. You get a
+          clear, customized plan engineered for mature bucks—and a roadmap to turn daylight opportunity into reality.
         </p>
         <div className="mt-8 flex gap-3">
           <Link href="/contact" className="btn btn-primary">Book a Free 15-Minute Strategy Call</Link>
@@ -33,17 +33,18 @@ export default function ConsultingPage() {
           <div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">The problem</h2>
             <ul className="mt-4 space-y-2 text-neutral-700 text-sm">
-              <li>• Poor access alerts deer before you ever reach the stand.</li>
+              <li>• Access alerts deer before you ever reach the stand.</li>
               <li>• Random food plots and cover don’t create daylight movement.</li>
-              <li>• Timber decisions miss habitat value and long-term ROI.</li>
+              <li>• Timber choices miss habitat value and long-term ROI.</li>
               <li>• Money gets spent without a plan that actually hunts.</li>
             </ul>
           </div>
           <div className="card p-6 bg-white">
             <h3 className="text-lg font-semibold">Our solution</h3>
             <p className="mt-3 text-sm text-neutral-700">
-              Boots-on-the-ground consulting that blends <span className="font-semibold">biology, behavior, forestry, and access-first design</span>.
-              We engineer travel routes, bedding, and food so mature bucks use your property in daylight—and you can hunt them undetected.
+              Boots-on-the-ground consulting that blends <span className="font-semibold">biology, behavior, forestry,
+              and access-first design</span>. We engineer travel routes, bedding, and food so mature bucks use your
+              property in daylight—and you can hunt them undetected.
             </p>
             <div className="mt-5">
               <Link href="/contact" className="btn btn-primary">Start with a free call</Link>
@@ -52,9 +53,9 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* Deliverables (Branded) */}
+      {/* Branded Deliverables */}
       <section className="container py-14">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What you get</h2>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">What’s in the Blueprint for Giants</h2>
         <p className="mt-2 text-neutral-600 max-w-prose">
           A professional, branded package—clear, actionable, and tailored to your acreage and goals.
         </p>
@@ -66,7 +67,7 @@ export default function ConsultingPage() {
           </div>
           <div className="card p-6 bg-white">
             <div className="font-semibold">Priority Action Plan</div>
-            <p className="mt-2 text-neutral-700">Step-by-step tasks ranked by impact and urgency—so you know what to do first.</p>
+            <p className="mt-2 text-neutral-700">Step-by-step tasks ranked by impact and urgency—know what to do first.</p>
           </div>
           <div className="card p-6 bg-white">
             <div className="font-semibold">Timber & ROI Recommendations</div>
@@ -78,13 +79,12 @@ export default function ConsultingPage() {
           </div>
         </div>
 
-        {/* Optional deliverables mockup image */}
+        {/* Optional mockup image — put a file at /public/consulting-mockup.jpg */}
         <div className="mt-8 rounded-2xl overflow-hidden border bg-neutral-50">
           <div className="relative w-full aspect-[16/9]">
-            {/* Drop a branded mockup image into /public/consulting-mockup.jpg if you have one */}
             <Image
               src="/consulting-mockup.jpg"
-              alt="Example of WLS consulting deliverables"
+              alt="Blueprint for Giants consulting deliverables"
               fill
               className="object-cover"
             />
@@ -147,7 +147,7 @@ export default function ConsultingPage() {
   );
 }
 
-/* Small helper */
+/* Helper component */
 function Step({ n, title, body }: { n: string; title: string; body: string }) {
   return (
     <li className="card p-5 bg-white">
