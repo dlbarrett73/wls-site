@@ -1,5 +1,5 @@
 // Simple in-memory data store for property pages.
-// Start simple so builds succeed. We'll add gallery/video next.
+// Start simple so builds succeed. We'll add gallery/trail-cam next.
 
 export type Property = {
   slug: string;
@@ -13,6 +13,9 @@ export type Property = {
   map: { lat: number; lng: number } | { q: string };
   ctaHref?: string; // defaults to "/book"
   ctaLabel?: string; // defaults to "Book a Free Strategy Call"
+
+  // NEW (optional)
+  photos?: string[]; // gallery images
 };
 
 export const propertiesBySlug: Record<string, Property> = {
@@ -22,7 +25,6 @@ export const propertiesBySlug: Record<string, Property> = {
     price: 500000,
     acres: 136.38,
     location: "Mahaffey, Pennsylvania",
-    // If this image doesn't exist yet, that's OK — it won't break the build.
     heroImage: "/images/properties/mahaffey-136/hero.jpg",
     highlights: [
       "136.38± acres with frontage and undetectable access from US-219",
@@ -31,9 +33,17 @@ export const propertiesBySlug: Record<string, Property> = {
       "Minutes to Mahaffey; easy access yet secluded",
       "Turnkey whitetail design — hunt big bucks this season",
     ],
-    // Safest map form (no exact coords required)
     map: { q: "Mahaffey, PA" },
     ctaHref: "/contact",
     ctaLabel: "Request a Private Tour",
+
+    // NEW (sample gallery paths — update to your real files)
+    photos: [
+      "/images/properties/mahaffey-136/gallery/plot-1.jpg",
+      "/images/properties/mahaffey-136/gallery/plot-2.jpg",
+      "/images/properties/mahaffey-136/gallery/trail-1.jpg",
+      "/images/properties/mahaffey-136/gallery/view-1.jpg",
+      "/images/properties/mahaffey-136/gallery/blind-1.jpg",
+    ],
   },
 };
