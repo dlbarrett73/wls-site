@@ -5,34 +5,55 @@ import { notFound } from "next/navigation";
 import { CtaButton } from "@/components/CtaButton";
 import { propertiesBySlug } from "@/app/data/properties";
 
-// ✅ Derive the type from the data object instead of importing it
+// Base type inferred from your data object
 type Property = (typeof propertiesBySlug)[string];
+
+// Extend with optional keys some items may use
+type WithOptionalMedia = Property & {
+  heroImage?: string;
+  hero?: string;
+  image?: string;
+  cover?: string;
+  gallery?: string[];
+  highlights?: string[];
+  price?: string;
+  location?: string;
+  acres?: number | string;
+  title?: string;
+};
 
 type PageProps = {
   params: { slug: string };
 };
 
-// (Optional but nice for static builds)
+// Pre-generate static params (safe for Next 14 app dir)
 export function generateStaticParams() {
   return Object.keys(propertiesBySlug).map((slug) => ({ slug }));
 }
 
 export default function PropertyPage({ params: { slug } }: PageProps) {
-  const property: Property | undefined = propertiesBySlug[slug];
+  const base = propertiesBySlug[slug];
 
-  if (!property) {
-    return notFound();
-  }
+  if (!base) return notFound();
+
+  // Cast once into a shape that tolerates optional media fields
+  const property = base as WithOptionalMedia;
 
   const {
-    title,
+    title = "Property",
     price,
     location,
     acres,
-    heroImage,
-    gallery = [],
     highlights = [],
   } = property;
+
+  // Resolve a hero image from any commonly used key, or from gallery[0]
+  const heroSrc =
+    property.heroImage ??
+    property.hero ??
+    property.image ??
+    property.cover ??
+    (property.gallery && property.gallery.length > 0 ? property.gallery[0] : undefined);
 
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
@@ -55,10 +76,10 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
       </header>
 
       {/* Hero Image */}
-      {heroImage && (
+      {heroSrc && (
         <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
           <Image
-            src={heroImage}
+            src={heroSrc}
             alt={title}
             fill
             className="object-cover"
@@ -68,7 +89,7 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
       )}
 
       {/* Highlights */}
-      {highlights.length > 0 && (
+      {Array.isArray(highlights) && highlights.length > 0 && (
         <section className="mt-12">
           <h2 className="text-2xl font-semibold">Highlights</h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -85,16 +106,21 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
       )}
 
       {/* Gallery */}
-      {gallery.length > 0 && (
+      {Array.isArray(property.gallery) && property.gallery.length > 0 && (
         <section className="mt-12">
           <h2 className="text-2xl font-semibold">Gallery</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.map((src, i) => (
+            {property.gallery.map((src, i) => (
               <div
                 key={i}
                 className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-zinc-100"
               >
-                <Image src={src} alt={`${title} photo ${i + 1}`} fill className="object-cover" />
+                <Image
+                  src={src}
+                  alt={`${title} photo ${i + 1}`}
+                  fill
+                  className="object-cover"
+                />
               </div>
             ))}
           </div>
