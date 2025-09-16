@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import CtaButton from "./CtaButton"; // adjust path if needed
+import CtaButton from "./CtaButton";
 
 export default function Footer() {
   return (
@@ -17,29 +17,18 @@ export default function Footer() {
             Engineered for Giants. Built for Legacy.
           </p>
 
-          {/* Mini nav (optional) */}
+        {/* Mini nav (optional) */}
           <nav className="mt-3 flex flex-wrap gap-4 text-sm text-zinc-700">
-            <Link href="/properties" className="hover:text-zinc-900">
-              Properties
-            </Link>
-            <Link href="/services/consulting" className="hover:text-zinc-900">
-              Consulting
-            </Link>
-            <Link href="/about" className="hover:text-zinc-900">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-zinc-900">
-              Contact
-            </Link>
+            <Link href="/properties" className="hover:text-zinc-900">Properties</Link>
+            <Link href="/services/consulting" className="hover:text-zinc-900">Consulting</Link>
+            <Link href="/about" className="hover:text-zinc-900">About</Link>
+            <Link href="/contact" className="hover:text-zinc-900">Contact</Link>
           </nav>
         </div>
 
         {/* Persistent CTA */}
         <div className="shrink-0">
-          <CtaButton
-            href="/contact" // ✅ consistent with your other CTAs
-            label="Book a Free Strategy Call"
-          />
+          <CtaButton href="/contact" label="Book a Free Strategy Call" />
         </div>
       </div>
 
