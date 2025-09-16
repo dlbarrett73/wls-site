@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
+// If this path errors, change to:  import Header from "../components/Header";
+import Header from "./components/Header";
+
 export const metadata: Metadata = {
   title: "Whitetail Land Solutions",
   description:
@@ -16,6 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="min-h-screen bg-white text-zinc-900 antialiased">
         <div className="flex min-h-screen flex-col">
+          {/* HEADER back in place */}
+          <Header />
+
           {/* MAIN CONTENT */}
           <main className="flex-1">{children}</main>
 
@@ -24,10 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between">
               {/* Brand + tagline + logo */}
               <div className="flex items-start gap-4">
-                {/* Logo */}
                 <div className="mt-1 hidden md:block">
                   <Image
-                    src="/logo-400.png" // ✅ correct path to your logo
+                    src="/logo-400.png" // your logo in /public
                     alt="Whitetail Land Solutions"
                     width={48}
                     height={48}
@@ -35,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   />
                 </div>
 
-                {/* Name + tagline + nav */}
                 <div className="space-y-2">
                   <div className="text-xl font-extrabold tracking-tight">
                     Whitetail Land Solutions
@@ -65,12 +69,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
 
-            {/* Bottom strip */}
             <div className="border-t border-zinc-100">
               <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 text-xs text-zinc-500">
-                <span>
-                  © {new Date().getFullYear()} Whitetail Land Solutions · PO Box 167, NuMine, PA 16244
-                </span>
+                <span>© {new Date().getFullYear()} Whitetail Land Solutions · PO Box 167, NuMine, PA 16244</span>
                 <span>Engineered for Giants. Built for Legacy.</span>
               </div>
             </div>
