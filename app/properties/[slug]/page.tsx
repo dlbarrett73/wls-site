@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { propertiesBySlug, type Property } from "@/app/data/properties";
+import CtaButton from "@/components/CtaButton";
 
 // Pre-generate static params for SSG
 export function generateStaticParams() {
@@ -97,12 +98,11 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
         </div>
 
         <aside className="rounded-2xl border border-neutral-200 p-5 shadow-sm">
-          <a
+          <CtaButton
             href={ctaHref}
-            className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-4 py-3 font-semibold text-white shadow hover:bg-emerald-700"
-          >
-            {ctaLabel}
-          </a>
+            label={ctaLabel}
+            className="w-full flex items-center justify-center"
+          />
           <p className="mt-2 text-sm text-neutral-600">
             Prefer email? <a className="underline" href="/contact">Contact us</a>.
           </p>
@@ -146,14 +146,15 @@ export default function PropertyPage({ params }: { params: { slug: string } }) {
       <section className="mb-6 flex items-center justify-between rounded-2xl border border-neutral-200 p-5">
         <div>
           <h3 className="text-lg font-semibold">Ready to see it in person?</h3>
-          <p className="text-sm text-neutral-600">Private tours by appointment. Turnkey properties are limited — don’t miss out.</p>
+          <p className="text-sm text-neutral-600">
+            Private tours by appointment. Turnkey properties are limited — don’t miss out.
+          </p>
         </div>
-        <a
+        <CtaButton
           href={ctaHref}
-          className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-4 py-3 font-semibold text-white shadow hover:bg-emerald-700"
-        >
-          {ctaLabel}
-        </a>
+          label={ctaLabel}
+          className="flex items-center justify-center"
+        />
       </section>
     </main>
   );
