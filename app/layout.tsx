@@ -20,13 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen flex flex-col bg-white text-zinc-900">
-        {/* Global Header */}
         <Header />
-
-        {/* Page content */}
         <main className="flex-1">{children}</main>
-
-        {/* Global Footer */}
         <Footer />
       </body>
     </html>
