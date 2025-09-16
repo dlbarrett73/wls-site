@@ -69,9 +69,12 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
         </p>
 
         <div className="mt-6">
-          <CtaButton href="/contact" size="lg">
-            Talk to Us About This Property
-          </CtaButton>
+          {/* ✅ Use label prop instead of children */}
+          <CtaButton
+            href="/contact"
+            size="lg"
+            label="Talk to Us About This Property"
+          />
         </div>
       </header>
 
@@ -129,9 +132,12 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 
       {/* Bottom CTA */}
       <div className="mt-16">
-        <CtaButton href="/contact" size="lg">
-          Get On the Waitlist / Ask About This Property
-        </CtaButton>
+        {/* ✅ Use label prop instead of children */}
+        <CtaButton
+          href="/contact"
+          size="lg"
+          label="Get On the Waitlist / Ask About This Property"
+        />
       </div>
     </main>
   );
