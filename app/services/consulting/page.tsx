@@ -45,9 +45,6 @@ export default function ConsultingPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-10">
-          <CtaButton />
-        </div>
       </section>
 
       {/* Closing (match Implementation style) */}
