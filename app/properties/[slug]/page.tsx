@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-// ✅ Use RELATIVE paths so it works even if tsconfig aliases aren't set
+// ✅ Your folders are app/components and app/data, so use RELATIVE paths
 import { propertiesBySlug, type Property } from "../../data/properties";
-import CtaButton from "../../../components/CtaButton";
+import CtaButton from "../../components/CtaButton";
 
 export function generateStaticParams() {
   return Object.keys(propertiesBySlug).map((slug) => ({ slug }));
@@ -26,9 +26,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
       url: `https://yourdomain.com/properties/${property.slug}`,
       images: property.heroImage ? [{ url: property.heroImage }] : undefined,
     },
-    alternates: {
-      canonical: `https://yourdomain.com/properties/${property.slug}`,
-    },
+    alternates: { canonical: `https://yourdomain.com/properties/${property.slug}` },
   };
 }
 
