@@ -4,6 +4,31 @@ import Link from "next/link";
 import Image from "next/image";
 import { propertiesBySlug } from "../data/properties";
 
+/** Forest-green CTA used site-wide */
+function CtaGreen({
+  href,
+  children,
+  className = "",
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className={
+        "inline-flex items-center rounded-xl bg-emerald-800 px-5 py-3 text-sm font-semibold text-white shadow " +
+        "hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 " +
+        "disabled:pointer-events-none disabled:opacity-60 " +
+        className
+      }
+    >
+      {children}
+    </Link>
+  );
+}
+
 export default function PropertiesIndexPage() {
   const items = Object.values(propertiesBySlug);
 
@@ -22,7 +47,9 @@ export default function PropertiesIndexPage() {
       {/* Listings or Empty State */}
       {items.length > 0 ? (
         <section aria-labelledby="properties-grid" className="mt-10">
-          <h2 id="properties-grid" className="sr-only">Property Listings</h2>
+          <h2 id="properties-grid" className="sr-only">
+            Property Listings
+          </h2>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((p) => (
@@ -85,12 +112,7 @@ function WaitlistCTA() {
           </ul>
 
           <div className="mt-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
-            >
-              Join the Waitlist
-            </Link>
+            <CtaGreen href="/contact">Join the Waitlist</CtaGreen>
           </div>
         </div>
 
@@ -101,15 +123,19 @@ function WaitlistCTA() {
           <dl className="mt-3 grid grid-cols-1 gap-3 text-sm text-zinc-800 sm:grid-cols-2">
             <div className="rounded-xl bg-zinc-50 p-3">
               <dt className="font-medium">Target counties</dt>
-              <dd className="text-zinc-600">e.g., Armstrong, Clearfield, Jefferson</dd>
+              <dd className="text-zinc-600">
+                e.g., Armstrong, Clearfield, Jefferson
+              </dd>
             </div>
             <div className="rounded-xl bg-zinc-50 p-3">
-              <dt className="font-medium">Acreage & budget</dt>
+              <dt className="font-medium">Acreage &amp; budget</dt>
               <dd className="text-zinc-600">Your range and readiness</dd>
             </div>
             <div className="rounded-xl bg-zinc-50 p-3">
               <dt className="font-medium">Property goals</dt>
-              <dd className="text-zinc-600">Turnkey, timber, cabin site, flip, etc.</dd>
+              <dd className="text-zinc-600">
+                Turnkey, timber, cabin site, flip, etc.
+              </dd>
             </div>
             <div className="rounded-xl bg-zinc-50 p-3">
               <dt className="font-medium">Timeline</dt>
@@ -137,12 +163,7 @@ function EmptyStateWaitlist() {
       </p>
 
       <div className="mt-6 flex justify-center">
-        <Link
-          href="/contact"
-          className="inline-flex items-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
-        >
-          Join the Waitlist
-        </Link>
+        <CtaGreen href="/contact">Join the Waitlist</CtaGreen>
       </div>
     </section>
   );
