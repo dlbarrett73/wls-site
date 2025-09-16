@@ -20,7 +20,7 @@ export const propertiesBySlug: Record<string, Property> = {
   "mahaffey-136": {
     slug: "mahaffey-136",
     title: "Mahaffey 136 • Clearfield County, PA",
-    price: 949000,
+    price: 500000,
     acres: 136.38,
     location: "Mahaffey, Pennsylvania",
     heroImage: "/images/properties/mahaffey-136/hero.jpg",
