@@ -13,8 +13,8 @@ export default function HomePage() {
         {/* Left: Headline & Copy */}
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties engineered to attract and kill{" "}
-            <span className="underline underline-offset-4">mature whitetails</span>.
+            Properties Engineered to Attract and Kill{" "}
+            <span className="underline underline-offset-4">Mature Whitetail Bucks</span>.
           </h1>
 
           <p className="mt-6 text-lg text-zinc-700">
@@ -71,7 +71,7 @@ export default function HomePage() {
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
           {/* Replace the src below with your actual hero image in /public */}
           <Image
-            src="/hero.jpg"
+            src="/images/hero.jpg"
             alt="Successful late-season hunt with a mature Pennsylvania whitetail"
             fill
             sizes="(min-width: 768px) 560px, 100vw"
