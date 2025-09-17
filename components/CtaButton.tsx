@@ -1,4 +1,6 @@
 // components/CtaButton.tsx
+import React from "react";
+
 type Props = {
   href: string;
   children: React.ReactNode;
@@ -6,12 +8,12 @@ type Props = {
   className?: string;
 };
 
-export default function CtaButton({
+export const CtaButton = ({
   href,
   children,
   variant = "primary",
   className = "",
-}: Props) {
+}: Props) => {
   const base: React.CSSProperties = {
     display: "inline-flex",
     alignItems: "center",
@@ -40,4 +42,6 @@ export default function CtaButton({
       {children}
     </a>
   );
-}
+};
+
+export default CtaButton;
