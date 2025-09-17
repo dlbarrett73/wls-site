@@ -5,38 +5,39 @@ import { CtaButton } from "../components/CtaButton";
 export default function HomePage() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative bg-zinc-900 text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero.jpg" // ✅ Correct path: put your hero.jpg inside /public/images
-            alt="Whitetail Land Solutions Hero"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-          {/* Dark overlay for readability */}
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+      {/* Hero Section - Two Column */}
+      <section className="relative bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Content */}
+          <div className="text-left">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900">
+              Engineered for Giants. <br className="hidden sm:block" /> Built for
+              Legacy.
+            </h1>
+            <p className="mt-6 text-lg sm:text-xl text-zinc-700 max-w-xl">
+              Turnkey whitetail properties and expert habitat consulting to
+              secure your hunting legacy.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <CtaButton href="/properties">View Properties</CtaButton>
+              <CtaButton
+                href="/contact"
+                className="bg-zinc-900 text-white hover:bg-zinc-800"
+              >
+                Get in Touch
+              </CtaButton>
+            </div>
+          </div>
 
-        {/* Hero Content */}
-        <div className="relative mx-auto max-w-6xl px-6 py-40 text-center">
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight drop-shadow-lg">
-            Engineered for Giants. <br className="hidden sm:block" /> Built for Legacy.
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl max-w-2xl mx-auto text-zinc-200">
-            Turnkey whitetail properties and expert habitat consulting to secure
-            your hunting legacy.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <CtaButton href="/properties">View Properties</CtaButton>
-            <CtaButton
-              href="/contact"
-              className="bg-white text-zinc-900 hover:bg-zinc-100"
-            >
-              Get in Touch
-            </CtaButton>
+          {/* Right: Hero Image */}
+          <div className="relative w-full h-80 sm:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/hero.jpg" // ✅ make sure this is in /public/images/
+              alt="Whitetail Land Solutions Hero"
+              fill
+              priority
+              className="object-cover object-center"
+            />
           </div>
         </div>
       </section>
