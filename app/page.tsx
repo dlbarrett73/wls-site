@@ -1,4 +1,3 @@
-// app/page.tsx
 export default function Home() {
   return (
     <main style={{ maxWidth: "1120px", margin: "0 auto", padding: "40px 24px" }}>
@@ -30,7 +29,6 @@ export default function Home() {
         </div>
 
         <div>
-          {/* Uses your exact path; safe HTML <img> so no Next image config required */}
           <div style={{
             position: "relative", width: "100%", paddingTop: "75%", borderRadius: 16,
             overflow: "hidden", background: "#f4f4f5", border: "1px solid rgba(0,0,0,0.1)"
