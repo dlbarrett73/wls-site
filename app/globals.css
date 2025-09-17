@@ -2,27 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base Styles */
-body {
-  @apply bg-white text-zinc-900 antialiased;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold tracking-tight;
-}
-
-/* Links */
-a {
-  @apply text-brand-600 hover:text-brand-700;
-}
-
-/* Buttons */
-.btn {
-  @apply inline-block rounded-lg bg-brand-500 px-5 py-2.5 font-semibold text-white shadow-soft hover:bg-brand-600;
-}
-
-/* Cards */
-.card {
-  @apply rounded-2xl border border-zinc-200 bg-white shadow-sm;
-}
+/* optional small polish */
+html, body { height: 100%; }
