@@ -15,8 +15,8 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-4 max-w-prose text-lg text-zinc-700">
-            We design, build, and sell whitetail-optimized properties in Pennsylvania—and consult with
-            landowners to transform their ground into a big buck paradise.
+            We design, build, and sell whitetail-optimized properties in Pennsylvania—and consult
+            with landowners to transform their ground into a big buck paradise.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -35,12 +35,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Image (simple <img> to avoid build issues) */}
+        {/* Image */}
         <div className="relative">
-          {/* Put your image at: public/hero/mahaffey.jpg */}
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-black/10">
             <img
-              src="/hero/mahaffey.jpg"
+              src="/images/properties/mahaffey-136/hero.jpg"
               alt="Happy hunter with a mature PA whitetail."
               className="h-full w-full object-cover"
               loading="eager"
