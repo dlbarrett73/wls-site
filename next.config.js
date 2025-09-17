@@ -1,16 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    // Prevent ESLint issues from failing Vercel builds
-    ignoreDuringBuilds: true,
-  },
   typescript: {
-    // Prevent TS errors from failing Vercel builds
+    // Allow the build even if there are TS errors elsewhere.
     ignoreBuildErrors: true,
   },
+  eslint: {
+    // Don’t fail the build because of lint errors.
+    ignoreDuringBuilds: true,
+  },
   images: {
-    // If you load remote images, whitelist domains here, e.g.:
-    // domains: ["images.unsplash.com", "res.cloudinary.com"],
+    // Avoid next/image config pitfalls while we stabilize.
+    unoptimized: true,
   },
 };
 
