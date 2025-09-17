@@ -1,49 +1,55 @@
+// app/services/implementation/page.tsx
 import React from "react";
-import { CtaButton } from "@/components/CtaButton";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Habitat Implementation | Whitetail Land Solutions",
+  description:
+    "Turn your plan into a turnkey hunting property with proven improvements and clean access.",
+};
 
 export default function ImplementationPage() {
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">
-      {/* Hero */}
-      <section className="mb-16">
+      <section className="mb-12">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-          Habitat Implementation Services
+          Habitat Implementation Done Right
         </h1>
         <p className="mt-4 text-lg text-zinc-700">
-          We don’t just design your big buck paradise — we can build it. From
-          food plots to stand placement, our team handles the work so you can
-          start hunting mature whitetails on Day One.
-        </p>
-        <div className="mt-6">
-          <CtaButton label="Get Implementation Support" />
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="space-y-6 text-zinc-700">
-        <p>
-          Implementation means taking your custom plan and bringing it to life
-          with professional precision. We manage contractors, equipment, and
-          timelines while ensuring every improvement is executed according to
-          proven whitetail strategies.
-        </p>
-        <p>
-          From timber stand improvement and access trails to blinds, plots, and
-          screening cover, we help you make your property huntable and valuable.
+          We manage the work: access trails, screening cover, food plots,
+          blinds, and timber improvements—installed to match the plan and your
+          budget.
         </p>
       </section>
 
-      {/* Closing CTA */}
-      <section className="mt-16 text-center">
-        <h2 className="text-2xl font-bold">
-          Ready to see your property transformed?
-        </h2>
-        <p className="mt-2 text-zinc-600">
-          Let us do the heavy lifting so you can focus on the hunt.
-        </p>
-        <div className="mt-6">
-          <CtaButton label="Schedule Implementation" />
+      <section className="grid gap-6 sm:grid-cols-3 mb-12">
+        <div className="rounded-2xl border p-6">
+          <h2 className="font-bold">Access & Trails</h2>
+          <p className="mt-2 text-zinc-700">
+            Undetectable entry/exit with screening and wind-first routing.
+          </p>
         </div>
+        <div className="rounded-2xl border p-6">
+          <h2 className="font-bold">Food & Forage</h2>
+          <p className="mt-2 text-zinc-700">
+            Kill plots, destination food, soil prep, and annual/perennial blends.
+          </p>
+        </div>
+        <div className="rounded-2xl border p-6">
+          <h2 className="font-bold">Stands & Blinds</h2>
+          <p className="mt-2 text-zinc-700">
+            Stand trees, ladders, and blinds set for specific winds and phases.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-8">
+        <Link
+          href="/contact"
+          className="inline-flex items-center rounded-xl bg-brand-700 px-6 py-3 font-semibold text-white hover:opacity-95"
+        >
+          Talk About Your Property
+        </Link>
       </section>
     </main>
   );
