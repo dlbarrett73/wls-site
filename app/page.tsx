@@ -1,73 +1,63 @@
-export default function Home() {
+// app/page.tsx
+import Image from "next/image";
+import { CtaButton } from "../components/CtaButton";
+
+export default function HomePage() {
   return (
-    <main style={{ maxWidth: "1120px", margin: "0 auto", padding: "40px 24px" }}>
-      <section style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }}>
-        <div>
-          <h1 style={{ fontSize: 44, lineHeight: 1.1, margin: 0, fontWeight: 800 }}>
-            Properties Engineered to Attract and Kill <u>Mature Whitetails</u>.
-          </h1>
-          <p style={{ marginTop: 16, fontSize: 18, color: "#374151", maxWidth: 720 }}>
-            We design, build, and sell whitetail-optimized properties in Pennsylvania—and consult
-            with landowners to transform their ground into a big buck paradise.
-          </p>
-          <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <a
-              href="/contact"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "12px 18px",
-                borderRadius: 12,
-                background: "#166534",
-                color: "white",
-                fontWeight: 700,
-                textDecoration: "none"
-              }}
-            >
-              Get a Free 15-Minute Strategy Call
-            </a>
-            <a
-              href="/properties"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "12px 18px",
-                borderRadius: 12,
-                background: "#f4f4f5",
-                color: "#111827",
-                fontWeight: 700,
-                textDecoration: "none",
-                border: "1px solid #e5e7eb"
-              }}
-            >
-              See Land for Sale
-            </a>
-          </div>
+    <div>
+      {/* Hero Section */}
+      <section className="relative bg-zinc-900 text-white">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/public/images/hero.jpg" // <-- change this to match your real hero image path in /public
+            alt="Whitetail Land Solutions Hero"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
-        <div>
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              paddingTop: "75%",
-              borderRadius: 16,
-              overflow: "hidden",
-              background: "#f4f4f5",
-              border: "1px solid rgba(0,0,0,0.1)"
-            }}
-          >
-            <img
-              src="public/images/hero.jpg"
-              alt="Happy hunter with a mature PA whitetail."
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-              loading="eager"
-            />
+        {/* Hero Content */}
+        <div className="relative container-page py-32 text-center">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+            Engineered for Giants. Built for Legacy.
+          </h1>
+          <p className="mt-4 text-lg sm:text-xl max-w-2xl mx-auto text-zinc-200">
+            Turnkey whitetail properties and expert habitat consulting to secure
+            your hunting legacy.
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <CtaButton href="/properties">View Properties</CtaButton>
+            <CtaButton
+              href="/contact"
+              className="bg-white text-zinc-900 hover:bg-zinc-100"
+            >
+              Get in Touch
+            </CtaButton>
           </div>
         </div>
       </section>
-    </main>
+
+      {/* Additional homepage content */}
+      <section className="container-page py-20">
+        <h2 className="text-3xl font-bold tracking-tight mb-6">
+          Why Whitetail Land Solutions?
+        </h2>
+        <p className="text-zinc-700 mb-4">
+          We buy undervalued land, optimize it for whitetail hunting, and sell
+          it as turnkey hunting properties. Our consulting services transform
+          ordinary tracts into big buck paradises.
+        </p>
+        <ul className="list-disc list-inside text-zinc-700 space-y-2">
+          <li>Properties engineered for mature buck hunting success</li>
+          <li>Turnkey access, food plots, and stand/blind placement</li>
+          <li>Consulting to maximize your land’s potential</li>
+          <li>Integrity, stewardship, and service at our core</li>
+        </ul>
+      </section>
+    </div>
   );
 }
