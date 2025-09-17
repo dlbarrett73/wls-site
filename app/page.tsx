@@ -60,7 +60,7 @@ export default function Home() {
             }}
           >
             <img
-              src="/images/properties/mahaffey-136/hero.jpg"
+              src="public/images/hero.jpg"
               alt="Happy hunter with a mature PA whitetail."
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               loading="eager"
