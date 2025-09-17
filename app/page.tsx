@@ -1,47 +1,44 @@
 // app/page.tsx
-import React from "react";
-import Link from "next/link";
-
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="mx-auto max-w-7xl px-6">
-      {/* HERO */}
-      <section className="grid grid-cols-1 items-center gap-12 pb-20 pt-10 md:pt-14 lg:grid-cols-2">
-        {/* Copy */}
+    <main style={{ maxWidth: "1120px", margin: "0 auto", padding: "40px 24px" }}>
+      <section style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }}>
         <div>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-            Properties Engineered to Attract and Kill{" "}
-            <span className="underline decoration-4 underline-offset-4">Mature Whitetails</span>.
+          <h1 style={{ fontSize: "44px", lineHeight: 1.1, margin: 0, fontWeight: 800 }}>
+            Properties Engineered to Attract and Kill <u>Mature Whitetails</u>.
           </h1>
-
-          <p className="mt-4 max-w-prose text-lg text-zinc-700">
+          <p style={{ marginTop: 16, fontSize: 18, color: "#374151", maxWidth: 720 }}>
             We design, build, and sell whitetail-optimized properties in Pennsylvania—and consult
             with landowners to transform their ground into a big buck paradise.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-2xl bg-brand-700 px-5 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-700/40"
-            >
+          <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <a href="/contact" style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              padding: "12px 18px", borderRadius: 12, background: "#166534", color: "white",
+              fontWeight: 700, textDecoration: "none"
+            }}>
               Get a Free 15-Minute Strategy Call
-            </Link>
-            <Link
-              href="/properties"
-              className="inline-flex items-center justify-center rounded-2xl bg-zinc-100 px-5 py-3 font-semibold text-zinc-900 ring-1 ring-inset ring-zinc-300 transition hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-zinc-400/40"
-            >
+            </a>
+            <a href="/properties" style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              padding: "12px 18px", borderRadius: 12, background: "#f4f4f5", color: "#111827",
+              fontWeight: 700, textDecoration: "none", border: "1px solid #e5e7eb"
+            }}>
               See Land for Sale
-            </Link>
+            </a>
           </div>
         </div>
 
-        {/* Image */}
-        <div className="relative">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-100 ring-1 ring-black/10">
+        <div>
+          {/* Uses your exact path; safe HTML <img> so no Next image config required */}
+          <div style={{
+            position: "relative", width: "100%", paddingTop: "75%", borderRadius: 16,
+            overflow: "hidden", background: "#f4f4f5", border: "1px solid rgba(0,0,0,0.1)"
+          }}>
             <img
               src="/images/properties/mahaffey-136/hero.jpg"
               alt="Happy hunter with a mature PA whitetail."
-              className="h-full w-full object-cover"
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
               loading="eager"
             />
           </div>
