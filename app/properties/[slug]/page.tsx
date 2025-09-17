@@ -1,144 +1,95 @@
 // app/properties/[slug]/page.tsx
-import React from "react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { CtaButton } from "@/components/CtaButton";
-import { propertiesBySlug } from "@/app/data/properties";
 
-// Base type inferred from your data object
-type Property = (typeof propertiesBySlug)[string];
-
-// Extend with optional keys some items may use
-type WithOptionalMedia = Property & {
-  heroImage?: string;
-  hero?: string;
-  image?: string;
-  cover?: string;
-  gallery?: string[];
-  highlights?: string[];
+type Property = {
+  slug: string;
+  title: string;
   price?: string;
-  location?: string;
-  acres?: number | string;
-  title?: string;
+  acres?: number;
+  heroSrc: string;
+  highlights: string[];
 };
 
-type PageProps = {
-  params: { slug: string };
+// Minimal, known-good data so prerender can’t fail
+const propertiesBySlug: Record<string, Property> = {
+  "example-tract": {
+    slug: "example-tract",
+    title: "Example Tract",
+    price: "$XXX,XXX",
+    acres: 100,
+    heroSrc: "/images/properties/mahaffey-136/hero.jpg",
+    highlights: [
+      "Turnkey improvements for whitetails",
+      "Solid access with discreet entry/exit",
+      "Food, cover, and water within daily core",
+    ],
+  },
+  "mahaffey-136": {
+    slug: "mahaffey-136",
+    title: "Mahaffey 136",
+    price: "$—",
+    acres: 136.38,
+    heroSrc: "/images/properties/mahaffey-136/hero.jpg", // ✅ this file exists per your repo
+    highlights: [
+      "Frontage + undetectable access from US 219",
+      "Food plots installed and 2 Stryker blinds",
+      "Near Mahaffey, PA (Bell Twp., Clearfield County)",
+    ],
+  },
 };
 
-// Pre-generate static params (safe for Next 14 app dir)
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return Object.keys(propertiesBySlug).map((slug) => ({ slug }));
 }
 
-export default function PropertyPage({ params: { slug } }: PageProps) {
-  const base = propertiesBySlug[slug];
-
-  if (!base) return notFound();
-
-  // Cast once into a shape that tolerates optional media fields
-  const property = base as WithOptionalMedia;
-
-  const {
-    title = "Property",
-    price,
-    location,
-    acres,
-    highlights = [],
-  } = property;
-
-  // Resolve a hero image from any commonly used key, or from gallery[0]
-  const heroSrc =
-    property.heroImage ??
-    property.hero ??
-    property.image ??
-    property.cover ??
-    (property.gallery && property.gallery.length > 0 ? property.gallery[0] : undefined);
+export default function PropertyPage({ params }: { params: { slug: string } }) {
+  const item = propertiesBySlug[params.slug];
+  if (!item) return notFound();
 
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
-      {/* Header */}
-      <header className="mb-10">
-        <h1 className="text-4xl font-extrabold tracking-tight">{title}</h1>
-        <p className="mt-2 text-zinc-700">
-          {acres ? `${acres} acres` : null}
-          {acres && (location || price) ? " • " : null}
-          {location ?? null}
-          {location && price ? " • " : null}
-          {price ?? null}
+    <main style={{ maxWidth: 1120, margin: "0 auto", padding: "40px 24px" }}>
+      <header style={{ marginBottom: 24 }}>
+        <h1 style={{ fontSize: 36, lineHeight: 1.1, margin: 0, fontWeight: 800 }}>{item.title}</h1>
+        <p style={{ marginTop: 8, color: "#374151" }}>
+          {item.acres ? `${item.acres} acres` : ""} {item.price ? `• ${item.price}` : ""}
         </p>
-
-        <div className="mt-6">
-          {/* ✅ Use label prop instead of children */}
-          <CtaButton
-            href="/contact"
-            size="lg"
-            label="Talk to Us About This Property"
-          />
-        </div>
       </header>
 
-      {/* Hero Image */}
-      {heroSrc && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
-          <Image
-            src={heroSrc}
-            alt={title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      )}
-
-      {/* Highlights */}
-      {Array.isArray(highlights) && highlights.length > 0 && (
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold">Highlights</h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {highlights.map((h, i) => (
-              <li
-                key={i}
-                className="rounded-xl border border-zinc-200 bg-white p-4"
-              >
-                {h}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* Gallery */}
-      {Array.isArray(property.gallery) && property.gallery.length > 0 && (
-        <section className="mt-12">
-          <h2 className="text-2xl font-semibold">Gallery</h2>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {property.gallery.map((src, i) => (
-              <div
-                key={i}
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-zinc-100"
-              >
-                <Image
-                  src={src}
-                  alt={`${title} photo ${i + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Bottom CTA */}
-      <div className="mt-16">
-        {/* ✅ Use label prop instead of children */}
-        <CtaButton
-          href="/contact"
-          size="lg"
-          label="Get On the Waitlist / Ask About This Property"
+      <div style={{
+        position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 16,
+        overflow: "hidden", background: "#f4f4f5", border: "1px solid rgba(0,0,0,0.1)"
+      }}>
+        <img
+          src={item.heroSrc}
+          alt={`${item.title} hero`}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+          loading="eager"
         />
       </div>
+
+      <section style={{ marginTop: 24 }}>
+        <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 8px 0" }}>Highlights</h2>
+        <ul style={{ margin: 0, paddingLeft: 20, color: "#374151", lineHeight: 1.6 }}>
+          {item.highlights.map((h, i) => <li key={i}>{h}</li>)}
+        </ul>
+
+        <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <a href="/contact" style={{
+            display: "inline-flex", alignItems: "center", justifyContent: "center",
+            padding: "12px 18px", borderRadius: 12, background: "#166534", color: "white",
+            fontWeight: 700, textDecoration: "none"
+          }}>
+            Book a Free Strategy Call
+          </a>
+          <a href="/properties" style={{
+            display: "inline-flex", alignItems: "center", justifyContent: "center",
+            padding: "12px 18px", borderRadius: 12, background: "#f4f4f5", color: "#111827",
+            fontWeight: 700, textDecoration: "none", border: "1px solid #e5e7eb"
+          }}>
+            Back to Properties
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
