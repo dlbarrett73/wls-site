@@ -4,59 +4,21 @@ import Link from "next/link";
 import Script from "next/script";
 import { CtaButton } from "@/components/CtaButton";
 
-// Import your property data (same object used on /properties pages)
-import { propertiesBySlug } from "./data/properties";
-
-// --- helper: extract fields safely from whatever shape your data has ---
-function pickFeatured(slug: string) {
-  const raw = (propertiesBySlug as any)?.[slug] ?? {};
-
-  // Title
-  const title =
-    raw.title ??
-    raw.name ??
-    "Turnkey Whitetail Tract";
-
-  // Image: try a few common keys/arrays
-  const image =
-    raw.image ??
-    raw.heroImage ??
-    raw.hero ??
-    raw.cardImage ??
-    raw.cover ??
-    (Array.isArray(raw.images) && (raw.images[0]?.url || raw.images[0]?.src)) ??
-    "/images/featured.jpg"; // fallback
-
-  // Price
-  const price =
-    raw.price ??
-    raw.formattedPrice ??
-    (raw.askingPrice ? `$${raw.askingPrice}` : undefined) ??
-    (typeof raw.cost === "number" ? `$${raw.cost}` : undefined) ??
-    "$— (Call)";
-
-  // County
-  const county =
-    raw.county ??
-    raw.location?.county ??
-    "Pennsylvania";
-
-  // Acreage
-  const acreage =
-    raw.acreage ??
-    raw.acres ??
-    raw.size ??
-    "— Acres";
-
-  // Slug/path
-  const href = `/properties/${slug}`;
-
-  return { title, image, price, county, acreage, href };
-}
+/**
+ * === Featured Property Constants (edit these anytime) ===
+ * If you later want to wire these to your data file, I can swap this
+ * block for a typed import. For now, this guarantees a clean build.
+ */
+const FEATURED = {
+  title: "Mahaffey — Turnkey Whitetail Tract",
+  href: "/properties/mahaffey-131",
+  image: "/images/properties/mahaffey-131/hero.jpg", // you provided this path
+  acreage: "131± Acres", // update if you want exact, e.g., "136.38± Acres"
+  county: "Clearfield County, PA", // change if needed
+  price: "$— (Call)", // e.g., "$499,000"
+};
 
 export default function HomePage() {
-  const featured = pickFeatured("mahaffey-131");
-
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-12">
       {/* ========================== */}
@@ -269,7 +231,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================== */}
-      {/* Featured Property (from data) */}
+      {/* Featured Property          */}
       {/* ========================== */}
       <section className="mt-20">
         <div className="flex items-center justify-between">
@@ -283,10 +245,10 @@ export default function HomePage() {
         </div>
 
         <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-zinc-200 p-4 sm:grid-cols-2">
-          <Link href={featured.href} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+          <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl">
             <Image
-              src={featured.image}
-              alt={`${featured.title} — ${featured.acreage}, ${featured.county}`}
+              src={FEATURED.image}
+              alt={`${FEATURED.title} — ${FEATURED.acreage}, ${FEATURED.county}`}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-cover"
@@ -295,11 +257,11 @@ export default function HomePage() {
           </Link>
           <div className="flex flex-col justify-between p-2">
             <div>
-              <h3 className="text-xl font-semibold">{featured.title}</h3>
+              <h3 className="text-xl font-semibold">{FEATURED.title}</h3>
               <div className="mt-1 text-sm text-zinc-600">
-                {featured.acreage} • {featured.county}
+                {FEATURED.acreage} • {FEATURED.county}
               </div>
-              <div className="mt-1 text-base font-semibold text-zinc-900">{featured.price}</div>
+              <div className="mt-1 text-base font-semibold text-zinc-900">{FEATURED.price}</div>
               <ul className="mt-4 grid gap-2 text-sm text-zinc-800">
                 <li>• Undetectable access for calm daylight movement</li>
                 <li>• Year-one huntability—plots, screens, stands in place</li>
@@ -311,7 +273,7 @@ export default function HomePage() {
                 Inquire About This Property
               </CtaButton>
               <Link
-                href={featured.href}
+                href={FEATURED.href}
                 className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
               >
                 View Details
