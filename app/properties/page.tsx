@@ -1,4 +1,4 @@
-// app/properties/page.tsx  (or pages/properties/index.tsx if you're in the pages/ router)
+// app/properties/page.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -30,7 +30,7 @@ function CtaGreen({
 }
 
 export default function PropertiesIndexPage() {
-  const items = Object.values(propertiesBySlug);
+  const items = Object.values(propertiesBySlug as Record<string, any>);
 
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
@@ -52,30 +52,51 @@ export default function PropertiesIndexPage() {
           </h2>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/properties/${p.slug}`}
-                className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
-              >
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src={p.heroImage}
-                    alt={p.title}
-                    fill
-                    className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold">{p.title}</h3>
-                  <p className="mt-1 text-sm text-zinc-600">
-                    {p.location}
-                    {p.acres ? ` • ${p.acres.toLocaleString()}± acres` : ""}
-                  </p>
-                </div>
-              </Link>
-            ))}
+            {items.map((p: any) => {
+              // allow either heroImage or heroSrc in the data
+              const hero = p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
+
+              // format acres whether number or string
+              let acresText = "";
+              if (typeof p.acres === "number") {
+                acresText = `${p.acres.toLocaleString()}± acres`;
+              } else if (typeof p.acres === "string" && p.acres.trim() !== "") {
+                acresText = p.acres;
+              }
+
+              const subtitleParts = [p.location, acresText].filter(Boolean);
+              const subtitle = subtitleParts.join(" • ");
+
+              return (
+                <Link
+                  key={p.slug}
+                  href={`/properties/${p.slug}`}
+                  className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <div className="relative aspect-[16/10]">
+                    <Image
+                      src={hero}
+                      alt={p.title ?? "Property"}
+                      fill
+                      className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      priority={false}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold">{p.title}</h3>
+                    {subtitle && (
+                      <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
+                    )}
+                    {p.price && (
+                      <p className="mt-2 text-sm font-semibold text-emerald-800">
+                        {p.price}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       ) : (
