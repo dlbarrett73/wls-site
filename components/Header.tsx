@@ -1,15 +1,8 @@
-// components/Header.tsx
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-const NAV = [
-  { href: "/properties", label: "Properties" },
-  { href: "/consulting", label: "Consulting" },
-  { href: "/contact", label: "Contact" },
-];
+import { useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -17,78 +10,68 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-zinc-200">
       <div className="mx-auto w-full max-w-6xl px-6 flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 no-underline">
+        {/* Logo + Business Name */}
+        <Link href="/" className="flex items-center space-x-3">
           <Image
-            src="/logo-400.png" // ensure this exists in /public
-            alt="Whitetail Land Solutions"
-            width={40}
-            height={40}
-            priority
+            src="/logo-400.png"
+            alt="Whitetail Land Solutions Logo"
+            width={48}
+            height={48}
+            className="h-12 w-auto"
           />
-          <span className="sr-only">Whitetail Land Solutions</span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-lg font-bold text-zinc-900">
+              Whitetail Land Solutions
+            </span>
+            <span className="text-xs text-zinc-600">
+              Engineered for Giants. Built for Legacy.
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-6">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-zinc-800 hover:text-brand-700 no-underline"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-brand-700 text-white hover:bg-brand-600"
-          >
-            Book a Strategy Call
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-8 text-sm font-medium text-zinc-700">
+          <Link href="/properties" className="hover:text-brand-700">
+            Properties
+          </Link>
+          <Link href="/services/consulting" className="hover:text-brand-700">
+            Consulting
+          </Link>
+          <Link href="/services/habitat" className="hover:text-brand-700">
+            Habitat Implementation
+          </Link>
+          <Link href="/contact" className="hover:text-brand-700">
+            Contact
           </Link>
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile Nav Toggle */}
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 hover:bg-zinc-100"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          onClick={() => setOpen(!open)}
+          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100"
         >
-          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-            <path
-              d="M4 6h16M4 12h16M4 18h16"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+          <span className="sr-only">Open main menu</span>
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile panel */}
-      {open ? (
-        <div className="md:hidden border-t border-zinc-200">
-          <div className="mx-auto w-full max-w-6xl px-6 py-3 flex flex-col gap-2">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="py-2 text-base font-medium text-zinc-800 hover:text-brand-700 no-underline"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="mt-2 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold bg-brand-700 text-white hover:bg-brand-600"
-              onClick={() => setOpen(false)}
-            >
-              Book a Strategy Call
-            </Link>
-          </div>
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden border-t border-zinc-200 bg-white px-6 py-4 space-y-4 text-sm font-medium text-zinc-700">
+          <Link href="/properties" className="block hover:text-brand-700">
+            Properties
+          </Link>
+          <Link href="/services/consulting" className="block hover:text-brand-700">
+            Consulting
+          </Link>
+          <Link href="/services/habitat" className="block hover:text-brand-700">
+            Habitat Implementation
+          </Link>
+          <Link href="/contact" className="block hover:text-brand-700">
+            Contact
+          </Link>
         </div>
-      ) : null}
+      )}
     </header>
   );
 }
