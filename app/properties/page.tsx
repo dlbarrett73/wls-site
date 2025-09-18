@@ -1,14 +1,9 @@
-"use client";
-
-import React, { useMemo, useState } from "react";
+// app/properties/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-// Use a **relative** import to avoid tsconfig alias pitfalls
 import { propertiesBySlug } from "../data/properties";
 
-/** ---------- Types & Utilities ---------- */
-
+// ---------- Types shared with the client ----------
 type Property = {
   slug?: string;
   title?: string;
@@ -24,6 +19,20 @@ type Property = {
   path?: string;
 };
 
+type Item = {
+  slug: string;
+  title: string;
+  acresNum: number | null;
+  priceNum: number | null;
+  acresText: string;
+  priceText: string;
+  county: string;
+  state: string;
+  locationText: string;
+  img: string;
+};
+
+// ---------- Server-only helpers ----------
 function toNumber(x: unknown): number | null {
   if (x == null) return null;
   if (typeof x === "number" && Number.isFinite(x)) return x;
@@ -75,153 +84,56 @@ function titleFromSlug(slug: string) {
   return slug.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
-/** ---------- Main Page ---------- */
-
+// ---------- Server Component ----------
 export default function PropertiesIndexPage() {
-  const pathname = usePathname();
+  // Normalize your data on the server
+  const rawEntries = Object.entries(propertiesBySlug as Record<string, Property>);
+  const items: Item[] = rawEntries
+    .map(([key, p]) => {
+      const slug = deriveSlug(key, p);
+      if (!slug) return null;
 
-  // Materialize & normalize all properties
-  const rawItems = useMemo(() => {
-    const entries = Object.entries(propertiesBySlug as Record<string, Property>);
-    return entries
-      .map(([key, p]) => {
-        const slug = deriveSlug(key, p);
-        if (!slug) return null;
-        const title = p.title || titleFromSlug(slug);
-        const acresNum = toNumber(p.acres);
-        const priceNum = toNumber(p.price);
-        const acresText = formatAcres(p.acres);
-        const priceText = formatPrice(p.price);
-        const locationText = [p.county, p.state].filter(Boolean).join(", ");
-        const img = pickCardImage(slug, p);
-        return {
-          slug,
-          title,
-          acresNum,
-          priceNum,
-          acresText,
-          priceText,
-          county: p.county || "",
-          state: p.state || "",
-          locationText,
-          img,
-        };
-      })
-      .filter(Boolean) as Array<{
-      slug: string;
-      title: string;
-      acresNum: number | null;
-      priceNum: number | null;
-      acresText: string;
-      priceText: string;
-      county: string;
-      state: string;
-      locationText: string;
-      img: string;
-    }>;
-  }, []);
+      const title = p.title || titleFromSlug(slug);
+      const acresNum = toNumber(p.acres);
+      const priceNum = toNumber(p.price);
+      const acresText = formatAcres(p.acres);
+      const priceText = formatPrice(p.price);
+      const county = p.county || "";
+      const state = p.state || "";
+      const locationText = [county, state].filter(Boolean).join(", ");
+      const img = pickCardImage(slug, p);
 
-  /** ---------- Filters & Sort ---------- */
-
-  const counties = useMemo(() => {
-    const set = new Set(
-      rawItems
-        .map((i) => i.county?.trim())
-        .filter(Boolean)
-        .map((c) => c!)
-    );
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-  }, [rawItems]);
-
-  const [q, setQ] = useState("");
-  const [county, setCounty] = useState<string>("all");
-  const [minPrice, setMinPrice] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<string>("");
-  const [minAcres, setMinAcres] = useState<string>("");
-  const [maxAcres, setMaxAcres] = useState<string>("");
-  const [sortBy, setSortBy] = useState<"newest" | "priceAsc" | "priceDesc" | "acresAsc" | "acresDesc">("newest");
-
-  const filtered = useMemo(() => {
-    let list = rawItems;
-
-    // Search by title/location
-    if (q.trim()) {
-      const needle = q.trim().toLowerCase();
-      list = list.filter(
-        (i) =>
-          i.title.toLowerCase().includes(needle) ||
-          i.locationText.toLowerCase().includes(needle)
-      );
-    }
-
-    // County filter
-    if (county !== "all") {
-      list = list.filter((i) => i.county.toLowerCase() === county.toLowerCase());
-    }
-
-    // Price range
-    const minP = toNumber(minPrice);
-    const maxP = toNumber(maxPrice);
-    if (minP != null) list = list.filter((i) => (i.priceNum ?? Infinity) >= minP);
-    if (maxP != null) list = list.filter((i) => (i.priceNum ?? -Infinity) <= maxP);
-
-    // Acres range
-    const minA = toNumber(minAcres);
-    const maxA = toNumber(maxAcres);
-    if (minA != null) list = list.filter((i) => (i.acresNum ?? Infinity) >= minA);
-    if (maxA != null) list = list.filter((i) => (i.acresNum ?? -Infinity) <= maxA);
-
-    // Sort
-    const copy = [...list];
-    switch (sortBy) {
-      case "priceAsc":
-        copy.sort((a, b) => (a.priceNum ?? Infinity) - (b.priceNum ?? Infinity));
-        break;
-      case "priceDesc":
-        copy.sort((a, b) => (b.priceNum ?? -Infinity) - (a.priceNum ?? -Infinity));
-        break;
-      case "acresAsc":
-        copy.sort((a, b) => (a.acresNum ?? Infinity) - (b.acresNum ?? Infinity));
-        break;
-      case "acresDesc":
-        copy.sort((a, b) => (b.acresNum ?? -Infinity) - (a.acresNum ?? -Infinity));
-        break;
-      case "newest":
-      default:
-        // With static data, "newest" ≈ no-op; if you later add a date field, sort here.
-        break;
-    }
-    return copy;
-  }, [rawItems, q, county, minPrice, maxPrice, minAcres, maxAcres, sortBy]);
-
-  /** ---------- JSON-LD (Breadcrumbs + ItemList) ---------- */
+      return {
+        slug,
+        title,
+        acresNum,
+        priceNum,
+        acresText,
+        priceText,
+        county,
+        state,
+        locationText,
+        img,
+      } as Item;
+    })
+    .filter(Boolean) as Item[];
 
   const siteUrl = "https://www.whitetaillandsolutions.com";
-  const pageUrl = `${siteUrl}${pathname || "/properties"}`;
+  const pageUrl = `${siteUrl}/properties`;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: siteUrl,
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Properties",
-        item: pageUrl,
-      },
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Properties", item: pageUrl },
     ],
   };
 
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: filtered.slice(0, 12).map((i, idx) => ({
+    itemListElement: items.slice(0, 12).map((i, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
       url: `${siteUrl}/properties/${i.slug}`,
@@ -229,11 +141,9 @@ export default function PropertiesIndexPage() {
     })),
   };
 
-  /** ---------- Render ---------- */
-
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-8">
-      {/* Visible breadcrumbs */}
+      {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-zinc-600">
         <ol className="flex items-center gap-2">
           <li>
@@ -254,10 +164,105 @@ export default function PropertiesIndexPage() {
         </p>
       </header>
 
-      {/* Filter / Sort Bar */}
+      {/* Client filter/grid receives plain JSON */}
+      <ClientGrid items={items} />
+
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+    </main>
+  );
+}
+
+// ---------- Client Component (filters + grid) ----------
+"use client";
+import { useMemo, useState } from "react";
+
+function toNumberClient(x: unknown): number | null {
+  if (x == null) return null;
+  if (typeof x === "number" && Number.isFinite(x)) return x;
+  if (typeof x === "string") {
+    const digits = x.replace(/[^0-9.]/g, "");
+    const n = Number(digits);
+    return Number.isFinite(n) ? n : null;
+  }
+  return null;
+}
+
+function ClientGrid({ items }: { items: Item[] }) {
+  // County list
+  const counties = useMemo(() => {
+    const set = new Set(items.map((i) => i.county?.trim()).filter(Boolean) as string[]);
+    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  }, [items]);
+
+  // Filters
+  const [q, setQ] = useState("");
+  const [county, setCounty] = useState<string>("all");
+  const [minPrice, setMinPrice] = useState<string>("");
+  const [maxPrice, setMaxPrice] = useState<string>("");
+  const [minAcres, setMinAcres] = useState<string>("");
+  const [maxAcres, setMaxAcres] = useState<string>("");
+  const [sortBy, setSortBy] = useState<"newest" | "priceAsc" | "priceDesc" | "acresAsc" | "acresDesc">("newest");
+
+  const filtered = useMemo(() => {
+    let list = items;
+
+    if (q.trim()) {
+      const needle = q.trim().toLowerCase();
+      list = list.filter(
+        (i) =>
+          i.title.toLowerCase().includes(needle) ||
+          i.locationText.toLowerCase().includes(needle)
+      );
+    }
+
+    if (county !== "all") {
+      list = list.filter((i) => i.county.toLowerCase() === county.toLowerCase());
+    }
+
+    const minP = toNumberClient(minPrice);
+    const maxP = toNumberClient(maxPrice);
+    if (minP != null) list = list.filter((i) => (i.priceNum ?? Infinity) >= minP);
+    if (maxP != null) list = list.filter((i) => (i.priceNum ?? -Infinity) <= maxP);
+
+    const minA = toNumberClient(minAcres);
+    const maxA = toNumberClient(maxAcres);
+    if (minA != null) list = list.filter((i) => (i.acresNum ?? Infinity) >= minA);
+    if (maxA != null) list = list.filter((i) => (i.acresNum ?? -Infinity) <= maxA);
+
+    const copy = [...list];
+    switch (sortBy) {
+      case "priceAsc":
+        copy.sort((a, b) => (a.priceNum ?? Infinity) - (b.priceNum ?? Infinity));
+        break;
+      case "priceDesc":
+        copy.sort((a, b) => (b.priceNum ?? -Infinity) - (a.priceNum ?? -Infinity));
+        break;
+      case "acresAsc":
+        copy.sort((a, b) => (a.acresNum ?? Infinity) - (b.acresNum ?? Infinity));
+        break;
+      case "acresDesc":
+        copy.sort((a, b) => (b.acresNum ?? -Infinity) - (a.acresNum ?? -Infinity));
+        break;
+      case "newest":
+      default:
+        break;
+    }
+    return copy;
+  }, [items, q, county, minPrice, maxPrice, minAcres, maxAcres, sortBy]);
+
+  return (
+    <>
+      {/* Filter Bar */}
       <section className="mb-8 rounded-xl border border-zinc-200 bg-white p-4">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Search */}
           <label className="block">
             <span className="mb-1 block text-sm font-medium text-zinc-700">Search</span>
             <input
@@ -268,7 +273,6 @@ export default function PropertiesIndexPage() {
             />
           </label>
 
-          {/* County */}
           <label className="block">
             <span className="mb-1 block text-sm font-medium text-zinc-700">County</span>
             <select
@@ -285,7 +289,6 @@ export default function PropertiesIndexPage() {
             </select>
           </label>
 
-          {/* Price range */}
           <div className="grid grid-cols-2 gap-3">
             <label className="block">
               <span className="mb-1 block text-sm font-medium text-zinc-700">Min price</span>
@@ -309,7 +312,6 @@ export default function PropertiesIndexPage() {
             </label>
           </div>
 
-          {/* Acres range */}
           <div className="grid grid-cols-2 gap-3">
             <label className="block">
               <span className="mb-1 block text-sm font-medium text-zinc-700">Min acres</span>
@@ -334,7 +336,6 @@ export default function PropertiesIndexPage() {
           </div>
         </div>
 
-        {/* Sort & Reset */}
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <label className="text-sm text-zinc-700">
             Sort by:&nbsp;
@@ -392,7 +393,6 @@ export default function PropertiesIndexPage() {
                         fill
                         sizes="(max-width: 1024px) 100vw, 33vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                        // Smart image loading: only first one is priority
                         priority={idx === 0}
                       />
                     </div>
@@ -421,8 +421,6 @@ export default function PropertiesIndexPage() {
                         <span className="inline-flex items-center justify-center rounded-lg border border-emerald-900/20 bg-emerald-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-800">
                           View details
                         </span>
-
-                        {/* Optional: direct “I’m interested” to Contact with UTM + property */}
                         <Link
                           href={`/contact?property=${encodeURIComponent(
                             item.slug
@@ -464,7 +462,7 @@ export default function PropertiesIndexPage() {
         </section>
       )}
 
-      {/* Always-on Waitlist CTA (below grid) */}
+      {/* Always-on CTA */}
       <section className="mt-14 rounded-xl border border-emerald-900/15 bg-emerald-50 p-6">
         <h2 className="text-xl font-semibold">Ready to design your big-buck paradise?</h2>
         <p className="mt-2 text-emerald-900/90">
@@ -485,18 +483,6 @@ export default function PropertiesIndexPage() {
           </Link>
         </div>
       </section>
-
-      {/* JSON-LD for SEO */}
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
-    </main>
+    </>
   );
 }
