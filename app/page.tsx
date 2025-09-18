@@ -11,13 +11,14 @@ import { propertiesBySlug } from "@/data/properties"; // adjust path if your fil
  * If you later want to wire these to your data file, I can swap this
  * block for a typed import. For now, this guarantees a clean build.
  */
+const p = propertiesBySlug["mahaffey-131"];
 const FEATURED = {
-  title: "Mahaffey — Turnkey Whitetail Tract",
+  title: p?.title ?? "Mahaffey 131",
   href: "/properties/mahaffey-131",
-  image: "/images/properties/mahaffey-131/hero.jpg", // you provided this path
-  acreage: "131± Acres", // update if you want exact, e.g., "136.38± Acres"
-  county: "Clearfield County, PA", // change if needed
-  price: "$499,000"
+  image: p?.image ?? "/images/properties/mahaffey-131/hero.jpg",
+  acreage: `${p?.acreage ?? 131}± Acres`,
+  county: p?.county ?? "Clearfield County, PA",
+  price: formatPrice(p?.price), // ✅ formatted here
 };
 
 export default function HomePage() {
