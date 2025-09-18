@@ -19,7 +19,7 @@ export const propertiesBySlug = {
     title: "Mahaffey 131",
     county: "Clearfield County, PA",
     acreage: 131,
-    price: 500000, // ✅ fixed: now a number instead of "call"
+    price: 499000, // ✅ fixed: now a number instead of "call"
     image: "/images/properties/mahaffey-131/hero.jpg",
     description: `Clearfield County, PA. 131± acres with food plots and 2 Stryker blinds installed. 
     Undetectable access from US 219, near Mahaffey. Ready to hunt from day one.`,
