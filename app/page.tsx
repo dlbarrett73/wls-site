@@ -13,9 +13,8 @@ export default function HomePage() {
         {/* Left: Headline & Copy */}
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            “Properties Engineered for Giants. Built for Legacy.”
-           </h1>
-        </div>
+            Properties Engineered for Giants. Built for Legacy.
+          </h1>
 
           <p className="mt-6 text-lg text-zinc-700">
             Turnkey whitetail hunting land and consulting services designed to help you hunt big bucks from Day One.
@@ -64,12 +63,13 @@ export default function HomePage() {
 
         {/* Right: Hero Image (fill container, bias crop upward) */}
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
+          {/* Ensure /public/images/hero.jpg exists */}
           <Image
-            src="/images/hero.jpg" // ensure this exists in /public/images/
+            src="/images/hero.jpg"
             alt="Kent with a mature Pennsylvania whitetail"
             fill
             sizes="(min-width: 768px) 560px, 100vw"
-            className="object-cover object-[50%_20%]" // fill; keep more of the antlers in frame
+            className="object-cover object-[50%_20%]"
             priority
           />
         </div>
