@@ -16,22 +16,56 @@ function formatAcres(acres: number | string | undefined) {
   return s.length ? s : "";
 }
 
+function formatPrice(price: unknown): string | null {
+  if (price == null) return null;
+
+  // If it’s a number, format directly
+  if (typeof price === "number" && !Number.isNaN(price)) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(price);
+  }
+
+  // If it’s a string, pull out digits and format
+  const raw = String(price).replace(/[^\d.]/g, "");
+  if (!raw) return null;
+
+  const asNum = Number(raw);
+  if (Number.isNaN(asNum)) return null;
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(asNum);
+}
+
 export default function PropertyDetailPage({ params }: PageProps) {
   const p = (propertiesBySlug as Record<string, any>)[params.slug];
-
   if (!p) return notFound();
 
-  const hero = p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
+  // Be liberal about accepted keys so the hero never ends up undefined
+  const hero: string =
+    p.heroUrl ||
+    p.heroImage ||
+    p.heroSrc ||
+    (Array.isArray(p.gallery) && p.gallery.length > 0 ? p.gallery[0] : "") ||
+    "/images/properties/fallback.jpg";
+
   const acresText = formatAcres(p.acres);
+  const priceText = formatPrice(p.price);
 
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-10">
       {/* Hero */}
       <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm">
         <div className="relative aspect-[16/9] w-full">
+          {/* If hero is missing or empty, show the fallback to avoid a blank img */}
           <Image
-            src={hero}
-            alt={p.title ?? "Property hero"}
+            src={hero && typeof hero === "string" ? hero : "/images/properties/fallback.jpg"}
+            alt={p.title ? `${p.title} hero` : "Property hero"}
             fill
             className="object-cover"
             priority
@@ -43,19 +77,21 @@ export default function PropertyDetailPage({ params }: PageProps) {
           {/* Summary */}
           <div className="md:col-span-2">
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-              {p.title}
+              {p.title ?? "Property"}
             </h1>
 
             <div className="mt-3 flex flex-wrap items-center gap-3 text-zinc-700">
               {p.location && <span>{p.location}</span>}
+
               {acresText && (
                 <span className="inline-flex items-center rounded-full border border-zinc-300 px-3 py-1 text-sm">
                   {acresText}
                 </span>
               )}
-              {p.price && (
+
+              {priceText && (
                 <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
-                  {p.price}
+                  {priceText}
                 </span>
               )}
             </div>
