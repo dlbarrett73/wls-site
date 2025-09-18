@@ -7,12 +7,12 @@ export const propertiesBySlug: Record<string, Property> = {
     title: "Mahaffey 131 — Bell Twp, PA",
     price: "$500,000",
     location: "Bell Township, Clearfield County, PA",
-    acres: 131,
+    acres: 131
 
     // ✅ Paths point to /public/images/... so Next.js can serve them
-    heroUrl: "/images/properties/mahaffey-136/hero.jpg",
+    heroUrl: "/images/properties/mahaffey-131/hero.jpg",
     gallery: [
-      "/images/properties/mahaffey-136/hero.jpg"
+      "/images/properties/mahaffey-131/hero.jpg"
     ],
 
     highlights: [
