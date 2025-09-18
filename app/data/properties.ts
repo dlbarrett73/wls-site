@@ -1,51 +1,41 @@
 // app/data/properties.ts
-import type { Property } from "../types/property";
+
+export type Property = {
+  slug: string;
+  title: string;
+  price?: string;
+  acres?: number | string;
+  heroSrc?: string;      // either heroSrc
+  heroImage?: string;    // ...or heroImage (both supported by pages)
+  gallery?: string[];
+  location?: string;
+  highlights?: string[];
+  description?: string;
+  mapEmbedUrl?: string;
+};
 
 export const propertiesBySlug: Record<string, Property> = {
   "mahaffey-131": {
     slug: "mahaffey-131",
-    title: "Mahaffey 131 — Bell Twp, PA",
+    title: "Mahaffey 131",
     price: "$500,000",
-    location: "Bell Township, Clearfield County, PA",
-    acres: 131
-
-    // ✅ Paths point to /public/images/... so Next.js can serve them
-    heroUrl: "/images/properties/mahaffey-131/hero.jpg",
-    gallery: [
-      "/images/properties/mahaffey-131/hero.jpg"
-    ],
-
+    acres: 131, // ✅ number, with comma at the end
+    heroSrc: "/images/properties/mahaffey-131/hero.jpg", // ✅ updated folder/path
+    location: "Mahaffey, PA",
     highlights: [
-      "Undetectable access from US 219",
-      "Two Stryker blinds installed",
-      "Established food plots",
-      "Near the borough of Mahaffey, PA",
+      "Frontage + undetectable access from US 219",
+      "Diverse habitat: benches, cover, and food plot potential",
+      "Proven travel corridors and stand locations",
     ],
-
-    description:
-      "Turnkey whitetail property engineered for giants and designed for effortless access, strategic stand placement, and year-round attraction.",
+    gallery: [
+      "/images/properties/mahaffey-131/hero.jpg",
+      // add more images here as you upload them
+    ],
+    // mapEmbedUrl: "https://www.google.com/maps/embed?pb=...", // optional
+    // description: "Optional longer description of the property.",
   },
 
-  // Example: add another property in the same shape
-  "example-tract": {
-    slug: "example-tract",
-    title: "Example Tract — Armstrong County, PA",
-    price: "$YYY,YYY",
-    location: "Armstrong County, PA",
-    acres: 45.91,
-
-    heroUrl: "/images/properties/example-tract/hero.jpg",
-    gallery: [
-      "/images/properties/example-tract/hero.jpg",
-      "/images/properties/example-tract/plot-1.jpg",
-    ],
-
-    highlights: [
-      "Secluded hunting tract with diverse habitat",
-      "Rolling topography with multiple access points",
-    ],
-
-    description:
-      "An ideal starter property for the serious whitetail hunter. Plenty of potential for food plots and stand placement.",
-  },
+  // Add more properties here as needed, using the same shape
 };
+
+export default propertiesBySlug;
