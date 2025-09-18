@@ -22,7 +22,7 @@ export const propertiesBySlug: Record<string, Property> = {
     acres: 131, // ✅ number, with comma at the end
     heroSrc: "/images/properties/mahaffey-131/hero.jpg", // ✅ updated folder/path
     location: "Mahaffey, PA",
-    county: "Clearfield"
+    county: "Clearfield",
     highlights: [
       "Frontage + undetectable access from US 219",
       "Diverse habitat: benches, cover, and food plot potential",
