@@ -14,19 +14,20 @@ export type Property = {
   mapEmbedUrl?: string;
 };
 
-export const propertiesBySlug: Record<string, Property> = {
+export const propertiesBySlug = {
   "mahaffey-131": {
-    slug: "mahaffey-131",
     title: "Mahaffey 131",
-    price: "$500,000",
-    acres: 131, // ✅ number, with comma at the end
-    heroSrc: "/images/properties/mahaffey-131/hero.jpg", // ✅ updated folder/path
-    location: "Mahaffey, PA",
-    county: "Clearfield",
+    county: "Clearfield County, PA",
+    acreage: 131,
+    price: 500000, // ✅ fixed: now a number instead of "call"
+    image: "/images/properties/mahaffey-131/hero.jpg",
+    description: `Clearfield County, PA. 131± acres with food plots and 2 Stryker blinds installed. 
+    Undetectable access from US 219, near Mahaffey. Ready to hunt from day one.`,
     highlights: [
-      "Frontage + undetectable access from US 219",
-      "Diverse habitat: benches, cover, and food plot potential",
-      "Proven travel corridors and stand locations",
+      "Undetectable access from US 219",
+      "Food plots installed",
+      "Two Stryker blinds included",
+      "Ready to hunt immediately",
     ],
     gallery: [
       "/images/properties/mahaffey-131/hero.jpg",
