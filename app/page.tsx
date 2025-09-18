@@ -13,8 +13,8 @@ export default function HomePage() {
         {/* Left: Headline & Copy */}
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties Engineered to Attract and Kill{" "}
-            <span className="underline underline-offset-4">Mature Whitetail Bucks</span>.
+            Properties engineered to attract and kill{" "}
+            <span className="underline underline-offset-4">mature whitetails</span>.
           </h1>
 
           <p className="mt-6 text-lg text-zinc-700">
@@ -42,9 +42,7 @@ export default function HomePage() {
               <div className="text-xs uppercase tracking-widest text-zinc-500">
                 Service Area
               </div>
-              <div className="mt-1 font-semibold">
-                Pennsylvania (and nearby)
-              </div>
+              <div className="mt-1 font-semibold">Pennsylvania (and nearby)</div>
             </div>
             <div>
               <div className="text-xs uppercase tracking-widest text-zinc-500">
@@ -68,14 +66,15 @@ export default function HomePage() {
         </div>
 
         {/* Right: Hero Image */}
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
-          {/* Replace the src below with your actual hero image in /public */}
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-black">
+          {/* Use your Kent + buck photo in /public (e.g., /hero.jpg). 
+              object-contain ensures the whole head/antlers stay in frame. */}
           <Image
-            src="/images/hero.jpg"
-            alt="Successful late-season hunt with a mature Pennsylvania whitetail"
+            src="/hero.jpg"
+            alt="Kent with a mature Pennsylvania whitetail"
             fill
             sizes="(min-width: 768px) 560px, 100vw"
-            className="object-cover"
+            className="object-contain object-center"
             priority
           />
         </div>
@@ -103,48 +102,3 @@ export default function HomePage() {
               href="/properties"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 transition group-hover:underline"
             >
-              Browse Properties →
-            </Link>
-          </article>
-
-          {/* Card: Consulting */}
-          <article className="group rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
-            <h3 className="text-lg font-semibold">Consulting</h3>
-            <p className="mt-2 text-sm text-zinc-700">
-              Property walk-throughs and a custom Blueprint for Giants—habitat, access,
-              food, and stand strategy tailored to your ground.
-            </p>
-            <Link
-              href="/services/consulting"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 transition group-hover:underline"
-            >
-              Learn About Consulting →
-            </Link>
-          </article>
-
-          {/* Card: Habitat Implementation */}
-          <article className="group rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
-            <h3 className="text-lg font-semibold">Habitat Implementation</h3>
-            <p className="mt-2 text-sm text-zinc-700">
-              From timber stand improvement and screening to plots, access, and blinds—our
-              team builds the plan we design.
-            </p>
-            <Link
-              href="/services/habitat-implementation"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 transition group-hover:underline"
-            >
-              See Implementation Services →
-            </Link>
-          </article>
-        </div>
-
-        {/* Section CTA */}
-        <div className="mt-10">
-          <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
-            Book Your Free Strategy Call
-          </CtaButton>
-        </div>
-      </section>
-    </main>
-  );
-}
