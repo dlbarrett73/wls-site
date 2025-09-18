@@ -2,19 +2,17 @@
 import type { Property } from "../types/property";
 
 export const propertiesBySlug: Record<string, Property> = {
-  "mahaffey-136": {
-    slug: "mahaffey-136",
-    title: "Mahaffey 136 — Bell Twp, PA",
-    price: "$XXX,XXX",
+  "mahaffey-131": {
+    slug: "mahaffey-131",
+    title: "Mahaffey 131 — Bell Twp, PA",
+    price: "$500,000",
     location: "Bell Township, Clearfield County, PA",
-    acres: 136.38,
+    acres: 131,
 
     // ✅ Paths point to /public/images/... so Next.js can serve them
     heroUrl: "/images/properties/mahaffey-136/hero.jpg",
     gallery: [
-      "/images/properties/mahaffey-136/hero.jpg",
-      "/images/properties/mahaffey-136/plot-1.jpg",
-      "/images/properties/mahaffey-136/blind-1.jpg",
+      "/images/properties/mahaffey-136/hero.jpg"
     ],
 
     highlights: [
