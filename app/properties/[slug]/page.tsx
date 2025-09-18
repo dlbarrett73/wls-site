@@ -1,95 +1,133 @@
 // app/properties/[slug]/page.tsx
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { propertiesBySlug } from "../../data/properties";
 
-type Property = {
-  slug: string;
-  title: string;
-  price?: string;
-  acres?: number;
-  heroSrc: string;
-  highlights: string[];
+type PageProps = {
+  params: { slug: string };
 };
 
-// Minimal, known-good data so prerender can’t fail
-const propertiesBySlug: Record<string, Property> = {
-  "example-tract": {
-    slug: "example-tract",
-    title: "Example Tract",
-    price: "$XXX,XXX",
-    acres: 100,
-    heroSrc: "/images/properties/mahaffey-136/hero.jpg",
-    highlights: [
-      "Turnkey improvements for whitetails",
-      "Solid access with discreet entry/exit",
-      "Food, cover, and water within daily core",
-    ],
-  },
-  "mahaffey-131": {
-    slug: "mahaffey-131",
-    title: "Mahaffey 131",
-    price: "$500,000",
-    acres: 131+/-,
-    heroSrc: "/images/properties/mahaffey-136/hero.jpg", // ✅ this file exists per your repo
-    highlights: [
-      "Frontage + undetectable access from US 219",
-      "Food plots installed and 2 Stryker blinds",
-      "Near Mahaffey, PA (Bell Twp., Clearfield County)",
-    ],
-  },
-};
-
-export async function generateStaticParams() {
-  return Object.keys(propertiesBySlug).map((slug) => ({ slug }));
+function formatAcres(acres: number | string | undefined) {
+  if (acres == null) return "";
+  if (typeof acres === "number") return `${acres.toLocaleString()}± acres`;
+  const s = String(acres).trim();
+  return s.length ? s : "";
 }
 
-export default function PropertyPage({ params }: { params: { slug: string } }) {
-  const item = propertiesBySlug[params.slug];
-  if (!item) return notFound();
+export default function PropertyDetailPage({ params }: PageProps) {
+  const p = (propertiesBySlug as Record<string, any>)[params.slug];
+
+  if (!p) return notFound();
+
+  const hero = p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
+  const acresText = formatAcres(p.acres);
 
   return (
-    <main style={{ maxWidth: 1120, margin: "0 auto", padding: "40px 24px" }}>
-      <header style={{ marginBottom: 24 }}>
-        <h1 style={{ fontSize: 36, lineHeight: 1.1, margin: 0, fontWeight: 800 }}>{item.title}</h1>
-        <p style={{ marginTop: 8, color: "#374151" }}>
-          {item.acres ? `${item.acres} acres` : ""} {item.price ? `• ${item.price}` : ""}
+    <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-10">
+      {/* Hero */}
+      <section className="overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm">
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src={hero}
+            alt={p.title ?? "Property hero"}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="grid gap-8 p-6 md:grid-cols-3 md:p-8">
+          {/* Summary */}
+          <div className="md:col-span-2">
+            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              {p.title}
+            </h1>
+
+            <div className="mt-3 flex flex-wrap items-center gap-3 text-zinc-700">
+              {p.location && <span>{p.location}</span>}
+              {acresText && (
+                <span className="inline-flex items-center rounded-full border border-zinc-300 px-3 py-1 text-sm">
+                  {acresText}
+                </span>
+              )}
+              {p.price && (
+                <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
+                  {p.price}
+                </span>
+              )}
+            </div>
+
+            {Array.isArray(p.highlights) && p.highlights.length > 0 && (
+              <ul className="mt-6 grid list-disc gap-2 pl-5 text-zinc-800">
+                {p.highlights.map((h: string, i: number) => (
+                  <li key={i}>{h}</li>
+                ))}
+              </ul>
+            )}
+
+            {p.description && (
+              <p className="mt-6 text-zinc-700">{p.description}</p>
+            )}
+
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-xl bg-emerald-800 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              >
+                Book a Free Strategy Call
+              </Link>
+            </div>
+          </div>
+
+          {/* Map */}
+          <div className="md:col-span-1">
+            {p.mapEmbedUrl ? (
+              <div className="overflow-hidden rounded-2xl border border-zinc-200">
+                <iframe
+                  src={p.mapEmbedUrl}
+                  title="Property Location Map"
+                  className="h-72 w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-dashed border-zinc-300 p-6 text-center text-sm text-zinc-500">
+                Map coming soon
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Secondary CTA */}
+      <section className="mt-12 rounded-3xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50 p-8 text-center shadow-sm">
+        <h2 className="text-2xl font-extrabold tracking-tight">
+          Want details, maps, or a walkthrough?
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-zinc-700">
+          Tell us what you’re looking for and we’ll tailor a plan—access,
+          stands, food, and improvements—to help you hunt mature bucks from day
+          one.
         </p>
-      </header>
-
-      <div style={{
-        position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 16,
-        overflow: "hidden", background: "#f4f4f5", border: "1px solid rgba(0,0,0,0.1)"
-      }}>
-        <img
-          src={item.heroSrc}
-          alt={`${item.title} hero`}
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-          loading="eager"
-        />
-      </div>
-
-      <section style={{ marginTop: 24 }}>
-        <h2 style={{ fontSize: 20, fontWeight: 700, margin: "0 0 8px 0" }}>Highlights</h2>
-        <ul style={{ margin: 0, paddingLeft: 20, color: "#374151", lineHeight: 1.6 }}>
-          {item.highlights.map((h, i) => <li key={i}>{h}</li>)}
-        </ul>
-
-        <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <a href="/contact" style={{
-            display: "inline-flex", alignItems: "center", justifyContent: "center",
-            padding: "12px 18px", borderRadius: 12, background: "#166534", color: "white",
-            fontWeight: 700, textDecoration: "none"
-          }}>
-            Book a Free Strategy Call
-          </a>
-          <a href="/properties" style={{
-            display: "inline-flex", alignItems: "center", justifyContent: "center",
-            padding: "12px 18px", borderRadius: 12, background: "#f4f4f5", color: "#111827",
-            fontWeight: 700, textDecoration: "none", border: "1px solid #e5e7eb"
-          }}>
-            Back to Properties
-          </a>
+        <div className="mt-6">
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-xl bg-emerald-800 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+          >
+            Contact Us
+          </Link>
         </div>
       </section>
     </main>
   );
+}
+
+export function generateStaticParams() {
+  return Object.keys(propertiesBySlug as Record<string, any>).map((slug) => ({
+    slug,
+  }));
 }
