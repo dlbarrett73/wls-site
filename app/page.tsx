@@ -66,7 +66,7 @@ export default function HomePage() {
         {/* Right: Hero Image (fill container, bias crop upward) */}
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
           <Image
-            src="/images/kent-buck-hero.jpg" // ensure this exists in /public/images/
+            src="/images/hero.jpg" // ensure this exists in /public/images/
             alt="Kent with a mature Pennsylvania whitetail"
             fill
             sizes="(min-width: 768px) 560px, 100vw"
