@@ -2,40 +2,105 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+// Use a **relative** import to avoid tsconfig alias issues:
 import { propertiesBySlug } from "../data/properties";
 
-/** Forest-green CTA used site-wide */
-function CtaGreen({
-  href,
-  children,
-  className = "",
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
+type Property = {
+  slug?: string;
+  title?: string;
+  subtitle?: string;
+  acres?: number | string;
+  price?: number | string;
+  county?: string;
+  state?: string;
+  // preferred image fields if present:
+  cardImage?: string;
+  heroUrl?: string;
+  heroImage?: string;
+  gallery?: string[];
+  // sometimes people store a path field
+  path?: string;
+};
+
+function formatPrice(price: number | string | undefined) {
+  if (price == null || price === "") return "";
+  if (typeof price === "number") {
+    return `$${price.toLocaleString()}`;
+  }
+  const trimmed = String(price).trim();
+  // strip any leading $ then re-add to keep things consistent
+  const numeric = trimmed.replace(/^\$/, "");
+  return `$${numeric}`;
+}
+
+function formatAcres(acres: number | string | undefined) {
+  if (acres == null || acres === "") return "";
+  if (typeof acres === "number") return `${acres.toLocaleString()}± acres`;
+  const s = String(acres).trim();
+  return s ? `${s}± acres` : "";
+}
+
+function deriveSlug(key: string, p: Property): string | null {
+  if (p?.slug && typeof p.slug === "string") return p.slug;
+  if (key && key !== "undefined") return key;
+  if (p?.path) {
+    const parts = p.path.split("/").filter(Boolean);
+    const last = parts[parts.length - 1];
+    if (last) return last;
+  }
+  return null;
+}
+
+function pickCardImage(slug: string, p: Property): string {
+  // Try the most specific fields first, then fall back to a conventional path, then generic fallback
   return (
-    <Link
-      href={href}
-      className={
-        "inline-flex items-center rounded-xl bg-emerald-800 px-5 py-3 text-sm font-semibold text-white shadow " +
-        "hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 " +
-        "disabled:pointer-events-none disabled:opacity-60 " +
-        className
-      }
-    >
-      {children}
-    </Link>
+    p.cardImage ||
+    p.heroUrl ||
+    p.heroImage ||
+    (slug ? `/images/properties/${slug}/hero.jpg` : "") ||
+    "/images/properties/fallback.jpg"
   );
 }
 
 export default function PropertiesIndexPage() {
-  const items = Object.values(propertiesBySlug as Record<string, any>);
+  const entries = Object.entries(propertiesBySlug as Record<string, Property>);
+
+  const items = entries
+    .map(([key, p]) => {
+      const slug = deriveSlug(key, p);
+      if (!slug) return null; // filter out anything we can't safely link
+      const title =
+        p.title ||
+        // derive a friendly title from slug if needed, e.g. "mahaffey-131" -> "Mahaffey 131"
+        slug.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
+
+      const acresText = formatAcres(p.acres);
+      const priceText = formatPrice(p.price);
+      const locationText = [p.county, p.state].filter(Boolean).join(", ");
+      const img = pickCardImage(slug, p);
+
+      return {
+        slug,
+        title,
+        acresText,
+        priceText,
+        locationText,
+        img,
+      };
+    })
+    .filter(Boolean) as Array<{
+      slug: string;
+      title: string;
+      acresText: string;
+      priceText: string;
+      locationText: string;
+      img: string;
+    }>;
 
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
+    <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-10">
       {/* Header */}
-      <header>
+      <header className="mb-6">
         <h1 className="text-4xl font-extrabold tracking-tight">
           Available Properties
         </h1>
@@ -44,148 +109,118 @@ export default function PropertiesIndexPage() {
         </p>
       </header>
 
-      {/* Listings or Empty State */}
+      {/* Listings / Empty State */}
       {items.length > 0 ? (
-        <section aria-labelledby="properties-grid" className="mt-10">
+        <section aria-labelledby="properties-grid" className="mt-8">
           <h2 id="properties-grid" className="sr-only">
             Property Listings
           </h2>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((p: any) => {
-              // allow either heroImage or heroSrc in the data
-              const hero = p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
-
-              // format acres whether number or string
-              let acresText = "";
-              if (typeof p.acres === "number") {
-                acresText = `${p.acres.toLocaleString()}± acres`;
-              } else if (typeof p.acres === "string" && p.acres.trim() !== "") {
-                acresText = p.acres;
-              }
-
-              const subtitleParts = [p.location, acresText].filter(Boolean);
-              const subtitle = subtitleParts.join(" • ");
-
-              return (
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item) => (
+              <li key={item.slug} className="group">
                 <Link
-                  key={p.slug}
-                  href={`/properties/${p.slug}`}
-                  className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+                  href={`/properties/${item.slug}`}
+                  className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded-xl"
                 >
-                  <div className="relative aspect-[16/10]">
-                    <Image
-                      src={hero}
-                      alt={p.title ?? "Property"}
-                      fill
-                      className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      priority={false}
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-bold">{p.title}</h3>
-                    {subtitle && (
-                      <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
-                    )}
-                    {p.price && (
-                      <p className="mt-2 text-sm font-semibold text-emerald-800">
-                        {p.price}
-                      </p>
-                    )}
+                  <div className="overflow-hidden rounded-xl bg-zinc-100">
+                    <div className="relative aspect-[16/10]">
+                      <Image
+                        src={item.img}
+                        alt={`${item.title} — ${item.acresText || "Property"}${
+                          item.locationText ? ` — ${item.locationText}` : ""
+                        }`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        priority={false}
+                      />
+                    </div>
+                    <div className="p-4">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h3 className="text-lg font-semibold leading-tight">
+                          {item.title}
+                        </h3>
+                        {item.priceText && (
+                          <span className="text-base font-bold text-emerald-800">
+                            {item.priceText}
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-1 flex flex-wrap gap-2 text-sm text-zinc-600">
+                        {item.acresText && (
+                          <span className="inline-block">{item.acresText}</span>
+                        )}
+                        {item.locationText && (
+                          <>
+                            <span aria-hidden="true">•</span>
+                            <span className="inline-block">
+                              {item.locationText}
+                            </span>
+                          </>
+                        )}
+                      </div>
+
+                      <div className="mt-4">
+                        <span className="inline-flex items-center justify-center rounded-lg border border-emerald-900/20 bg-emerald-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-800">
+                          View details
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
-              );
-            })}
-          </div>
+              </li>
+            ))}
+          </ul>
         </section>
       ) : (
-        <EmptyStateWaitlist />
+        <section className="mt-12 rounded-xl border border-zinc-200 bg-white p-6">
+          <h2 className="text-2xl font-bold">Don’t see the right property today?</h2>
+          <p className="mt-2 text-zinc-700">
+            Inventory changes fast. Join the waitlist to get first look at new
+            acquisitions, off-market deals, and turn-key properties engineered
+            for mature bucks.
+          </p>
+          <ul className="mt-4 list-disc space-y-1 pl-6 text-zinc-700">
+            <li>Early access to upcoming listings</li>
+            <li>Options within your budget & acreage targets</li>
+            <li>Alerts for properties in your preferred counties</li>
+          </ul>
+          <div className="mt-5">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-800"
+            >
+              Join the Waitlist
+            </Link>
+          </div>
+        </section>
       )}
 
-      {/* Waitlist CTA (always visible) */}
-      <WaitlistCTA />
+      {/* Always-on Waitlist CTA (below grid) */}
+      <section className="mt-14 rounded-xl border border-emerald-900/15 bg-emerald-50 p-6">
+        <h2 className="text-xl font-semibold">
+          Ready to design your big-buck paradise?
+        </h2>
+        <p className="mt-2 text-emerald-900/90">
+          Turnkey properties and expert habitat consulting—engineered for
+          giants, built for legacy.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-lg bg-emerald-700 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-emerald-800"
+          >
+            Join the Waitlist / Contact
+          </Link>
+          <Link
+            href="/properties"
+            className="inline-flex items-center justify-center rounded-lg border border-emerald-900/20 bg-white px-5 py-2.5 text-sm font-medium text-emerald-900 shadow-sm transition hover:bg-emerald-50"
+          >
+            View Properties
+          </Link>
+        </div>
+      </section>
     </main>
-  );
-}
-
-/* ---------- Components ---------- */
-
-function WaitlistCTA() {
-  return (
-    <section
-      aria-labelledby="waitlist-cta"
-      className="mt-16 rounded-3xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50 p-8 shadow-sm"
-    >
-      <div className="grid items-center gap-8 md:grid-cols-2">
-        <div>
-          <h2 id="waitlist-cta" className="text-2xl font-extrabold tracking-tight">
-            Don’t see the right property today?
-          </h2>
-          <p className="mt-3 text-zinc-700">
-            Inventory changes fast. Join the waitlist to get first look at new
-            acquisitions, off-market deals, and turn-key properties engineered for mature bucks.
-          </p>
-          <ul className="mt-4 space-y-2 text-zinc-700">
-            <li>• Early access to upcoming listings</li>
-            <li>• Options within your budget & acreage targets</li>
-            <li>• Alerts for properties in your preferred counties</li>
-          </ul>
-
-          <div className="mt-6">
-            <CtaGreen href="/contact">Join the Waitlist</CtaGreen>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6">
-          <p className="text-sm font-semibold tracking-wide text-zinc-500">
-            What we’ll ask for
-          </p>
-          <dl className="mt-3 grid grid-cols-1 gap-3 text-sm text-zinc-800 sm:grid-cols-2">
-            <div className="rounded-xl bg-zinc-50 p-3">
-              <dt className="font-medium">Target counties</dt>
-              <dd className="text-zinc-600">
-                e.g., Armstrong, Clearfield, Jefferson
-              </dd>
-            </div>
-            <div className="rounded-xl bg-zinc-50 p-3">
-              <dt className="font-medium">Acreage &amp; budget</dt>
-              <dd className="text-zinc-600">Your range and readiness</dd>
-            </div>
-            <div className="rounded-xl bg-zinc-50 p-3">
-              <dt className="font-medium">Property goals</dt>
-              <dd className="text-zinc-600">
-                Turnkey, timber, cabin site, flip, etc.
-              </dd>
-            </div>
-            <div className="rounded-xl bg-zinc-50 p-3">
-              <dt className="font-medium">Timeline</dt>
-              <dd className="text-zinc-600">Ready now or next 3–12 months</dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function EmptyStateWaitlist() {
-  return (
-    <section
-      aria-labelledby="empty-state"
-      className="mt-10 rounded-3xl border border-dashed border-zinc-300 bg-white p-10 text-center"
-    >
-      <h2 id="empty-state" className="text-2xl font-extrabold tracking-tight">
-        No listings are available right now.
-      </h2>
-      <p className="mx-auto mt-3 max-w-2xl text-zinc-700">
-        We’re actively acquiring and improving new tracts. Join the waitlist for
-        first dibs on upcoming properties that match your acreage, budget, and county preferences.
-      </p>
-
-      <div className="mt-6 flex justify-center">
-        <CtaGreen href="/contact">Join the Waitlist</CtaGreen>
-      </div>
-    </section>
   );
 }
