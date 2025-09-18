@@ -13,8 +13,8 @@ export default function HomePage() {
         {/* Left: Headline & Copy */}
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties engineered to attract and kill{" "}
-            <span className="underline underline-offset-4">mature whitetails</span>.
+            Properties Engineered to Attract and Kill{" "}
+            <span className="underline underline-offset-4">Mature Whitetail Bucks</span>.
           </h1>
 
           <p className="mt-6 text-lg text-zinc-700">
