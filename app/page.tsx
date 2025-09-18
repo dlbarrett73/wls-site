@@ -3,22 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { CtaButton } from "@/components/CtaButton";
-import { formatPrice } from "@/utils/formatPrice";
-import { propertiesBySlug } from "@/data/properties"; // adjust path if your file lives elsewhere
 
-/**
- * === Featured Property Constants (edit these anytime) ===
- * If you later want to wire these to your data file, I can swap this
- * block for a typed import. For now, this guarantees a clean build.
- */
-const p = propertiesBySlug["mahaffey-131"];
+/** Local helper so we don't need "@/utils/formatPrice" */
+function formatPrice(price: number | string | undefined | null) {
+  if (price == null) return "Call";
+  if (typeof price === "string") return price; // supports "Sold", "Pending", etc.
+  return `$${price.toLocaleString()}`;
+}
+
+/** Featured property data (self-contained; no "@/data/properties" import) */
 const FEATURED = {
-  title: p?.title ?? "Mahaffey 131",
+  title: "Mahaffey 131",
   href: "/properties/mahaffey-131",
-  image: p?.image ?? "/images/properties/mahaffey-131/hero.jpg",
-  acreage: `${p?.acreage ?? 131}± Acres`,
-  county: p?.county ?? "Clearfield County, PA",
-  price: formatPrice(p?.price), // ✅ formatted here
+  image: "/images/properties/mahaffey-131/hero.jpg",
+  acreage: 131,
+  county: "Clearfield County, PA",
+  price: 500000, // <-- numeric price so it formats to $500,000
 };
 
 export default function HomePage() {
@@ -121,7 +121,6 @@ export default function HomePage() {
 
         {/* Right: Hero Image (fill container, bias crop upward) */}
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
-          {/* Ensure this exists in /public/images/hero.jpg */}
           <Image
             src="/images/hero.jpg"
             alt="Engineered whitetail habitat with screened plot, access, and stand strategy"
@@ -251,7 +250,7 @@ export default function HomePage() {
           <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl">
             <Image
               src={FEATURED.image}
-              alt={`${FEATURED.title} — ${FEATURED.acreage}, ${FEATURED.county}`}
+              alt={`${FEATURED.title} — ${FEATURED.acreage}± Acres, ${FEATURED.county}`}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-cover"
@@ -262,9 +261,11 @@ export default function HomePage() {
             <div>
               <h3 className="text-xl font-semibold">{FEATURED.title}</h3>
               <div className="mt-1 text-sm text-zinc-600">
-                {FEATURED.acreage} • {FEATURED.county}
+                {FEATURED.acreage}± Acres • {FEATURED.county}
               </div>
-              <div className="mt-1 text-base font-semibold text-zinc-900">{FEATURED.price}</div>
+              <div className="mt-1 text-base font-semibold text-zinc-900">
+                {formatPrice(FEATURED.price)}
+              </div>
               <ul className="mt-4 grid gap-2 text-sm text-zinc-800">
                 <li>• Undetectable access for calm daylight movement</li>
                 <li>• Year-one huntability—plots, screens, stands in place</li>
