@@ -23,14 +23,14 @@ export default function HomePage() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
-              Get a Free 15-Minute Strategy Call
+              Book a Free Strategy Call
             </CtaButton>
 
             <Link
               href="/properties"
               className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
             >
-              See Land for Sale
+              Find Your Property
             </Link>
           </div>
 
