@@ -63,14 +63,14 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Right: Hero Image (full heads + antlers, no crop) */}
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-black">
+        {/* Right: Hero Image (fill container, bias crop upward) */}
+        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
           <Image
-            src="/images/hero.jpg" // <-- ensure this file exists in /public/images/
+            src="/images/kent-buck-hero.jpg" // ensure this exists in /public/images/
             alt="Kent with a mature Pennsylvania whitetail"
             fill
             sizes="(min-width: 768px) 560px, 100vw"
-            className="object-contain object-center"
+            className="object-cover object-[50%_20%]" // fill; keep more of the antlers in frame
             priority
           />
         </div>
