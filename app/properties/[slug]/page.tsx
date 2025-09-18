@@ -24,11 +24,11 @@ const propertiesBySlug: Record<string, Property> = {
       "Food, cover, and water within daily core",
     ],
   },
-  "mahaffey-136": {
-    slug: "mahaffey-136",
-    title: "Mahaffey 136",
-    price: "$—",
-    acres: 136.38,
+  "mahaffey-131": {
+    slug: "mahaffey-131",
+    title: "Mahaffey 131",
+    price: "$500,000",
+    acres: 131+/-,
     heroSrc: "/images/properties/mahaffey-136/hero.jpg", // ✅ this file exists per your repo
     highlights: [
       "Frontage + undetectable access from US 219",
