@@ -20,10 +20,10 @@ export default function Header() {
             className="h-12 w-auto"
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-lg font-bold text-zinc-900">
+            <span className="text-lg font-bold text-brand-700">
               Whitetail Land Solutions
             </span>
-            <span className="text-xs text-zinc-600">
+            <span className="text-xs text-brand-700">
               Engineered for Giants. Built for Legacy.
             </span>
           </div>
