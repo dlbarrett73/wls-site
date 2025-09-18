@@ -13,13 +13,12 @@ export default function HomePage() {
         {/* Left: Headline & Copy */}
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties Engineered to Attract and Kill{" "}
-            <span className="underline underline-offset-4">Mature Whitetail Bucks</span>.
-          </h1>
+            “Properties Engineered for Giants. Built for Legacy.”
+           </h1>
+        </div>
 
           <p className="mt-6 text-lg text-zinc-700">
-            We design, build, and sell whitetail-optimized properties in Pennsylvania—and
-            consult with landowners to transform their ground into a big-buck paradise.
+            Turnkey whitetail hunting land and consulting services designed to help you hunt big bucks from Day One.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
