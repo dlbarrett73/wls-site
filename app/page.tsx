@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { CtaButton } from "@/components/CtaButton";
+import { formatPrice } from "@/utils/formatPrice";
+import { propertiesBySlug } from "@/data/properties"; // adjust path if your file lives elsewhere
 
 /**
  * === Featured Property Constants (edit these anytime) ===
