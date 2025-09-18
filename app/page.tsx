@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { CtaButton } from "@/components/CtaButton";
 
-// --- Optional SEO (works in app router) ---
+// --- SEO (must be in a Server Component) ---
 export const metadata: Metadata = {
   title: "Whitetail Land Solutions | Properties Engineered for Giants. Built for Legacy.",
   description:
