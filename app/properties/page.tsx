@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import propertiesBySlug from "../data/properties";
+import { CtaButton } from "../components/CtaButton"; // ✅ import shared button
 
 function formatPrice(price: number | string | undefined | null) {
   if (price == null) return "Call";
@@ -70,12 +71,9 @@ export default function PropertiesPage() {
           Inventory moves quickly. Join our waitlist to be the first to know
           when new properties become available.
         </p>
-        <Link
-          href="/contact"
-          className="mt-6 inline-block rounded-lg bg-green-700 px-6 py-3 text-white font-semibold hover:bg-green-800 transition"
-        >
-          Join the Waitlist
-        </Link>
+        <div className="mt-6 flex justify-center">
+          <CtaButton href="/contact">Join the Waitlist</CtaButton>
+        </div>
       </section>
     </main>
   );
