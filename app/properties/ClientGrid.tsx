@@ -3,13 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import type { Item } from "./page"; // uses the Item type exported above
+import type { Item } from "./page";
 
+// ---------- FIXED: empty strings return null ----------
 function toNumberClient(x: unknown): number | null {
   if (x == null) return null;
   if (typeof x === "number" && Number.isFinite(x)) return x;
   if (typeof x === "string") {
-    const n = Number(x.replace(/[^0-9.]/g, ""));
+    const cleaned = x.replace(/[^0-9.]/g, "").trim();
+    if (cleaned === "") return null;            // <-- key fix
+    const n = Number(cleaned);
     return Number.isFinite(n) ? n : null;
   }
   return null;
@@ -46,16 +49,19 @@ export function ClientGrid({ items }: { items: Item[] }) {
       list = list.filter((i) => i.county.toLowerCase() === county.toLowerCase());
     }
 
+    // Price range
     const minP = toNumberClient(minPrice);
     const maxP = toNumberClient(maxPrice);
     if (minP != null) list = list.filter((i) => (i.priceNum ?? Infinity) >= minP);
     if (maxP != null) list = list.filter((i) => (i.priceNum ?? -Infinity) <= maxP);
 
+    // Acres range
     const minA = toNumberClient(minAcres);
     const maxA = toNumberClient(maxAcres);
     if (minA != null) list = list.filter((i) => (i.acresNum ?? Infinity) >= minA);
     if (maxA != null) list = list.filter((i) => (i.acresNum ?? -Infinity) <= maxA);
 
+    // Sort
     const copy = [...list];
     switch (sortBy) {
       case "priceAsc":
@@ -206,9 +212,7 @@ export function ClientGrid({ items }: { items: Item[] }) {
                     <div className="relative aspect-[16/10]">
                       <Image
                         src={item.img}
-                        alt={`${item.title}${
-                          item.acresText ? ` — ${item.acresText}` : ""
-                        }${item.locationText ? ` — ${item.locationText}` : ""}`}
+                        alt={`${item.title}${item.acresText ? ` — ${item.acresText}` : ""}${item.locationText ? ` — ${item.locationText}` : ""}`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 33vw"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
