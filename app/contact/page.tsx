@@ -128,10 +128,10 @@ export default function Contact() {
               onChange={onChange}
               options={[
                 { value: '', label: 'Select...' },
-                { value: 'buy', label: 'Buy Land (Turnkey / Future Flip)' },
-                { value: 'improve', label: 'Improve Current Property' },
+                { value: 'buy', label: 'Buy Land' },
+                { value: 'tour', label: 'Tour Property' },
+                { value: 'improve', label: 'Improve My Current Property' },
                 { value: 'mature-bucks', label: 'Attract & Kill Mature Bucks' },
-                { value: 'sell-optimized', label: 'Sell an Optimized Property' },
                 { value: 'other', label: 'Other' },
               ]}
             />
