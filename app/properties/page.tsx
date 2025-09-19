@@ -1,9 +1,8 @@
 // app/properties/page.tsx
 import Link from "next/link";
-import propertiesBySlug from "../data/properties"; // ✅ default import
-import { ClientGrid } from "./ClientGrid"; // client component
+import propertiesBySlug from "../data/properties";
+import { ClientGrid } from "./ClientGrid";
 
-// ---------- Types shared with the client ----------
 type Property = {
   slug?: string;
   title?: string;
@@ -31,12 +30,14 @@ export type Item = {
   img: string;
 };
 
-// ---------- Server-only helpers ----------
+// ---------- FIXED: empty strings return null (no filtering) ----------
 function toNumber(x: unknown): number | null {
   if (x == null) return null;
   if (typeof x === "number" && Number.isFinite(x)) return x;
   if (typeof x === "string") {
-    const n = Number(x.replace(/[^0-9.]/g, ""));
+    const cleaned = x.replace(/[^0-9.]/g, "").trim();
+    if (cleaned === "") return null;            // <-- key fix
+    const n = Number(cleaned);
     return Number.isFinite(n) ? n : null;
   }
   return null;
@@ -81,9 +82,7 @@ function titleFromSlug(slug: string) {
   return slug.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
-// ---------- Server Component ----------
 export default function PropertiesIndexPage() {
-  // Normalize your data on the server
   const raw = Object.entries(propertiesBySlug as Record<string, Property>);
   const items: Item[] = raw
     .map(([key, p]) => {
@@ -140,7 +139,6 @@ export default function PropertiesIndexPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-8">
-      {/* Breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-zinc-600">
         <ol className="flex items-center gap-2">
           <li>
@@ -153,7 +151,6 @@ export default function PropertiesIndexPage() {
         </ol>
       </nav>
 
-      {/* Header */}
       <header className="mb-3">
         <h1 className="text-4xl font-extrabold tracking-tight">Available Properties</h1>
         <p className="mt-3 text-zinc-700">
@@ -167,10 +164,8 @@ export default function PropertiesIndexPage() {
         <span>{items.length} propert{items.length === 1 ? "y" : "ies"} found</span>
       </div>
 
-      {/* Client-side filters + grid */}
       <ClientGrid items={items} />
 
-      {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
