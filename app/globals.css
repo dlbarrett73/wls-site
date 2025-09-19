@@ -43,6 +43,7 @@ a {
 }
 
 /* Containers */
+.container { @apply mx-auto w-full max-w-6xl px-6; }
 .container-page {
   @apply mx-auto w-full max-w-6xl px-6;
 }
