@@ -160,7 +160,7 @@ export default function HomePage() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-brand-200 bg-brand-50 shadow-soft">
             <Image
               src="/images/hero.jpg"
-              alt="Engineered whitetail habitat with screened plot, access, and stand strategy"
+              alt="Kent Shick with a trophy buck"
               fill
               sizes="(min-width: 768px) 560px, 100vw"
               className="object-cover object-[50%_20%]"
