@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import propertiesBySlug from "../data/properties";
-import { CtaButton } from "../components/CtaButton"; // ✅ import shared button
+import { CtaButton } from "@/components/CtaButton"; // ✅ use alias so it resolves
 
 function formatPrice(price: number | string | undefined | null) {
   if (price == null) return "Call";
