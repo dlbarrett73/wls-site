@@ -1,8 +1,11 @@
 // app/page.tsx
 import Image from "next/image";
 import Link from "next/link";
+import { properties } from "../data/properties"; // make sure this points to your property data
 
 export default function HomePage() {
+  const featured = properties.find((p) => p.slug === "mahaffey-131"); // replace slug if needed
+
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-12">
       {/* ========================== */}
@@ -42,7 +45,7 @@ export default function HomePage() {
         {/* Right: Hero Image */}
         <div className="relative h-[360px] w-full overflow-hidden rounded-2xl shadow md:h-[520px]">
           <Image
-            src="/images/hero/hero.jpg" // <-- update to your actual hero path
+            src="/images/hero/hero.jpg"
             alt="Whitetail habitat and trophy buck"
             fill
             priority
@@ -73,7 +76,6 @@ export default function HomePage() {
                 alt="Turnkey whitetail hunting property"
                 fill
                 className="object-cover transition duration-300 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 33vw"
               />
             </div>
             <h3 className="text-xl font-semibold text-zinc-900">Land for Sale</h3>
@@ -96,7 +98,6 @@ export default function HomePage() {
                 alt="Property design map and habitat plan"
                 fill
                 className="object-cover transition duration-300 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 33vw"
               />
             </div>
             <h3 className="text-xl font-semibold text-zinc-900">Consulting</h3>
@@ -119,7 +120,6 @@ export default function HomePage() {
                 alt="Dozer and equipment improving access and habitat"
                 fill
                 className="object-cover transition duration-300 group-hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 33vw"
               />
             </div>
             <h3 className="text-xl font-semibold text-zinc-900">Habitat Implementation</h3>
@@ -135,6 +135,43 @@ export default function HomePage() {
           </article>
         </div>
       </section>
+
+      {/* ========================== */}
+      {/* Featured Property Section  */}
+      {/* ========================== */}
+      {featured && (
+        <section className="mt-24">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900">
+            Featured Property
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow">
+              <Image
+                src={featured.heroImage ?? "/images/properties/fallback.jpg"}
+                alt={featured.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-zinc-900">
+                {featured.title}
+              </h3>
+              <p className="mt-2 text-zinc-700">
+                {featured.acres} acres • {featured.location}
+              </p>
+              <p className="mt-4 text-zinc-600">{featured.description}</p>
+              <Link
+                href={`/properties/${featured.slug}`}
+                className="mt-6 inline-flex items-center rounded-xl px-5 py-3 text-base font-semibold ring-1 ring-emerald-700 bg-emerald-700 text-white hover:bg-emerald-800 transition"
+              >
+                View Property
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </main>
   );
 }
+
