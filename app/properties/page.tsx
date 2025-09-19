@@ -71,7 +71,7 @@ export default function PropertiesPage() {
           when new properties become available.
         </p>
         <Link
-          href="/waitlist"
+          href="/contact"
           className="mt-6 inline-block rounded-lg bg-green-700 px-6 py-3 text-white font-semibold hover:bg-green-800 transition"
         >
           Join the Waitlist
