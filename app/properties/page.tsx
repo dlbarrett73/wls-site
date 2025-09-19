@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import propertiesBySlug from "../data/properties";
-import { CtaButton } from "@/components/CtaButton"; // ✅ use alias so it resolves
 
 function formatPrice(price: number | string | undefined | null) {
   if (price == null) return "Call";
@@ -23,7 +22,7 @@ export default function PropertiesPage() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-12">
-      <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl mb-8">
+      <h1 className="mb-8 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
         Available Properties
       </h1>
 
@@ -37,7 +36,7 @@ export default function PropertiesPage() {
             <Link
               key={p.slug}
               href={`/properties/${p.slug}`}
-              className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow hover:shadow-lg transition"
+              className="group block overflow-hidden rounded-xl border border-zinc-200 bg-white shadow transition hover:shadow-lg"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
@@ -62,7 +61,7 @@ export default function PropertiesPage() {
         })}
       </div>
 
-      {/* Waitlist Section */}
+      {/* Waitlist Section (kept simple & self-contained) */}
       <section className="mt-16 rounded-xl bg-green-50 px-6 py-10 text-center shadow-sm">
         <h2 className="text-2xl font-bold text-green-900">
           Don’t See What You’re Looking For?
@@ -71,9 +70,12 @@ export default function PropertiesPage() {
           Inventory moves quickly. Join our waitlist to be the first to know
           when new properties become available.
         </p>
-        <div className="mt-6 flex justify-center">
-          <CtaButton href="/contact">Join the Waitlist</CtaButton>
-        </div>
+        <Link
+          href="/contact"
+          className="mt-6 inline-block rounded-lg bg-green-700 px-6 py-3 font-semibold text-white transition hover:bg-green-800"
+        >
+          Join the Waitlist
+        </Link>
       </section>
     </main>
   );
