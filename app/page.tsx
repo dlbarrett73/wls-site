@@ -1,8 +1,7 @@
+// app/page.tsx
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
-import { CtaButton } from "@/components/CtaButton";
 
 /** Local helper so we don't need "@/utils/formatPrice" */
 function formatPrice(price: number | string | undefined | null) {
@@ -18,7 +17,7 @@ const FEATURED = {
   image: "/images/properties/mahaffey-131/hero.jpg",
   acreage: 131,
   county: "Clearfield County, PA",
-  price: 500000, // <-- numeric price so it formats to $500,000
+  price: 500000,
 };
 
 export default function HomePage() {
@@ -40,9 +39,12 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
+            >
               Book a Free Strategy Call
-            </CtaButton>
+            </Link>
 
             <Link
               href="/properties"
@@ -273,9 +275,12 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
+              >
                 Inquire About This Property
-              </CtaButton>
+              </Link>
               <Link
                 href={FEATURED.href}
                 className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
@@ -356,9 +361,12 @@ export default function HomePage() {
           find or build a property engineered to put mature bucks in front of you.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
+          >
             Book a Free Strategy Call
-          </CtaButton>
+          </Link>
         </div>
 
         {/* Smaller email capture near footer */}
@@ -392,28 +400,35 @@ export default function HomePage() {
       {/* ========================== */}
       {/* JSON-LD (Organization + Service) */}
       {/* ========================== */}
-      <Script id="ld-org" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Whitetail Land Solutions",
-          url: "https://www.whitetaillandsolutions.com/",
-          logo: "https://www.whitetaillandsolutions.com/logo-400.png",
-          sameAs: [],
-          areaServed: "US-PA",
-        })}
-      </Script>
-      <Script id="ld-service-consulting" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Whitetail Property Consulting",
-          provider: { "@type": "Organization", name: "Whitetail Land Solutions" },
-          areaServed: "US-PA",
-          serviceType: "Habitat design and hunting access strategy",
-          url: "https://www.whitetaillandsolutions.com/services/consulting",
-        })}
-      </Script>
+      <script
+        type="application/ld+json"
+        // JSON-LD via inline script to avoid next/script in a Server Component
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Whitetail Land Solutions",
+            url: "https://www.whitetaillandsolutions.com/",
+            logo: "https://www.whitetaillandsolutions.com/logo-400.png",
+            sameAs: [],
+            areaServed: "US-PA",
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Whitetail Property Consulting",
+            provider: { "@type": "Organization", name: "Whitetail Land Solutions" },
+            areaServed: "US-PA",
+            serviceType: "Habitat design and hunting access strategy",
+            url: "https://www.whitetaillandsolutions.com/services/consulting",
+          }),
+        }}
+      />
     </main>
   );
 }
