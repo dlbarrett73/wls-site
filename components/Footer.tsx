@@ -1,70 +1,44 @@
-// components/Footer.tsx
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CtaButton } from "./CtaButton";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-zinc-200 bg-white">
-      {/* Top CTA Section */}
-      <div className="container-page py-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h3 className="text-2xl font-bold tracking-tight">
-            Ready to design your big-buck paradise?
-          </h3>
-          <p className="text-zinc-600 mt-1">
-            Turnkey properties and expert habitat consulting—engineered for
-            giants, built for legacy.
-          </p>
-        </div>
-        <div className="flex gap-3">
-          <CtaButton href="/contact">Join the Waitlist / Contact</CtaButton>
-          <Link
-            href="/properties"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold border border-zinc-300 hover:bg-zinc-100"
-          >
-            View Properties
-          </Link>
-        </div>
+    <footer className="mt-24 border-t border-zinc-200 bg-white py-10">
+      <div className="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo-400.png"
+            alt="Whitetail Land Solutions"
+            width={40}
+            height={40}
+          />
+          <span className="text-sm font-semibold text-emerald-800">
+            Whitetail Land Solutions
+          </span>
+        </Link>
+
+        {/* Links */}
+        <nav className="flex flex-wrap justify-center gap-4 text-sm text-zinc-600">
+          <Link href="/properties">Land for Sale</Link>
+          <Link href="/services/consulting">Consulting</Link>
+          <Link href="/services/habitat-implementation">Habitat</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
+
+        {/* CTA */}
+        <Link
+          href="/contact"
+          className="rounded-lg bg-emerald-700 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-800"
+        >
+          Free Strategy Call
+        </Link>
       </div>
 
-      {/* Divider */}
-      <div className="border-t border-zinc-200" />
-
-      {/* Bottom Row */}
-      <div className="container-page py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/logo-400.png" // make sure this file exists in /public
-            alt="Whitetail Land Solutions"
-            width={28}
-            height={28}
-          />
-          <span className="text-sm text-zinc-600">
-            © {new Date().getFullYear()} Whitetail Land Solutions. All rights
-            reserved.
-          </span>
-        </div>
-        <nav className="flex gap-5 text-sm">
-          <Link
-            href="/consulting"
-            className="text-zinc-700 hover:text-brand-700 no-underline"
-          >
-            Consulting
-          </Link>
-          <Link
-            href="/properties"
-            className="text-zinc-700 hover:text-brand-700 no-underline"
-          >
-            Properties
-          </Link>
-          <Link
-            href="/contact"
-            className="text-zinc-700 hover:text-brand-700 no-underline"
-          >
-            Contact
-          </Link>
-        </nav>
+      <div className="mt-6 text-center text-xs text-zinc-500">
+        © {new Date().getFullYear()} Whitetail Land Solutions. All rights reserved.
       </div>
     </footer>
   );
