@@ -196,8 +196,8 @@ export default function ImplementationPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="mt-16 rounded-2xl bg-brand-800 p-6 text-white shadow-soft">
-        <h2 className="text-2xl font-bold">
+      <section className="mt-16 rounded-2xl bg-brand-800 p-6 shadow-soft">
+        <h2 className="text-2xl font-bold text-white">
           Tell us about your property and goals.
         </h2>
         <p className="mt-2 max-w-3xl text-white/90">
