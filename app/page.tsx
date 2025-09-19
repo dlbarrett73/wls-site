@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 // ✅ import from ROOT components folder
-import CtaButton from "@/components/CtaButton";
+import { CtaButton } from "@/components/CtaButton";
 
 export default function HomePage() {
   return (
