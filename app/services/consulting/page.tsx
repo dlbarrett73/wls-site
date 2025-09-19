@@ -94,14 +94,7 @@ export default function ConsultingPage() {
               manage the entire build for a turnkey, day-one hunting experience.
             </p>
           </div>
-          <div className="mt-4 md:mt-0">
-            <Link
-              href="/habitat-implementation"
-              className="inline-flex items-center rounded-xl border border-brand-200 bg-white/70 px-4 py-2 text-sm font-semibold text-brand-800 hover:bg-white"
-            >
-              See Habitat Implementation
-            </Link>
-          </div>
+      
         </div>
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
