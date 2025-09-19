@@ -1,7 +1,7 @@
 // app/properties/page.tsx
 import React from "react";
 import Link from "next/link";
-import PropertyCard, { type Property } from "@/app/components/PropertyCard";
+import PropertyCard, { type Property } from "@/components/PropertyCard";
 // If your tsconfig doesn't have "@/..." paths, swap this for:
 // import PropertyCard, { type Property } from "../components/PropertyCard";
 import propertiesBySlug from "../data/properties"; // or: import { propertiesBySlug } from "../data/properties";
