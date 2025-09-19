@@ -26,7 +26,11 @@ function CtaSafe({ href, className = "", children }: CtaProps) {
       </Link>
     );
   }
-  return <Comp href={href} className={className}>{children}</Comp>;
+  return (
+    <Comp href={href} className={className}>
+      {children}
+    </Comp>
+  );
 }
 
 /** Local helper so we don't need "@/utils/formatPrice" */
@@ -52,116 +56,129 @@ export default function HomePage() {
       {/* ========================== */}
       {/* Hero                       */}
       {/* ========================== */}
-      <section className="grid items-center gap-10 md:grid-cols-2">
-        {/* Left: Headline & Copy */}
-        <div>
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties Engineered for Giants. Built for Legacy.
-          </h1>
+      <section className="relative rounded-3xl border border-brand-100 bg-gradient-to-br from-brand-50/80 via-white to-white p-6 md:p-10 overflow-hidden">
+        {/* subtle decorative gradient ring */}
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-brand-200/50 to-brand-400/20 blur-2xl" />
+        <div className="grid items-center gap-10 md:grid-cols-2 relative">
+          {/* Left: Headline & Copy */}
+          <div>
+            <span className="inline-flex items-center rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold tracking-widest text-brand-800">
+              ENGINEERED FOR GIANTS
+            </span>
 
-          <p className="mt-6 text-lg text-zinc-700">
-            Turnkey whitetail hunting properties and expert consulting engineered to put mature bucks
-            in front of you — fast. Serving Western &amp; Central Pennsylvania.
-          </p>
+            <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl text-brand-900">
+              Properties Engineered for Giants. Built for Legacy.
+            </h1>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
-              Book a Free Strategy Call
-            </CtaSafe>
-
-            <Link
-              href="/properties"
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
-            >
-              Find Your Property
-            </Link>
-          </div>
-
-          {/* Fast facts */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <div>
-              <div className="text-xs uppercase tracking-widest text-zinc-500">Service Area</div>
-              <div className="mt-1 font-semibold">
-                Armstrong • Clearfield • Jefferson • Forest • Clarion • Indiana • Elk
-              </div>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-widest text-zinc-500">Core Services</div>
-              <div className="mt-1 font-semibold">
-                <Link href="/properties" className="hover:underline">
-                  Land for Sale
-                </Link>{" "}
-                ·{" "}
-                <Link href="/services/consulting" className="hover:underline">
-                  Consulting
-                </Link>{" "}
-                ·{" "}
-                <Link href="/services/habitat-implementation" className="hover:underline">
-                  Habitat Implementation
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Lead Magnet (simple GET to /contact so it can't break) */}
-          <form
-            method="GET"
-            action="/contact"
-            className="mt-10 grid gap-3 rounded-2xl border border-zinc-200 p-4 sm:grid-cols-[1fr_1fr_auto]"
-            aria-label="Get Property Alerts + Whitetail Design Checklist"
-          >
-            <input type="hidden" name="source" value="homepage_hero_lead" />
-            <label className="sr-only" htmlFor="lead-name">
-              First name
-            </label>
-            <input
-              id="lead-name"
-              name="first_name"
-              placeholder="First name"
-              className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
-              required
-            />
-            <label className="sr-only" htmlFor="lead-email">
-              Email
-            </label>
-            <input
-              id="lead-email"
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
-              required
-            />
-            <button
-              type="submit"
-              className="h-11 rounded-xl bg-brand-700 px-5 text-sm font-semibold text-white transition hover:bg-brand-800"
-            >
-              Get Alerts + Checklist
-            </button>
-            <p className="col-span-full text-xs text-zinc-500">
-              Get property alerts and our Whitetail Design Checklist (PDF). Unsubscribe anytime.
+            <p className="mt-6 text-lg text-zinc-700">
+              Turnkey whitetail hunting properties and expert consulting engineered to put mature bucks
+              in front of you — fast. Serving Western &amp; Central Pennsylvania.
             </p>
-          </form>
-        </div>
 
-        {/* Right: Hero Image (fill container, bias crop upward) */}
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
-          <Image
-            src="/images/hero.jpg"
-            alt="Engineered whitetail habitat with screened plot, access, and stand strategy"
-            fill
-            sizes="(min-width: 768px) 560px, 100vw"
-            className="object-cover object-[50%_20%]"
-            priority
-          />
+            <div className="mt-8 flex flex-wrap gap-4">
+              <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800 shadow-soft">
+                Book a Free Strategy Call
+              </CtaSafe>
+
+              <Link
+                href="/properties"
+                className="inline-flex items-center justify-center rounded-full border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
+              >
+                Find Your Property
+              </Link>
+            </div>
+
+            {/* Fast facts */}
+            <div className="mt-10 grid gap-6 sm:grid-cols-2">
+              <div className="rounded-2xl border border-brand-100 bg-white/70 p-4">
+                <div className="text-xs uppercase tracking-widest text-brand-700">Service Area</div>
+                <div className="mt-1 font-semibold text-zinc-900">
+                  Armstrong • Clearfield • Jefferson • Forest • Clarion • Indiana • Elk
+                </div>
+              </div>
+              <div className="rounded-2xl border border-brand-100 bg-white/70 p-4">
+                <div className="text-xs uppercase tracking-widest text-brand-700">Core Services</div>
+                <div className="mt-1 font-semibold text-zinc-900">
+                  <Link href="/properties" className="text-brand-800 hover:underline">
+                    Land for Sale
+                  </Link>{" "}
+                  ·{" "}
+                  <Link href="/services/consulting" className="text-brand-800 hover:underline">
+                    Consulting
+                  </Link>{" "}
+                  ·{" "}
+                  <Link href="/services/habitat-implementation" className="text-brand-800 hover:underline">
+                    Habitat Implementation
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Lead Magnet (simple GET to /contact so it can't break) */}
+            <form
+              method="GET"
+              action="/contact"
+              className="mt-10 grid gap-3 rounded-2xl border border-brand-200 bg-white/80 p-4 shadow-soft sm:grid-cols-[1fr_1fr_auto]"
+              aria-label="Get Property Alerts + Whitetail Design Checklist"
+            >
+              <input type="hidden" name="source" value="homepage_hero_lead" />
+              <label className="sr-only" htmlFor="lead-name">
+                First name
+              </label>
+              <input
+                id="lead-name"
+                name="first_name"
+                placeholder="First name"
+                className="h-11 rounded-xl border border-brand-300 px-3 text-sm outline-none focus:border-brand-500"
+                required
+              />
+              <label className="sr-only" htmlFor="lead-email">
+                Email
+              </label>
+              <input
+                id="lead-email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="h-11 rounded-xl border border-brand-300 px-3 text-sm outline-none focus:border-brand-500"
+                required
+              />
+              <button
+                type="submit"
+                className="h-11 rounded-xl bg-brand-700 px-5 text-sm font-semibold text-white transition hover:bg-brand-800"
+              >
+                Get Alerts + Checklist
+              </button>
+              <p className="col-span-full text-xs text-zinc-600">
+                Get property alerts and our Whitetail Design Checklist (PDF). Unsubscribe anytime.
+              </p>
+            </form>
+          </div>
+
+          {/* Right: Hero Image */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-brand-200 bg-brand-50 shadow-soft">
+            <Image
+              src="/images/hero.jpg"
+              alt="Engineered whitetail habitat with screened plot, access, and stand strategy"
+              fill
+              sizes="(min-width: 768px) 560px, 100vw"
+              className="object-cover object-[50%_20%]"
+              priority
+            />
+            {/* subtle gradient overlay for polish */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+          </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="mx-auto mt-16 h-px w-full max-w-5xl bg-gradient-to-r from-transparent via-brand-200 to-transparent" />
 
       {/* ========================== */}
       {/* Choose Your Path           */}
       {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Choose Your Path</h2>
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">Choose Your Path</h2>
         <p className="mt-3 max-w-3xl text-zinc-700">
           Whether you want a turnkey hunting property or you want to transform your current land into a big-buck
           paradise, we have a proven system to get you there.
@@ -169,9 +186,9 @@ export default function HomePage() {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {/* Path 1 */}
-          <article className="group flex flex-col justify-between rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
+          <article className="group flex flex-col justify-between rounded-2xl border border-brand-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md">
             <div>
-              <h3 className="text-xl font-semibold">Buy a Turnkey Property</h3>
+              <h3 className="text-xl font-semibold text-brand-900">Buy a Turnkey Property</h3>
               <ul className="mt-2 grid gap-1 text-sm text-zinc-700">
                 <li>• Year-one huntability (plots, screens, access, stands)</li>
                 <li>• Undetectable entry & exit to reduce pressure</li>
@@ -189,9 +206,9 @@ export default function HomePage() {
           </article>
 
           {/* Path 2 */}
-          <article className="group flex flex-col justify-between rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
+          <article className="group flex flex-col justify-between rounded-2xl border border-brand-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md">
             <div>
-              <h3 className="text-xl font-semibold">Transform My Property</h3>
+              <h3 className="text-xl font-semibold text-brand-900">Transform My Property</h3>
               <ul className="mt-2 grid gap-1 text-sm text-zinc-700">
                 <li>• Blueprint for Giants: custom design map & plan</li>
                 <li>• Access, bedding, food, and stand placement by wind</li>
@@ -213,8 +230,8 @@ export default function HomePage() {
       {/* ========================== */}
       {/* Biological Proof (Gallery) */}
       {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Biological Proof</h2>
+      <section className="mt-20 rounded-3xl border border-brand-100 bg-brand-50/50 p-6 md:p-8">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">Biological Proof</h2>
         <p className="mt-3 max-w-3xl text-zinc-700">
           Mature deer respond to great design. These snapshots show calm, daylight deer using engineered access,
           screened plots, and wind-safe stand locations.
@@ -240,7 +257,7 @@ export default function HomePage() {
           ].map((img) => (
             <figure
               key={img.src}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-zinc-200"
+              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-brand-200 bg-white shadow-soft"
             >
               <Image
                 src={img.src}
@@ -249,7 +266,7 @@ export default function HomePage() {
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover"
               />
-              <figcaption className="absolute bottom-0 left-0 right-0 bg-black/50 px-3 py-2 text-xs font-medium text-white">
+              <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-3 py-2 text-xs font-medium text-white">
                 {img.label}
               </figcaption>
             </figure>
@@ -262,7 +279,7 @@ export default function HomePage() {
       {/* ========================== */}
       <section className="mt-20">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Featured Property</h2>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">Featured Property</h2>
           <Link
             href="/properties"
             className="text-sm font-semibold text-brand-700 hover:underline underline-offset-4"
@@ -271,8 +288,8 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-zinc-200 p-4 sm:grid-cols-2">
-          <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl">
+        <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-brand-200 bg-white p-4 shadow-soft sm:grid-cols-2">
+          <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-50">
             <Image
               src={FEATURED.image}
               alt={`${FEATURED.title} — ${FEATURED.acreage}± Acres, ${FEATURED.county}`}
@@ -284,11 +301,11 @@ export default function HomePage() {
           </Link>
           <div className="flex flex-col justify-between p-2">
             <div>
-              <h3 className="text-xl font-semibold">{FEATURED.title}</h3>
+              <h3 className="text-xl font-semibold text-brand-900">{FEATURED.title}</h3>
               <div className="mt-1 text-sm text-zinc-600">
                 {FEATURED.acreage}± Acres • {FEATURED.county}
               </div>
-              <div className="mt-1 text-base font-semibold text-zinc-900">
+              <div className="mt-1 text-base font-semibold text-brand-900">
                 {formatPrice(FEATURED.price)}
               </div>
               <ul className="mt-4 grid gap-2 text-sm text-zinc-800">
@@ -298,12 +315,12 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
+              <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800 shadow-soft">
                 Inquire About This Property
               </CtaSafe>
               <Link
                 href={FEATURED.href}
-                className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
+                className="inline-flex items-center justify-center rounded-full border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
               >
                 View Details
               </Link>
@@ -315,8 +332,8 @@ export default function HomePage() {
       {/* ========================== */}
       {/* Values / Story             */}
       {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+      <section className="mt-20 rounded-3xl border border-brand-100 bg-gradient-to-br from-white via-brand-50/60 to-white p-6 md:p-8">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">
           Engineered for Giants. Built for Legacy.
         </h2>
         <p className="mt-3 max-w-3xl text-zinc-700">
@@ -330,8 +347,8 @@ export default function HomePage() {
             { title: "Stewardship", desc: "Improve the land for deer and people." },
             { title: "Service", desc: "Treat clients like family — Golden Rule." },
           ].map((v) => (
-            <div key={v.title} className="rounded-2xl border border-zinc-200 p-4">
-              <div className="text-sm uppercase tracking-widest text-zinc-500">{v.title}</div>
+            <div key={v.title} className="rounded-2xl border border-brand-200 bg-white p-4 shadow-soft">
+              <div className="text-sm uppercase tracking-widest text-brand-700">{v.title}</div>
               <div className="mt-1 text-sm text-zinc-700">{v.desc}</div>
             </div>
           ))}
@@ -342,7 +359,7 @@ export default function HomePage() {
       {/* FAQ (SEO-friendly)         */}
       {/* ========================== */}
       <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">Frequently Asked Questions</h2>
         <div className="mt-6 grid gap-3">
           {[
             {
@@ -360,9 +377,9 @@ export default function HomePage() {
           ].map((item) => (
             <details
               key={item.q}
-              className="rounded-2xl border border-zinc-200 p-4 open:shadow-sm transition"
+              className="rounded-2xl border border-brand-200 bg-white p-4 open:shadow-sm transition"
             >
-              <summary className="cursor-pointer text-sm font-semibold">{item.q}</summary>
+              <summary className="cursor-pointer text-sm font-semibold text-brand-900">{item.q}</summary>
               <p className="mt-2 text-sm text-zinc-700">{item.a}</p>
             </details>
           ))}
@@ -372,8 +389,8 @@ export default function HomePage() {
       {/* ========================== */}
       {/* Final CTA + Email Capture  */}
       {/* ========================== */}
-      <section className="mt-20 rounded-2xl border border-zinc-200 p-8 text-center">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+      <section className="mt-20 rounded-3xl border border-brand-100 bg-brand-50/60 p-8 text-center shadow-soft">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-brand-900">
           Ready to Secure Your Hunting Legacy?
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-zinc-700">
@@ -381,7 +398,7 @@ export default function HomePage() {
           find or build a property engineered to put mature bucks in front of you.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
+          <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800 shadow-soft">
             Book a Free Strategy Call
           </CtaSafe>
         </div>
@@ -390,7 +407,7 @@ export default function HomePage() {
         <form
           method="GET"
           action="/contact"
-          className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-[1fr_auto]"
+          className="mx-auto mt-8 grid max-w-2xl gap-3 rounded-2xl border border-brand-200 bg-white p-4 shadow-soft sm:grid-cols-[1fr_auto]"
           aria-label="Get Property Alerts"
         >
           <input type="hidden" name="source" value="homepage_footer_lead" />
@@ -402,7 +419,7 @@ export default function HomePage() {
             type="email"
             name="email"
             placeholder="Email for Property Alerts"
-            className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 rounded-xl border border-brand-300 px-3 text-sm outline-none focus:border-brand-500"
             required
           />
           <button
