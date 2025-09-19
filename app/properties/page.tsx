@@ -1,13 +1,14 @@
 // app/properties/page.tsx
-- import { propertiesBySlug } from "../data/properties";
-+ import propertiesBySlug from "../data/properties";
+import Link from "next/link";
+import propertiesBySlug from "../data/properties"; // ✅ default import
+import { ClientGrid } from "./ClientGrid"; // client component
 
+// ---------- Types shared with the client ----------
 type Property = {
   slug?: string;
   title?: string;
-  subtitle?: string;
-  acres?: number | string;
   price?: number | string;
+  acres?: number | string;
   county?: string;
   state?: string;
   cardImage?: string;
@@ -17,7 +18,7 @@ type Property = {
   path?: string;
 };
 
-type Item = {
+export type Item = {
   slug: string;
   title: string;
   acresNum: number | null;
@@ -30,6 +31,7 @@ type Item = {
   img: string;
 };
 
+// ---------- Server-only helpers ----------
 function toNumber(x: unknown): number | null {
   if (x == null) return null;
   if (typeof x === "number" && Number.isFinite(x)) return x;
@@ -79,13 +81,11 @@ function titleFromSlug(slug: string) {
   return slug.replace(/[-_]+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
-// import the client grid (separate file)
-import { ClientGrid } from "./ClientGrid";
-
+// ---------- Server Component ----------
 export default function PropertiesIndexPage() {
   // Normalize your data on the server
-  const rawEntries = Object.entries(propertiesBySlug as Record<string, Property>);
-  const items: Item[] = rawEntries
+  const raw = Object.entries(propertiesBySlug as Record<string, Property>);
+  const items: Item[] = raw
     .map(([key, p]) => {
       const slug = deriveSlug(key, p);
       if (!slug) return null;
@@ -154,17 +154,18 @@ export default function PropertiesIndexPage() {
       </nav>
 
       {/* Header */}
-      <header className="mb-6">
+      <header className="mb-3">
         <h1 className="text-4xl font-extrabold tracking-tight">Available Properties</h1>
         <p className="mt-3 text-zinc-700">
           Turnkey whitetail properties engineered for giants, built for legacy.
         </p>
       </header>
-{/* Debug/result counter – safe to keep or remove later */}
-<div className="mb-4 rounded-lg bg-emerald-50 text-emerald-900 inline-flex items-center gap-2 px-3 py-1 text-sm">
-  <span className="inline-block h-2 w-2 rounded-full bg-emerald-600" />
-  <span>{items.length} propert{items.length === 1 ? "y" : "ies"} found</span>
-</div>
+
+      {/* Debug/result counter – remove anytime */}
+      <div className="mb-6 inline-flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-1 text-sm text-emerald-900">
+        <span className="inline-block h-2 w-2 rounded-full bg-emerald-600" />
+        <span>{items.length} propert{items.length === 1 ? "y" : "ies"} found</span>
+      </div>
 
       {/* Client-side filters + grid */}
       <ClientGrid items={items} />
@@ -181,6 +182,3 @@ export default function PropertiesIndexPage() {
     </main>
   );
 }
-
-// Export types for the client file (optional)
-export type { Item };
