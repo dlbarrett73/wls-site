@@ -49,9 +49,7 @@ a {
 }
 
 /* Shadows */
-.shadow-soft {
-  @apply shadow-lg;
-}
+.shadow-soft { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
 
 /* ===== WLS utilities (safe, additive) ===== */
 .section-eyebrow { @apply text-xs md:text-sm font-semibold tracking-widest text-brand-700; }
