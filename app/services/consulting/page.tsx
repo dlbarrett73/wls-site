@@ -122,7 +122,7 @@ export default function ConsultingPage() {
               We manage the work and deliver a finished, hunt-ready property.
             </p>
             <ul className="mt-4 space-y-2 text-zinc-700">
-              <li>• Everything in Plan Only</li>
+              <li>• Everything in Blueprint for Giants — Plan Only</li>
               <li>• Access roads/trails &amp; screening cover</li>
               <li>• Food plots, TSI, and blind/stand installation</li>
               <li>• Budgeting, scheduling, field supervision</li>
