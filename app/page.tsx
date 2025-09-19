@@ -94,7 +94,7 @@ export default function HomePage() {
               <div className="rounded-2xl border border-brand-100 bg-white/70 p-4">
                 <div className="text-xs uppercase tracking-widest text-brand-700">Service Area</div>
                 <div className="mt-1 font-semibold text-zinc-900">
-                  Armstrong • Clearfield • Jefferson • Forest • Clarion • Indiana • Elk
+                  Allegheny • Armstrong • Beaver • Bedford • Butler • Cambria • Cameron • Clarion • Clearfield • Elk • Fayette • Forest • Greene • Indiana • Jefferson • Lawrence • Mercer • WSomerset • Venango • Washington • Westmoreland •
                 </div>
               </div>
               <div className="rounded-2xl border border-brand-100 bg-white/70 p-4">
