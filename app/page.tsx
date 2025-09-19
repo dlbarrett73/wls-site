@@ -1,419 +1,118 @@
-import React from "react";
+// app/page.tsx
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
-import { CtaButton } from "@/components/CtaButton";
 
-/** Local helper so we don't need "@/utils/formatPrice" */
-function formatPrice(price: number | string | undefined | null) {
-  if (price == null) return "Call";
-  if (typeof price === "string") return price; // supports "Sold", "Pending", etc.
-  return `$${price.toLocaleString()}`;
-}
-
-/** Featured property data (self-contained; no "@/data/properties" import) */
-const FEATURED = {
-  title: "Mahaffey 131",
-  href: "/properties/mahaffey-131",
-  image: "/images/properties/mahaffey-131/hero.jpg",
-  acreage: 131,
-  county: "Clearfield County, PA",
-  price: 499000, // <-- numeric price so it formats to $500,000
-};
+// ✅ import from ROOT components folder
+import CtaButton from "@/components/CtaButton";
 
 export default function HomePage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-12">
+    <main className="pb-24 pt-12">
       {/* ========================== */}
-      {/* Hero                       */}
+      {/* Hero (Split)               */}
       {/* ========================== */}
-      <section className="grid items-center gap-10 md:grid-cols-2">
+      <section className="grid items-center gap-8 lg:grid-cols-2">
         {/* Left: Headline & Copy */}
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties Engineered for Giants. Built for Legacy.
+          <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700 ring-1 ring-inset ring-emerald-200">
+            Limited inventory
+          </span>
+
+          <h1 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            Properties Optimized to Attract and Kill Mature Whitetail Bucks
           </h1>
 
-          <p className="mt-6 text-lg text-zinc-700">
-            Turnkey whitetail hunting properties and expert consulting engineered to put mature bucks
-            in front of you — fast. Serving Western &amp; Central Pennsylvania.
+          <p className="mt-4 max-w-prose text-lg text-zinc-700">
+            Engineered for Giants. Built for Legacy. We buy undervalued land, design
+            and implement proven habitat improvements, and deliver turnkey
+            properties you can hunt Day One.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
-              Book a Free Strategy Call
-            </CtaButton>
-
+          <div className="mt-6 flex flex-wrap gap-3">
+            <CtaButton href="/contact" label="Book a Free Strategy Call" />
             <Link
               href="/properties"
-              className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
+              className="inline-flex items-center justify-center rounded-xl border border-zinc-200 px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
             >
-              Find Your Property
+              Browse Properties
             </Link>
           </div>
-
-          {/* Fast facts */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            <div>
-              <div className="text-xs uppercase tracking-widest text-zinc-500">Service Area</div>
-              <div className="mt-1 font-semibold">
-                Armstrong • Clearfield • Jefferson • Forest • Clarion • Indiana • Elk
-              </div>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-widest text-zinc-500">Core Services</div>
-              <div className="mt-1 font-semibold">
-                <Link href="/properties" className="hover:underline">
-                  Land for Sale
-                </Link>{" "}
-                ·{" "}
-                <Link href="/services/consulting" className="hover:underline">
-                  Consulting
-                </Link>{" "}
-                ·{" "}
-                <Link href="/services/habitat-implementation" className="hover:underline">
-                  Habitat Implementation
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Lead Magnet (simple GET to /contact so it can't break) */}
-          <form
-            method="GET"
-            action="/contact"
-            className="mt-10 grid gap-3 rounded-2xl border border-zinc-200 p-4 sm:grid-cols-[1fr_1fr_auto]"
-            aria-label="Get Property Alerts + Whitetail Design Checklist"
-          >
-            <input type="hidden" name="source" value="homepage_hero_lead" />
-            <label className="sr-only" htmlFor="lead-name">
-              First name
-            </label>
-            <input
-              id="lead-name"
-              name="first_name"
-              placeholder="First name"
-              className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
-              required
-            />
-            <label className="sr-only" htmlFor="lead-email">
-              Email
-            </label>
-            <input
-              id="lead-email"
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
-              required
-            />
-            <button
-              type="submit"
-              className="h-11 rounded-xl bg-brand-700 px-5 text-sm font-semibold text-white transition hover:bg-brand-800"
-            >
-              Get Alerts + Checklist
-            </button>
-            <p className="col-span-full text-xs text-zinc-500">
-              Get property alerts and our Whitetail Design Checklist (PDF). Unsubscribe anytime.
-            </p>
-          </form>
         </div>
 
-        {/* Right: Hero Image (fill container, bias crop upward) */}
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-zinc-200">
+        {/* Right: Hero Image */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-sm lg:aspect-[5/4]">
+          {/* Use your real image path under /public; this fallback is safe */}
           <Image
-            src="/images/hero.jpg"
-            alt="Engineered whitetail habitat with screened plot, access, and stand strategy"
+            src="/images/home/hero.jpg"
+            alt="Kent with trophy-class buck—WLS habitat-designed property"
             fill
-            sizes="(min-width: 768px) 560px, 100vw"
-            className="object-cover object-[50%_20%]"
             priority
+            sizes="(min-width:1024px) 50vw, 100vw"
+            className="object-cover"
           />
         </div>
       </section>
 
       {/* ========================== */}
-      {/* Two Paths (Clear Offers)   */}
+      {/* What We Do                 */}
       {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Choose Your Path</h2>
-        <p className="mt-3 max-w-3xl text-zinc-700">
-          Whether you want a turnkey hunting property or you want to transform your current land into a big-buck
-          paradise, we have a proven system to get you there.
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight">What We Do</h2>
+        <p className="mt-2 max-w-prose text-zinc-700">
+          Turnkey properties, expert consulting, and done-for-you habitat implementation—backed by
+          proven access and stand strategy so you can focus on the hunt.
         </p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {/* Path 1 */}
-          <article className="group flex flex-col justify-between rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
-            <div>
-              <h3 className="text-xl font-semibold">Buy a Turnkey Property</h3>
-              <ul className="mt-2 grid gap-1 text-sm text-zinc-700">
-                <li>• Year-one huntability (plots, screens, access, stands)</li>
-                <li>• Undetectable entry & exit to reduce pressure</li>
-                <li>• Strategy built for mature buck encounters</li>
-              </ul>
-            </div>
-            <div className="mt-6">
+        <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Land for Sale */}
+          <li className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+            <div className="text-lg font-semibold">Land for Sale</div>
+            <p className="mt-2 text-sm text-zinc-700">
+              Turnkey whitetail properties engineered for big-buck opportunity the first season.
+            </p>
+            <div className="mt-4">
               <Link
                 href="/properties"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 transition group-hover:underline"
+                className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-800"
               >
-                Browse Available Properties →
+                See Available Properties
               </Link>
             </div>
-          </article>
+          </li>
 
-          {/* Path 2 */}
-          <article className="group flex flex-col justify-between rounded-2xl border border-zinc-200 p-6 transition hover:shadow-md">
-            <div>
-              <h3 className="text-xl font-semibold">Transform My Property</h3>
-              <ul className="mt-2 grid gap-1 text-sm text-zinc-700">
-                <li>• Blueprint for Giants: custom design map & plan</li>
-                <li>• Access, bedding, food, and stand placement by wind</li>
-                <li>• We can implement the plan for you end-to-end</li>
-              </ul>
-            </div>
-            <div className="mt-6">
+          {/* Consulting */}
+          <li className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+            <div className="text-lg font-semibold">Consulting</div>
+            <p className="mt-2 text-sm text-zinc-700">
+              Blueprint for Giants—custom property design map, access, stand locations, and a prioritized action plan.
+            </p>
+            <div className="mt-4">
               <Link
                 href="/services/consulting"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline-offset-4 transition group-hover:underline"
+                className="inline-flex items-center justify-center rounded-xl border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
               >
-                Learn About Consulting →
+                Explore Consulting
               </Link>
             </div>
-          </article>
-        </div>
-      </section>
+          </li>
 
-      {/* ========================== */}
-      {/* Biological Proof (Gallery) */}
-      {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Biological Proof</h2>
-        <p className="mt-3 max-w-3xl text-zinc-700">
-          Mature deer respond to great design. These snapshots show calm, daylight deer using engineered access,
-          screened plots, and wind-safe stand locations.
-        </p>
-
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              src: "/images/proof-1.jpg",
-              alt: "Daylight mature buck using screened food plot with undetectable entry",
-              label: "Screened Plot → Daylight Feeding",
-            },
-            {
-              src: "/images/proof-2.jpg",
-              alt: "Access trail hugging terrain for low-impact entry/exit",
-              label: "Undetectable Access → Low Pressure",
-            },
-            {
-              src: "/images/proof-3.jpg",
-              alt: "Stand and blind placements set by wind & season",
-              label: "Wind-Based Stands → Predictability",
-            },
-          ].map((img) => (
-            <figure
-              key={img.src}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-zinc-200"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover"
-              />
-              <figcaption className="absolute bottom-0 left-0 right-0 bg-black/50 px-3 py-2 text-xs font-medium text-white">
-                {img.label}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* ========================== */}
-      {/* Featured Property          */}
-      {/* ========================== */}
-      <section className="mt-20">
-        <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Featured Property</h2>
-          <Link
-            href="/properties"
-            className="text-sm font-semibold text-brand-700 hover:underline underline-offset-4"
-          >
-            See All Properties →
-          </Link>
-        </div>
-
-        <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-zinc-200 p-4 sm:grid-cols-2">
-          <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl">
-            <Image
-              src={FEATURED.image}
-              alt={`${FEATURED.title} — ${FEATURED.acreage}± Acres, ${FEATURED.county}`}
-              fill
-              sizes="(min-width: 640px) 50vw, 100vw"
-              className="object-cover"
-              priority
-            />
-          </Link>
-          <div className="flex flex-col justify-between p-2">
-            <div>
-              <h3 className="text-xl font-semibold">{FEATURED.title}</h3>
-              <div className="mt-1 text-sm text-zinc-600">
-                {FEATURED.acreage}± Acres • {FEATURED.county}
-              </div>
-              <div className="mt-1 text-base font-semibold text-zinc-900">
-                {formatPrice(FEATURED.price)}
-              </div>
-              <ul className="mt-4 grid gap-2 text-sm text-zinc-800">
-                <li>• Undetectable access for calm daylight movement</li>
-                <li>• Year-one huntability—plots, screens, stands in place</li>
-                <li>• Wind-based stand/blind strategy to reduce pressure</li>
-              </ul>
-            </div>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
-                Inquire About This Property
-              </CtaButton>
+          {/* Habitat Implementation */}
+          <li className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:shadow-md">
+            <div className="text-lg font-semibold">Habitat Implementation</div>
+            <p className="mt-2 text-sm text-zinc-700">
+              Food plots, trails, blinds, screening cover, and TSI—installed for you by our trusted partners.
+            </p>
+            <div className="mt-4">
               <Link
-                href={FEATURED.href}
-                className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
+                href="/services/habitat-implementation"
+                className="inline-flex items-center justify-center rounded-xl border border-emerald-200 px-4 py-2 text-sm font-semibold text-emerald-800 hover:bg-emerald-50"
               >
-                View Details
+                See How It Works
               </Link>
             </div>
-          </div>
-        </article>
+          </li>
+        </ul>
       </section>
-
-      {/* ========================== */}
-      {/* Values / Story             */}
-      {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          Engineered for Giants. Built for Legacy.
-        </h2>
-        <p className="mt-3 max-w-3xl text-zinc-700">
-          We combine whitetail biology, habitat design, and forestry to engineer properties that consistently
-          attract and hold mature deer. Our work is guided by Integrity, Stewardship, Service, and the Golden Rule —
-          so you can create a legacy of memories with family and friends on land you’re proud to own.
-        </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {[
-            { title: "Integrity", desc: "Do the right thing, every time." },
-            { title: "Stewardship", desc: "Improve the land for deer and people." },
-            { title: "Service", desc: "Treat clients like family — Golden Rule." },
-          ].map((v) => (
-            <div key={v.title} className="rounded-2xl border border-zinc-200 p-4">
-              <div className="text-sm uppercase tracking-widest text-zinc-500">{v.title}</div>
-              <div className="mt-1 text-sm text-zinc-700">{v.desc}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========================== */}
-      {/* FAQ (SEO-friendly)         */}
-      {/* ========================== */}
-      <section className="mt-20">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Frequently Asked Questions</h2>
-        <div className="mt-6 grid gap-3">
-          {[
-            {
-              q: "What is a turnkey whitetail property?",
-              a: "Land with access, habitat, food, and stand strategy ready to hunt on day one — engineered to create safe, predictable, daylight movement.",
-            },
-            {
-              q: "How fast can I hunt a new property?",
-              a: "Immediately. Our goal is year-one huntability with undetectable access, screened plots, and wind-based stand locations.",
-            },
-            {
-              q: "Do you consult outside Pennsylvania?",
-              a: "Our primary service area is PA and nearby states. If you’re outside the area, contact us — we evaluate on a case-by-case basis.",
-            },
-          ].map((item) => (
-            <details
-              key={item.q}
-              className="rounded-2xl border border-zinc-200 p-4 open:shadow-sm transition"
-            >
-              <summary className="cursor-pointer text-sm font-semibold">{item.q}</summary>
-              <p className="mt-2 text-sm text-zinc-700">{item.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      {/* ========================== */}
-      {/* Final CTA + Email Capture  */}
-      {/* ========================== */}
-      <section className="mt-20 rounded-2xl border border-zinc-200 p-8 text-center">
-        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          Ready to Secure Your Hunting Legacy?
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-zinc-700">
-          Inventory is limited. Book a free strategy call or join the waitlist — we’ll help you
-          find or build a property engineered to put mature bucks in front of you.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <CtaButton href="/contact" className="bg-brand-700 hover:bg-brand-800">
-            Book a Free Strategy Call
-          </CtaButton>
-        </div>
-
-        {/* Smaller email capture near footer */}
-        <form
-          method="GET"
-          action="/contact"
-          className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-[1fr_auto]"
-          aria-label="Get Property Alerts"
-        >
-          <input type="hidden" name="source" value="homepage_footer_lead" />
-          <label className="sr-only" htmlFor="lead-email-footer">
-            Email
-          </label>
-          <input
-            id="lead-email-footer"
-            type="email"
-            name="email"
-            placeholder="Email for Property Alerts"
-            className="h-11 rounded-xl border border-zinc-300 px-3 text-sm outline-none focus:border-zinc-400"
-            required
-          />
-          <button
-            type="submit"
-            className="h-11 rounded-xl bg-brand-700 px-5 text-sm font-semibold text-white transition hover:bg-brand-800"
-          >
-            Get Alerts
-          </button>
-        </form>
-      </section>
-
-      {/* ========================== */}
-      {/* JSON-LD (Organization + Service) */}
-      {/* ========================== */}
-      <Script id="ld-org" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Whitetail Land Solutions",
-          url: "https://www.whitetaillandsolutions.com/",
-          logo: "https://www.whitetaillandsolutions.com/logo-400.png",
-          sameAs: [],
-          areaServed: "US-PA",
-        })}
-      </Script>
-      <Script id="ld-service-consulting" type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: "Whitetail Property Consulting",
-          provider: { "@type": "Organization", name: "Whitetail Land Solutions" },
-          areaServed: "US-PA",
-          serviceType: "Habitat design and hunting access strategy",
-          url: "https://www.whitetaillandsolutions.com/services/consulting",
-        })}
-      </Script>
     </main>
   );
 }
