@@ -3,6 +3,32 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+/** Try to import CtaButton (works with both named and default exports).
+ *  If it's missing or mismatched, we fall back to a styled <Link>.
+ */
+import * as Cta from "@/components/CtaButton";
+type CtaProps = { href: string; className?: string; children: React.ReactNode };
+function CtaSafe({ href, className = "", children }: CtaProps) {
+  // Support both: export function CtaButton() {}  OR  export default function CtaButton() {}
+  // If neither is present, render a Link with the same styling.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Comp = (Cta as any).CtaButton ?? (Cta as any).default;
+  if (!Comp) {
+    return (
+      <Link
+        href={href}
+        className={
+          "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800 " +
+          className
+        }
+      >
+        {children}
+      </Link>
+    );
+  }
+  return <Comp href={href} className={className}>{children}</Comp>;
+}
+
 /** Local helper so we don't need "@/utils/formatPrice" */
 function formatPrice(price: number | string | undefined | null) {
   if (price == null) return "Call";
@@ -39,12 +65,9 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
-            >
+            <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
               Book a Free Strategy Call
-            </Link>
+            </CtaSafe>
 
             <Link
               href="/properties"
@@ -135,7 +158,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================== */}
-      {/* Two Paths (Clear Offers)   */}
+      {/* Choose Your Path           */}
       {/* ========================== */}
       <section className="mt-20">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Choose Your Path</h2>
@@ -275,12 +298,9 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
-              >
+              <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
                 Inquire About This Property
-              </Link>
+              </CtaSafe>
               <Link
                 href={FEATURED.href}
                 className="inline-flex items-center justify-center rounded-full border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-400"
@@ -361,12 +381,9 @@ export default function HomePage() {
           find or build a property engineered to put mature bucks in front of you.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white transition bg-brand-700 hover:bg-brand-800"
-          >
+          <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800">
             Book a Free Strategy Call
-          </Link>
+          </CtaSafe>
         </div>
 
         {/* Smaller email capture near footer */}
@@ -402,7 +419,6 @@ export default function HomePage() {
       {/* ========================== */}
       <script
         type="application/ld+json"
-        // JSON-LD via inline script to avoid next/script in a Server Component
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
