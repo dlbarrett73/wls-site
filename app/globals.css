@@ -52,3 +52,17 @@ a {
 .shadow-soft {
   @apply shadow-lg;
 }
+
+/* ===== WLS utilities (safe, additive) ===== */
+.section-eyebrow { @apply text-xs md:text-sm font-semibold tracking-widest text-brand-700; }
+.section-title   { @apply mt-2 text-3xl md:text-5xl font-extrabold tracking-tight text-brand-900; }
+.subtle-card     { @apply rounded-2xl border border-brand-100 bg-white shadow-soft; }
+.accent-chip     { @apply inline-flex items-center rounded-full border border-brand-200 bg-white px-3 py-1 text-neutral-700 hover:border-brand-300 hover:text-brand-800; }
+.compare-th      { @apply sticky top-0 z-10 bg-white px-4 py-3 text-xs font-semibold text-neutral-500 border-b border-brand-200; }
+.compare-td      { @apply px-4 py-4 border-b border-brand-100 align-top; }
+.btn-xs          { @apply px-3 py-1 text-xs; }
+.link-underline  { @apply underline underline-offset-4 decoration-1; }
+
+.divider-accent  { @apply h-1 w-20 rounded-full bg-brand-600/90; }
+.badge-kicker    { @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 border border-brand-100; }
+
