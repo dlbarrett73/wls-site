@@ -1,95 +1,83 @@
-// app/components/Header.tsx
 "use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CtaButton } from "./CtaButton";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-zinc-200">
+    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-zinc-200">
       <div className="mx-auto w-full max-w-6xl px-6 flex h-16 items-center justify-between">
-        {/* Logo + Brand */}
+        {/* Logo + Name */}
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo-400.png"
-            alt="Whitetail Land Solutions Logo"
+            alt="Whitetail Land Solutions"
             width={40}
             height={40}
-            className="h-10 w-auto"
+            priority
           />
-          <div className="flex flex-col leading-tight">
-            <span className="text-lg font-bold text-brand-700">
+          <div className="flex flex-col">
+            <span className="text-lg font-bold text-emerald-800">
               Whitetail Land Solutions
             </span>
-            <span className="text-xs text-brand-700">
+            <span className="text-xs text-emerald-700">
               Engineered for Giants. Built for Legacy.
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/properties" className="text-zinc-800 hover:text-brand-700">
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="/properties" className="text-sm font-medium hover:text-emerald-700">
             Land for Sale
           </Link>
-          <Link href="/services" className="text-zinc-800 hover:text-brand-700">
-            Services
+          <Link href="/services/consulting" className="text-sm font-medium hover:text-emerald-700">
+            Consulting
           </Link>
-          <Link href="/about" className="text-zinc-800 hover:text-brand-700">
+          <Link href="/services/habitat-implementation" className="text-sm font-medium hover:text-emerald-700">
+            Habitat Implementation
+          </Link>
+          <Link href="/about" className="text-sm font-medium hover:text-emerald-700">
             About
           </Link>
-          <Link href="/contact" className="text-zinc-800 hover:text-brand-700">
+          <Link href="/contact" className="text-sm font-medium hover:text-emerald-700">
             Contact
           </Link>
-          <CtaButton href="/contact">Free Strategy Call</CtaButton>
+          <Link
+            href="/contact"
+            className="rounded-lg bg-emerald-700 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-800"
+          >
+            Free Strategy Call
+          </Link>
         </nav>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-zinc-700 focus:outline-none"
+          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-zinc-700 hover:bg-zinc-100 focus:outline-none"
         >
+          <span className="sr-only">Open main menu</span>
           ☰
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Nav */}
       {open && (
-        <div className="md:hidden bg-white border-t border-zinc-200">
-          <nav className="flex flex-col p-4 space-y-3">
-            <Link
-              href="/properties"
-              onClick={() => setOpen(false)}
-              className="text-zinc-800 hover:text-brand-700"
-            >
-              Land for Sale
-            </Link>
-            <Link
-              href="/services"
-              onClick={() => setOpen(false)}
-              className="text-zinc-800 hover:text-brand-700"
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setOpen(false)}
-              className="text-zinc-800 hover:text-brand-700"
-            >
-              About
-            </Link>
+        <div className="md:hidden border-t border-zinc-200 bg-white">
+          <nav className="px-4 py-3 flex flex-col gap-2">
+            <Link href="/properties">Land for Sale</Link>
+            <Link href="/services/consulting">Consulting</Link>
+            <Link href="/services/habitat-implementation">Habitat Implementation</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
             <Link
               href="/contact"
-              onClick={() => setOpen(false)}
-              className="text-zinc-800 hover:text-brand-700"
+              className="mt-2 rounded-lg bg-emerald-700 px-3 py-1.5 text-sm font-semibold text-white hover:bg-emerald-800 text-center"
             >
-              Contact
+              Free Strategy Call
             </Link>
-            <CtaButton href="/contact">Free Strategy Call</CtaButton>
           </nav>
         </div>
       )}
