@@ -1,18 +1,22 @@
 // app/data/properties.ts
 
+// app/data/properties.ts
 export type Property = {
   slug: string;
   title: string;
-  price?: string;
+  price?: number | string;   // was string
   acres?: number | string;
-  heroSrc?: string;      // either heroSrc
-  heroImage?: string;    // ...or heroImage (both supported by pages)
+  county?: string;           // add
+  state?: string;            // add
+  heroSrc?: string;
+  heroImage?: string;
   gallery?: string[];
   location?: string;
   highlights?: string[];
   description?: string;
   mapEmbedUrl?: string;
 };
+
 
 export const propertiesBySlug = {
   "mahaffey-131": {
