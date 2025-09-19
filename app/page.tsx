@@ -47,7 +47,7 @@ const FEATURED = {
   image: "/images/properties/mahaffey-131/hero.jpg",
   acreage: 131,
   county: "Clearfield County, PA",
-  price: 500000,
+  price: 499000,
 };
 
 export default function HomePage() {
