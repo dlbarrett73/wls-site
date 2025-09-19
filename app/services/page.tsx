@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Services — Whitetail Land Solutions",
   description:
-    "Whitetail Land Solutions offers Consulting, Habitat Implementation, and Turnkey Land for Sale Engineered for Mature Whitetails.",
+    "Consulting, Habitat Implementation, and Turnkey Land for Sale engineered to hunt easier and produce more daylight opportunities on mature whitetails.",
 };
 
 export default function Services() {
@@ -11,24 +11,59 @@ export default function Services() {
     <main>
       {/* Hero */}
       <section className="container py-16 md:py-24">
-        <p className="text-sm font-semibold tracking-widest text-neutral-500">SERVICES</p>
+        <p className="text-xs md:text-sm font-semibold tracking-widest text-neutral-500">
+          SERVICES
+        </p>
         <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
           Simple Offers That Solve Real Hunter Problems.
         </h1>
         <p className="mt-6 max-w-3xl text-neutral-600">
-          We design properties that hunt easier and produce more daylight opportunities on mature
-          bucks. Start with consulting, have us implement the work, or buy a turnkey property engineered
-          for giants.
+          We design properties that hunt easier and create more daylight opportunities on mature
+          bucks. Choose a consulting plan, have us implement the work, or buy a turnkey property
+          engineered for giants.
         </p>
-        <div className="mt-8">
-          <Link href="/contact" className="btn btn-primary">Get a Free 15-Minute Strategy Call</Link>
+
+        {/* Benefit bar */}
+        <ul className="mt-8 grid gap-3 sm:grid-cols-3 text-sm">
+          {[
+            "Access-first design: wind, thermals, undetectable entry/exit",
+            "Plans built to hold and hunt mature bucks",
+            "Sequenced work that compounds — better every pass",
+          ].map((item) => (
+            <li
+              key={item}
+              className="rounded-xl border border-wood-200 bg-wood-50 px-4 py-3"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 flex gap-3">
+          <Link href="/contact" className="btn btn-primary">
+            Get a Free 15-Minute Strategy Call
+          </Link>
+          <a href="#offers" className="btn btn-outline">
+            Choose Your Path
+          </a>
         </div>
       </section>
 
+      {/* Sticky quick-nav */}
+      <nav className="sticky top-16 z-40 border-y border-wood-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+        <div className="container flex flex-wrap items-center gap-3 py-3 text-sm">
+          <span className="font-semibold text-neutral-700">Choose your path:</span>
+          <a href="#consulting" className="chip">Consulting</a>
+          <a href="#implementation" className="chip">Habitat Implementation</a>
+          <a href="#land" className="chip">Land for Sale</a>
+        </div>
+      </nav>
+
       {/* Offer Cards */}
-      <section className="border-t border-wood-200 bg-wood-50">
+      <section id="offers" className="border-b border-wood-200 bg-wood-50">
         <div className="container py-14 grid md:grid-cols-3 gap-6">
           <OfferCard
+            id="consulting"
             eyebrow="Service 01"
             title="Consulting"
             bullets={[
@@ -36,11 +71,12 @@ export default function Services() {
               "Stand/entry/exit mapped for wind & thermals",
               "Prioritized roadmap by effort & budget",
             ]}
-            body="We walk your ground (or start remote), analyze access, pressure, food/bedding, and map a practical plan that hunts in the real world."
+            body="We walk your ground (or start remote), analyze access, pressure, food and bedding, then map a practical plan that hunts in the real world."
             cta={{ href: "/services/consulting", label: "Learn more" }}
           />
 
           <OfferCard
+            id="implementation"
             eyebrow="Service 02"
             title="Habitat Implementation"
             bullets={[
@@ -53,6 +89,7 @@ export default function Services() {
           />
 
           <OfferCard
+            id="land"
             eyebrow="Service 03"
             title="Land for Sale"
             bullets={[
@@ -66,6 +103,57 @@ export default function Services() {
         </div>
       </section>
 
+      {/* Quick Compare */}
+      <section className="container py-14">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Compare your options</h2>
+        <div className="mt-6 overflow-x-auto">
+          <table className="w-full min-w-[720px] border-separate border-spacing-0 text-sm">
+            <thead>
+              <tr className="text-left">
+                <th className="compare-th">Offer</th>
+                <th className="compare-th">Best for</th>
+                <th className="compare-th">You get</th>
+                <th className="compare-th">Typical timeline</th>
+                <th className="compare-th">Investment</th>
+                <th className="compare-th sr-only">CTA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <CompareRow
+                offer={<a href="#consulting" className="link-underline font-semibold">Consulting</a>}
+                bestFor="Owners wanting a proven plan and access strategy"
+                deliverable="Property-specific plan, mapped stands & routes, sequenced roadmap"
+                timeline="1–3 weeks after property walk"
+                investment="Quoted by acreage / scope"
+                cta={<Link href="/services/consulting" className="btn btn-xs btn-primary">Learn more</Link>}
+              />
+              <CompareRow
+                offer={<a href="#implementation" className="link-underline font-semibold">Habitat Implementation</a>}
+                bestFor="Owners who want it done right, in the right order"
+                deliverable="Implementation crew + forestry oversight, progress check-ins"
+                timeline="Phase-based; seasonal windows"
+                investment="Quote after plan / site review"
+                cta={<Link href="/services/implementation" className="btn btn-xs btn-primary">Learn more</Link>}
+              />
+              <CompareRow
+                offer={<a href="#land" className="link-underline font-semibold">Land for Sale</a>}
+                bestFor="Buyers wanting Hunt Day One properties"
+                deliverable="Turnkey tract: access, stands, food, cover working"
+                timeline="Immediate — properties as available"
+                investment="See current listings"
+                cta={<Link href="/properties" className="btn btn-xs btn-primary">Browse properties</Link>}
+              />
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-8">
+          <Link href="/contact" className="btn btn-outline">
+            Not sure which path? Start with a free call
+          </Link>
+        </div>
+      </section>
+
       {/* Process */}
       <section className="container py-14">
         <h2 className="text-2xl md:text-3xl font-bold tracking-tight">How it works</h2>
@@ -76,7 +164,9 @@ export default function Services() {
           <Step n="04" title="Implementation / Follow-Up" body="We execute with partners or coach you through DIY phases." />
         </ol>
         <div className="mt-8">
-          <Link href="/contact" className="btn btn-outline">Start with a Free Call</Link>
+          <Link href="/contact" className="btn btn-outline">
+            Start with a Free Call
+          </Link>
         </div>
       </section>
 
@@ -101,7 +191,7 @@ export default function Services() {
               </div>
               <div>
                 <dt className="text-neutral-500">Engagements</dt>
-                <dd className="font-semibold">On-site or remote (maps & video)</dd>
+                <dd className="font-semibold">On-site or remote (maps &amp; video)</dd>
               </div>
               <div>
                 <dt className="text-neutral-500">Email</dt>
@@ -110,7 +200,12 @@ export default function Services() {
               <div>
                 <dt className="text-neutral-500">YouTube</dt>
                 <dd className="font-semibold">
-                  <a className="underline" href="https://www.youtube.com/@GiantLegacy_WLS" target="_blank">
+                  <a
+                    className="underline"
+                    href="https://www.youtube.com/@GiantLegacy_WLS"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     @GiantLegacy_WLS
                   </a>
                 </dd>
@@ -120,29 +215,56 @@ export default function Services() {
         </div>
       </section>
 
+      {/* FAQs (lightweight) */}
+      <section className="container py-14">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">FAQs</h2>
+        <div className="mt-6 space-y-3">
+          <Faq q="Do you work outside Pennsylvania?">
+            Yes — nearby states case-by-case. Remote consults are available anywhere with good map
+            data and video/walkthroughs.
+          </Faq>
+          <Faq q="Can you coach me to DIY implementation?">
+            Absolutely. We’ll sequence the work, check progress, and keep you focused on actions
+            that improve huntability — not just looks.
+          </Faq>
+          <Faq q="How do you price consulting and implementation?">
+            Pricing depends on acreage and scope. Start with a free call and we’ll outline options
+            and a clear next step.
+          </Faq>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="container py-14 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Tell us about your goals</h2>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+          Tell us about your goals
+        </h2>
         <p className="mt-2 text-neutral-600">
           We’ll map the fastest path to a hunt-ready property — without wasting seasons.
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <Link href="/contact" className="btn btn-primary">Get a Free 15-Minute Strategy Call</Link>
-          <Link href="/properties" className="btn btn-outline">See Land for Sale</Link>
+          <Link href="/contact" className="btn btn-primary">
+            Get a Free 15-Minute Strategy Call
+          </Link>
+          <Link href="/properties" className="btn btn-outline">
+            See Land for Sale
+          </Link>
         </div>
       </section>
     </main>
   );
 }
 
-/* --- small helpers --- */
+/* --- components --- */
 function OfferCard({
+  id,
   eyebrow,
   title,
   bullets,
   body,
   cta,
 }: {
+  id: string;
   eyebrow: string;
   title: string;
   bullets: string[];
@@ -150,15 +272,22 @@ function OfferCard({
   cta: { href: string; label: string };
 }) {
   return (
-    <article className="card p-6 bg-white">
+    <article id={id} className="card p-6 bg-white scroll-mt-28">
       <p className="text-xs font-semibold tracking-widest text-neutral-500">{eyebrow}</p>
       <h3 className="mt-1 text-lg font-semibold">{title}</h3>
       <ul className="mt-3 space-y-2 text-sm text-neutral-700">
-        {bullets.map((b) => <li key={b}>• {b}</li>)}
+        {bullets.map((b) => (
+          <li key={b} className="flex gap-2">
+            <span className="select-none">•</span>
+            <span>{b}</span>
+          </li>
+        ))}
       </ul>
       <p className="mt-4 text-sm text-neutral-700">{body}</p>
       <div className="mt-6">
-        <Link href={cta.href} className="btn btn-primary">{cta.label}</Link>
+        <Link href={cta.href} className="btn btn-primary">
+          {cta.label}
+        </Link>
       </div>
     </article>
   );
@@ -173,3 +302,49 @@ function Step({ n, title, body }: { n: string; title: string; body: string }) {
     </li>
   );
 }
+
+function CompareRow({
+  offer,
+  bestFor,
+  deliverable,
+  timeline,
+  investment,
+  cta,
+}: {
+  offer: React.ReactNode;
+  bestFor: string;
+  deliverable: string;
+  timeline: string;
+  investment: string;
+  cta: React.ReactNode;
+}) {
+  return (
+    <tr className="align-top">
+      <td className="compare-td">{offer}</td>
+      <td className="compare-td">{bestFor}</td>
+      <td className="compare-td">{deliverable}</td>
+      <td className="compare-td">{timeline}</td>
+      <td className="compare-td">{investment}</td>
+      <td className="compare-td text-right">{cta}</td>
+    </tr>
+  );
+}
+
+function Faq({ q, children }: { q: string; children: React.ReactNode }) {
+  return (
+    <details className="rounded-xl border border-wood-200 bg-wood-50 p-4">
+      <summary className="cursor-pointer select-none font-medium">{q}</summary>
+      <div className="mt-2 text-sm text-neutral-700">{children}</div>
+    </details>
+  );
+}
+
+/* --- small style helpers (Tailwind utilities expected in globals) ---
+   Add these to your global CSS utilities if you don't already have them:
+
+   .chip { @apply inline-flex items-center rounded-full border border-wood-200 bg-white px-3 py-1 text-neutral-700 hover:border-brand-300 hover:text-brand-800; }
+   .compare-th { @apply sticky top-0 z-10 bg-white px-4 py-3 text-xs font-semibold text-neutral-500 border-b border-wood-200; }
+   .compare-td { @apply px-4 py-4 border-b border-wood-200; }
+   .btn-xs { @apply px-3 py-1 text-xs; }
+   .link-underline { @apply underline underline-offset-4 decoration-1; }
+*/
