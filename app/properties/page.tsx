@@ -62,8 +62,8 @@ export default function PropertiesPage() {
       </div>
 
       {/* Waitlist Section */}
-      <section className="mt-16 rounded-xl bg-green-50 px-6 py-10 text-center shadow-sm">
-        <h2 className="text-2xl font-bold text-green-900">
+      <section className="mt-16 rounded-xl bg-brand-50 px-6 py-10 text-center shadow-sm">
+        <h2 className="text-2xl font-bold text-brand-900">
           Don’t See What You’re Looking For?
         </h2>
         <p className="mt-3 text-zinc-700">
@@ -72,8 +72,7 @@ export default function PropertiesPage() {
         </p>
         <Link
           href="/contact"
-          // ⬇️ Match header CTA look: rounded-full, padding, weight, subtle shadow
-          className="mt-6 inline-flex items-center justify-center rounded-full bg-green-700 px-5 py-2.5 font-semibold text-white shadow-sm transition hover:bg-green-800"
+          className="mt-6 inline-flex items-center justify-center rounded-full bg-brand-700 px-5 py-2.5 font-semibold text-white shadow-sm transition hover:bg-brand-800"
         >
           Join the Waitlist
         </Link>
