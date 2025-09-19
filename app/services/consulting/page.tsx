@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Consulting — Whitetail Land Solutions",
   description:
-    "Blueprints and turnkey execution to engineer your property for mature whitetails—undetectable access, predictable movement, season-long opportunity.",
+    "Custom habitat blueprints and turnkey execution to engineer properties for mature whitetails—stealthy access, predictable movement, season-long opportunity.",
 };
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -16,11 +16,23 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Section({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <section className={`mt-12 ${className}`}>{children}</section>;
 }
 
-function PrimaryCTA({ href = "/contact", children = "Book a Free Strategy Call" }) {
+function PrimaryCTA({
+  href = "/contact",
+  children = "Book a Free Strategy Call",
+}: {
+  href?: string;
+  children?: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -41,31 +53,31 @@ export default function ConsultingPage() {
           Blueprint Consulting to Engineer Your Big-Buck Paradise
         </h1>
         <p className="mt-4 text-lg text-zinc-700">
-          Forester-led, whitetail-first design for undetectable access and predictable movement—
-          so you can hunt mature bucks sooner and more often.
+          Wildlife &amp; habitat science meets deer behavior. We design properties for
+          undetectable access and predictable movement—so you can hunt mature bucks sooner.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <PrimaryCTA />
           <Link
             href="/services"
-            className="inline-flex items-center rounded-xl border border-zinc-300 bg-white/60 px-5 py-3 font-semibold text-zinc-800 hover:bg-white"
+            className="inline-flex items-center rounded-xl border border-brand-200 bg-white/70 px-5 py-3 font-semibold text-brand-800 hover:bg-white"
           >
             Explore All Services
           </Link>
         </div>
       </header>
 
-      {/* Social proof / Why WLS */}
+      {/* Why WLS / Proof (brand-tinted cards) */}
       <Section>
-        <div className="grid gap-4 rounded-2xl border bg-white/50 p-6 md:grid-cols-4">
+        <div className="grid gap-4 rounded-2xl border border-brand-100 bg-brand-50/60 p-6 md:grid-cols-4">
           {[
-            ["Consulting Forester-Led", "Habitat design rooted in timber + biology."],
-            ["Whitetail Behavior First", "Access, wind, bedding, and pressure control."],
-            ["Local Expertise", "Pennsylvania + surrounding regions."],
-            ["Turnkey Options", "From blueprint to boots-on-the-ground build."],
+            ["Wildlife & Habitat Expertise", "Educated in wildlife & habitat management (Penn State)."],
+            ["PSU Deer Lab Experience", "Applied research background in whitetail behavior & use of space."],
+            ["Years of Field Implementation", "Designing & building improvements on real hunting properties."],
+            ["Turnkey or DIY", "Get a blueprint to execute—or we’ll deliver it done-for-you."],
           ].map(([title, body]) => (
-            <div key={title} className="rounded-xl border p-4">
-              <div className="text-sm font-semibold">{title}</div>
+            <div key={title} className="rounded-xl border border-brand-100 bg-white p-4">
+              <div className="text-sm font-semibold text-brand-800">{title}</div>
               <div className="mt-1 text-sm text-zinc-700">{body}</div>
             </div>
           ))}
@@ -79,13 +91,13 @@ export default function ConsultingPage() {
             <h2 className="text-2xl font-bold">Choose Your Path</h2>
             <p className="mt-2 max-w-2xl text-zinc-700">
               Start with a custom Blueprint for Giants plan, then implement yourself—or have our team
-              manage the entire build for a turnkey day-one hunting experience.
+              manage the entire build for a turnkey, day-one hunting experience.
             </p>
           </div>
           <div className="mt-4 md:mt-0">
             <Link
               href="/habitat-implementation"
-              className="inline-flex items-center rounded-xl border border-zinc-300 bg-white/60 px-4 py-2 text-sm font-semibold hover:bg-white"
+              className="inline-flex items-center rounded-xl border border-brand-200 bg-white/70 px-4 py-2 text-sm font-semibold text-brand-800 hover:bg-white"
             >
               See Habitat Implementation
             </Link>
@@ -94,7 +106,7 @@ export default function ConsultingPage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {/* Plan Only */}
-          <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+          <div className="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold">Blueprint for Giants — Plan Only</h3>
             <p className="mt-2 text-zinc-700">
               A complete, ready-to-implement design tailored to your goals and property.
@@ -111,7 +123,7 @@ export default function ConsultingPage() {
           </div>
 
           {/* Plan + Implementation */}
-          <div className="rounded-2xl border bg-white/60 p-6 shadow-sm">
+          <div className="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-bold">Blueprint + Turnkey Implementation</h3>
             <p className="mt-2 text-zinc-700">
               We manage the work and deliver a finished, hunt-ready property.
@@ -129,19 +141,19 @@ export default function ConsultingPage() {
         </div>
       </Section>
 
-      {/* Side-by-side comparison */}
-      <Section className="rounded-2xl border bg-white/50 p-6">
+      {/* Comparison (simple, mobile-safe) */}
+      <Section className="rounded-2xl border border-brand-100 bg-brand-50/60 p-6">
         <h3 className="text-lg font-semibold">What’s Included</h3>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[680px] text-sm">
             <thead>
               <tr className="text-left">
                 <th className="px-4 py-3 font-semibold text-zinc-600">Deliverable</th>
-                <th className="px-4 py-3 font-semibold">Plan Only</th>
-                <th className="px-4 py-3 font-semibold">Plan + Implementation</th>
+                <th className="px-4 py-3 font-semibold text-brand-800">Plan Only</th>
+                <th className="px-4 py-3 font-semibold text-brand-800">Plan + Implementation</th>
               </tr>
             </thead>
-            <tbody className="divide-y">
+            <tbody className="divide-y divide-brand-100">
               {[
                 ["Site assessment (on-site or virtual)", "✓", "✓"],
                 ["Custom property map & written plan", "✓", "✓"],
@@ -163,26 +175,26 @@ export default function ConsultingPage() {
       </Section>
 
       {/* Process */}
-      <Section className="rounded-2xl border bg-white/40 p-6">
+      <Section className="rounded-2xl border border-brand-100 bg-white p-6">
         <h3 className="text-lg font-semibold">Our Proven Process</h3>
         <ol className="mt-3 grid gap-3 text-zinc-700 md:grid-cols-3">
-          <li className="rounded-xl border p-4">
-            <span className="font-semibold">1) Assess</span>
+          <li className="rounded-xl border border-brand-100 bg-white p-4">
+            <span className="font-semibold text-brand-800">1) Assess</span>
             <div className="text-sm">Goals, constraints, current habitat.</div>
           </li>
-          <li className="rounded-xl border p-4">
-            <span className="font-semibold">2) Design</span>
+          <li className="rounded-xl border border-brand-100 bg-white p-4">
+            <span className="font-semibold text-brand-800">2) Design</span>
             <div className="text-sm">Map + written plan with priorities.</div>
           </li>
-          <li className="rounded-xl border p-4">
-            <span className="font-semibold">3) Execute</span>
+          <li className="rounded-xl border border-brand-100 bg-white p-4">
+            <span className="font-semibold text-brand-800">3) Execute</span>
             <div className="text-sm">DIY or done-for-you implementation.</div>
           </li>
         </ol>
       </Section>
 
       {/* FAQs */}
-      <Section className="rounded-2xl border bg-white/50 p-6">
+      <Section className="rounded-2xl border border-brand-100 bg-white p-6">
         <h3 className="text-lg font-semibold">Frequently Asked</h3>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {[
@@ -196,15 +208,15 @@ export default function ConsultingPage() {
             ],
             [
               "What if I already have a plan?",
-              "We can audit and refine an existing plan, or implement to our higher standards where it makes sense.",
+              "We can audit and refine an existing plan, or implement to our standards where it makes sense.",
             ],
             [
               "What do you need from me?",
               "A short goals questionnaire, property access info (maps/ONX if available), and a quick scheduling window.",
             ],
           ].map(([q, a]) => (
-            <div key={q} className="rounded-xl border p-4">
-              <div className="font-semibold">{q}</div>
+            <div key={q} className="rounded-xl border border-brand-100 bg-brand-50/40 p-4">
+              <div className="font-semibold text-brand-800">{q}</div>
               <p className="mt-1 text-sm text-zinc-700">{a}</p>
             </div>
           ))}
@@ -221,7 +233,7 @@ export default function ConsultingPage() {
           <PrimaryCTA />
           <Link
             href="/properties"
-            className="inline-flex items-center rounded-xl border border-zinc-300 bg-white/60 px-6 py-3 font-semibold text-zinc-800 hover:bg-white"
+            className="inline-flex items-center rounded-xl border border-brand-200 bg-white/70 px-6 py-3 font-semibold text-brand-800 hover:bg-white"
           >
             See Land for Sale
           </Link>
