@@ -47,7 +47,7 @@ const FEATURED = {
   image: "/images/properties/mahaffey-131/hero.jpg",
   acreage: 131,
   county: "Clearfield County, PA",
-  price: 499000,
+  price: 500000,
 };
 
 export default function HomePage() {
@@ -80,6 +80,7 @@ export default function HomePage() {
                 Book a Free Strategy Call
               </CtaSafe>
 
+              {/* Secondary button uses consistent border + hover treatment */}
               <Link
                 href="/properties"
                 className="inline-flex items-center justify-center rounded-full border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
@@ -265,6 +266,7 @@ export default function HomePage() {
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="object-cover"
+                loading="lazy" // performance-friendly: gallery images lazy-load
               />
               <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent px-3 py-2 text-xs font-medium text-white">
                 {img.label}
@@ -288,7 +290,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-brand-200 bg-white p-4 shadow-soft sm:grid-cols-2">
+        <article className="mt-6 grid gap-6 overflow-hidden rounded-2xl border border-brand-200 bg-white p-4 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md sm:grid-cols-2">
           <Link href={FEATURED.href} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-brand-50">
             <Image
               src={FEATURED.image}
@@ -318,6 +320,7 @@ export default function HomePage() {
               <CtaSafe href="/contact" className="bg-brand-700 hover:bg-brand-800 shadow-soft">
                 Inquire About This Property
               </CtaSafe>
+              {/* Secondary button uses consistent border + hover treatment */}
               <Link
                 href={FEATURED.href}
                 className="inline-flex items-center justify-center rounded-full border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50"
