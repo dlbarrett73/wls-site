@@ -1,6 +1,6 @@
 // app/properties/page.tsx
-import Link from "next/link";
-import { propertiesBySlug } from "../data/properties";
+- import { propertiesBySlug } from "../data/properties";
++ import propertiesBySlug from "../data/properties";
 
 type Property = {
   slug?: string;
