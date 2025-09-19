@@ -100,7 +100,7 @@ export default function Services() {
                 <th className="compare-th">You get</th>
                 <th className="compare-th">Typical timeline</th>
                 <th className="compare-th">Investment</th>
-                <th className="compare-th sr-only">CTA</th>
+                <th className="compare-th sr-only">Next step</th>
               </tr>
             </thead>
             <tbody>
