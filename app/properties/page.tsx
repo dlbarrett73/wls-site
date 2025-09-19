@@ -160,6 +160,11 @@ export default function PropertiesIndexPage() {
           Turnkey whitetail properties engineered for giants, built for legacy.
         </p>
       </header>
+{/* Debug/result counter – safe to keep or remove later */}
+<div className="mb-4 rounded-lg bg-emerald-50 text-emerald-900 inline-flex items-center gap-2 px-3 py-1 text-sm">
+  <span className="inline-block h-2 w-2 rounded-full bg-emerald-600" />
+  <span>{items.length} propert{items.length === 1 ? "y" : "ies"} found</span>
+</div>
 
       {/* Client-side filters + grid */}
       <ClientGrid items={items} />
