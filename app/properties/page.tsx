@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import propertiesBySlug from "../data/properties"; // assumes default export object keyed by slug
+import propertiesBySlug from "../data/properties"; // default export keyed by slug
 
 export const metadata = {
   title: "Turnkey Whitetail Hunting Properties | Whitetail Land Solutions",
@@ -22,19 +22,14 @@ type Property = {
   highlights?: string[];
   status?: "available" | "pending" | "sold" | string;
   sold?: boolean;
-  // allow other fields without TS complaints
   [key: string]: unknown;
 };
 
 function formatPrice(price: Property["price"]) {
   if (price == null || price === "") return "";
-  if (typeof price === "number") {
-    return `$${price.toLocaleString()}`;
-  }
+  if (typeof price === "number") return `$${price.toLocaleString()}`;
   const s = String(price).trim();
-  if (!s) return "";
-  // If it already starts with $, pass through; else add $
-  return s.startsWith("$") ? s : `$${s}`;
+  return s ? (s.startsWith("$") ? s : `$${s}`) : "";
 }
 
 function formatAcres(acres: Property["acres"]) {
@@ -70,12 +65,10 @@ function heroFor(p: Property) {
 }
 
 export default function PropertiesIndexPage() {
-  // Normalize entries so we always have a slug and can sort by status
   const entries = Object.entries(propertiesBySlug as Record<string, Property>);
   const items = entries
     .map(([slug, p]) => ({ ...p, slug: p.slug ?? slug }))
     .sort((a, b) => {
-      // Sort by availability: available -> pending -> sold
       const rank = { available: 0, pending: 1, sold: 2 } as const;
       return (
         rank[computeStatus(a)] - rank[computeStatus(b)] ||
@@ -129,7 +122,6 @@ export default function PropertiesIndexPage() {
               const acres = formatAcres(p.acres);
               const hero = heroFor(p);
               const href = `/properties/${p.slug}`;
-
               const showCallCta = status !== "sold";
               const showWaitlistCta = status === "sold" || status === "pending";
 
@@ -174,9 +166,7 @@ export default function PropertiesIndexPage() {
                     <div className="mt-1 text-sm text-zinc-600">
                       <div className="flex flex-wrap gap-x-3 gap-y-1">
                         {acres && <span>{acres}</span>}
-                        {p.location && (
-                          <span className="text-zinc-500">•</span>
-                        )}
+                        {p.location && <span className="text-zinc-500">•</span>}
                         {p.location && <span>{p.location}</span>}
                       </div>
                       {price && (
@@ -186,7 +176,7 @@ export default function PropertiesIndexPage() {
                       )}
                     </div>
 
-                    {/* Quick selling points (optional highlights) */}
+                    {/* Optional highlights (first 3) */}
                     {Array.isArray(p.highlights) && p.highlights.length > 0 && (
                       <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
                         {p.highlights.slice(0, 3).map((h, i) => (
