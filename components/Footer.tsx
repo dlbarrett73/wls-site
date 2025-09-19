@@ -1,8 +1,32 @@
 // /components/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { Youtube, Instagram, Facebook } from "lucide-react";
 import CtaButton from "@/components/CtaButton";
+
+// Lightweight inline icons (no external deps)
+function IconYouTube(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M23.5 6.2a4 4 0 0 0-2.8-2.9C18.7 3 12 3 12 3s-6.7 0-8.7.3A4 4 0 0 0 .5 6.2 41 41 0 0 0 0 12c0 1.9.1 3.8.5 5.8a4 4 0 0 0 2.8 2.9C5.3 21 12 21 12 21s6.7 0 8.7-.3a4 4 0 0 0 2.8-2.9c.4-2 .5-3.9.5-5.8 0-1.9-.1-3.8-.5-5.8zM9.7 15.5V8.5l6.2 3.5-6.2 3.5z"/>
+    </svg>
+  );
+}
+function IconInstagram(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="5" ry="5" strokeWidth="2"/>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" strokeWidth="2"/>
+      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+    </svg>
+  );
+}
+function IconFacebook(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.5 3.3-3.5.95 0 1.9.17 1.9.17v2.1h-1.1c-1.1 0-1.5.68-1.5 1.4V12h2.6l-.4 2.9h-2.2v7A10 10 0 0 0 22 12z"/>
+    </svg>
+  );
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -21,6 +45,7 @@ export default function Footer() {
                 width={48}
                 height={48}
                 className="h-12 w-auto"
+                priority
               />
               <div>
                 <h2 className="text-xl font-extrabold tracking-tight">
@@ -43,9 +68,7 @@ export default function Footer() {
                 Ready for a plan that works?
               </p>
               <div className="mt-2">
-                <CtaButton href="/contact">
-                  Book a Free Strategy Call
-                </CtaButton>
+                <CtaButton href="/contact">Book a Free Strategy Call</CtaButton>
               </div>
             </div>
 
@@ -58,30 +81,27 @@ export default function Footer() {
                 aria-label="YouTube"
                 className="text-brand-200 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
-                <Youtube className="h-5 w-5" />
+                <IconYouTube className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
                 aria-label="Instagram (coming soon)"
                 className="text-brand-200 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
-                <Instagram className="h-5 w-5" />
+                <IconInstagram className="h-5 w-5" />
               </Link>
               <Link
                 href="#"
                 aria-label="Facebook (coming soon)"
                 className="text-brand-200 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
-                <Facebook className="h-5 w-5" />
+                <IconFacebook className="h-5 w-5" />
               </Link>
             </div>
           </div>
 
           {/* Quick links */}
-          <nav
-            aria-label="Footer"
-            className="grid grid-cols-2 gap-6 text-sm"
-          >
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-6 text-sm">
             <div>
               <p className="mb-3 text-xs font-semibold tracking-wider text-brand-200">
                 Explore
