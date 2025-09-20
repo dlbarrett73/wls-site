@@ -39,7 +39,7 @@ const YOUTUBE_THUMB_PROPERTY = "/images/youtube-property.jpg";
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-      {/* HERO with overlay */}
+      {/* HERO with overlay (white text scoped INSIDE only) */}
       <section className="relative overflow-hidden rounded-3xl shadow-soft">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -50,9 +50,8 @@ export default function Page() {
           <p className="text-xs font-semibold tracking-widest text-white/80">
             WHITETAIL LAND SOLUTIONS
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow text-white">
-            Properties Engineered for Giants.<br></br>
-            Built for Legacy.
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow">
+            Properties Engineered for Giants. Built for Legacy.
           </h1>
           <p className="mt-4 text-lg text-white/90">
             Turnkey hunting properties and habitat design—expert strategy,
@@ -71,12 +70,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CHOOSE YOUR PATH with overlays */}
-      <section className="mt-16 text-white">
-        <h2 className="text-2xl font-bold tracking-tight text-white">
+      {/* CHOOSE YOUR PATH (section text back to dark; tiles keep white text inside) */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
           Choose Your Path
         </h2>
-        <p className="mt-2 text-white/90">
+        <p className="mt-2 text-zinc-700">
           Whether you’re buying land, optimizing your property, or wanting us to
           build it for you—we’ll meet you where you are.
         </p>
@@ -110,14 +109,17 @@ export default function Page() {
               href={item.href}
               className="group relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
             >
+              {/* Background image */}
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${item.img})` }}
               />
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
+              {/* Tile content (white text scoped here) */}
               <div className="relative p-6 text-white">
                 <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold drop-shadow text-white">
+                  <h3 className="text-lg font-semibold drop-shadow">
                     {item.title}
                   </h3>
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
@@ -141,7 +143,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* FEATURED PROPERTY with overlay */}
+      {/* FEATURED PROPERTY (white text scoped inside card) */}
       <section className="mt-16">
         <Link
           href={FEATURED.href}
@@ -156,7 +158,7 @@ export default function Page() {
             <p className="text-xs font-semibold tracking-widest text-white/80">
               FEATURED PROPERTY
             </p>
-            <h3 className="mt-1 text-2xl font-bold drop-shadow text-white">
+            <h3 className="mt-1 text-2xl font-bold drop-shadow">
               {FEATURED.title}
             </h3>
             <p className="mt-2 drop-shadow text-white/90">
@@ -180,14 +182,14 @@ export default function Page() {
         </Link>
       </section>
 
-      {/* CHANNEL TRAILER */}
-      <section className="mt-16 text-white">
+      {/* CHANNEL TRAILER (section text back to dark; video frame keeps white overlay) */}
+      <section className="mt-16">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-white">
+            <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
               Giant Legacy — Channel Trailer
             </h2>
-            <p className="mt-1 text-white/90">
+            <p className="mt-1 text-zinc-700">
               Why we exist, how we build hunt-ready properties, and what to
               expect on the channel.
             </p>
@@ -195,7 +197,7 @@ export default function Page() {
           <Link
             href="https://www.youtube.com/"
             target="_blank"
-            className="text-white underline decoration-white/50 underline-offset-4 hover:decoration-white"
+            className="text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-500"
           >
             Subscribe on YouTube
           </Link>
@@ -225,12 +227,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* LATEST PROPERTY SHOWCASE */}
-      <section className="mt-16 text-white">
-        <h2 className="text-2xl font-bold tracking-tight text-white">
+      {/* LATEST PROPERTY SHOWCASE (section text back to dark; frame keeps white overlay) */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
           Latest Property Showcase — Mahaffey 131
         </h2>
-        <p className="mt-1 text-white/90">
+        <p className="mt-1 text-zinc-700">
           Full walk-through: access, food plots, stand locations, and hunt
           strategy.
         </p>
@@ -259,7 +261,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SITE-WIDE CTA STRIP */}
+      {/* SITE-WIDE CTA STRIP (already dark with white text) */}
       <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-700 p-6 text-white">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
