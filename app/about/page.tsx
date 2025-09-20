@@ -98,61 +98,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SERVICE PATHS — tie to Services/Consulting logic (DIY vs DFY) */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
-        <p className="mt-3 max-w-3xl text-zinc-700">
-          Two ways to build your big-buck paradise—DIY or DFY. Start with the
-          right blueprint, then either build it yourself or have our team do the
-          heavy lifting.
-        </p>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {/* Consulting (DIY) */}
-          <div className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
-            <p className="text-sm font-semibold tracking-widest text-brand-700">
-              CONSULTING + DIY
-            </p>
-            <h3 className="mt-2 text-xl font-bold">Blueprint for Giants</h3>
-            <p className="mt-2 text-zinc-700">
-              Custom, property-specific plan—stands/blinds, access routes, food/cover
-              layout, seasonal hunt strategy, and timber/edge work—centered on{" "}
-              <span className="font-semibold">undetectable access</span> and mature buck behavior.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <CtaSafe href="/services/consulting">Learn More</CtaSafe>
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-900 hover:bg-zinc-50"
-              >
-                Free Strategy Call
-              </Link>
-            </div>
-          </div>
-
-          {/* Implementation (DFY) */}
-          <div className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
-            <p className="text-sm font-semibold tracking-widest text-brand-700">
-              CONSULTING + DFY
-            </p>
-            <h3 className="mt-2 text-xl font-bold">Habitat Implementation</h3>
-            <p className="mt-2 text-zinc-700">
-              We build it for you: road/trail access, TSI, plots, screens, water,
-              and stand installs—done in the right order, the right way.
-            </p>
-            <div className="mt-4 flex gap-3">
-              <CtaSafe href="/services/implementation">Learn More</CtaSafe>
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-900 hover:bg-zinc-50"
-              >
-                Free Strategy Call
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* APPROACH — Dark brand block with WHITE headings for contrast */}
       <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
