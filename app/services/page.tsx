@@ -10,7 +10,7 @@ export const metadata = {
 export default function Services() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
-      {/* HERO (matches home style: rounded, image overlay, white text) */}
+      {/* HERO — mirrors home page: rounded image panel, dark overlay, white text */}
       <section
         className="relative overflow-hidden rounded-3xl shadow-soft"
         style={{
@@ -45,7 +45,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* CHOOSE YOUR PATH (cards identical to home page tiles) */}
+      {/* CHOOSE YOUR PATH — identical visual to home page tiles */}
       <section className="mt-12">
         <h2 className="text-xl font-bold tracking-tight text-zinc-900">
           Choose Your Path
@@ -56,7 +56,6 @@ export default function Services() {
         </p>
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          {/* Card 1: Land for Sale */}
           <TileCard
             href="/properties"
             title="Land for Sale (Hunt-Ready)"
@@ -65,48 +64,44 @@ export default function Services() {
             fallbackClass="bg-[url('/images/property.jpg')]"
             description="Hunt-ready properties engineered for mature bucks—access, food/cover, and stand placements built in."
           />
-
-          {/* Card 2: Consulting */}
           <TileCard
             href="/consulting"
             title="Consulting"
             badge="Blueprint"
             image="/images/consulting.jpg"
             fallbackClass="bg-[url('/images/map.jpg')]"
-            description="Custom design maps and an action plan to transform your acreage into a big-buck paradise."
+            description="Custom habitat maps and a step-by-step plan to turn your acreage into a big-buck paradise."
           />
-
-          {/* Card 3: Habitat Implementation */}
           <TileCard
             href="/implementation"
             title="Habitat Implementation"
             badge="Done-For-You"
             image="/images/implementation.jpg"
             fallbackClass="bg-[url('/images/implementation.jpg')]"
-            description="We build the plan—trails, plots, screening, stands/blinds, and access—so you can start hunting sooner."
+            description="We build the plan—trails, plots, screening, stands/blinds, and access—so you hunt sooner."
           />
         </div>
       </section>
 
-      {/* SERVICE CARDS (content blocks identical styling to home tiles for consistency) */}
+      {/* SERVICE CARDS — echo tile styling; clear copy + low-friction CTAs */}
       <section className="mt-12 grid gap-6 md:grid-cols-3">
         <InfoCard
-            label="Strategy"
-            title="Consulting: Blueprint for Giants"
-            body="A custom, step-by-step plan to engineer your acreage for mature whitetails—access, bedding, food, and pressure management dialed to your terrain and goals."
-            ctaHref="/consulting"
+          label="Strategy"
+          title="Consulting: Blueprint for Giants"
+          body="A custom, step-by-step design for mature whitetails—access, bedding, food, and pressure management tuned to your terrain and goals."
+          ctaHref="/consulting"
         />
         <InfoCard
-            label="Build"
-            title="Habitat Implementation"
-            body="We take the blueprint and build it—food plots, roads, screening, stand sets, and timber work—so your property hunts right from day one."
-            ctaHref="/implementation"
+          label="Build"
+          title="Habitat Implementation"
+          body="We execute the blueprint: food plots, roads, screening, stand sets, and timber work—so the property hunts right away."
+          ctaHref="/implementation"
         />
         <InfoCard
-            label="Turnkey"
-            title="Land for Sale (Hunt-Ready)"
-            body="Properties we acquire and optimize using the same proven playbook—hunt day one with access, food, and setups already in place."
-            ctaHref="/properties"
+          label="Turnkey"
+          title="Land for Sale (Hunt-Ready)"
+          body="Properties we acquire and optimize with the same proven playbook—access, food, and setups ready on day one."
+          ctaHref="/properties"
         />
       </section>
     </main>
@@ -120,11 +115,10 @@ type TileCardProps = {
   title: string;
   description: string;
   badge?: string;
-  image?: string; // tries this first
-  fallbackClass?: string; // use a safe bg if that path doesn't exist
+  image?: string;
+  fallbackClass?: string;
 };
 
-/** Home-style image tile with dark overlay, white text, and badge. */
 function TileCard({
   href,
   title,
@@ -133,8 +127,6 @@ function TileCard({
   image,
   fallbackClass,
 }: TileCardProps) {
-  // We apply both a direct style background (image) and a fallback Tailwind bg utility.
-  // Browsers ignore missing URLs, so this won't break builds if an asset is absent.
   return (
     <Link
       href={href}
@@ -161,7 +153,6 @@ function TileCard({
           {title}
         </h3>
         <p className="mt-2 line-clamp-3 text-sm text-white/85">{description}</p>
-
         <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white/95">
           Learn More <span aria-hidden>›</span>
         </span>
@@ -177,7 +168,6 @@ type InfoCardProps = {
   ctaHref: string;
 };
 
-/** Clean info cards styled to echo the tiles (rounded, soft shadow, subtle ring). */
 function InfoCard({ label, title, body, ctaHref }: InfoCardProps) {
   return (
     <div className="rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
