@@ -3,7 +3,34 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { CtaButton } from "@/components/CtaButton";
+
+/** Try to import CtaButton (works with both named and default exports).
+ *  If it's missing or mismatched, we fall back to a styled <Link>.
+ */
+import * as Cta from "@/components/CtaButton";
+type CtaProps = { href: string; className?: string; children: React.ReactNode };
+function CtaSafe({ href, className = "", children }: CtaProps) {
+  const Btn =
+    // @ts-ignore
+    (Cta && (Cta.CtaButton || Cta.default)) as
+      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
+      | undefined;
+
+  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
+  // Fallback link styled like your CTA
+  return (
+    <Link
+      href={href}
+      className={
+        "inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft " +
+        "bg-brand-700 text-white hover:bg-brand-600 transition " +
+        className
+      }
+    >
+      {children}
+    </Link>
+  );
+}
 
 /** Local helper so we don't need "@/utils/formatPrice" */
 function formatPrice(price: number | string | undefined | null) {
@@ -45,15 +72,9 @@ export default function HomePage() {
               Turnkey whitetail hunting properties and custom habitat plans.
             </p>
             <div className="mt-8 flex justify-center gap-4">
-              <CtaButton href="/services/consulting">
-                Consulting
-              </CtaButton>
-              <CtaButton href="/services/implementation">
-                Implementation
-              </CtaButton>
-              <CtaButton href="/properties">
-                Land for Sale
-              </CtaButton>
+              <CtaSafe href="/services/consulting">Consulting</CtaSafe>
+              <CtaSafe href="/services/implementation">Implementation</CtaSafe>
+              <CtaSafe href="/properties">Land for Sale</CtaSafe>
             </div>
           </div>
         </div>
@@ -61,9 +82,7 @@ export default function HomePage() {
 
       {/* Featured Property */}
       <section className="container py-16 md:py-24">
-        <h2 className="text-2xl md:text-3xl font-bold">
-          Featured Property
-        </h2>
+        <h2 className="text-2xl md:text-3xl font-bold">Featured Property</h2>
         <div className="mt-6 grid md:grid-cols-2 gap-8 items-center">
           <Image
             src={FEATURED.image}
@@ -73,19 +92,13 @@ export default function HomePage() {
             className="rounded-2xl shadow-soft object-cover w-full h-auto"
           />
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold">
-              {FEATURED.title}
-            </h3>
+            <h3 className="text-xl md:text-2xl font-semibold">{FEATURED.title}</h3>
             <p className="mt-2 text-neutral-600">
               {FEATURED.acreage} acres — {FEATURED.county}
             </p>
-            <p className="mt-2 text-lg font-bold">
-              {formatPrice(FEATURED.price)}
-            </p>
+            <p className="mt-2 text-lg font-bold">{formatPrice(FEATURED.price)}</p>
             <div className="mt-4">
-              <CtaButton href={FEATURED.href}>
-                View Property
-              </CtaButton>
+              <CtaSafe href={FEATURED.href}>View Property</CtaSafe>
             </div>
           </div>
         </div>
