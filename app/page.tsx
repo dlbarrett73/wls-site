@@ -92,14 +92,14 @@ export default function Page() {
             },
             {
               title: "Consulting",
-              href: "/consulting",
+              href: "/services/consulting",
               img: TILE_IMAGES.consulting,
               badge: "Blueprint",
               desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
             },
             {
               title: "Habitat Implementation",
-              href: "/implementation",
+              href: "/services/implementation",
               img: TILE_IMAGES.implementation,
               badge: "Done-For-You",
               desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
