@@ -50,9 +50,10 @@ export default function Page() {
           <p className="text-xs font-semibold tracking-widest text-white/70">
             WHITETAIL LAND SOLUTIONS
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Properties Engineered for Giants. Built for Legacy.
-          </h1>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl text-white drop-shadow">
+  Properties Engineered for Giants. Built for Legacy.
+</h1>
+
           <p className="mt-4 text-lg text-white/90">
             Turnkey hunting properties and habitat design—expert strategy,
             proven access, food, cover, and stand placement so you can hunt big,
