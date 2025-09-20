@@ -34,10 +34,9 @@ export const metadata = {
 export default function ConsultingPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-      {/* HERO — on-brand image + overlay, white text for legibility */}
+      {/* HERO */}
       <section className="relative overflow-hidden rounded-2xl">
         <div className="absolute inset-0">
-          {/* Replace the path if your image lives elsewhere */}
           <Image
             src="/images/consulting.png"
             alt="Consulting — Whitetail habitat planning"
@@ -45,7 +44,6 @@ export default function ConsultingPage() {
             priority
             className="object-cover"
           />
-          {/* Brand-tinted overlay for consistent look with Services */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-brand-900/60 to-brand-700/60" />
         </div>
 
@@ -53,7 +51,7 @@ export default function ConsultingPage() {
           <p className="text-xs font-semibold tracking-widest text-white/80">
             CONSULTING
           </p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl">
+          <h1 className="mt-2 text-3xl font-extrabold tracking-tight md:text-5xl text-white">
             Blueprint for Giants
           </h1>
           <p className="mt-4 max-w-2xl text-base md:text-lg text-white/90">
@@ -66,7 +64,7 @@ export default function ConsultingPage() {
             <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
             <Link
               href="#decision"
-              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/30 text-white/90 hover:bg-white/10"
+              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/30 text-white hover:bg-white/10"
             >
               See Your Best Path
             </Link>
@@ -74,13 +72,13 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* QUICK VALUE PITCH — matches the simple, tidy card vibe from Services */}
+      {/* QUICK VALUE PITCH */}
       <section className="mt-12 grid gap-6 md:grid-cols-3">
         {[
           {
             title: "Purpose-Built Plan",
             body:
-              "We design around deer behavior, pressure, access, wind, and your goals—not generic tips.",
+              "We design around deer behavior, undetectable access, wind, and your goals—not generic tips.",
           },
           {
             title: "Map-First Clarity",
@@ -103,7 +101,7 @@ export default function ConsultingPage() {
         ))}
       </section>
 
-      {/* DECISION LOGIC — mirrors Services page choices */}
+      {/* DECISION LOGIC */}
       <section id="decision" className="mt-16">
         <div className="rounded-2xl bg-brand-50 p-6 md:p-8 border border-brand-100">
           <h2 className="text-2xl font-extrabold tracking-tight">
@@ -126,10 +124,10 @@ export default function ConsultingPage() {
                 at your pace with clear maps, priorities, and steps.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-700">
-                <li>• Property walk & pressure/access analysis</li>
+                <li>• Property walk & hunting pressure analysis</li>
                 <li>• Stand & access placement for wind advantage</li>
+                <li>• Undetectable access trail design</li>
                 <li>• Food plots, TSI, bedding, screening, sanctuaries</li>
-                <li>• Phased plan: quick wins → high-leverage upgrades</li>
               </ul>
               <div className="mt-5">
                 <CtaSafe href="/contact" className="w-full justify-center">
@@ -152,7 +150,7 @@ export default function ConsultingPage() {
                 <li>• Everything in DIY consulting, plus build-out</li>
                 <li>• Project management & quality control</li>
                 <li>• Sequencing to minimize pressure</li>
-                <li>• Hunt-ready outcomes, faster</li>
+                <li>• Undetectable access trails implemented</li>
               </ul>
               <div className="mt-5">
                 <CtaSafe href="/contact" className="w-full justify-center">
@@ -174,7 +172,7 @@ export default function ConsultingPage() {
               <ul className="mt-4 space-y-2 text-sm text-zinc-700">
                 <li>• Clear scope, budget, and timeline</li>
                 <li>• On-site execution by pros</li>
-                <li>• Quality standards aligned to your goals</li>
+                <li>• Undetectable access prioritized</li>
                 <li>• Built for both hunting success & resale value</li>
               </ul>
               <div className="mt-5">
@@ -190,7 +188,7 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* PROCESS — simple, tidy, brand-matched */}
+      {/* PROCESS */}
       <section className="mt-16">
         <h2 className="text-2xl font-extrabold tracking-tight">How It Works</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
@@ -223,7 +221,7 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* EXPERTISE — balanced message about Kent without over-emphasizing one title */}
+      {/* EXPERTISE */}
       <section className="mt-16 rounded-2xl border border-zinc-200 bg-white p-6 md:p-8 shadow-soft">
         <h2 className="text-2xl font-extrabold tracking-tight">Why Us</h2>
         <p className="mt-3 text-zinc-700 max-w-4xl">
@@ -231,7 +229,7 @@ export default function ConsultingPage() {
           formal training in forestry and wildlife/habitat from Penn State, research
           experience with the PSU deer lab, and years of designing and building
           improvements on real hunting properties. That mix—biology, timber,
-          access/wind discipline, and on-the-ground execution—produces plans that
+          undetectable access, and on-the-ground execution—produces plans that
           actually work for big, mature bucks.
         </p>
         <div className="mt-5">
@@ -239,9 +237,9 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* CTA STRIP — consistent brand band with white text */}
+      {/* CTA STRIP */}
       <section className="mt-16 rounded-2xl bg-brand-700 px-6 py-10 text-white">
-        <h3 className="text-2xl font-extrabold tracking-tight">
+        <h3 className="text-2xl font-extrabold tracking-tight text-white">
           Ready to engineer your property for giants?
         </h3>
         <p className="mt-2 text-white/90">
