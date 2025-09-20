@@ -39,21 +39,22 @@ const YOUTUBE_THUMB_PROPERTY = "/images/youtube-property.jpg";
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-      {/* HERO with overlay */}
-      <section className="relative overflow-hidden rounded-3xl shadow-soft">
+      {/* HERO — match Implementation style (image bg + brand gradient + white text) */}
+      <section className="relative isolate overflow-hidden rounded-3xl shadow-soft">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/70 to-brand-900/80" />
-        <div className="relative p-10 text-white">
-          <p className="text-xs font-semibold tracking-widest text-white/80 overlay-subtext">
+        {/* brand gradient overlay like implementation */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/80 via-brand-800/75 to-brand-900/85" />
+        <div className="relative px-8 py-16 sm:px-10 sm:py-20 md:px-12 md:py-24 text-white">
+          <p className="text-xs font-semibold tracking-widest text-white/80">
             WHITETAIL LAND SOLUTIONS
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl overlay-text">
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
             Properties Engineered for Giants. Built for Legacy.
           </h1>
-          <p className="mt-4 text-lg overlay-subtext">
+          <p className="mt-4 text-lg text-white/90">
             Turnkey hunting properties and habitat design—expert strategy,
             proven access, food, cover, and stand placement so you can hunt big,
             mature whitetails sooner.
@@ -116,15 +117,13 @@ export default function Page() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
               <div className="relative p-6 text-white">
                 <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold overlay-text">
-                    {item.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
                     {item.badge}
                   </span>
                 </div>
-                <p className="mt-2 overlay-subtext">{item.desc}</p>
-                <span className="mt-4 inline-flex items-center overlay-text">
+                <p className="mt-2">{item.desc}</p>
+                <span className="mt-4 inline-flex items-center">
                   Learn More
                   <svg
                     className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
@@ -152,28 +151,20 @@ export default function Page() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
           <div className="relative p-6 text-white">
-            <p className="text-xs font-semibold tracking-widest overlay-subtext">
+            <p className="text-xs font-semibold tracking-widest">
               FEATURED PROPERTY
             </p>
-            <h3 className="mt-1 text-2xl font-bold overlay-text">
-              {FEATURED.title}
-            </h3>
-            <p className="mt-2 overlay-subtext">
+            <h3 className="mt-1 text-2xl font-bold">{FEATURED.title}</h3>
+            <p className="mt-2">
               {FEATURED.acres} • {FEATURED.location}
             </p>
-            <p className="mt-1 font-semibold overlay-text">
-              {FEATURED.price}
-            </p>
-            <p className="mt-3 overlay-subtext">
+            <p className="mt-1 font-semibold">{FEATURED.price}</p>
+            <p className="mt-3">
               Hunt-ready layout with access, food/cover, and proven strategy.
             </p>
-            <span className="mt-4 inline-flex items-center overlay-text">
+            <span className="mt-4 inline-flex items-center">
               View Details
-              <svg
-                className="ml-2 h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
               </svg>
             </span>
@@ -264,10 +255,8 @@ export default function Page() {
       <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-700 p-6 text-white">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h3 className="text-lg font-semibold overlay-text">
-              Free 15-Minute Property Strategy Call
-            </h3>
-            <p className="mt-1 overlay-subtext">
+            <h3 className="text-lg font-semibold">Free 15-Minute Property Strategy Call</h3>
+            <p className="mt-1">
               Talk through goals, acreage, and timeline—get expert next steps.
             </p>
           </div>
