@@ -1,290 +1,238 @@
 // app/about/page.tsx
+import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
+/** Try to import CtaButton (works with both named and default exports).
+ *  If it's missing or mismatched, we fall back to a styled <Link>.
+ */
+import * as Cta from "@/components/CtaButton";
+type CtaProps = { href: string; className?: string; children: React.ReactNode };
+function CtaSafe({ href, className = "", children }: CtaProps) {
+  const Btn = (Cta as any).CtaButton || (Cta as any).default;
+  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
+  return (
+    <Link
+      href={href}
+      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft transition hover:opacity-90 bg-brand-700 text-white ${className}`}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export const metadata = {
-  title: "About Us — Whitetail Land Solutions",
+  title: "About — Whitetail Land Solutions",
   description:
-    "Whitetail Land Solutions builds hunt-ready properties and custom habitat plans in Pennsylvania. Engineered for Giants. Built for Legacy.",
+    "Engineered for Giants. Built for Legacy. Learn who we are, why we exist, and how we design hunt-ready properties and custom habitat plans in Pennsylvania.",
 };
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <main>
-      {/* =============== */}
-      {/* Hero            */}
-      {/* =============== */}
-      <section className="container py-16 md:py-24">
-        <p className="text-sm font-semibold tracking-widest text-neutral-500">
-          ABOUT US
-        </p>
-        <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Engineered for Giants. Built for Legacy.
-        </h1>
-        <p className="mt-6 max-w-3xl text-neutral-700">
-          At <span className="font-semibold">Whitetail Land Solutions</span>, we
-          believe every acre can become a legacy—where families gather, memories
-          are made, and mature bucks daylight. We design and deliver{" "}
-          <span className="font-semibold">turnkey hunting properties</span> and{" "}
-          <span className="font-semibold">custom consulting</span> that turn
-          ordinary ground into a big-buck paradise.
-        </p>
-
-        {/* Primary CTA row */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-xl bg-brand-700 px-5 py-3 text-white shadow-soft transition hover:bg-brand-800"
-          >
-            Book a Free Strategy Call
-          </Link>
-          <Link
-            href="/services"
-            className="inline-flex items-center rounded-xl border border-neutral-300 bg-white px-5 py-3 text-neutral-900 hover:bg-neutral-50"
-          >
-            Explore Our Services
-          </Link>
-        </div>
-      </section>
-
-      {/* ======================= */}
-      {/* Who We Are + Team       */}
-      {/* ======================= */}
-      <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="container grid items-start gap-10 py-14 lg:grid-cols-2">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Who We Are
-            </h2>
-            <p className="mt-4 text-neutral-700">
-              We’re lifelong hunters, land stewards, and entrepreneurs from
-              Pennsylvania who combine{" "}
-              <span className="font-semibold">
-                whitetail biology, forestry know-how, and sound strategy
-              </span>{" "}
-              to build properties that consistently create trophy opportunities
-              and lasting family memories.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {/* David */}
-            <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-neutral-200">
-                <Image
-                  src="/images/team-david.jpg"
-                  alt="David Barrett — CEO"
-                  fill
-                  className="object-cover object-center"
-                  priority={false}
-                />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">
-                David Barrett — CEO
-              </h3>
-              <p className="mt-2 text-sm text-neutral-700">
-                Vision, marketing, finance, and execution systems. A seasoned
-                entrepreneur focused on scalable growth and an exceptional
-                client experience.
-              </p>
-            </article>
-
-            {/* Kent */}
-            <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-neutral-200">
-                <Image
-                  src="/images/team-kent.jpg"
-                  alt="Kent Shick — COO"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">Kent Shick — COO</h3>
-              <p className="mt-2 text-sm text-neutral-700">
-                Consulting forester &amp; habitat expert. Educated in wildlife &
-                habitat at Penn State (PSU Deer Lab experience). Decades of
-                boots-on-the-ground work designing and implementing plans that
-                actually hunt.
-              </p>
-            </article>
+    <main className="mx-auto max-w-6xl px-6 pb-24">
+      {/* Hero (brand gradient; white text for contrast) */}
+      <section className="relative -mx-6 mb-16 rounded-3xl bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 px-6 py-16 text-white md:py-20">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-sm font-semibold tracking-widest/loose text-white/80">
+            ABOUT US
+          </p>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            Engineered for Giants. Built for Legacy.
+          </h1>
+          <p className="mt-4 text-lg/8 text-white/90">
+            We design and build hunt-ready properties for serious whitetail
+            hunters in Pennsylvania. Our work blends whitetail biology, forestry,
+            and access engineering so you can consistently encounter mature
+            bucks—and create a legacy your family will talk about for decades.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+            <Link
+              href="/services"
+              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
+            >
+              Explore our Services
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ================= */}
-      {/* What We Do        */}
-      {/* ================= */}
-      <section className="container py-14">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-          What We Do
-        </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <Card
-            title="Consulting"
-            body="Custom habitat plans and maps that maximize access, bedding, food, and stand strategy—tailored to your goals and budget."
-            href="/consulting"
-          />
-          <Card
-            title="Habitat Implementation"
-            body="With trusted partners and forestry expertise, we execute the work: food plots, trails, stand sites, and timber improvements."
-            href="/implementation"
-          />
-          <Card
-            title="Land for Sale"
-            body="We acquire undervalued tracts, engineer them for world-class hunting, and offer hunt-ready properties you can enjoy on Day One."
-            href="/properties"
-          />
+      {/* Why we exist */}
+      <section className="mx-auto mb-16 grid gap-8 md:grid-cols-2">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight">Our Purpose</h2>
+          <p className="mt-3 text-zinc-700">
+            Help whitetail hunters secure their legacy with properties optimized
+            for consistent encounters with big, mature bucks—without wasting
+            seasons on guesswork. We combine data-driven design with practical,
+            field-tested implementation so every move on your property makes you
+            less detectable and more effective.
+          </p>
         </div>
-      </section>
-
-      {/* ============== */}
-      {/* Our Values     */}
-      {/* ============== */}
-      <section className="border-t border-neutral-200 bg-neutral-50">
-        <div className="container py-14">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Our Values
-          </h2>
-          <ul className="mt-6 grid gap-6 text-sm md:grid-cols-4">
-            <Value title="Integrity" body="Do the right thing—even when no one’s looking." />
-            <Value title="Stewardship" body="Care for the land, wildlife, and legacy it carries." />
-            <Value title="Service" body="Put clients first with humility and excellence." />
-            <Value title="Golden Rule" body="Treat every client like we’d want to be treated." />
+        <div className="rounded-2xl bg-zinc-50 p-6">
+          <h3 className="text-lg font-semibold">What this means for you</h3>
+          <ul className="mt-3 space-y-2 text-zinc-700">
+            <li>• Clear, actionable plans you can actually build.</li>
+            <li>• Undetectable access that protects daylight movement.</li>
+            <li>• Habitat that matures with your woods and your goals.</li>
+            <li>• A property you’re proud to hand down.</li>
           </ul>
         </div>
       </section>
 
-      {/* ========================= */}
-      {/* Why Hunters Choose WLS    */}
-      {/* ========================= */}
-      <section className="container py-14">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-          Why Hunters Choose WLS
-        </h2>
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          <Bullet
-            title="Proven Habitat Expertise"
-            body="Designs rooted in whitetail biology and forestry science—not landscaping theory."
-          />
-          <Bullet
-            title="Access-First Philosophy"
-            body="Every layout is engineered for undetectable entry/exit to keep deer unpressured and daylight-active."
-          />
-          <Bullet
-            title="Turnkey Properties"
-            body="We don’t just sell land—we deliver hunt-ready, whitetail-optimized properties."
-          />
-          <Bullet
-            title="Trusted Partnership"
-            body="From plan to implementation, we’re in the field—measuring success by results, not reports."
-          />
-        </div>
-      </section>
+      {/* What we do (tie to Services decision logic) */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold tracking-tight">What We Do</h2>
+        <p className="mt-3 max-w-3xl text-zinc-700">
+          We offer two core service paths, so you can choose how you want to
+          build your big-buck paradise—DIY or DFY.
+        </p>
 
-      {/* ======================== */}
-      {/* Contact / Credibility    */}
-      {/* ======================== */}
-      <section className="border-t bg-neutral-900 text-white">
-        <div className="container grid items-center gap-10 py-14 md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold">Ready to talk?</h2>
-            <p className="mt-3 text-neutral-300">
-              Tell us about your acreage, goals, and timeline. We’ll map the
-              fastest path to a hunt-ready property.
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {/* Consulting (DIY) */}
+          <div className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
+            <p className="text-sm font-semibold tracking-widest text-brand-700">
+              CONSULTING + DIY
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <h3 className="mt-2 text-xl font-bold">Blueprint for Giants</h3>
+            <p className="mt-2 text-zinc-700">
+              A custom, property-specific plan: stand/Blind locations, access,
+              food/cover/water strategy, timber &amp; edge work, and seasonal
+              hunt routes—all centered on <span className="font-semibold">undetectable access</span> and mature buck behavior.
+            </p>
+            <div className="mt-4 flex gap-3">
+              <CtaSafe href="/services/consulting">Learn More</CtaSafe>
               <Link
                 href="/contact"
-                className="inline-flex items-center rounded-xl bg-brand-600 px-5 py-3 font-semibold text-white shadow-soft transition hover:bg-brand-700"
+                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-900 hover:bg-zinc-50"
               >
-                Get a Free 15-Minute Strategy Call
-              </Link>
-              <Link
-                href="/services"
-                className="inline-flex items-center rounded-xl border border-white/25 bg-white/0 px-5 py-3 font-semibold text-white hover:bg-white/10"
-              >
-                See Services
+                Free Strategy Call
               </Link>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white p-6 text-sm text-neutral-900 shadow-soft">
-            <dl className="grid gap-6 sm:grid-cols-2">
-              <div>
-                <dt className="text-neutral-500">Mailing Address</dt>
-                <dd className="font-semibold">PO Box 167, NuMine, PA 16244</dd>
-              </div>
-              <div>
-                <dt className="text-neutral-500">Email</dt>
-                <dd className="font-semibold">
-                  <a
-                    className="underline"
-                    href="mailto:info@whitetaillandsolutions.com"
-                  >
-                    info@whitetaillandsolutions.com
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-neutral-500">YouTube</dt>
-                <dd className="font-semibold">
-                  <a
-                    className="underline"
-                    target="_blank"
-                    rel="noreferrer"
-                    href="https://www.youtube.com/@GiantLegacy_WLS"
-                  >
-                    @GiantLegacy_WLS
-                  </a>
-                </dd>
-              </div>
-            </dl>
+          {/* Implementation (DFY) */}
+          <div className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
+            <p className="text-sm font-semibold tracking-widest text-brand-700">
+              CONSULTING + DFY
+            </p>
+            <h3 className="mt-2 text-xl font-bold">Habitat Implementation</h3>
+            <p className="mt-2 text-zinc-700">
+              Prefer a turnkey build? We manage the heavy lifting—road &amp; trail
+              access, TSI, plots, screens, watering, stand installs—so your plan
+              gets installed the right way, the first time.
+            </p>
+            <div className="mt-4 flex gap-3">
+              <CtaSafe href="/services/implementation">Learn More</CtaSafe>
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-900 hover:bg-zinc-50"
+              >
+                Free Strategy Call
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach pillars (brand block w/ white headings) */}
+      <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
+        <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
+        <p className="mt-3 max-w-3xl text-white/90">
+          Everything we design ladders up to one goal: repeatable, high-odds
+          encounters with mature whitetails—without burning the property.
+        </p>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Undetectable Access</h3>
+            <p className="mt-2 text-white/90">
+              Routes, winds, screens, and entry timing that keep you invisible,
+              silent, and scent-controlled. If access is wrong, nothing else
+              matters.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Biology-Led Design</h3>
+            <p className="mt-2 text-white/90">
+              Bedding, security cover, and daylight edge structure aligned with
+              how mature bucks actually use terrain across seasons.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Forestry Integration</h3>
+            <p className="mt-2 text-white/90">
+              Timber work and habitat cuts that compound benefit: light, food,
+              cover, access corridors, and long-term stand health.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white/5 p-6">
+            <h3 className="text-lg font-semibold">Build-Ready Plans</h3>
+            <p className="mt-2 text-white/90">
+              Clear maps and step-by-step priorities so you or our crew can
+              install confidently without rework.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who we are */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
+            <h3 className="text-lg font-semibold">Kent Shick — Habitat & Forestry</h3>
+            <p className="mt-2 text-zinc-700">
+              Professional consulting forester and habitat designer with
+              hands-on experience building high-odds properties across PA.
+              Educated in wildlife &amp; habitat at Penn State and mentored by the
+              woods. Kent leads field design and implementation.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
+            <h3 className="text-lg font-semibold">David Barrett — Strategy & Growth</h3>
+            <p className="mt-2 text-zinc-700">
+              Business and marketing operator focused on clarity, systems, and
+              client results. David leads marketing, finance, and partnerships so
+              the vision and execution stay aligned with your outcomes.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* Credibility / Standards */}
+      <section className="mb-16 rounded-2xl bg-zinc-50 p-6">
+        <h2 className="text-2xl font-bold tracking-tight">Standards That Don’t Bend</h2>
+        <ul className="mt-4 grid gap-3 text-zinc-700 md:grid-cols-2">
+          <li>• Access first: every plan is tested against wind &amp; intrusion.</li>
+          <li>• Seasonal routes that protect core areas and daylight use.</li>
+          <li>• Forestry that improves both habitat and long-term value.</li>
+          <li>• Clear phasing: do the right work in the right order.</li>
+          <li>• Stewardship: design decisions that honor the land and legacy.</li>
+        </ul>
+      </section>
+
+      {/* Final CTA (brand block w/ white text) */}
+      <section className="rounded-3xl bg-brand-700 p-6 text-white md:p-10">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-2xl font-bold tracking-tight">
+            Ready to engineer your property for giants?
+          </h2>
+          <p className="mt-3 text-white/90">
+            Start with a quick, no-pressure call. We’ll ask about your acreage,
+            goals, and timeline, then recommend the best path—Consulting + DIY or
+            Consulting + DFY.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+            <Link
+              href="/services"
+              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
+            >
+              Compare Services
+            </Link>
           </div>
         </div>
       </section>
     </main>
-  );
-}
-
-/* --- small helpers --- */
-function Card({
-  title,
-  body,
-  href,
-}: {
-  title: string;
-  body: string;
-  href?: string;
-}) {
-  const content = (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:shadow-md">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-neutral-700">{body}</p>
-      {href ? (
-        <span className="mt-4 inline-flex text-sm font-semibold text-brand-700">
-          Learn more →
-        </span>
-      ) : null}
-    </div>
-  );
-
-  return href ? <Link href={href}>{content}</Link> : content;
-}
-
-function Value({ title, body }: { title: string; body: string }) {
-  return (
-    <li className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-      <div className="font-semibold">{title}</div>
-      <div className="mt-2 text-neutral-700">{body}</div>
-    </li>
-  );
-}
-
-function Bullet({ title, body }: { title: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-      <div className="font-semibold">{title}</div>
-      <div className="mt-2 text-sm text-neutral-700">{body}</div>
-    </div>
   );
 }
