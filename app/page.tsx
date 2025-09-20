@@ -56,7 +56,7 @@ export default function Page() {
 
           <p className="mt-4 text-lg text-white/90">
             Turnkey hunting properties and habitat design—expert strategy,
-            proven access, food, cover, and stand placement so you can hunt big,
+            undectable access, food, cover, and stand placement so you can hunt big,
             mature whitetails sooner.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
