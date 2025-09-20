@@ -45,13 +45,12 @@ export default function ImplementationPage() {
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/implementation.jpg" // ensure your file exists at public/images/implementation.jpg
+            src="/images/implementation.jpg"
             alt="Habitat Implementation by Whitetail Land Solutions"
             fill
             priority
             className="object-cover"
           />
-          {/* Dark gradient for readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
         </div>
 
@@ -77,30 +76,30 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* DECISION LOGIC STRIP (on-brand, white text on green) */}
+      {/* DECISION LOGIC STRIP */}
       <section className="bg-brand-800">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-10 md:grid-cols-3 md:py-12">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-xl font-bold text-white">I want a plan I can implement.</h3>
-            <p className="mt-2 text-white/80">Consulting + DIY. Custom Blueprint for Giants, you execute.</p>
-            <Link href="/services/consulting" className="mt-4 inline-block text-white underline underline-offset-4">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <h3 className="text-xl font-bold text-black">I want a plan I can implement.</h3>
+            <p className="mt-2 text-zinc-700">Consulting + DIY. Custom Blueprint for Giants, you execute.</p>
+            <Link href="/services/consulting" className="mt-4 inline-block text-brand-700 underline underline-offset-4">
               Learn about Consulting →
             </Link>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-xl font-bold text-white">I want you to build it for me.</h3>
-            <p className="mt-2 text-white/80">Consulting + DFY. We handle the habitat build from start to finish.</p>
-            <span className="mt-4 inline-block text-white/90">You’re in the right place — Implementation.</span>
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <h3 className="text-xl font-bold text-black">I want you to build it for me.</h3>
+            <p className="mt-2 text-zinc-700">Consulting + DFY. We handle the habitat build from start to finish.</p>
+            <span className="mt-4 inline-block text-zinc-800">You’re in the right place — Implementation.</span>
           </div>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-xl font-bold text-white">I already have a plan.</h3>
-            <p className="mt-2 text-white/80">We’ll implement your plan with precision and accountability.</p>
-            <span className="mt-4 inline-block text-white/90">Also Implementation — let’s build.</span>
+          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+            <h3 className="text-xl font-bold text-black">I already have a plan.</h3>
+            <p className="mt-2 text-zinc-700">We’ll implement your plan with precision and accountability.</p>
+            <span className="mt-4 inline-block text-zinc-800">Also Implementation — let’s build.</span>
           </div>
         </div>
       </section>
 
-      {/* WHAT WE BUILD (white headlines on brand) */}
+      {/* WHAT WE BUILD */}
       <section className="bg-brand-900">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
@@ -191,7 +190,7 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* DELIVERABLES (green block with white headings) */}
+      {/* DELIVERABLES */}
       <section className="bg-brand-800">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">What You’ll Get</h2>
@@ -235,7 +234,7 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* CREDIBILITY (light, matches site look) */}
+      {/* CREDIBILITY */}
       <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
