@@ -46,17 +46,16 @@ export default function Page() {
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/70 to-brand-900/80" />
-        <div className="relative p-12 text-white">
-          <p className="text-xs font-semibold tracking-widest text-white/80 drop-shadow">
+        <div className="relative p-10 text-white">
+          <p className="text-xs font-semibold tracking-widest text-white/80 overlay-subtext">
             WHITETAIL LAND SOLUTIONS
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl text-white drop-shadow">
-            Properties Engineered for Giants.<br></br>
-            Built for Legacy.
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl overlay-text">
+            Properties Engineered for Giants. Built for Legacy.
           </h1>
-          <p className="mt-4 text-lg text-white/90 drop-shadow">
+          <p className="mt-4 text-lg overlay-subtext">
             Turnkey hunting properties and habitat design—expert strategy,
-            undetectable access, food, cover, and stand placement so you can hunt big,
+            proven access, food, cover, and stand placement so you can hunt big,
             mature whitetails sooner.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -92,14 +91,14 @@ export default function Page() {
             },
             {
               title: "Consulting",
-              href: "/services/consulting",
+              href: "/consulting",
               img: TILE_IMAGES.consulting,
               badge: "Blueprint",
               desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
             },
             {
               title: "Habitat Implementation",
-              href: "/services/implementation",
+              href: "/implementation",
               img: TILE_IMAGES.implementation,
               badge: "Done-For-You",
               desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
@@ -117,15 +116,15 @@ export default function Page() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
               <div className="relative p-6 text-white">
                 <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold text-white drop-shadow">
+                  <h3 className="text-lg font-semibold overlay-text">
                     {item.title}
                   </h3>
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
                     {item.badge}
                   </span>
                 </div>
-                <p className="mt-2 text-white/90 drop-shadow">{item.desc}</p>
-                <span className="mt-4 inline-flex items-center text-white">
+                <p className="mt-2 overlay-subtext">{item.desc}</p>
+                <span className="mt-4 inline-flex items-center overlay-text">
                   Learn More
                   <svg
                     className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
@@ -153,22 +152,22 @@ export default function Page() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
           <div className="relative p-6 text-white">
-            <p className="text-xs font-semibold tracking-widest text-white/80 drop-shadow">
+            <p className="text-xs font-semibold tracking-widest overlay-subtext">
               FEATURED PROPERTY
             </p>
-            <h3 className="mt-1 text-2xl font-bold text-white drop-shadow">
+            <h3 className="mt-1 text-2xl font-bold overlay-text">
               {FEATURED.title}
             </h3>
-            <p className="mt-2 text-white/90 drop-shadow">
+            <p className="mt-2 overlay-subtext">
               {FEATURED.acres} • {FEATURED.location}
             </p>
-            <p className="mt-1 font-semibold text-white drop-shadow">
+            <p className="mt-1 font-semibold overlay-text">
               {FEATURED.price}
             </p>
-            <p className="mt-3 text-white/90 drop-shadow">
+            <p className="mt-3 overlay-subtext">
               Hunt-ready layout with access, food/cover, and proven strategy.
             </p>
-            <span className="mt-4 inline-flex items-center text-white">
+            <span className="mt-4 inline-flex items-center overlay-text">
               View Details
               <svg
                 className="ml-2 h-4 w-4"
@@ -265,10 +264,10 @@ export default function Page() {
       <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-700 p-6 text-white">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h3 className="text-lg font-semibold text-white drop-shadow">
+            <h3 className="text-lg font-semibold overlay-text">
               Free 15-Minute Property Strategy Call
             </h3>
-            <p className="mt-1 text-white/90 drop-shadow">
+            <p className="mt-1 overlay-subtext">
               Talk through goals, acreage, and timeline—get expert next steps.
             </p>
           </div>
