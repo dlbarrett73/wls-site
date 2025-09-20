@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-// Simple, local CTA so we don't rely on any external component
+// Local CTA (no external deps)
 function Cta({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
@@ -14,11 +14,38 @@ function Cta({ href, children }: { href: string; children: React.ReactNode }) {
   );
 }
 
+// Assets
+const HERO_IMAGE = "/images/hero.jpg";
+const TILE_IMAGES = {
+  properties: "/images/property.jpg",
+  consulting: "/images/consulting.png",
+  implementation: "/images/implementation.jpg",
+};
+const FEATURED = {
+  title: "Mahaffey 131",
+  href: "/properties/mahaffey-131",
+  image: "/images/properties/mahaffey-131/hero.jpg",
+  acres: "131± acres",
+  location: "Clearfield County, PA",
+  price: "Call",
+};
+
+// YouTube placeholders — replace with real IDs
+const YOUTUBE_VIDEO_ID_TRAILER = "YOUTUBE_VIDEO_ID_TRAILER"; // e.g. "dQw4w9WgXcQ"
+const YOUTUBE_VIDEO_ID_PROPERTY = "YOUTUBE_VIDEO_ID_PROPERTY"; // e.g. Mahaffey showcase ID
+
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-      {/* HERO — brand gradient, no image required */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-brand-800 via-brand-700 to-brand-800 p-10 text-white shadow-soft">
+      {/* HERO */}
+      <section
+        className="relative overflow-hidden rounded-3xl p-10 text-white shadow-soft"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(26,73,61,0.85), rgba(33,93,76,0.92)), url(${HERO_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="max-w-3xl">
           <p className="text-xs font-semibold tracking-widest text-white/70">
             WHITETAIL LAND SOLUTIONS
@@ -27,7 +54,7 @@ export default function Page() {
             Properties Engineered for Giants. Built for Legacy.
           </h1>
           <p className="mt-4 text-lg text-white/90">
-            Turnkey hunting properties and habitat design — expert strategy,
+            Turnkey hunting properties and habitat design—expert strategy,
             proven access, food, cover, and stand placement so you can hunt big,
             mature whitetails sooner.
           </p>
@@ -41,110 +68,178 @@ export default function Page() {
             </Link>
           </div>
         </div>
-
-        {/* Soft topographic accent (pure CSS, no image) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full border border-white/10 [mask-image:radial-gradient(closest-side,black,transparent)]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-32 top-24 h-96 w-96 rounded-full border border-white/10 [mask-image:radial-gradient(closest-side,black,transparent)]"
-        />
       </section>
 
-      {/* CHOOSE YOUR PATH — three tiles */}
+      {/* FEATURED PROPERTY */}
+      <section className="mt-16">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-1 shadow-soft">
+          <Link href={FEATURED.href} className="grid gap-4 p-4 sm:grid-cols-3">
+            <div
+              className="aspect-[16/10] w-full overflow-hidden rounded-xl sm:col-span-1"
+              style={{
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.1)), url(${FEATURED.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            <div className="sm:col-span-2">
+              <p className="text-xs font-semibold tracking-widest text-neutral-500">
+                FEATURED PROPERTY
+              </p>
+              <h3 className="mt-1 text-2xl font-bold">{FEATURED.title}</h3>
+              <p className="mt-2 text-zinc-700">
+                {FEATURED.acres} • {FEATURED.location}
+              </p>
+              <p className="mt-1 font-semibold">{FEATURED.price}</p>
+              <p className="mt-3 text-zinc-700">
+                Hunt-ready layout with access, food/cover, and proven strategy.
+              </p>
+              <span className="mt-4 inline-flex items-center text-brand-700">
+                View Details
+                <svg
+                  className="ml-2 h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* CHANNEL TRAILER (YouTube embed) */}
+      <section className="mt-16">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Giant Legacy — Channel Trailer</h2>
+            <p className="mt-1 text-zinc-700">
+              Why we exist, how we build hunt-ready properties, and what to expect on the channel.
+            </p>
+          </div>
+          <Link
+            href="https://www.youtube.com/"
+            target="_blank"
+            className="text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-500"
+          >
+            Subscribe on YouTube
+          </Link>
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_TRAILER
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_TRAILER}`
+                  : "about:blank"
+              }
+              title="WLS Channel Trailer"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST PROPERTY SHOWCASE (YouTube embed) */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight">Latest Property Showcase — Mahaffey 131</h2>
+        <p className="mt-1 text-zinc-700">
+          Full walk-through: access, food plots, stand locations, and hunt strategy.
+        </p>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_PROPERTY
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_PROPERTY}`
+                  : "about:blank"
+              }
+              title="Mahaffey 131 Property Showcase"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CHOOSE YOUR PATH */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
         <p className="mt-2 text-zinc-700">
           Whether you’re buying land, optimizing your property, or wanting us to
-          build it for you — we’ll meet you where you are.
+          build it for you—we’ll meet you where you are.
         </p>
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Land for Sale */}
-          <Link
-            href="/properties"
-            className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-semibold">Land for Sale</h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
-                Turnkey
-              </span>
-            </div>
-            <p className="mt-2 text-zinc-700">
-              Hunt-ready properties engineered for mature bucks — access,
-              food/cover, and stand placements built in.
-            </p>
-            <span className="mt-4 inline-flex items-center text-brand-700">
-              Browse Properties
-              <svg
-                className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-              </svg>
-            </span>
-          </Link>
-
-          {/* Consulting */}
-          <Link
-            href="/consulting"
-            className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-semibold">Consulting</h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
-                Blueprint
-              </span>
-            </div>
-            <p className="mt-2 text-zinc-700">
-              Custom habitat design maps and action plan to transform your
-              acreage into a big-buck paradise.
-            </p>
-            <span className="mt-4 inline-flex items-center text-brand-700">
-              See Consulting
-              <svg
-                className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-              </svg>
-            </span>
-          </Link>
-
-          {/* Habitat Implementation */}
-          <Link
-            href="/implementation"
-            className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-semibold">Habitat Implementation</h3>
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
-                Done-For-You
-              </span>
-            </div>
-            <p className="mt-2 text-zinc-700">
-              We build the plan: trails, plots, screening, stand/blind installs,
-              and access — start hunting sooner.
-            </p>
-            <span className="mt-4 inline-flex items-center text-brand-700">
-              Build My Property
-              <svg
-                className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-              </svg>
-            </span>
-          </Link>
+          {[
+            {
+              title: "Land for Sale",
+              href: "/properties",
+              img: TILE_IMAGES.properties,
+              badge: "Turnkey",
+              desc: "Hunt-ready properties engineered for mature bucks—access, food/cover, and stand placements built in.",
+            },
+            {
+              title: "Consulting",
+              href: "/consulting",
+              img: TILE_IMAGES.consulting,
+              badge: "Blueprint",
+              desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
+            },
+            {
+              title: "Habitat Implementation",
+              href: "/implementation",
+              img: TILE_IMAGES.implementation,
+              badge: "Done-For-You",
+              desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
+            },
+          ].map((item) => (
+            <Link
+              key={item.title}
+              href={item.href}
+              className="group relative overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `linear-gradient(to bottom, rgba(33,93,76,0.15), rgba(33,93,76,0.65)), url(${item.img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+              <div className="relative p-6">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-lg font-semibold text-white drop-shadow">
+                    {item.title}
+                  </h3>
+                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
+                    {item.badge}
+                  </span>
+                </div>
+                <p className="mt-2 text-white/90 drop-shadow">{item.desc}</p>
+                <span className="mt-4 inline-flex items-center text-white">
+                  Learn More
+                  <svg
+                    className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -156,7 +251,7 @@ export default function Page() {
               Free 15-Minute Property Strategy Call
             </h3>
             <p className="mt-1 text-brand-900/80">
-              Talk through goals, acreage, and timeline — get expert next steps.
+              Talk through goals, acreage, and timeline—get expert next steps.
             </p>
           </div>
           <Cta href="/contact">Book Now</Cta>
