@@ -30,14 +30,14 @@ const FEATURED = {
   price: "Call",
 };
 
-// YouTube placeholders — replace with real IDs
-const YOUTUBE_VIDEO_ID_TRAILER = "YOUTUBE_VIDEO_ID_TRAILER"; // e.g. "dQw4w9WgXcQ"
-const YOUTUBE_VIDEO_ID_PROPERTY = "YOUTUBE_VIDEO_ID_PROPERTY"; // e.g. Mahaffey showcase ID
+// YouTube placeholders — replace with real IDs (the part after v= in the URL)
+const YOUTUBE_VIDEO_ID_TRAILER = "YOUTUBE_VIDEO_ID_TRAILER";
+const YOUTUBE_VIDEO_ID_PROPERTY = "YOUTUBE_VIDEO_ID_PROPERTY";
 
 export default function Page() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-      {/* HERO */}
+      {/* 1) HERO */}
       <section
         className="relative overflow-hidden rounded-3xl p-10 text-white shadow-soft"
         style={{
@@ -70,7 +70,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* FEATURED PROPERTY */}
+      {/* 2) FEATURED PROPERTY */}
       <section className="mt-16">
         <div className="rounded-2xl border border-zinc-200 bg-white p-1 shadow-soft">
           <Link href={FEATURED.href} className="grid gap-4 p-4 sm:grid-cols-3">
@@ -109,70 +109,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CHANNEL TRAILER (YouTube embed) */}
-      <section className="mt-16">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight">Giant Legacy — Channel Trailer</h2>
-            <p className="mt-1 text-zinc-700">
-              Why we exist, how we build hunt-ready properties, and what to expect on the channel.
-            </p>
-          </div>
-          <Link
-            href="https://www.youtube.com/"
-            target="_blank"
-            className="text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-500"
-          >
-            Subscribe on YouTube
-          </Link>
-        </div>
-
-        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
-          <div className="relative aspect-video w-full">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={
-                YOUTUBE_VIDEO_ID_TRAILER
-                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_TRAILER}`
-                  : "about:blank"
-              }
-              title="WLS Channel Trailer"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* LATEST PROPERTY SHOWCASE (YouTube embed) */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold tracking-tight">Latest Property Showcase — Mahaffey 131</h2>
-        <p className="mt-1 text-zinc-700">
-          Full walk-through: access, food plots, stand locations, and hunt strategy.
-        </p>
-
-        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
-          <div className="relative aspect-video w-full">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src={
-                YOUTUBE_VIDEO_ID_PROPERTY
-                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_PROPERTY}`
-                  : "about:blank"
-              }
-              title="Mahaffey 131 Property Showcase"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CHOOSE YOUR PATH */}
+      {/* 3) CHOOSE YOUR PATH */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
         <p className="mt-2 text-zinc-700">
@@ -243,7 +180,70 @@ export default function Page() {
         </div>
       </section>
 
-      {/* SITE-WIDE CTA STRIP */}
+      {/* 4) CHANNEL TRAILER (YouTube) */}
+      <section className="mt-16">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">Giant Legacy — Channel Trailer</h2>
+            <p className="mt-1 text-zinc-700">
+              Why we exist, how we build hunt-ready properties, and what to expect on the channel.
+            </p>
+          </div>
+          <Link
+            href="https://www.youtube.com/"
+            target="_blank"
+            className="text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-500"
+          >
+            Subscribe on YouTube
+          </Link>
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_TRAILER
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_TRAILER}`
+                  : "about:blank"
+              }
+              title="WLS Channel Trailer"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 5) LATEST PROPERTY SHOWCASE (YouTube) */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold tracking-tight">Latest Property Showcase — Mahaffey 131</h2>
+        <p className="mt-1 text-zinc-700">
+          Full walk-through: access, food plots, stand locations, and hunt strategy.
+        </p>
+
+        <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-soft">
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_PROPERTY
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_PROPERTY}`
+                  : "about:blank"
+              }
+              title="Mahaffey 131 Property Showcase"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 6) SITE-WIDE CTA STRIP */}
       <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-50 p-6">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div>
