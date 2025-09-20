@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-// Local CTA (no external deps)
+// Local CTA
 function Cta({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
@@ -33,6 +33,8 @@ const FEATURED = {
 // YouTube placeholders
 const YOUTUBE_VIDEO_ID_TRAILER = "YOUTUBE_VIDEO_ID_TRAILER";
 const YOUTUBE_VIDEO_ID_PROPERTY = "YOUTUBE_VIDEO_ID_PROPERTY";
+const YOUTUBE_THUMB_TRAILER = "/images/youtube-trailer.jpg";
+const YOUTUBE_THUMB_PROPERTY = "/images/youtube-property.jpg";
 
 export default function Page() {
   return (
@@ -42,17 +44,13 @@ export default function Page() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-          aria-hidden
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/70 to-brand-900/80"
-          aria-hidden
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/70 to-brand-900/80" />
         <div className="relative p-10 text-white">
           <p className="text-xs font-semibold tracking-widest text-white/80">
             WHITETAIL LAND SOLUTIONS
           </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow">
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl drop-shadow text-white">
             Properties Engineered for Giants. Built for Legacy.
           </h1>
           <p className="mt-4 text-lg text-white/90">
@@ -64,7 +62,7 @@ export default function Page() {
             <Cta href="/contact">Book Your Free Strategy Call</Cta>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-base font-semibold text-white/90 transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              className="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-base font-semibold text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               Explore Services
             </Link>
@@ -73,9 +71,11 @@ export default function Page() {
       </section>
 
       {/* CHOOSE YOUR PATH with overlays */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
-        <p className="mt-2 text-zinc-700">
+      <section className="mt-16 text-white">
+        <h2 className="text-2xl font-bold tracking-tight text-white">
+          Choose Your Path
+        </h2>
+        <p className="mt-2 text-white/90">
           Whether you’re buying land, optimizing your property, or wanting us to
           build it for you—we’ll meet you where you are.
         </p>
@@ -112,15 +112,11 @@ export default function Page() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${item.img})` }}
-                aria-hidden
               />
-              <div
-                className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60"
-                aria-hidden
-              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
               <div className="relative p-6 text-white">
                 <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold drop-shadow">
+                  <h3 className="text-lg font-semibold drop-shadow text-white">
                     {item.title}
                   </h3>
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
@@ -150,29 +146,22 @@ export default function Page() {
           href={FEATURED.href}
           className="group relative block overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
         >
-          {/* Background image */}
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${FEATURED.image})` }}
-            aria-hidden
           />
-          {/* Gradient overlay */}
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"
-            aria-hidden
-          />
-          {/* Content */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
           <div className="relative p-6 text-white">
             <p className="text-xs font-semibold tracking-widest text-white/80">
               FEATURED PROPERTY
             </p>
-            <h3 className="mt-1 text-2xl font-bold drop-shadow">
+            <h3 className="mt-1 text-2xl font-bold drop-shadow text-white">
               {FEATURED.title}
             </h3>
-            <p className="mt-2 drop-shadow">
+            <p className="mt-2 drop-shadow text-white/90">
               {FEATURED.acres} • {FEATURED.location}
             </p>
-            <p className="mt-1 font-semibold">{FEATURED.price}</p>
+            <p className="mt-1 font-semibold text-white">{FEATURED.price}</p>
             <p className="mt-3 text-white/90 drop-shadow">
               Hunt-ready layout with access, food/cover, and proven strategy.
             </p>
@@ -190,14 +179,99 @@ export default function Page() {
         </Link>
       </section>
 
-      {/* CHANNEL TRAILER (YouTube) */}
-      {/* (keep your existing YouTube embed section here) */}
+      {/* CHANNEL TRAILER */}
+      <section className="mt-16 text-white">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight text-white">
+              Giant Legacy — Channel Trailer
+            </h2>
+            <p className="mt-1 text-white/90">
+              Why we exist, how we build hunt-ready properties, and what to
+              expect on the channel.
+            </p>
+          </div>
+          <Link
+            href="https://www.youtube.com/"
+            target="_blank"
+            className="text-white underline decoration-white/50 underline-offset-4 hover:decoration-white"
+          >
+            Subscribe on YouTube
+          </Link>
+        </div>
 
-      {/* LATEST PROPERTY SHOWCASE (YouTube) */}
-      {/* (keep your existing YouTube embed section here) */}
+        <div className="mt-6 relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${YOUTUBE_THUMB_TRAILER})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_TRAILER
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_TRAILER}`
+                  : "about:blank"
+              }
+              title="WLS Channel Trailer"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST PROPERTY SHOWCASE */}
+      <section className="mt-16 text-white">
+        <h2 className="text-2xl font-bold tracking-tight text-white">
+          Latest Property Showcase — Mahaffey 131
+        </h2>
+        <p className="mt-1 text-white/90">
+          Full walk-through: access, food plots, stand locations, and hunt
+          strategy.
+        </p>
+
+        <div className="mt-6 relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${YOUTUBE_THUMB_PROPERTY})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src={
+                YOUTUBE_VIDEO_ID_PROPERTY
+                  ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_PROPERTY}`
+                  : "about:blank"
+              }
+              title="Mahaffey 131 Property Showcase"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
 
       {/* SITE-WIDE CTA STRIP */}
-      {/* (keep your existing CTA section here) */}
+      <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-700 p-6 text-white">
+        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+          <div>
+            <h3 className="text-lg font-semibold text-white">
+              Free 15-Minute Property Strategy Call
+            </h3>
+            <p className="mt-1 text-white/90">
+              Talk through goals, acreage, and timeline—get expert next steps.
+            </p>
+          </div>
+          <Cta href="/contact">Book Now</Cta>
+        </div>
+      </section>
     </main>
   );
 }
