@@ -47,7 +47,7 @@ export default function PropertiesPage() {
           PROPERTIES
         </p>
         <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-          Properties Engineered for Giants. <span className="text-brand-700">Built for Legacy.</span>
+          Properties Engineered for Giants. <span className="text-brand-700"><br></br>Built for Legacy.</span>
         </h1>
         <p className="mt-4 max-w-3xl text-neutral-700">
           Explore hunt-ready properties and premium acreage engineered for mature whitetails.
