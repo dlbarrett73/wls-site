@@ -51,12 +51,11 @@ export default function Page() {
             WHITETAIL LAND SOLUTIONS
           </p>
           <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl text-white drop-shadow">
-  Properties Engineered for Giants. Built for Legacy.
-</h1>
-
+            Properties Engineered for Giants. Built for Legacy.
+          </h1>
           <p className="mt-4 text-lg text-white/90">
             Turnkey hunting properties and habitat design—expert strategy,
-            undectable access, food, cover, and stand placement so you can hunt big,
+            proven access, food, cover, and stand placement so you can hunt big,
             mature whitetails sooner.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -71,46 +70,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 2) FEATURED PROPERTY */}
-      <section className="mt-16">
-        <div className="rounded-2xl border border-zinc-200 bg-white p-1 shadow-soft">
-          <Link href={FEATURED.href} className="grid gap-4 p-4 sm:grid-cols-3">
-            <div
-              className="aspect-[16/10] w-full overflow-hidden rounded-xl sm:col-span-1"
-              style={{
-                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.1)), url(${FEATURED.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            />
-            <div className="sm:col-span-2">
-              <p className="text-xs font-semibold tracking-widest text-neutral-500">
-                FEATURED PROPERTY
-              </p>
-              <h3 className="mt-1 text-2xl font-bold">{FEATURED.title}</h3>
-              <p className="mt-2 text-zinc-700">
-                {FEATURED.acres} • {FEATURED.location}
-              </p>
-              <p className="mt-1 font-semibold">{FEATURED.price}</p>
-              <p className="mt-3 text-zinc-700">
-                Hunt-ready layout with access, food/cover, and proven strategy.
-              </p>
-              <span className="mt-4 inline-flex items-center text-brand-700">
-                View Details
-                <svg
-                  className="ml-2 h-4 w-4"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-                </svg>
-              </span>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* 3) CHOOSE YOUR PATH */}
+      {/* 2) CHOOSE YOUR PATH */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
         <p className="mt-2 text-zinc-700">
@@ -178,6 +138,45 @@ export default function Page() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* 3) FEATURED PROPERTY */}
+      <section className="mt-16">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-1 shadow-soft">
+          <Link href={FEATURED.href} className="grid gap-4 p-4 sm:grid-cols-3">
+            <div
+              className="aspect-[16/10] w-full overflow-hidden rounded-xl sm:col-span-1"
+              style={{
+                backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.1)), url(${FEATURED.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            <div className="sm:col-span-2">
+              <p className="text-xs font-semibold tracking-widest text-neutral-500">
+                FEATURED PROPERTY
+              </p>
+              <h3 className="mt-1 text-2xl font-bold">{FEATURED.title}</h3>
+              <p className="mt-2 text-zinc-700">
+                {FEATURED.acres} • {FEATURED.location}
+              </p>
+              <p className="mt-1 font-semibold">{FEATURED.price}</p>
+              <p className="mt-3 text-zinc-700">
+                Hunt-ready layout with access, food/cover, and proven strategy.
+              </p>
+              <span className="mt-4 inline-flex items-center text-brand-700">
+                View Details
+                <svg
+                  className="ml-2 h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                </svg>
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 
