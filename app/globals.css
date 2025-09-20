@@ -77,3 +77,11 @@ a {
     @apply text-white/90 drop-shadow;
   }
 }
+   /* subtle card + divider to match home page */
+.card {
+  @apply rounded-2xl shadow-soft bg-white;
+}
+.divider {
+  @apply h-px bg-neutral-200/80 my-8;
+}
+
