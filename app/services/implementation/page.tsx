@@ -3,9 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-/** Try to import CtaButton (works with both named and default exports).
- *  If it's missing or mismatched, we fall back to a styled <Link>.
- */
+/** Safe CTA import wrapper */
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
@@ -68,8 +66,181 @@ export default function ImplementationPage() {
         </div>
       </header>
 
-      {/* === sections for decision logic, build list, process, trust, FAQ, final CTA === */}
-      {/* (unchanged from previous version I gave you) */}
+      {/* DECISION LOGIC STRIP */}
+      <section className="mt-12 grid gap-6 md:grid-cols-3">
+        <Link
+          href="/services/consulting"
+          className="rounded-2xl border border-zinc-200 p-6 hover:shadow-soft transition"
+        >
+          <p className="text-xs font-semibold tracking-widest text-neutral-500">OPTION 1</p>
+          <h3 className="mt-2 text-xl font-bold">Consulting + DIY</h3>
+          <p className="mt-2 text-neutral-600">
+            Get a Blueprint for Giants and build at your pace. We’ll map stand sites, travel,
+            food/water/cover, and <em>undetectable access</em><sup>™</sup>.
+          </p>
+        </Link>
+        <Link
+          href="/services/consulting"
+          className="rounded-2xl border border-zinc-200 p-6 hover:shadow-soft transition"
+        >
+          <p className="text-xs font-semibold tracking-widest text-neutral-500">OPTION 2</p>
+          <h3 className="mt-2 text-xl font-bold">Consulting + DFY</h3>
+          <p className="mt-2 text-neutral-600">
+            Full plan + we build it for you. Turnkey project management, vetted subs, and clear
+            sequencing for maximum daytime movement.
+          </p>
+        </Link>
+        <div className="rounded-2xl border border-zinc-200 p-6">
+          <p className="text-xs font-semibold tracking-widest text-neutral-500">OPTION 3</p>
+          <h3 className="mt-2 text-xl font-bold">Already Have a Plan?</h3>
+          <p className="mt-2 text-neutral-600">
+            We’ll execute your plan with precision—roads, plots, TSI, screening, water, blinds,
+            and access. Start with a site walk to align scope and budget.
+          </p>
+          <div className="mt-4">
+            <CtaSafe href="/contact">Schedule a Site Walk</CtaSafe>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE BUILD */}
+      <section className="mt-12 rounded-3xl bg-brand-50 p-8 md:p-10 border border-brand-100">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-brand-900">
+          What We Build (End-to-End)
+        </h2>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-3 text-brand-900/80">
+          <li className="rounded-xl bg-white p-4 border border-brand-100">
+            Access Roads & <span className="font-semibold">Undetectable Access</span><sup>™</sup>
+          </li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Food Plots & Soil Prep</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">TSI & Bedding Enhancements</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Screening & Edge Architecture</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Water: Ponds, Tubs, Seeps</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Stand/Blind Placement</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Native Regeneration & Forbs</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Wind/Pressure Strategy</li>
+          <li className="rounded-xl bg-white p-4 border border-brand-100">Permits & Vetted Subcontractors</li>
+        </ul>
+        <p className="mt-6 text-sm text-brand-900/70">
+          Scope is sequenced to protect core areas and daylight movement. Every task is vetted
+          against access, wind, pressure, and your target buck behavior.
+        </p>
+      </section>
+
+      {/* OUR BUILD PROCESS */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">Our Build Process</h2>
+        <ol className="mt-6 grid gap-4 md:grid-cols-2">
+          {[
+            {
+              title: "1) Strategy Call & Fit",
+              body:
+                "We confirm goals, budget range, and timing. If you need a plan, we recommend Consulting first.",
+            },
+            {
+              title: "2) Site Walk & Scope",
+              body:
+                "On-property walk to align improvements with wind/terrain and undetectable access™.",
+            },
+            {
+              title: "3) Bid & Phasing",
+              body:
+                "Clear line-item scope with options for turnkey or phased build to fit budget/timeline.",
+            },
+            {
+              title: "4) Build & Manage",
+              body:
+                "We coordinate machines, materials, and subs. You get progress updates and milestone check-ins.",
+            },
+            {
+              title: "5) Final Walk & Hunt-Ready",
+              body:
+                "We verify access, stands, and plot readiness. You step into a property engineered for giants.",
+            },
+          ].map((step) => (
+            <li key={step.title} className="rounded-2xl border border-zinc-200 p-6">
+              <h3 className="text-lg font-bold">{step.title}</h3>
+              <p className="mt-2 text-neutral-600">{step.body}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* WHY WLS */}
+      <section className="mt-12 rounded-3xl bg-brand-700 p-8 md:p-10 text-white shadow-soft">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">Why WLS</h2>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          <li className="rounded-xl bg-white/10 p-4">
+            Professional consulting forester leadership with wildlife & habitat education from Penn State and
+            practical research experience at the PSU Deer Lab.
+          </li>
+          <li className="rounded-xl bg-white/10 p-4">
+            Habitat design + build experience focused on <em>daylight</em> movement and pressure control.
+          </li>
+          <li className="rounded-xl bg-white/10 p-4">
+            End-to-end project management: scope, bids, subs, sequencing, and quality control.
+          </li>
+          <li className="rounded-xl bg-white/10 p-4">
+            Ruthless commitment to <em>undetectable access</em><sup>™</sup> and stand viability.
+          </li>
+        </ul>
+        <div className="mt-6">
+          <CtaSafe href="/contact" className="bg-white text-brand-800 hover:bg-brand-50">
+            Get a Build Estimate
+          </CtaSafe>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">FAQs</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-zinc-200 p-6">
+            <h3 className="text-lg font-bold">Do I need a plan first?</h3>
+            <p className="mt-2 text-neutral-600">
+              If you don’t have a clear Blueprint for Giants, we recommend starting with{" "}
+              <Link href="/services/consulting" className="underline decoration-brand-600 underline-offset-2">
+                Consulting
+              </Link>{" "}
+              so every dollar is sequenced correctly.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 p-6">
+            <h3 className="text-lg font-bold">How do budgets and phases work?</h3>
+            <p className="mt-2 text-neutral-600">
+              We’ll provide a line-item bid with optional phasing. Most clients tackle roads/access
+              and screening first to unlock <em>undetectable access</em><sup>™</sup>.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 p-6">
+            <h3 className="text-lg font-bold">Will you work from my existing plan?</h3>
+            <p className="mt-2 text-neutral-600">
+              Yes. We’ll align the scope to wind, terrain, and pressure—then execute with precision.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-zinc-200 p-6">
+            <h3 className="text-lg font-bold">How soon can you start?</h3>
+            <p className="mt-2 text-neutral-600">
+              Seasons and ground conditions matter. Book a strategy call to review timing and lead times.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="mt-12 rounded-3xl bg-brand-700 p-8 md:p-10 text-white text-center shadow-soft">
+        <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+          Ready to engineer—and build—your property for giants?
+        </h2>
+        <p className="mt-3 text-brand-50/90">
+          We’ll scope the work, phase it if needed, and manage the whole build for you.
+        </p>
+        <div className="mt-6 flex justify-center">
+          <CtaSafe href="/contact" className="bg-white text-brand-800 hover:bg-brand-50">
+            Book a Free Strategy Call
+          </CtaSafe>
+        </div>
+      </section>
     </main>
   );
 }
