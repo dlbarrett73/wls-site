@@ -64,3 +64,16 @@ a {
 .divider-accent  { @apply h-1 w-20 rounded-full bg-brand-600/90; }
 .badge-kicker    { @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 border border-brand-100; }
 
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .overlay-text {
+    @apply text-white drop-shadow;
+  }
+  .overlay-subtext {
+    @apply text-white/90 drop-shadow;
+  }
+}
