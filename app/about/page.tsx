@@ -201,25 +201,58 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      {/* FINAL CTA — dark brand block, white text */}
+      {/* CHOOSE YOUR PATH — replaces the former final CTA (no other changes) */}
       <section className="rounded-3xl bg-brand-700 p-6 text-white md:p-10">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Ready to engineer your property for giants?
-          </h2>
+        <div className="mx-auto w-full max-w-5xl">
+          <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
           <p className="mt-3 text-white/90">
-            Start with a quick, no-pressure call. We’ll ask about your acreage,
-            goals, and timeline, then recommend the best path—Consulting + DIY or
-            Consulting + DFY.
+            Start with the right blueprint, then decide if you want to build it yourself
+            or have our team do it for you.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
-            <Link
-              href="/services"
-              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
-            >
-              Compare Services
-            </Link>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {/* Consulting (DIY) */}
+            <div className="rounded-2xl bg-white/5 p-6">
+              <p className="text-sm font-semibold tracking-widest text-white/80">
+                CONSULTING + DIY
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-white">Blueprint for Giants</h3>
+              <p className="mt-2 text-white/90">
+                Property-specific plan for stands/blinds, access, food/cover layout,
+                seasonal routes, and timber/edge work—centered on
+                <span className="font-semibold"> undetectable access</span>.
+              </p>
+              <div className="mt-4 flex gap-3">
+                <CtaSafe href="/services/consulting">Learn More</CtaSafe>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
+                >
+                  Free Strategy Call
+                </Link>
+              </div>
+            </div>
+
+            {/* Implementation (DFY) */}
+            <div className="rounded-2xl bg-white/5 p-6">
+              <p className="text-sm font-semibold tracking-widest text-white/80">
+                CONSULTING + DFY
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-white">Habitat Implementation</h3>
+              <p className="mt-2 text-white/90">
+                We build it for you—road/trail access, TSI, plots, screens, water,
+                and stand installs—done right and in the right order.
+              </p>
+              <div className="mt-4 flex gap-3">
+                <CtaSafe href="/services/implementation">Learn More</CtaSafe>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
+                >
+                  Free Strategy Call
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
