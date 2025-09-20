@@ -38,9 +38,9 @@ const YOUTUBE_THUMB_PROPERTY = "/images/youtube-property.jpg";
 
 export default function Page() {
   return (
-    <main className="mx-auto max-w-6xl px-0 pb-24 pt-0">
+    <main className="pb-24">
       {/* HERO full width like Implementation */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden w-full">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMAGE})` }}
@@ -72,78 +72,80 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CHOOSE YOUR PATH */}
-      <section className="container mt-16 px-6">
-        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
-          Choose Your Path
-        </h2>
-        <p className="mt-2 text-zinc-700">
-          Whether you’re buying land, optimizing your property, or wanting us to
-          build it for you—we’ll meet you where you are.
-        </p>
+      {/* rest of page stays constrained */}
+      <div className="mx-auto max-w-6xl px-6">
+        {/* CHOOSE YOUR PATH */}
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+            Choose Your Path
+          </h2>
+          <p className="mt-2 text-zinc-700">
+            Whether you’re buying land, optimizing your property, or wanting us
+            to build it for you—we’ll meet you where you are.
+          </p>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Land for Sale",
-              href: "/properties",
-              img: TILE_IMAGES.properties,
-              badge: "Turnkey",
-              desc: "Hunt-ready properties engineered for mature bucks—access, food/cover, and stand placements built in.",
-            },
-            {
-              title: "Consulting",
-              href: "https://www.whitetaillandsolutions.com/services/consulting",
-              img: TILE_IMAGES.consulting,
-              badge: "Blueprint",
-              desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
-            },
-            {
-              title: "Habitat Implementation",
-              href: "https://www.whitetaillandsolutions.com/services/implementation",
-              img: TILE_IMAGES.implementation,
-              badge: "Done-For-You",
-              desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
-            },
-          ].map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.img})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
-              <div className="relative p-6 text-white">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold text-white">
-                    {item.title}
-                  </h3>
-                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
-                    {item.badge}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                title: "Land for Sale",
+                href: "/properties",
+                img: TILE_IMAGES.properties,
+                badge: "Turnkey",
+                desc: "Hunt-ready properties engineered for mature bucks—access, food/cover, and stand placements built in.",
+              },
+              {
+                title: "Consulting",
+                href: "https://www.whitetaillandsolutions.com/services/consulting",
+                img: TILE_IMAGES.consulting,
+                badge: "Blueprint",
+                desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
+              },
+              {
+                title: "Habitat Implementation",
+                href: "https://www.whitetaillandsolutions.com/services/implementation",
+                img: TILE_IMAGES.implementation,
+                badge: "Done-For-You",
+                desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
+              },
+            ].map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.img})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
+                <div className="relative p-6 text-white">
+                  <div className="flex items-start justify-between">
+                    <h3 className="text-lg font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <p className="mt-2">{item.desc}</p>
+                  <span className="mt-4 inline-flex items-center">
+                    Learn More
+                    <svg
+                      className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                    </svg>
                   </span>
                 </div>
-                <p className="mt-2">{item.desc}</p>
-                <span className="mt-4 inline-flex items-center">
-                  Learn More
-                  <svg
-                    className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-      {/* FEATURED PROPERTY */}
-      {/* ... unchanged ... */}
+        {/* FEATURED PROPERTY, YOUTUBE, etc… remain unchanged */}
+      </div>
     </main>
   );
 }
