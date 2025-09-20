@@ -3,6 +3,15 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+/** ---- LOCAL TILE IMAGES (prevents ReferenceError) ----
+ * Update these paths only if your image filenames/locations change.
+ */
+const TILE_IMAGES = {
+  properties: "/images/property.jpg",        // public/images/property.jpg
+  consulting: "/images/consulting.png",      // public/images/consulting.png
+  implementation: "/images/implementation.jpg", // public/images/implementation.jpg
+};
+
 /** Safe CTA import (works if CtaButton is default or named export).
  *  Falls back to a styled <Link> if the component isn't found.
  */
@@ -42,7 +51,7 @@ export default function AboutPage() {
             className="object-cover"
             sizes="100vw"
           />
-          {/* Dark overlay + subtle gradient for readability */}
+        {/* Dark overlay + subtle gradient for readability */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
         </div>
