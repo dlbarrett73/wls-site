@@ -1,9 +1,10 @@
 // app/about/page.tsx
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
-/** Try to import CtaButton (works with both named and default exports).
- *  If it's missing or mismatched, we fall back to a styled <Link>.
+/** Safe CTA import (works if CtaButton is default or named export).
+ *  Falls back to a styled <Link> if the component isn't found.
  */
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
@@ -29,62 +30,81 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24">
-      {/* Hero (brand gradient; white text for contrast) */}
-      <section className="relative -mx-6 mb-16 rounded-3xl bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 px-6 py-16 text-white md:py-20">
-        <div className="mx-auto max-w-3xl">
-          <p className="text-sm font-semibold tracking-widest/loose text-white/80">
-            ABOUT US
-          </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Engineered for Giants. Built for Legacy.
-          </h1>
-          <p className="mt-4 text-lg/8 text-white/90">
-            We design and build hunt-ready properties for serious whitetail
-            hunters in Pennsylvania. Our work blends whitetail biology, forestry,
-            and access engineering so you can consistently encounter mature
-            bucks—and create a legacy your family will talk about for decades.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
-            <Link
-              href="/services"
-              className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
-            >
-              Explore our Services
-            </Link>
+      {/* HERO — dark overlay on image for safe white text */}
+      <section className="relative -mx-6 mb-16 overflow-hidden rounded-3xl">
+        {/* Background image */}
+        <div className="relative h-[44vh] min-h-[380px] w-full md:h-[56vh]">
+          <Image
+            src="/images/about.jpg" // public/images/about.jpg
+            alt="About Whitetail Land Solutions"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Dark overlay + subtle gradient for readability */}
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
+        </div>
+
+        {/* Content */}
+        <div className="pointer-events-none absolute inset-0 flex items-end">
+          <div className="pointer-events-auto mx-auto w-full max-w-6xl px-6 pb-10">
+            <p className="text-sm font-semibold tracking-widest text-white/80">
+              ABOUT US
+            </p>
+            <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Engineered for Giants. Built for Legacy.
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg text-white/90">
+              We design and build hunt-ready properties for serious whitetail
+              hunters in Pennsylvania. By blending whitetail biology, forestry,
+              and <span className="font-semibold">undetectable access</span>, we help you create
+              consistent, high-odds encounters with mature bucks—without burning
+              your property.
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+              <Link
+                href="/services"
+                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
+              >
+                Explore Services
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Why we exist */}
+      {/* PURPOSE + VALUE */}
       <section className="mx-auto mb-16 grid gap-8 md:grid-cols-2">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Our Purpose</h2>
           <p className="mt-3 text-zinc-700">
             Help whitetail hunters secure their legacy with properties optimized
-            for consistent encounters with big, mature bucks—without wasting
-            seasons on guesswork. We combine data-driven design with practical,
-            field-tested implementation so every move on your property makes you
-            less detectable and more effective.
+            for consistent, daylight encounters with big, mature bucks—without
+            wasting seasons on guesswork. Every design decision protects
+            movement, maximizes opportunity, and respects the land.
           </p>
         </div>
         <div className="rounded-2xl bg-zinc-50 p-6">
-          <h3 className="text-lg font-semibold">What this means for you</h3>
+          <h3 className="text-lg font-semibold">What you can expect</h3>
           <ul className="mt-3 space-y-2 text-zinc-700">
-            <li>• Clear, actionable plans you can actually build.</li>
-            <li>• Undetectable access that protects daylight movement.</li>
-            <li>• Habitat that matures with your woods and your goals.</li>
+            <li>• Clear, build-ready plans with priorities and phases.</li>
+            <li>• <span className="font-semibold">Undetectable access</span> baked into every route.</li>
+            <li>• Forestry moves that improve habitat and value.</li>
             <li>• A property you’re proud to hand down.</li>
           </ul>
         </div>
       </section>
 
-      {/* What we do (tie to Services decision logic) */}
+      {/* SERVICE PATHS — tie to Services/Consulting logic (DIY vs DFY) */}
       <section className="mb-16">
-        <h2 className="text-2xl font-bold tracking-tight">What We Do</h2>
+        <h2 className="text-2xl font-bold tracking-tight">Choose Your Path</h2>
         <p className="mt-3 max-w-3xl text-zinc-700">
-          We offer two core service paths, so you can choose how you want to
-          build your big-buck paradise—DIY or DFY.
+          Two ways to build your big-buck paradise—DIY or DFY. Start with the
+          right blueprint, then either build it yourself or have our team do the
+          heavy lifting.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -95,9 +115,9 @@ export default function AboutPage() {
             </p>
             <h3 className="mt-2 text-xl font-bold">Blueprint for Giants</h3>
             <p className="mt-2 text-zinc-700">
-              A custom, property-specific plan: stand/Blind locations, access,
-              food/cover/water strategy, timber &amp; edge work, and seasonal
-              hunt routes—all centered on <span className="font-semibold">undetectable access</span> and mature buck behavior.
+              Custom, property-specific plan—stands/blinds, access routes, food/cover
+              layout, seasonal hunt strategy, and timber/edge work—centered on{" "}
+              <span className="font-semibold">undetectable access</span> and mature buck behavior.
             </p>
             <div className="mt-4 flex gap-3">
               <CtaSafe href="/services/consulting">Learn More</CtaSafe>
@@ -117,9 +137,8 @@ export default function AboutPage() {
             </p>
             <h3 className="mt-2 text-xl font-bold">Habitat Implementation</h3>
             <p className="mt-2 text-zinc-700">
-              Prefer a turnkey build? We manage the heavy lifting—road &amp; trail
-              access, TSI, plots, screens, watering, stand installs—so your plan
-              gets installed the right way, the first time.
+              We build it for you: road/trail access, TSI, plots, screens, water,
+              and stand installs—done in the right order, the right way.
             </p>
             <div className="mt-4 flex gap-3">
               <CtaSafe href="/services/implementation">Learn More</CtaSafe>
@@ -134,21 +153,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Approach pillars (brand block w/ white headings) */}
+      {/* APPROACH — Dark brand block with WHITE headings for contrast */}
       <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
         <p className="mt-3 max-w-3xl text-white/90">
-          Everything we design ladders up to one goal: repeatable, high-odds
-          encounters with mature whitetails—without burning the property.
+          Everything ladders up to repeatable, high-odds encounters with mature
+          whitetails—without burning the property.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl bg-white/5 p-6">
             <h3 className="text-lg font-semibold">Undetectable Access</h3>
             <p className="mt-2 text-white/90">
-              Routes, winds, screens, and entry timing that keep you invisible,
-              silent, and scent-controlled. If access is wrong, nothing else
-              matters.
+              Routes, winds, screens, and timing that keep you invisible, silent,
+              and scent-controlled. If access is wrong, nothing else matters.
             </p>
           </div>
           <div className="rounded-2xl bg-white/5 p-6">
@@ -161,8 +179,8 @@ export default function AboutPage() {
           <div className="rounded-2xl bg-white/5 p-6">
             <h3 className="text-lg font-semibold">Forestry Integration</h3>
             <p className="mt-2 text-white/90">
-              Timber work and habitat cuts that compound benefit: light, food,
-              cover, access corridors, and long-term stand health.
+              Timber work that compounds benefit: light, food, cover, corridors,
+              and long-term stand health.
             </p>
           </div>
           <div className="rounded-2xl bg-white/5 p-6">
@@ -175,31 +193,58 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Who we are */}
+      {/* TEAM — precise image sizing/cropping/positioning */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
+
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <article className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
-            <h3 className="text-lg font-semibold">Kent Shick — Habitat & Forestry</h3>
-            <p className="mt-2 text-zinc-700">
-              Professional consulting forester and habitat designer with
-              hands-on experience building high-odds properties across PA.
-              Educated in wildlife &amp; habitat at Penn State and mentored by the
-              woods. Kent leads field design and implementation.
-            </p>
+          {/* David */}
+          <article className="overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src="/images/team-david.jpg" // public/images/team-david.jpg
+                alt="David Barrett — Strategy & Growth"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                priority
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold">David Barrett — Strategy &amp; Growth</h3>
+              <p className="mt-2 text-zinc-700">
+                Business and marketing operator focused on clarity, systems, and
+                client results. David leads marketing, finance, and partnerships
+                so the vision and execution stay aligned with your outcomes.
+              </p>
+            </div>
           </article>
-          <article className="rounded-2xl border border-zinc-200 p-6 shadow-soft">
-            <h3 className="text-lg font-semibold">David Barrett — Strategy & Growth</h3>
-            <p className="mt-2 text-zinc-700">
-              Business and marketing operator focused on clarity, systems, and
-              client results. David leads marketing, finance, and partnerships so
-              the vision and execution stay aligned with your outcomes.
-            </p>
+
+          {/* Kent */}
+          <article className="overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+            <div className="relative aspect-[4/3] w-full">
+              <Image
+                src="/images/team-kent.jpg" // public/images/team-kent.jpg
+                alt="Kent Shick — Habitat & Forestry"
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-semibold">Kent Shick — Habitat &amp; Forestry</h3>
+              <p className="mt-2 text-zinc-700">
+                Professional consulting forester and habitat designer with
+                hands-on experience building high-odds properties across PA.
+                Educated in wildlife &amp; habitat at Penn State and mentored by the
+                woods. Kent leads field design and implementation.
+              </p>
+            </div>
           </article>
         </div>
       </section>
 
-      {/* Credibility / Standards */}
+      {/* STANDARDS */}
       <section className="mb-16 rounded-2xl bg-zinc-50 p-6">
         <h2 className="text-2xl font-bold tracking-tight">Standards That Don’t Bend</h2>
         <ul className="mt-4 grid gap-3 text-zinc-700 md:grid-cols-2">
@@ -207,11 +252,11 @@ export default function AboutPage() {
           <li>• Seasonal routes that protect core areas and daylight use.</li>
           <li>• Forestry that improves both habitat and long-term value.</li>
           <li>• Clear phasing: do the right work in the right order.</li>
-          <li>• Stewardship: design decisions that honor the land and legacy.</li>
+          <li>• Stewardship: designs that honor the land and your legacy.</li>
         </ul>
       </section>
 
-      {/* Final CTA (brand block w/ white text) */}
+      {/* FINAL CTA — dark brand block, white text */}
       <section className="rounded-3xl bg-brand-700 p-6 text-white md:p-10">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-2xl font-bold tracking-tight">
