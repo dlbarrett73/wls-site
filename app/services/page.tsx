@@ -10,18 +10,23 @@ export const metadata = {
 
 export default function Services() {
   return (
-    <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
-      {/* HERO — services-specific; home-page look with white headline */}
+    <>
+      {/* FULL-SCREEN, FULL-WIDTH HERO (matches home/implementation) */}
       <section
-        className="relative overflow-hidden rounded-3xl shadow-soft"
+        className={[
+          // full-bleed trick so it spans the entire viewport width even inside constrained layouts
+          "relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen",
+          "min-h-screen overflow-hidden",
+          "shadow-soft",
+        ].join(" ")}
         style={{
           backgroundImage:
-            "linear-gradient(rgba(19,54,46,.88), rgba(19,54,46,.88)), url('/images/hero.jpg')",
+            "linear-gradient(rgba(19,54,46,.78), rgba(19,54,46,.78)), url('/images/consulting.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="px-6 py-14 md:px-10 md:py-16">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
           <p className="text-xs font-semibold tracking-[0.18em] text-white/80">
             SERVICES
           </p>
@@ -51,85 +56,88 @@ export default function Services() {
         </div>
       </section>
 
-      {/* SERVICE TILES — two tiles only; requested image + absolute links */}
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight text-zinc-900">
-          Two Ways We Help
-        </h2>
-        <p className="mt-2 max-w-2xl text-zinc-600">
-          Choose the best fit for where you are today.
-        </p>
+      {/* Everything below is unchanged */}
+      <main className="mx-auto max-w-6xl px-6 pb-24 pt-10">
+        {/* SERVICE TILES — two tiles only; requested image + absolute links */}
+        <section className="mt-12">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900">
+            Two Ways We Help
+          </h2>
+          <p className="mt-2 max-w-2xl text-zinc-600">
+            Choose the best fit for where you are today.
+          </p>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <TileCard
-            href="https://www.whitetaillandsolutions.com/services/consulting"
-            title="Consulting (Blueprint for Giants)"
-            badge="DIY or DFY"
-            image="/images/consulting.png" // requested path (public/images/consulting.png)
-            fallbackClass="bg-[url('/images/consulting.png')]"
-            description="Custom design maps and a step-by-step plan—access, bedding, food, setups, and pressure control—so you can implement yourself or have us do it."
-            bullets={[
-              "Custom maps & priority actions",
-              "Seasonal timeline & how-to guide",
-              "Option to have our team build it (DFY)",
-            ]}
-            ctaLabel="Learn About Consulting"
-          />
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <TileCard
+              href="https://www.whitetaillandsolutions.com/services/consulting"
+              title="Consulting (Blueprint for Giants)"
+              badge="DIY or DFY"
+              image="/images/consulting.png" // requested path (public/images/consulting.png)
+              fallbackClass="bg-[url('/images/consulting.png')]"
+              description="Custom design maps and a step-by-step plan—access, bedding, food, setups, and pressure control—so you can implement yourself or have us do it."
+              bullets={[
+                "Custom maps & priority actions",
+                "Seasonal timeline & how-to guide",
+                "Option to have our team build it (DFY)",
+              ]}
+              ctaLabel="Learn About Consulting"
+            />
 
-          <TileCard
-            href="https://www.whitetaillandsolutions.com/services/implementation"
-            title="Habitat Implementation"
-            badge="Done-For-You"
-            image="/images/implementation.jpg"
-            fallbackClass="bg-[url('/images/implementation.jpg')]"
-            description="We build the plan—roads, plots, screening, stand/blind installs, and access—so your property hunts sooner and smarter."
-            bullets={[
-              "Build from our blueprint or your plan",
-              "Food plots, trails/roads, screening & TSI",
-              "Stand/blind placement & access optimization",
-            ]}
-            ctaLabel="See Implementation"
-          />
-        </div>
-      </section>
+            <TileCard
+              href="https://www.whitetaillandsolutions.com/services/implementation"
+              title="Habitat Implementation"
+              badge="Done-For-You"
+              image="/images/implementation.jpg"
+              fallbackClass="bg-[url('/images/implementation.jpg')]"
+              description="We build the plan—roads, plots, screening, stand/blind installs, and access—so your property hunts sooner and smarter."
+              bullets={[
+                "Build from our blueprint or your plan",
+                "Food plots, trails/roads, screening & TSI",
+                "Stand/blind placement & access optimization",
+              ]}
+              ctaLabel="See Implementation"
+            />
+          </div>
+        </section>
 
-      {/* ULTRA-CLEAR DECISION AID — no confusion, simple mapping */}
-      <section className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
-        <h3 className="text-lg font-semibold text-zinc-900">
-          What’s my best next step?
-        </h3>
+        {/* ULTRA-CLEAR DECISION AID — no confusion, simple mapping */}
+        <section className="mt-12 rounded-3xl border border-zinc-200 bg-white p-6 shadow-soft">
+          <h3 className="text-lg font-semibold text-zinc-900">
+            What’s my best next step?
+          </h3>
 
-        <div className="mt-4 grid gap-6 md:grid-cols-3">
-          <DecisionCard
-            tag="Consulting — DIY"
-            title="I want a plan I can implement."
-            body="We design the blueprint. You follow the step-by-step map and timeline."
-            href="https://www.whitetaillandsolutions.com/services/consulting"
-          />
-          <DecisionCard
-            tag="Consulting — DFY"
-            title="I want you to build it for me."
-            body="We create the blueprint and our team implements it end-to-end."
-            href="https://www.whitetaillandsolutions.com/services/consulting"
-          />
-          <DecisionCard
-            tag="Implementation — Use Existing Plan"
-            title="I already have a plan."
-            body="We execute your plan with expert sequencing, access, and quality control."
-            href="https://www.whitetaillandsolutions.com/services/implementation"
-          />
-        </div>
+          <div className="mt-4 grid gap-6 md:grid-cols-3">
+            <DecisionCard
+              tag="Consulting — DIY"
+              title="I want a plan I can implement."
+              body="We design the blueprint. You follow the step-by-step map and timeline."
+              href="https://www.whitetaillandsolutions.com/services/consulting"
+            />
+            <DecisionCard
+              tag="Consulting — DFY"
+              title="I want you to build it for me."
+              body="We create the blueprint and our team implements it end-to-end."
+              href="https://www.whitetaillandsolutions.com/services/consulting"
+            />
+            <DecisionCard
+              tag="Implementation — Use Existing Plan"
+              title="I already have a plan."
+              body="We execute your plan with expert sequencing, access, and quality control."
+              href="https://www.whitetaillandsolutions.com/services/implementation"
+            />
+          </div>
 
-        <div className="mt-6">
-          <a
-            href="https://www.whitetaillandsolutions.com/contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
-          >
-            Book a Free Strategy Call <span aria-hidden>→</span>
-          </a>
-        </div>
-      </section>
-    </main>
+          <div className="mt-6">
+            <a
+              href="https://www.whitetaillandsolutions.com/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+            >
+              Book a Free Strategy Call <span aria-hidden>→</span>
+            </a>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
 
