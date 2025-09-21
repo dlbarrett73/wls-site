@@ -3,14 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-/** ---- LOCAL TILE IMAGES ---- */
+/** ---- LOCAL TILE IMAGES (prevents ReferenceError) ---- */
 const TILE_IMAGES = {
   properties: "/images/property.jpg",
   consulting: "/images/consulting.png",
   implementation: "/images/implementation.jpg",
 };
 
-/** Safe CTA import */
+/** Safe CTA import (works if CtaButton is default or named export) */
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
@@ -35,21 +35,23 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24">
-      {/* HERO */}
-      <section className="relative -mx-6 mb-16 overflow-hidden">
+      {/* HERO — full-bleed + crop so Kent’s head sits higher */}
+      <section className="relative mb-16 overflow-hidden w-screen max-w-none mx-[calc(50%-50vw)]">
         <div className="relative h-[100svh] w-full">
           <Image
-            src="/images/about.jpg"
+            src="/images/about.jpg" // public/images/about.jpg
             alt="About Whitetail Land Solutions"
             fill
             priority
-            className="object-cover object-top" // crop so Kent’s head is nearer the top
             sizes="100vw"
+            className="object-cover object-[50%_80%]" // focus lower area → moves Kent’s head higher in frame
           />
+          {/* Readability overlays */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
         </div>
 
+        {/* Content */}
         <div className="pointer-events-none absolute inset-0 flex items-end">
           <div className="pointer-events-auto mx-auto w-full max-w-6xl px-6 pb-10">
             <p className="text-sm font-semibold tracking-widest text-white/80">
@@ -100,7 +102,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* APPROACH */}
+      {/* APPROACH — unchanged */}
       <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
         <p className="mt-3 max-w-3xl text-white/90">
@@ -140,7 +142,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM */}
+      {/* TEAM — unchanged */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
 
@@ -191,7 +193,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* STANDARDS */}
+      {/* STANDARDS — unchanged */}
       <section className="mb-16 rounded-2xl bg-zinc-50 p-6">
         <h2 className="text-2xl font-bold tracking-tight">Standards That Don’t Bend</h2>
         <ul className="mt-4 grid gap-3 text-zinc-700 md:grid-cols-2">
@@ -203,7 +205,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      {/* CHOOSE YOUR PATH */}
+      {/* CHOOSE YOUR PATH — unchanged */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
           Choose Your Path
