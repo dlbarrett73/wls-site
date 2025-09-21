@@ -181,14 +181,13 @@ export default function ContactPage() {
                 <h2 className="text-xl font-bold text-gray-900">Prefer to write it out?</h2>
                 <p className="mt-2 text-sm text-gray-600">Use the form and we’ll reply within one business day.</p>
 
+                {/* NOTE:
+                   This is intentionally a no-JS, server-safe form.
+                   Replace the `action` with your AWeber/embed or API later. */}
                 <form
                   className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    // This runs only client-side after hydration
-                    // Replace with your email/CRM integration
-                    alert("Demo only: replace with your AWeber (or other) form embed or wire this to your API.");
-                  }}
+                  action="#"
+                  method="post"
                 >
                   <div className="sm:col-span-1">
                     <label htmlFor="name" className="block text-sm font-medium text-gray-800">
@@ -200,6 +199,7 @@ export default function ContactPage() {
                       type="text"
                       autoComplete="name"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="name"
                     />
                   </div>
 
@@ -213,6 +213,7 @@ export default function ContactPage() {
                       type="email"
                       autoComplete="email"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="email"
                     />
                   </div>
 
@@ -225,6 +226,7 @@ export default function ContactPage() {
                       type="tel"
                       autoComplete="tel"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="phone"
                     />
                   </div>
 
@@ -236,6 +238,7 @@ export default function ContactPage() {
                       id="county"
                       type="text"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="county"
                     />
                   </div>
 
@@ -247,6 +250,7 @@ export default function ContactPage() {
                       id="acreage"
                       type="text"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="acreage"
                     />
                   </div>
 
@@ -258,6 +262,7 @@ export default function ContactPage() {
                       id="timeline"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       defaultValue=""
+                      name="timeline"
                     >
                       <option value="" disabled>
                         Select...
@@ -277,6 +282,7 @@ export default function ContactPage() {
                       id="goal"
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       defaultValue=""
+                      name="goal"
                     >
                       <option value="" disabled>
                         Select...
@@ -297,10 +303,12 @@ export default function ContactPage() {
                       id="message"
                       rows={5}
                       className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
+                      name="message"
                     />
                   </div>
 
                   <div className="sm:col-span-2">
+                    {/* Keep this a plain button; no client handlers in Server Components */}
                     <button
                       type="submit"
                       className="inline-flex w-full items-center justify-center rounded-xl bg-brand-700 px-5 py-3 font-semibold text-white shadow-soft transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2"
@@ -308,8 +316,7 @@ export default function ContactPage() {
                       Request My Call
                     </button>
                     <p className="mt-2 text-center text-xs text-gray-500">
-                      Demo only: this form does not send. Replace with your AWeber embed
-                      or wire it to your API.
+                      Demo only: replace the form <code>action</code> with your AWeber embed or wire it to your API.
                     </p>
                   </div>
                 </form>
