@@ -64,7 +64,7 @@ export default function PropertiesPage() {
               <span className="text-white/95">Built for Legacy.</span>
             </h1>
             <p className="mt-4 max-w-2xl text-white/90">
-              Explore hunt-ready acreage designed for access, habitat, and undetectable
+              Explore hunt-ready acreage designed for undetectable access, habitat, and daylight
               movement—so you can consistently target mature whitetails from day one.
             </p>
             {/* Optional primary CTA to keep funnel clear without adding new deps/components */}
