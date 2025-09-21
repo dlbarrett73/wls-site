@@ -2,19 +2,16 @@
 import React from "react";
 import Link from "next/link";
 
-/** Safe CTA import helper (works with both named & default export).
- *  Falls back to a styled <Link> if the component is missing.
- */
-import * as Cta from "@/components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  // @ts-ignore
-  const Btn =
-    (Cta && (Cta.CtaButton || Cta.default)) as
-      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
-      | undefined;
-
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
+// ✅ Local CTA component (no external imports)
+function CtaLocal({
+  href,
+  className = "",
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -25,13 +22,10 @@ function CtaSafe({ href, className = "", children }: CtaProps) {
   );
 }
 
-/** Optional: set your booking link and/or embed via env.
- *  If NEXT_PUBLIC_BOOKING_URL is not set, a safe Calendly placeholder is used.
- *  If NEXT_PUBLIC_BOOKING_EMBED is set, we'll render an <iframe> scheduler.
- */
-const BOOKING_URL =
-  process.env.NEXT_PUBLIC_BOOKING_URL || "https://calendly.com/your-link/15min";
-const BOOKING_EMBED_SRC = process.env.NEXT_PUBLIC_BOOKING_EMBED || "";
+// ✅ Keep these as literals to avoid env/branch differences during SSG
+const BOOKING_URL = "https://calendly.com/your-link/15min";
+// Leave empty string to show the fallback card instead of iframe
+const BOOKING_EMBED_SRC = ""; // e.g. "https://calendly.com/your-link/15min?hide_event_type_details=1&primary_color=215D4C"
 
 export const metadata = {
   title: "Contact — Book a Free 15-Minute Strategy Call | Whitetail Land Solutions",
@@ -57,7 +51,7 @@ export default function ContactPage() {
               path to a hunt-ready property—so you can attract, hold, and kill mature whitetails.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CtaSafe href="#book">Book My Free Strategy Call</CtaSafe>
+              <CtaLocal href="#book">Book My Free Strategy Call</CtaLocal>
               <a
                 href="#form"
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white ring-1 ring-inset ring-white/30 transition hover:bg-white/10"
@@ -68,7 +62,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Subtle topographic decoration (safe, no external assets) */}
+        {/* Subtle topo decoration */}
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute -right-24 -top-24 h-[38rem] w-[38rem] opacity-25"
@@ -124,7 +118,6 @@ export default function ContactPage() {
                 recommendations and next steps. Zero pressure—decide if we’re the right fit.
               </p>
 
-              {/* If an embed src is provided, render the iframe. Otherwise, show a clean fallback. */}
               {BOOKING_EMBED_SRC ? (
                 <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-gray-200">
                   <iframe
@@ -137,20 +130,16 @@ export default function ContactPage() {
               ) : (
                 <div className="mt-4 rounded-2xl border border-dashed border-gray-300 p-6 text-center">
                   <p className="text-sm text-gray-600">
-                    Add your scheduler embed by setting{" "}
-                    <code className="rounded bg-gray-100 px-1 py-0.5 text-gray-800">
-                      NEXT_PUBLIC_BOOKING_EMBED
-                    </code>{" "}
-                    in your env. Until then, use the button below.
+                    Add your scheduler embed later. For now, use the button below.
                   </p>
                   <div className="mt-4">
-                    <CtaSafe href={BOOKING_URL}>Open Booking Page</CtaSafe>
+                    <CtaLocal href={BOOKING_URL}>Open Booking Page</CtaLocal>
                   </div>
                 </div>
               )}
 
               <div className="mt-4 text-xs text-gray-500">
-                Tip: If you prefer a new tab, use the button above. We’ll email a confirmation and reminder.
+                Tip: Prefer a new tab? Use the button above. We’ll email a confirmation and reminder.
               </div>
             </div>
 
@@ -163,18 +152,16 @@ export default function ContactPage() {
                 <li>• Optional follow-ups: consulting plan (DIY/DFY) or habitat implementation</li>
               </ul>
               <div className="mt-6 rounded-2xl bg-brand-50 p-4">
-                <p className="text-sm font-semibold text-brand-800">
-                  Our Advantage
-                </p>
+                <p className="text-sm font-semibold text-brand-800">Our Advantage</p>
                 <p className="mt-1 text-sm text-brand-800/80">
                   We design for undetectable access, stand placement, and seasonal movement—so you can consistently
                   target mature bucks without burning your property.
                 </p>
               </div>
               <div className="mt-6">
-                <CtaSafe href="#book" className="w-full justify-center">
+                <CtaLocal href="#book" className="w-full justify-center">
                   Book My Free Strategy Call
-                </CtaSafe>
+                </CtaLocal>
               </div>
             </div>
           </div>
@@ -188,14 +175,14 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-soft">
                 <h2 className="text-xl font-bold text-gray-900">Prefer to write it out?</h2>
-                <p className="mt-2 text-sm text-gray-600">
-                  Use the form and we’ll reply within one business day.
-                </p>
+                <p className="mt-2 text-sm text-gray-600">Use the form and we’ll reply within one business day.</p>
 
                 <form
                   className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2"
                   onSubmit={(e) => {
                     e.preventDefault();
+                    // This runs only client-side after hydration
+                    // Replace with your email/CRM integration
                     alert("Demo only: replace with your AWeber (or other) form embed or wire this to your API.");
                   }}
                 >
@@ -334,9 +321,9 @@ export default function ContactPage() {
                 mature whitetails on your land.
               </p>
               <div className="mt-6">
-                <CtaSafe href="#book" className="w-full justify-center">
+                <CtaLocal href="#book" className="w-full justify-center">
                   Book a Free Strategy Call
-                </CtaSafe>
+                </CtaLocal>
               </div>
 
               <div className="mt-8 border-t border-gray-200 pt-6 text-sm text-gray-700">
