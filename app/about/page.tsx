@@ -35,23 +35,22 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24">
-      {/* HERO — full-bleed + crop so Kent’s head sits higher */}
+      {/* HERO — full width, adjusted to keep both Kent’s head and the deer visible */}
       <section className="relative mb-16 overflow-hidden w-screen max-w-none mx-[calc(50%-50vw)]">
-        <div className="relative h-[100svh] w-full">
+        <div className="relative h-[85vh] min-h-[500px] w-full">
           <Image
-            src="/images/about.jpg" // public/images/about.jpg
+            src="/images/about.jpg"
             alt="About Whitetail Land Solutions"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[50%_80%]" // focus lower area → moves Kent’s head higher in frame
+            className="object-cover object-[50%_60%]" 
+            /* object-[50%_60%] centers horizontally, shifts slightly down so both heads show */
           />
-          {/* Readability overlays */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
         </div>
 
-        {/* Content */}
         <div className="pointer-events-none absolute inset-0 flex items-end">
           <div className="pointer-events-auto mx-auto w-full max-w-6xl px-6 pb-10">
             <p className="text-sm font-semibold tracking-widest text-white/80">
