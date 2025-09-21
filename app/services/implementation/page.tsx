@@ -155,7 +155,8 @@ export default function ImplementationPage() {
       {/* HOW IT WORKS */}
       <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">How Implementation Works</h2>
-        <ul className="mt-8 grid list-decimal grid-cols-1 gap-6 pl-5 md:grid-cols-2">
+        {/* Removed list numbers */}
+        <ul className="mt-8 grid list-none grid-cols-1 gap-6 pl-0 md:grid-cols-2">
           {[
             {
               step: "Site Walk & Scope",
