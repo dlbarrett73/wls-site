@@ -41,25 +41,52 @@ export default function PropertiesPage() {
 
   return (
     <main>
-      {/* Hero / Header */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
-        <p className="text-xs font-semibold tracking-[0.2em] text-neutral-500">
-          PROPERTIES
-        </p>
-        <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-          Properties Engineered for Giants. <span className="text-brand-700"><br></br>Built for Legacy.</span>
-        </h1>
-        <p className="mt-4 max-w-3xl text-neutral-700">
-          Explore hunt-ready properties and premium acreage engineered for mature whitetails.
-          Every tract is planned with access, habitat, and huntability in mind.
-        </p>
+      {/* Full-screen hero — matches home/implementation style */}
+      <section className="relative h-[70vh] w-screen overflow-hidden md:h-[85vh]">
+        <Image
+          src="/images/properties.jpg"
+          alt="Premium Pennsylvania hunting properties engineered for mature whitetails"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        {/* Subtle dark overlay for contrast on light areas of the photo */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        <div className="relative z-10 mx-auto flex h-full w-full max-w-6xl items-end px-6 pb-12">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-white/80">
+              PROPERTIES
+            </p>
+            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+              Properties Engineered for Giants. <br className="hidden sm:block" />
+              <span className="text-white/95">Built for Legacy.</span>
+            </h1>
+            <p className="mt-4 max-w-2xl text-white/90">
+              Explore hunt-ready acreage designed for access, habitat, and undetectable
+              movement—so you can consistently target mature whitetails from day one.
+            </p>
+            {/* Optional primary CTA to keep funnel clear without adding new deps/components */}
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-95"
+              >
+                Join the Waitlist
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Grid */}
-      <section className="mx-auto w-full max-w-6xl px-6 pb-24">
+      {/* Listings grid */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
         {items.length === 0 ? (
           <div className="rounded-2xl border border-neutral-200 p-8 text-center shadow-soft">
-            <p className="text-neutral-600">No properties available right now. Check back soon.</p>
+            <p className="text-neutral-700">
+              No properties available right now. Check back soon.
+            </p>
             <div className="mt-6">
               <Link
                 href="/contact"
@@ -79,7 +106,8 @@ export default function PropertiesPage() {
 
               // Show a lightweight status if price is "Sold" or has an explicit p.status
               const status =
-                (typeof p.price === "string" && ["sold", "pending"].includes(p.price.toLowerCase()))
+                typeof p.price === "string" &&
+                ["sold", "pending"].includes(p.price.toLowerCase())
                   ? p.price
                   : p.status;
 
@@ -106,9 +134,7 @@ export default function PropertiesPage() {
                   </div>
 
                   <div className="p-4 sm:p-5">
-                    <h3 className="text-lg font-bold leading-snug">
-                      {p.title}
-                    </h3>
+                    <h3 className="text-lg font-bold leading-snug">{p.title}</h3>
 
                     <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
                       {acres ? (
@@ -122,9 +148,7 @@ export default function PropertiesPage() {
                     </div>
 
                     {p.location ? (
-                      <p className="mt-3 line-clamp-2 text-sm text-neutral-600">
-                        {p.location}
-                      </p>
+                      <p className="mt-3 line-clamp-2 text-sm text-neutral-600">{p.location}</p>
                     ) : null}
 
                     {/* Highlights preview (first 2) */}
