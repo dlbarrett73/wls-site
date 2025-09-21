@@ -39,10 +39,10 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24">
-      {/* HERO — dark overlay on image for safe white text */}
-      <section className="relative -mx-6 mb-16 overflow-hidden rounded-3xl">
+      {/* HERO — full-screen, full-bleed with dark overlay for readable white text */}
+      <section className="relative -mx-6 mb-16 overflow-hidden">
         {/* Background image */}
-        <div className="relative h-[44vh] min-h-[380px] w-full md:h-[56vh]">
+        <div className="relative h-[100svh] w-full">
           <Image
             src="/images/about.jpg" // public/images/about.jpg
             alt="About Whitetail Land Solutions"
@@ -51,7 +51,7 @@ export default function AboutPage() {
             className="object-cover"
             sizes="100vw"
           />
-        {/* Dark overlay + subtle gradient for readability */}
+          {/* Dark overlays for readability on bright areas */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
         </div>
