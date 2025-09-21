@@ -2,6 +2,10 @@
 import React from "react";
 import Link from "next/link";
 
+// hard-hint SSG and avoid any dynamic evaluation during build
+export const dynamic = "force-static";
+export const revalidate = 3600; // (optional) allow ISR if you ever add copy changes
+
 // ✅ Local CTA component (no external imports)
 function CtaLocal({
   href,
