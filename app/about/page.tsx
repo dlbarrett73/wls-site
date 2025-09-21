@@ -3,18 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-/** ---- LOCAL TILE IMAGES (prevents ReferenceError) ----
- * Update these paths only if your image filenames/locations change.
- */
+/** ---- LOCAL TILE IMAGES ---- */
 const TILE_IMAGES = {
-  properties: "/images/property.jpg",        // public/images/property.jpg
-  consulting: "/images/consulting.png",      // public/images/consulting.png
-  implementation: "/images/implementation.jpg", // public/images/implementation.jpg
+  properties: "/images/property.jpg",
+  consulting: "/images/consulting.png",
+  implementation: "/images/implementation.jpg",
 };
 
-/** Safe CTA import (works if CtaButton is default or named export).
- *  Falls back to a styled <Link> if the component isn't found.
- */
+/** Safe CTA import */
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
@@ -39,24 +35,21 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 pb-24">
-      {/* HERO — full-screen, full-bleed with dark overlay for readable white text */}
+      {/* HERO */}
       <section className="relative -mx-6 mb-16 overflow-hidden">
-        {/* Background image */}
         <div className="relative h-[100svh] w-full">
           <Image
-            src="/images/about.jpg" // public/images/about.jpg
+            src="/images/about.jpg"
             alt="About Whitetail Land Solutions"
             fill
             priority
             className="object-cover"
             sizes="100vw"
           />
-          {/* Dark overlays for readability on bright areas */}
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/40" />
         </div>
 
-        {/* Content */}
         <div className="pointer-events-none absolute inset-0 flex items-end">
           <div className="pointer-events-auto mx-auto w-full max-w-6xl px-6 pb-10">
             <p className="text-sm font-semibold tracking-widest text-white/80">
@@ -107,7 +100,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* APPROACH — Dark brand block with WHITE headings for contrast */}
+      {/* APPROACH */}
       <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
         <p className="mt-3 max-w-3xl text-white/90">
@@ -147,7 +140,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* TEAM — precise image sizing/cropping/positioning */}
+      {/* TEAM */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
 
@@ -156,10 +149,10 @@ export default function AboutPage() {
           <article className="overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
             <div className="relative aspect-[4/3] w-full">
               <Image
-                src="/images/team-david.jpg" // public/images/team-david.jpg
+                src="/images/team-david.jpg"
                 alt="David Barrett — Strategy & Growth"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 priority
               />
@@ -176,13 +169,15 @@ export default function AboutPage() {
 
           {/* Kent */}
           <article className="overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
-            <div className="relative aspect-[4/3] w-full">
+            {/* FULL-WIDTH and CROPPED to top */}
+            <div className="relative h-[400px] w-full md:h-[500px]">
               <Image
-                src="/images/team-kent.jpg" // public/images/team-kent.jpg
+                src="/images/team-kent.jpg"
                 alt="Kent Shick — Habitat & Forestry"
                 fill
-                className="object-cover"
-                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover object-top"
+                sizes="100vw"
+                priority
               />
             </div>
             <div className="p-6">
@@ -279,7 +274,6 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-
     </main>
   );
 }
