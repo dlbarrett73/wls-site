@@ -11,8 +11,6 @@ import Link from "next/link";
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
-  // Support both: export function CtaButton() {}  OR  export default function CtaButton() {}
-  // If neither is present, render a resilient styled <Link>.
   // @ts-ignore
   const Btn =
     (Cta && (Cta.CtaButton || Cta.default)) as
@@ -59,12 +57,15 @@ export default function ImplementationPage() {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-end px-6 pb-12">
+
+        {/* Moved hero content UP: center on mobile/tablet, slightly high-center on desktop */}
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center lg:justify-center px-6 pt-24 sm:pt-28 md:pt-32 pb-6 lg:pb-8">
           <h1 className="text-white leading-tight tracking-tight text-4xl sm:text-5xl lg:text-6xl font-extrabold drop-shadow-md">
             Done-For-You Habitat Implementation
           </h1>
           <p className="mt-4 max-w-2xl text-white/90 text-lg sm:text-xl">
-            Engineered for Giants. Built for Legacy. We turn your blueprint into roads, plots, bedding, access, and stand setups that hunt right away.
+            Engineered for Giants. Built for Legacy. We turn your blueprint into roads,
+            plots, bedding, access, and stand setups that hunt right away.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
@@ -104,8 +105,9 @@ export default function ImplementationPage() {
               From Plan to Property That Hunts
             </h2>
             <p className="mt-4 text-slate-700">
-              Most properties have potential; few are engineered to consistently produce mature bucks. We implement your design with precision—roads and
-              trails for silent access, strategic food plots, timber work and bedding to hold deer, and stand locations that keep you undetected.
+              Most properties have potential; few are engineered to consistently produce mature bucks.
+              We implement your design with precision—roads and trails for silent access, strategic food plots,
+              timber work and bedding to hold deer, and stand locations that keep you undetected.
             </p>
             <ul className="mt-6 space-y-3 text-slate-800">
               <li className="flex gap-3">
@@ -154,7 +156,7 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* ================= DECISION LOGIC (kept simple & on-brand) ================= */}
+      {/* ================= DECISION LOGIC ================= */}
       <section className="bg-emerald-50">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -191,7 +193,7 @@ export default function ImplementationPage() {
         </div>
       </section>
 
-      {/* ================= HOW IT WORKS (no left-corner numbers) ================= */}
+      {/* ================= HOW IT WORKS ================= */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">How Implementation Works</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -253,7 +255,6 @@ export default function ImplementationPage() {
             A few snapshots from recent projects. Ask us for a walkthrough of a build similar to your acreage and goals.
           </p>
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
-            {/* Replace these with your actual asset paths when available */}
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200" />
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200" />
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200" />
