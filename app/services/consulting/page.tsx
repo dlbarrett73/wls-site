@@ -80,7 +80,7 @@ export default function ConsultingPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+              <CtaSafe href="/capture/consulting">Book a Free Strategy Call</CtaSafe>
               <Link
                 href="#process"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/30 text-white hover:bg-white/10"
@@ -174,7 +174,7 @@ export default function ConsultingPage() {
             </div>
 
             <div className="mt-6">
-              <CtaSafe href="/contact">Start with a Free Strategy Call</CtaSafe>
+              <CtaSafe href="/capture/consulting">Start with a Free Strategy Call</CtaSafe>
             </div>
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function ConsultingPage() {
                   <span className="text-sm font-semibold text-zinc-600">
                     Plans from $7,500
                   </span>
-                  <CtaSafe href="/contact" className="justify-center">
+                  <CtaSafe href="/capture/consulting" className="justify-center">
                     Get My Plan
                   </CtaSafe>
                 </div>
@@ -235,7 +235,7 @@ export default function ConsultingPage() {
                   <span className="text-sm font-semibold text-zinc-600">
                     Typical builds $20K–$30K+
                   </span>
-                  <CtaSafe href="/contact" className="justify-center">
+                  <CtaSafe href="/capture/consulting" className="justify-center">
                     Design & Build It For Me
                   </CtaSafe>
                 </div>
@@ -281,7 +281,7 @@ export default function ConsultingPage() {
             that actually work for big, mature bucks.
           </p>
           <div className="mt-5">
-            <CtaSafe href="/contact">Talk With Us</CtaSafe>
+            <CtaSafe href="/capture/consulting">Talk With Us</CtaSafe>
           </div>
         </section>
 
@@ -295,7 +295,7 @@ export default function ConsultingPage() {
             DIY, DFY, or straight to implementation.
           </p>
           <div className="mt-5">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+            <CtaSafe href="/capture/consulting">Book a Free Strategy Call</CtaSafe>
           </div>
         </section>
       </main>
