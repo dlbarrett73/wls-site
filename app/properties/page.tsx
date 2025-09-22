@@ -70,7 +70,7 @@ export default function PropertiesPage() {
             {/* Optional primary CTA to keep funnel clear without adding new deps/components */}
             <div className="mt-6">
               <Link
-                href="/contact"
+                href="/capture/buyer"
                 className="inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-95"
               >
                 Join the Waitlist
@@ -89,7 +89,7 @@ export default function PropertiesPage() {
             </p>
             <div className="mt-6">
               <Link
-                href="/contact"
+                href="/capture/buyer"
                 className="inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-95"
               >
                 Join the Waitlist
