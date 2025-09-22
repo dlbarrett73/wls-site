@@ -31,7 +31,7 @@ export default function Home() {
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-                Engineered for Giants.<br />Built for Legacy.
+                Engineered for Giants. Built for Legacy.
               </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
