@@ -80,7 +80,7 @@ export default function Footer() {
               src="public/logo-400.png"
               alt="Whitetail Land Solutions"
               width={180}
-              height={60}
+              height={180}
               className="mb-3"
             />
             <p className="text-sm">
