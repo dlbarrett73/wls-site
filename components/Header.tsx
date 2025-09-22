@@ -1,177 +1,218 @@
-// /components/Header.tsx
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import CtaButton from "@/components/CtaButton";
-
-const NAV = [
-  { label: "Land for Sale", href: "/properties" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import Image from "next/image";
+import React from "react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const menuBtnRef = React.useRef<HTMLButtonElement>(null);
+  const menuRef = React.useRef<HTMLDivElement>(null);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  // Close dropdown on outside click / ESC
+  React.useEffect(() => {
+    function onDocClick(e: MouseEvent) {
+      if (!menuRef.current) return;
+      if (
+        open &&
+        !menuRef.current.contains(e.target as Node) &&
+        e.target !== menuBtnRef.current
+      ) {
+        setOpen(false);
+      }
+    }
+    function onEsc(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        setMobileOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onEsc);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onEsc);
+    };
+  }, [open]);
 
-  const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    // consider subroutes active (e.g., /properties/mahaffey-131)
-    return pathname === href || pathname.startsWith(`${href}/`);
-  };
+  const navLink =
+    "inline-flex items-center px-3 py-2 text-sm font-medium text-slate-800 hover:text-emerald-700";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-      {/* Skip link for accessibility */}
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] rounded-md bg-brand-800 px-3 py-2 text-white"
-      >
-        Skip to content
-      </a>
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/85 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-3">
+          {/* If you have a logo file in /public/images, replace src below */}
+          <span className="sr-only">Whitetail Land Solutions</span>
+          <Image
+            src="/images/logo-horizontal-black.png"
+            alt="Whitetail Land Solutions"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
+        </Link>
 
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo + Brand */}
-          <Link href="/" className="flex items-center gap-3" aria-label="Home">
-            {/* Ensure your file is at /public/logo-400.png (do not prefix /public in the src) */}
-            <Image
-              src="/logo-400.png"
-              alt="Whitetail Land Solutions"
-              width={40}
-              height={40}
-              priority
-              className="shrink-0"
-            />
-            <div className="leading-tight">
-              <div className="font-extrabold tracking-tight text-brand-900">
-                Whitetail Land Solutions
-              </div>
-              <div className="text-sm text-brand-800">
-                Engineered for Giants. Built for Legacy.
-              </div>
-            </div>
+        {/* Desktop Nav */}
+        <nav className="hidden items-center gap-1 md:flex">
+          <Link href="/properties" className={navLink}>
+            Properties
+          </Link>
+          <Link href="/services/consulting" className={navLink}>
+            Consulting
+          </Link>
+          <Link href="/services/implementation" className={navLink}>
+            Implementation
+          </Link>
+          <Link href="/about" className={navLink}>
+            About
+          </Link>
+          <Link href="/contact" className={navLink}>
+            Contact
           </Link>
 
-          {/* Desktop nav */}
-          <nav
-            className="hidden md:flex items-center gap-6"
-            aria-label="Primary"
-          >
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={[
-                  "transition-colors",
-                  isActive(item.href)
-                    ? "text-brand-900 font-semibold"
-                    : "text-zinc-800 hover:text-brand-800",
-                ].join(" ")}
-              >
-                {item.label}
-              </Link>
-            ))}
-
-            <CtaButton
-              href="/contact"
-              className="shadow-sm"
-              aria-label="Book a Free Strategy Call"
-              // CtaButton should already be styled to brand; this ensures color consistency
-            >
-              Free Strategy Call
-            </CtaButton>
-          </nav>
-
-          {/* Mobile: hamburger + CTA shortcut */}
-          <div className="flex items-center gap-3 md:hidden">
-            <CtaButton
-              href="/contact"
-              size="sm"
-              aria-label="Book a Free Strategy Call"
-            >
-              Free Call
-            </CtaButton>
-
+          {/* Get Started dropdown (replaces Strategy Call button) */}
+          <div className="relative ml-2" ref={menuRef}>
             <button
+              ref={menuBtnRef}
               type="button"
-              aria-label="Open menu"
+              onClick={() => setOpen((s) => !s)}
+              aria-haspopup="menu"
               aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpen((v) => !v)}
-              className="inline-flex items-center justify-center rounded-md border border-zinc-300 p-2 text-zinc-800 hover:bg-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand-600"
+              className="inline-flex items-center rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600/40"
             >
+              Get Started
               <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
+                className="ml-2 h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
                 aria-hidden="true"
               >
-                {open ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                  clipRule="evenodd"
+                />
               </svg>
             </button>
-          </div>
-        </div>
 
-        {/* Mobile menu panel */}
-        <div
-          id="mobile-menu"
-          className={[
-            "md:hidden origin-top transition-all duration-200 ease-out",
-            open ? "scale-y-100 opacity-100" : "scale-y-95 opacity-0 pointer-events-none h-0",
-          ].join(" ")}
-        >
-          <div className="mt-2 rounded-xl border border-zinc-200 bg-white p-2 shadow-soft">
-            <nav aria-label="Mobile Primary" className="flex flex-col">
-              {NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={[
-                    "rounded-lg px-3 py-2 text-base transition-colors",
-                    isActive(item.href)
-                      ? "bg-brand-50 text-brand-900 font-semibold"
-                      : "text-zinc-800 hover:bg-zinc-50 hover:text-brand-800",
-                  ].join(" ")}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <CtaButton
-                href="/contact"
-                className="mt-1"
-                aria-label="Book a Free Strategy Call"
+            {open && (
+              <div
+                role="menu"
+                className="absolute right-0 mt-2 w-64 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg"
               >
-                Book a Free Strategy Call
-              </CtaButton>
-            </nav>
+                <div className="p-2">
+                  <Link
+                    href="/properties"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
+                    role="menuitem"
+                  >
+                    Buy Land → Browse Properties
+                  </Link>
+                  <Link
+                    href="/services/consulting"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
+                    role="menuitem"
+                  >
+                    Consulting → Blueprint for Giants
+                  </Link>
+                  <Link
+                    href="/services/implementation"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
+                    role="menuitem"
+                  >
+                    Habitat Implementation → Build It Right
+                  </Link>
+                  <Link
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
+                    role="menuitem"
+                  >
+                    Contact Us → Send a Message
+                  </Link>
+                </div>
+                <div className="border-t border-slate-200 p-2">
+                  {/* Keep the call option discoverable but secondary */}
+                  <Link
+                    href="https://calendly.com/"
+                    target="_blank"
+                    className="block rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-slate-800"
+                    role="menuitem"
+                  >
+                    Or, Book a 15-Minute Call
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+        </nav>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen((s) => !s)}
+          aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          className="inline-flex items-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+        >
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {mobileOpen ? (
+              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="border-t border-slate-200 bg-white md:hidden">
+          <div className="mx-auto max-w-6xl px-4 py-4">
+            <div className="space-y-1">
+              <Link href="/properties" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100">
+                Properties
+              </Link>
+              <Link href="/services/consulting" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100">
+                Consulting
+              </Link>
+              <Link href="/services/implementation" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100">
+                Implementation
+              </Link>
+              <Link href="/about" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100">
+                About
+              </Link>
+              <Link href="/contact" onClick={() => setMobileOpen(false)} className="block rounded-lg px-3 py-2 text-base font-medium text-slate-800 hover:bg-slate-100">
+                Contact
+              </Link>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="block rounded-xl bg-emerald-700 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-800"
+              >
+                Get Started
+              </Link>
+              <Link
+                href="https://calendly.com/"
+                target="_blank"
+                className="block rounded-xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-slate-800"
+                onClick={() => setMobileOpen(false)}
+              >
+                Or, Book a 15-Minute Call
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }
