@@ -47,7 +47,7 @@ export default function Header() {
           {/* If you have a logo file in /public/images, replace src below */}
           <span className="sr-only">Whitetail Land Solutions</span>
           <Image
-            src="public/logo-400.png"
+            src="/logo-400.png"
             alt="Whitetail Land Solutions"
             width={160}
             height={40}
