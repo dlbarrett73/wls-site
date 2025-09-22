@@ -24,9 +24,9 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-          // Shift the focal point upward to keep both heads visible
-          className="object-cover object-[center_22%] sm:object-[center_20%] md:object-[center_18%]"
+          className="object-cover object-[center_16%] md:object-[center_14%]"
         />
+
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
 
         <div className="absolute inset-0 flex items-center">
