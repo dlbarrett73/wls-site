@@ -2,270 +2,220 @@
 import React from "react";
 import Link from "next/link";
 
-// hard-hint SSG and avoid any dynamic evaluation during build
+// SSG hint + light ISR for copy edits
 export const dynamic = "force-static";
-export const revalidate = 3600; // (optional) allow ISR if you ever add copy changes
+export const revalidate = 3600;
 
-// ✅ Local CTA component (no external imports)
-function CtaLocal({
+function Stat({ label }: { label: string }) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+      {label}
+    </div>
+  );
+}
+
+function PathCard({
+  title,
+  desc,
   href,
-  className = "",
-  children,
 }: {
+  title: string;
+  desc: string;
   href: string;
-  className?: string;
-  children: React.ReactNode;
 }) {
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-400 bg-brand-700 text-white ${className}`}
+      className="group block rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-700/30"
     >
-      {children}
+      <div className="flex items-start gap-3">
+        <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-600 group-hover:bg-emerald-700" />
+        <div>
+          <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+          <p className="mt-1 text-sm leading-6 text-slate-600">{desc}</p>
+          <span className="mt-3 inline-flex items-center text-sm font-semibold text-emerald-700 group-hover:underline">
+            Explore →
+          </span>
+        </div>
+      </div>
     </Link>
   );
 }
 
-// ✅ Keep these as literals to avoid env/branch differences during SSG
-const BOOKING_URL = "https://calendly.com/your-link/15min";
-// Leave empty string to show the fallback card instead of iframe
-const BOOKING_EMBED_SRC = ""; // e.g. "https://calendly.com/your-link/15min?hide_event_type_details=1&primary_color=215D4C"
-
-export const metadata = {
-  title: "Contact — Book a Free 15-Minute Strategy Call | Whitetail Land Solutions",
-  description:
-    "Tell us about your acreage, goals, and timeline. We’ll map the fastest path to a hunt-ready property—so you can attract, hold, and kill mature whitetails.",
-};
-
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      {/* HERO */}
-      <section className="relative isolate w-full overflow-hidden bg-gradient-to-b from-brand-800 to-brand-700">
-        <div className="mx-auto max-w-6xl px-6 py-28 sm:py-36">
+    <main className="min-h-screen w-full bg-white text-slate-900">
+      {/* ================= HERO ================= */}
+      <section className="relative w-full">
+        <div className="relative mx-auto max-w-6xl px-6 pb-10 pt-14 sm:pt-20">
           <div className="max-w-3xl">
-            <p className="mb-2 inline-block rounded-lg bg-white/10 px-3 py-1 text-xs font-semibold tracking-wider text-white/90 ring-1 ring-white/15">
-              CONTACT
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
+              Contact
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl">
-              Free 15-Minute Property Strategy Call
+            <h1 className="mt-2 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+              How can we help you build a big-buck property?
             </h1>
-            <p className="mt-4 max-w-2xl text-white/90">
-              Tell us about your acreage, goals, and timeline. We’ll map the fastest
-              path to a hunt-ready property—so you can attract, hold, and kill mature whitetails.
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
+              Tell us about your acreage, goals, and timeline. We’ll reply
+              within <span className="font-semibold text-slate-800">1 business day</span>
+              with clear next steps.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CtaLocal href="#book">Book My Free Strategy Call</CtaLocal>
-              <a
-                href="#form"
-                className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white ring-1 ring-inset ring-white/30 transition hover:bg-white/10"
-              >
-                Prefer to write it out?
-              </a>
+
+            {/* Quick trust chips (subtle) */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Stat label="PA-Based" />
+              <Stat label="Forestry & Habitat Expertise" />
+              <Stat label="Whitetail-First Designs" />
+              <Stat label="Transparent Pricing" />
             </div>
           </div>
-        </div>
 
-        {/* Subtle topo decoration */}
-        <svg
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-24 -top-24 h-[38rem] w-[38rem] opacity-25"
-          viewBox="0 0 512 512"
-          fill="none"
-        >
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stopColor="white" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="white" stopOpacity="0.05" />
-            </linearGradient>
-          </defs>
-          <circle cx="256" cy="256" r="240" stroke="url(#g1)" strokeWidth="1.5" />
-          <circle cx="256" cy="256" r="200" stroke="url(#g1)" strokeWidth="1.5" />
-          <circle cx="256" cy="256" r="160" stroke="url(#g1)" strokeWidth="1.5" />
-          <circle cx="256" cy="256" r="120" stroke="url(#g1)" strokeWidth="1.5" />
-          <circle cx="256" cy="256" r="80" stroke="url(#g1)" strokeWidth="1.5" />
-        </svg>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section aria-label="Trust points" className="bg-white">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-2 gap-4 py-8 sm:grid-cols-4">
-            {[
-              "PA-Based",
-              "Forestry & Habitat Expertise",
-              "Whitetail-First Designs",
-              "Transparent Pricing",
-            ].map((item) => (
-              <div
-                key={item}
-                className="rounded-2xl bg-gray-50 px-4 py-3 text-center text-sm font-semibold text-gray-800 ring-1 ring-gray-200"
-              >
-                {item}
-              </div>
-            ))}
+          {/* Pathways */}
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <PathCard
+              title="Buy Land"
+              desc="See hunt-ready properties engineered for giants. Tours and waitlist available."
+              href="/properties"
+            />
+            <PathCard
+              title="Consulting — Blueprint for Giants"
+              desc="Site walk, map, and step-by-step action plan for your exact goals and terrain."
+              href="/services/consulting"
+            />
+            <PathCard
+              title="Habitat Implementation"
+              desc="We build roads, plots, access, stands, and structure so the plan gets done right."
+              href="/services/implementation"
+            />
           </div>
         </div>
       </section>
 
-      {/* PRIMARY: BOOKING SECTION */}
-      <section id="book" className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="grid items-start gap-8 lg:grid-cols-2">
-            {/* Scheduler */}
-            <div className="rounded-3xl border border-gray-200 bg-white p-4 shadow-soft">
-              <h2 className="text-xl font-bold text-gray-900">
-                Book your free 15-minute call
+      {/* ============== MAIN: Form + Optional Call CTA ============== */}
+      <section className="relative border-t border-slate-200 bg-slate-50/60">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-3">
+          {/* Contact Form */}
+          <div className="md:col-span-2">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-slate-900">
+                Send us a message
               </h2>
-              <p className="mt-2 text-sm text-gray-600">
-                Quick discovery of your goals, acreage, and access realities. Clear
-                recommendations and next steps. Zero pressure—decide if we’re the right fit.
+              <p className="mt-1 text-sm text-slate-600">
+                Prefer email over a call? Use the form and we’ll get back to you
+                within one business day.
               </p>
 
-              {BOOKING_EMBED_SRC ? (
-                <div className="mt-4 overflow-hidden rounded-2xl ring-1 ring-gray-200">
-                  <iframe
-                    src={BOOKING_EMBED_SRC}
-                    title="Strategy Call Scheduler"
-                    className="h-[720px] w-full"
-                    loading="lazy"
-                  />
-                </div>
-              ) : (
-                <div className="mt-4 rounded-2xl border border-dashed border-gray-300 p-6 text-center">
-                  <p className="text-sm text-gray-600">
-                    Add your scheduler embed later. For now, use the button below.
-                  </p>
-                  <div className="mt-4">
-                    <CtaLocal href={BOOKING_URL}>Open Booking Page</CtaLocal>
-                  </div>
-                </div>
-              )}
+              {/* Replace action with your AWeber/API endpoint */}
+              <form
+                action="/api/contact" // ← swap to AWeber embed or handler when ready
+                method="POST"
+                className="mt-6 space-y-5"
+              >
+                {/* Honeypot */}
+                <input
+                  type="text"
+                  name="company"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
 
-              <div className="mt-4 text-xs text-gray-500">
-                Tip: Prefer a new tab? Use the button above. We’ll email a confirmation and reminder.
-              </div>
-            </div>
-
-            {/* What to Expect / Social proof */}
-            <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-soft">
-              <h3 className="text-lg font-bold text-gray-900">What to Expect</h3>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                <li>• Goals, acreage, access, and pressure realities</li>
-                <li>• Clear, hunter-focused recommendations and next steps</li>
-                <li>• Optional follow-ups: consulting plan (DIY/DFY) or habitat implementation</li>
-              </ul>
-              <div className="mt-6 rounded-2xl bg-brand-50 p-4">
-                <p className="text-sm font-semibold text-brand-800">Our Advantage</p>
-                <p className="mt-1 text-sm text-brand-800/80">
-                  We design for undetectable access, stand placement, and seasonal movement—so you can consistently
-                  target mature bucks without burning your property.
-                </p>
-              </div>
-              <div className="mt-6">
-                <CtaLocal href="#book" className="w-full justify-center">
-                  Book My Free Strategy Call
-                </CtaLocal>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECONDARY: CONTACT FORM */}
-      <section id="form" className="bg-gray-50">
-        <div className="mx-auto max-w-6xl px-6 py-14">
-          <div className="grid gap-8 lg:grid-cols-3">
-            <div className="lg:col-span-2">
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-soft">
-                <h2 className="text-xl font-bold text-gray-900">Prefer to write it out?</h2>
-                <p className="mt-2 text-sm text-gray-600">Use the form and we’ll reply within one business day.</p>
-
-                {/* NOTE:
-                   This is intentionally a no-JS, server-safe form.
-                   Replace the `action` with your AWeber/embed or API later. */}
-                <form
-                  className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2"
-                  action="#"
-                  method="post"
-                >
-                  <div className="sm:col-span-1">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-800">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       Name *
                     </label>
                     <input
                       id="name"
-                      required
-                      type="text"
-                      autoComplete="name"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       name="name"
+                      required
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      placeholder="Jane Doe"
                     />
                   </div>
-
-                  <div className="sm:col-span-1">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-800">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       Email *
                     </label>
                     <input
                       id="email"
-                      required
-                      type="email"
-                      autoComplete="email"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       name="email"
+                      type="email"
+                      required
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      placeholder="you@example.com"
                     />
                   </div>
+                </div>
 
-                  <div className="sm:col-span-1">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-800">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       Phone (optional)
                     </label>
                     <input
                       id="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       name="phone"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      placeholder="(555) 555-5555"
                     />
                   </div>
-
-                  <div className="sm:col-span-1">
-                    <label htmlFor="county" className="block text-sm font-medium text-gray-800">
+                  <div>
+                    <label
+                      htmlFor="county"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       County / State
                     </label>
                     <input
                       id="county"
-                      type="text"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       name="county"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      placeholder="Armstrong, PA"
                     />
                   </div>
+                </div>
 
-                  <div className="sm:col-span-1">
-                    <label htmlFor="acreage" className="block text-sm font-medium text-gray-800">
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="acreage"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       Acreage
                     </label>
                     <input
                       id="acreage"
-                      type="text"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
                       name="acreage"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      placeholder="e.g., 80"
                     />
                   </div>
-
-                  <div className="sm:col-span-1">
-                    <label htmlFor="timeline" className="block text-sm font-medium text-gray-800">
+                  <div>
+                    <label
+                      htmlFor="timeline"
+                      className="block text-sm font-medium text-slate-700"
+                    >
                       Timeline
                     </label>
                     <select
                       id="timeline"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                      defaultValue=""
                       name="timeline"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      defaultValue=""
                     >
                       <option value="" disabled>
-                        Select...
+                        Select…
                       </option>
                       <option>ASAP</option>
                       <option>30–60 days</option>
@@ -273,106 +223,104 @@ export default function ContactPage() {
                       <option>90+ days</option>
                     </select>
                   </div>
+                </div>
 
-                  <div className="sm:col-span-2">
-                    <label htmlFor="goal" className="block text-sm font-medium text-gray-800">
-                      Primary Goal
-                    </label>
-                    <select
-                      id="goal"
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                      defaultValue=""
-                      name="goal"
-                    >
-                      <option value="" disabled>
-                        Select...
-                      </option>
-                      <option>Buy Land</option>
-                      <option>Tour Property</option>
-                      <option>Improve My Current Property</option>
-                      <option>Attract &amp; Kill Mature Bucks</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
+                <div>
+                  <label
+                    htmlFor="goal"
+                    className="block text-sm font-medium text-slate-700"
+                  >
+                    Primary Goal
+                  </label>
+                  <select
+                    id="goal"
+                    name="goal"
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select…
+                    </option>
+                    <option>Buy Land</option>
+                    <option>Tour a Property</option>
+                    <option>Improve My Current Property</option>
+                    <option>Attract & Kill Mature Bucks</option>
+                    <option>Other</option>
+                  </select>
+                </div>
 
-                  <div className="sm:col-span-2">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-800">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200"
-                      name="message"
-                    />
-                  </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-slate-700"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                    placeholder="Share any details about your property, access, pressure, or goals."
+                  />
+                </div>
 
-                  <div className="sm:col-span-2">
-                    {/* Keep this a plain button; no client handlers in Server Components */}
-                    <button
-                      type="submit"
-                      className="inline-flex w-full items-center justify-center rounded-xl bg-brand-700 px-5 py-3 font-semibold text-white shadow-soft transition hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2"
-                    >
-                      Request My Call
-                    </button>
-                    <p className="mt-2 text-center text-xs text-gray-500">
-                      Demo only: replace the form <code>action</code> with your AWeber embed or wire it to your API.
-                    </p>
-                  </div>
-                </form>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-700 px-5 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600/40 sm:w-auto"
+                  >
+                    Send Message
+                  </button>
+                </div>
+
+                <p className="mt-3 text-xs text-slate-500">
+                  By submitting, you agree to be contacted by Whitetail Land
+                  Solutions. We respect your privacy.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          {/* Secondary: Quick Call CTA */}
+          <aside className="md:col-span-1">
+            <div className="sticky top-6 space-y-6">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">
+                  Prefer a quick call instead?
+                </h3>
+                <p className="mt-1 text-sm text-slate-600">
+                  Book a free 15-minute strategy call. We’ll quickly map your
+                  situation and next steps. Zero pressure.
+                </p>
+                <Link
+                  href="https://calendly.com/"
+                  target="_blank"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-700/40"
+                >
+                  Book Free 15-Minute Call
+                </Link>
+                <p className="mt-2 text-xs text-slate-500">
+                  Opens in a new tab. You’ll receive confirmation & reminders.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h4 className="text-sm font-semibold text-slate-900">
+                  Office
+                </h4>
+                <p className="mt-1 text-sm text-slate-600">
+                  Physical: 1463 State Route 1042, NuMine, PA 16244
+                  <br />
+                  Mailing: PO Box 167, NuMine, PA 16244
+                </p>
+                <p className="mt-3 text-xs text-slate-500">
+                  We are not a real estate broker; we acquire and sell our own
+                  properties and offer consulting & habitat implementation.
+                </p>
               </div>
             </div>
-
-            {/* Company blurb / secondary CTA */}
-            <aside className="rounded-3xl border border-gray-200 bg-white p-6 shadow-soft">
-              <h3 className="text-lg font-bold text-gray-900">Whitetail Land Solutions</h3>
-              <p className="mt-2 text-sm text-gray-700">
-                Engineered for Giants. Built for Legacy. We build hunt-ready properties and
-                custom habitat plans in Pennsylvania—so you can attract and consistently kill
-                mature whitetails on your land.
-              </p>
-              <div className="mt-6">
-                <CtaLocal href="#book" className="w-full justify-center">
-                  Book a Free Strategy Call
-                </CtaLocal>
-              </div>
-
-              <div className="mt-8 border-t border-gray-200 pt-6 text-sm text-gray-700">
-                <p className="font-semibold text-gray-900">Explore</p>
-                <ul className="mt-2 space-y-2">
-                  <li>
-                    <Link className="text-brand-700 underline-offset-4 hover:underline" href="/properties">
-                      Land for Sale
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="text-brand-700 underline-offset-4 hover:underline" href="/services/consulting">
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="text-brand-700 underline-offset-4 hover:underline" href="/services/implementation">
-                      Habitat Implementation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="text-brand-700 underline-offset-4 hover:underline" href="/services">
-                      Services Overview
-                    </Link>
-                  </li>
-                </ul>
-
-                <div className="mt-6 text-sm text-gray-700">
-                  <p className="font-semibold text-gray-900">Contact</p>
-                  <p className="mt-1">Physical: 1463 State Route 1042, NuMine, PA 16244</p>
-                  <p>Mailing: PO Box 167, NuMine, PA 16244</p>
-                  <p className="mt-2 text-xs text-gray-500">
-                    We are not a real estate broker; we acquire and sell our own properties and offer consulting &amp; habitat implementation.
-                  </p>
-                </div>
-              </div>
-            </aside>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
