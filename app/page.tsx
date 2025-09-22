@@ -1,7 +1,8 @@
 // app/page.tsx
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+
+// Reusable components (client-safe)
 import CtaSafe from "@/components/home/CtaSafe";
 import FeaturedProperty from "@/components/home/FeaturedProperty";
 import YouTubeTrailer from "@/components/home/YouTubeTrailer";
@@ -11,36 +12,11 @@ import PropertyShowcase from "@/components/home/PropertyShowcase";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-/**
- * Safe CTA import helper
- * Works with either a default or named export from '@/components/CtaButton'.
- * Falls back to a styled <Link> if the component is missing.
- */
-import * as Cta from "@/components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  const Btn =
-    // @ts-ignore – tolerate either default or named
-    (Cta && (Cta.CtaButton || Cta.default)) as
-      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
-      | undefined;
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-  return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-emerald-700 text-white hover:bg-emerald-800 focus:ring-emerald-700 ${className}`}
-    >
-      {children}
-    </Link>
-  );
-}
-
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-white text-slate-900">
       {/* ================= HERO (Full-Width) ================= */}
       <section className="relative w-full h-[72vh] sm:h-screen">
-        {/* Background image (full-bleed) */}
         <Image
           src="/images/hero.jpg"
           alt="Mature whitetail habitat at golden hour"
@@ -49,10 +25,8 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
         />
-        {/* Overlay for contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
 
-        {/* Copy */}
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
@@ -129,17 +103,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================== EXISTING CONTENT ===================== */}
-      {/*
-        IMPORTANT: To *keep every bit of your current homepage content intact*,
-        paste your existing sections into the slots below (copy/paste from your current app/page.tsx):
-        - Featured Property
-        - YouTube Channel Trailer Video
-        - YouTube Property Showcase Video(s)
-        - Any additional CTA / lead capture blocks
-        Nothing else in this file depends on those sections, so it’s a safe drop-in.
-      */}
-
+      {/* ===== Your existing content as components ===== */}
       <FeaturedProperty />
       <YouTubeTrailer />
       <PropertyShowcase />
@@ -149,95 +113,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-
-// ================================================
-// Reusable home components (safe, drop-in)
-// Create files in /components/home and import into app/page.tsx
-// ================================================
-
-// components/home/CtaSafe.tsx
-'use client';
-import Link from 'next/link';
-import * as Cta from '@/components/CtaButton';
-export type CtaProps = { href: string; className?: string; children: React.ReactNode };
-export default function CtaSafe({ href, className = '', children }: CtaProps) {
-  const Btn = (Cta as any)?.CtaButton || (Cta as any)?.default;
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-  return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-emerald-700 text-white hover:bg-emerald-800 focus:ring-emerald-700 ${className}`}
-    >
-      {children}
-    </Link>
-  );
-}
-
-// components/home/FeaturedProperty.tsx
-import React from 'react';
-import CtaSafe from './CtaSafe';
-export default function FeaturedProperty() {
-  // Paste your existing Featured Property markup inside the return
-  // Keep props/state out to avoid SSR surprises
-  return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
-      <div className="mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Featured Property</h2>
-        <p className="mt-2 text-slate-600">Showcase a single marquee listing with story, highlights, and CTA.</p>
-      </div>
-      {/* TODO: Replace this block with your existing Featured Property content */}
-      <div className="rounded-2xl border border-dashed border-slate-300 p-6 text-slate-500">
-        Placeholder — Featured Property component content.
-      </div>
-    </section>
-  );
-}
-
-// components/home/YouTubeTrailer.tsx
-import React from 'react';
-export default function YouTubeTrailer() {
-  return (
-    <section className="bg-slate-50">
-      <div className="mx-auto w-full max-w-6xl px-6 py-16">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">YouTube Channel Trailer</h2>
-          <p className="mt-2 text-slate-600">Introduce WLS and invite visitors to subscribe for property alerts and education.</p>
-        </div>
-        {/* TODO: Swap in your actual YouTube embed/iframe */}
-        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-      </div>
-    </section>
-  );
-}
-
-// components/home/PropertyShowcase.tsx
-import React from 'react';
-export default function PropertyShowcase() {
-  return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-16">
-      <div className="mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Property Showcase</h2>
-        <p className="mt-2 text-slate-600">Embed your latest property videos or a grid of video cards.</p>
-      </div>
-      {/* TODO: Replace placeholders with your real embeds/cards */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-      </div>
-    </section>
-  );
-}
-
-// ===== Update app/page.tsx to import & use these components =====
-// Add to the top:
-// import FeaturedProperty from '@/components/home/FeaturedProperty';
-// import YouTubeTrailer from '@/components/home/YouTubeTrailer';
-// import PropertyShowcase from '@/components/home/PropertyShowcase';
-// import CtaSafe from '@/components/home/CtaSafe';
-
-// Then, replace the three placeholder sections with:
-// <FeaturedProperty />
-// <YouTubeTrailer />
-// <PropertyShowcase />
