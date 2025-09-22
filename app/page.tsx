@@ -140,56 +140,136 @@ export default function Home() {
         Nothing else in this file depends on those sections, so it’s a safe drop-in.
       */}
 
-      {/* ===== Featured Property (PASTE YOUR CURRENT MARKUP BELOW) ===== */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-16">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Featured Property</h2>
-          <p className="mt-2 text-slate-600">Paste your existing Featured Property block here to keep content and styling.</p>
-        </div>
-        {/* TODO: Replace this placeholder with your existing Featured Property markup */}
-        <div className="rounded-2xl border border-dashed border-slate-300 p-6 text-slate-500">
-          Placeholder — Featured Property component goes here.
-        </div>
-      </section>
+      {/* FEATURED PROPERTY */}
+        <section className="mt-16">
+          <Link
+            href={FEATURED.href}
+            className="group relative block overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${FEATURED.image})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+            <div className="relative p-6 text-white">
+              <p className="text-xs font-semibold tracking-widest overlay-subtext">
+                FEATURED PROPERTY
+              </p>
+              <h3 className="mt-1 text-2xl font-bold overlay-text">
+                {FEATURED.title}
+              </h3>
+              <p className="mt-2 overlay-subtext">
+                {FEATURED.acres} • {FEATURED.location}
+              </p>
+              <p className="mt-1 font-semibold overlay-text">{FEATURED.price}</p>
+              <p className="mt-3 overlay-subtext">
+                Hunt-ready layout with access, food/cover, and proven strategy.
+              </p>
+              <span className="mt-4 inline-flex items-center overlay-text">
+                View Details
+                <svg className="ml-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </section>
 
-      {/* ===== YouTube Channel Trailer (PASTE YOUR CURRENT MARKUP BELOW) ===== */}
-      <section className="bg-slate-50">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16">
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">YouTube Channel Trailer</h2>
-            <p className="mt-2 text-slate-600">Keep your existing embed to preserve analytics and timestamps.</p>
+      {/* CHANNEL TRAILER */}
+        <section className="mt-16">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+                Giant Legacy — Channel Trailer
+              </h2>
+              <p className="mt-1 text-zinc-700">
+                Why we exist, how we build hunt-ready properties, and what to
+                expect on the channel.
+              </p>
+            </div>
+            <Link
+              href="https://www.youtube.com/"
+              target="_blank"
+              className="text-brand-700 underline decoration-brand-300 underline-offset-4 hover:decoration-brand-500"
+            >
+              Subscribe on YouTube
+            </Link>
           </div>
-          {/* TODO: Replace this placeholder with your existing trailer embed */}
-          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-        </div>
-      </section>
 
-      {/* ===== YouTube Property Showcase (PASTE YOUR CURRENT MARKUP BELOW) ===== */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-16">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Property Showcase</h2>
-          <p className="mt-2 text-slate-600">Drop in your current property video embeds or cards.</p>
-        </div>
-        {/* TODO: Replace this placeholder with your existing property showcase markup */}
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-slate-300 bg-white" />
-        </div>
-      </section>
+          <div className="mt-6 relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${YOUTUBE_THUMB_TRAILER})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+            <div className="relative aspect-video w-full text-white">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={
+                  YOUTUBE_VIDEO_ID_TRAILER
+                    ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_TRAILER}`
+                    : "about:blank"
+                }
+                title="WLS Channel Trailer"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
 
-      {/* ===================== GLOBAL CTA ===================== */}
-      <section className="relative isolate overflow-hidden bg-emerald-800">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">Ready to engineer your property for giants?</h2>
-          <p className="mx-auto mt-2 max-w-2xl text-white/90">
-            Book a free strategy call — we’ll map your best next step, whether that’s Consulting (DIY), DFY Implementation, or a turnkey property.
+
+      {/* LATEST PROPERTY SHOWCASE */}
+        <section className="mt-16">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+            Latest Property Showcase — Mahaffey 131
+          </h2>
+          <p className="mt-1 text-zinc-700">
+            Full walk-through: access, food plots, stand locations, and hunt
+            strategy.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
-            <CtaSafe href="/properties" className="bg-white text-slate-900 hover:bg-slate-100">Join Property Waitlist</CtaSafe>
+
+          <div className="mt-6 relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${YOUTUBE_THUMB_PROPERTY})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+            <div className="relative aspect-video w-full text-white">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={
+                  YOUTUBE_VIDEO_ID_PROPERTY
+                    ? `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID_PROPERTY}`
+                    : "about:blank"
+                }
+                title="Mahaffey 131 Property Showcase"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+      {/* SITE-WIDE CTA STRIP */}
+        <section className="mt-16 rounded-2xl border border-brand-100 bg-brand-700 p-6 text-white">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <div>
+              <h3 className="text-lg font-semibold overlay-text">
+                Free 15-Minute Property Strategy Call
+              </h3>
+              <p className="mt-1 overlay-subtext">
+                Talk through goals, acreage, and timeline—get expert next steps.
+              </p>
+            </div>
+            <Cta href="/contact">Book Now</Cta>
+          </div>
+        </section>
+
 
       {/* ===================== FOOTER SPACER ===================== */}
       <div className="h-10" />
