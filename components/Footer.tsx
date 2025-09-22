@@ -77,7 +77,7 @@ export default function Footer() {
           {/* Column 3 (Logo / Address) */}
           <div>
             <Image
-              src="/images/logo-white.png"
+              src="public/logo-400.png"
               alt="Whitetail Land Solutions"
               width={180}
               height={60}
