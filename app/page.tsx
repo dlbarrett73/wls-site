@@ -42,7 +42,7 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 {/* Primary CTA uses your CTA component (green button with white text) */}
                 <CtaSafe href="/services/consulting">
-                  Transform a Property
+                  Transform My Property
                 </CtaSafe>
 
                 {/* Secondary CTA: force legible dark text on white via plain Link */}
@@ -50,7 +50,7 @@ export default function Home() {
                   href="/properties"
                   className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
                 >
-                  Buy Property
+                  Buy a Property
                 </Link>
               </div>
             </div>
