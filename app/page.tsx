@@ -3,6 +3,18 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+// ===== Update app/page.tsx to import & use these components =====
+// Add to the top:
+// import FeaturedProperty from '@/components/home/FeaturedProperty';
+// import YouTubeTrailer from '@/components/home/YouTubeTrailer';
+// import PropertyShowcase from '@/components/home/PropertyShowcase';
+// import CtaSafe from '@/components/home/CtaSafe';
+
+// Then, replace the three placeholder sections with:
+// <FeaturedProperty />
+// <YouTubeTrailer />
+// <PropertyShowcase />
+
 // Hard-hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
 export const revalidate = 3600;
