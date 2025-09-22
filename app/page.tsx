@@ -26,30 +26,30 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
+
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-                Engineered for Giants.<br></br>Built for Legacy.
+                Engineered for Giants.<br />Built for Legacy.
               </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
               </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <CtaSafe href="/services/consulting">
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CtaSafe href="/services/consulting">
                   Explore Consulting
-                  </CtaSafe>
-                 {/* FIXED: dark text over white background */}
+                </CtaSafe>
+                {/* Fixed: legible secondary CTA (white bg, dark text, border) */}
                 <CtaSafe
-                href="/properties"
-                className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
-                 >
-                Browse Properties
+                  href="/properties"
+                  className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
+                >
+                  Browse Properties
                 </CtaSafe>
               </div>
             </div>
           </div>
-        </div>    
         </div>
       </section>
 
@@ -66,7 +66,9 @@ export default function Home() {
             <p className="mt-2 text-sm text-slate-600">
               Our Blueprint for Giants™: a custom habitat and access design emphasizing <em>undetectable access</em>, food, and bedding.
             </p>
-            <CtaSafe href="/services/consulting" className="mt-4 w-full justify-center">Consulting (DIY)</CtaSafe>
+            <CtaSafe href="/services/consulting" className="mt-4 w-full justify-center">
+              Consulting (DIY)
+            </CtaSafe>
           </div>
           {/* DFY Implementation */}
           <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -74,7 +76,9 @@ export default function Home() {
             <p className="mt-2 text-sm text-slate-600">
               We design it and manage the work — plots, TSI, trails, blinds — so you can hunt big bucks sooner.
             </p>
-            <CtaSafe href="/services/implementation" className="mt-4 w-full justify-center">Consulting + DFY</CtaSafe>
+            <CtaSafe href="/services/implementation" className="mt-4 w-full justify-center">
+              Consulting + DFY
+            </CtaSafe>
           </div>
           {/* Turnkey Property */}
           <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -82,7 +86,9 @@ export default function Home() {
             <p className="mt-2 text-sm text-slate-600">
               Buy a WLS property engineered for mature bucks — hunt on Day One with confidence.
             </p>
-            <CtaSafe href="/properties" className="mt-4 w-full justify-center">View Properties</CtaSafe>
+            <CtaSafe href="/properties" className="mt-4 w-full justify-center">
+              View Properties
+            </CtaSafe>
           </div>
         </div>
       </section>
