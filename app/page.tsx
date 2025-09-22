@@ -26,7 +26,6 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
-
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
@@ -36,21 +35,21 @@ export default function Home() {
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-  <CtaSafe href="/services/consulting">
-    Explore Consulting
-  </CtaSafe>
-
-  {/* FIXED: dark text over white background */}
-  <CtaSafe
-    href="/properties"
-    className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
-  >
-    Browse Properties
-  </CtaSafe>
-</div>
-
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <CtaSafe href="/services/consulting">
+                  Explore Consulting
+                  </CtaSafe>
+                 {/* FIXED: dark text over white background */}
+                <CtaSafe
+                href="/properties"
+                className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
+                 >
+                Browse Properties
+                </CtaSafe>
+              </div>
+            </div>
           </div>
+        </div>    
         </div>
       </section>
 
