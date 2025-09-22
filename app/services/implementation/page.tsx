@@ -68,7 +68,7 @@ export default function ImplementationPage() {
             plots, bedding, access, and stand setups that hunt right away.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+            <CtaSafe href="/capture/implementation/">Book a Free Strategy Call</CtaSafe>
             <Link
               href="/services/consulting"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold border border-white/70 text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
@@ -128,7 +128,7 @@ export default function ImplementationPage() {
               </li>
             </ul>
             <div className="mt-8">
-              <CtaSafe href="/contact">Start Your Build</CtaSafe>
+              <CtaSafe href="/capture/implementation">Start Your Build</CtaSafe>
             </div>
           </div>
 
@@ -186,7 +186,7 @@ export default function ImplementationPage() {
             </div>
           </div>
           <div className="mt-8">
-            <CtaSafe href="/contact" className="bg-emerald-700 hover:bg-emerald-800">
+            <CtaSafe href="/capture/implementation" className="bg-emerald-700 hover:bg-emerald-800">
               Talk Implementation Details
             </CtaSafe>
           </div>
@@ -261,7 +261,7 @@ export default function ImplementationPage() {
             <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200" />
           </div>
           <div className="mt-8">
-            <CtaSafe href="/contact">Request a Project Tour</CtaSafe>
+            <CtaSafe href="/capture/implementation">Request a Project Tour</CtaSafe>
           </div>
         </div>
       </section>
@@ -274,7 +274,7 @@ export default function ImplementationPage() {
             We’ll scope phases, budget, and timeline—then get your land hunting the way it should.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaSafe href="/contact" className="bg-white text-emerald-900 hover:bg-white/90">
+            <CtaSafe href="/capture/implementation" className="bg-white text-emerald-900 hover:bg-white/90">
               Book a Free Strategy Call
             </CtaSafe>
             <Link
