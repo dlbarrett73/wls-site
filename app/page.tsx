@@ -31,16 +31,25 @@ export default function Home() {
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-                Engineered for Giants. Built for Legacy.
+                Engineered for Giants.<br></br>Built for Legacy.
               </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <CtaSafe href="/services/consulting">Explore Consulting</CtaSafe>
-                <CtaSafe href="/properties" className="bg-white text-slate-900 hover:bg-slate-100">Browse Properties</CtaSafe>
-              </div>
-            </div>
+  <CtaSafe href="/services/consulting">
+    Explore Consulting
+  </CtaSafe>
+
+  {/* FIXED: dark text over white background */}
+  <CtaSafe
+    href="/properties"
+    className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
+  >
+    Browse Properties
+  </CtaSafe>
+</div>
+
           </div>
         </div>
       </section>
