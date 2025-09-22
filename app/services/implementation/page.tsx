@@ -1,302 +1,304 @@
-// app/services/implementation/page.tsx
+// app/services/consulting/page.tsx
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
-/** Try to import CtaButton (works with both named and default exports).
- *  If it's missing or mismatched, we fall back to a styled <Link>.
+/**
+ * Safe CTA import helper:
+ * Works whether CtaButton is a default or named export.
+ * If the component isn't found, it falls back to a styled <Link>.
  */
 import * as Cta from "@/components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
-  const Btn =
+  const Button =
     // @ts-ignore
-    (Cta && (Cta.CtaButton || Cta.default)) as
-      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
-      | undefined;
-
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-
+    (Cta && (Cta.CtaButton || Cta.default)) ||
+    ((props: CtaProps) => (
+      <Link
+        href={props.href}
+        className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500 bg-brand-700 text-white ${props.className}`}
+      >
+        {props.children}
+      </Link>
+    ));
   return (
-    <Link
-      href={href}
-      className={
-        "inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold shadow-soft transition " +
-        "bg-brand-700 text-white hover:bg-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-400 " +
-        className
-      }
-    >
+    <Button href={href} className={className}>
       {children}
-    </Link>
+    </Button>
   );
 }
 
 export const metadata = {
-  title: "Habitat Implementation — Whitetail Land Solutions",
+  title: "Consulting — Whitetail Land Solutions",
   description:
-    "Done-for-you habitat builds engineered for mature whitetails: undetectable access, food/cover/security, and hunt-ready results.",
+    "Blueprints and strategy to engineer your property for mature whitetails. Engineered for Giants. Built for Legacy.",
 };
 
-export default function ImplementationPage() {
+export default function ConsultingPage() {
   return (
-    <main className="w-full">
-      {/* HERO */}
-      <section className="relative">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/implementation.jpg"
-            alt="Habitat Implementation by Whitetail Land Solutions"
-            fill
-            priority
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/30" />
-        </div>
+    <>
+      {/* =================== FULL-SCREEN HERO =================== */}
+      <header className="relative h-[85vh] md:h-screen w-screen overflow-hidden">
+        <Image
+          src="/images/consulting.png"
+          alt="Consulting — Whitetail habitat planning"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Richer contrast for white text */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-brand-900/40" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
-          <p className="text-sm font-semibold tracking-widest text-white/80">SERVICES</p>
-          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
-            Habitat Implementation
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/90">
-            We don’t just design big-buck paradises — we build them. From{" "}
-            <span className="font-semibold">undetectable access</span> and staging cover to food, security, and
-            stand/blind placement, we deliver a turnkey, hunt-ready property engineered for mature whitetails.
-          </p>
-          <div className="mt-8 flex gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
-            <Link
-              href="/services/consulting"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold transition bg-white/10 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
-            >
-              See Consulting (DIY Plans)
-            </Link>
+        <div className="relative z-10 h-full">
+          <div className="mx-auto flex h-full max-w-6xl flex-col justify-center px-6 md:px-10 text-white">
+            <p className="text-xs font-semibold tracking-widest text-white/85">
+              CONSULTING
+            </p>
+
+            {/* Pain-point lead, then flagship name */}
+            <h1 className="mt-2 text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+              Most hunters own land. Few own a big buck paradise.
+            </h1>
+            <p className="mt-4 max-w-3xl text-base md:text-lg text-white/90">
+              <span className="font-semibold">Blueprint for Giants</span> is our premium,
+              boots-on-the-ground plan that engineers your property for mature whitetails—so
+              you know exactly what to do, where, and why.
+            </p>
+
+            {/* Pricing transparency chips */}
+            <div className="mt-5 flex flex-wrap gap-3">
+              <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-semibold ring-1 ring-white/25">
+                Plans from <span className="whitespace-nowrap">$7,500</span>
+              </span>
+              <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-semibold ring-1 ring-white/25">
+                Implementation <span className="whitespace-nowrap">$20K–$30K+</span>
+              </span>
+              <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-semibold ring-1 ring-white/25">
+                Engineered for Giants. Built for Legacy.
+              </span>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+              <Link
+                href="#process"
+                className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/30 text-white hover:bg-white/10"
+              >
+                See the Process
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* DECISION LOGIC STRIP */}
-      <section className="bg-brand-800">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-10 md:grid-cols-3 md:py-12">
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
-            <h3 className="text-xl font-bold text-black">I want a plan I can implement.</h3>
-            <p className="mt-2 text-zinc-700">Consulting + DIY. Custom Blueprint for Giants, you execute.</p>
-            <Link href="/services/consulting" className="mt-4 inline-block text-brand-700 underline underline-offset-4">
-              Learn about Consulting →
-            </Link>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
-            <h3 className="text-xl font-bold text-black">I want you to build it for me.</h3>
-            <p className="mt-2 text-zinc-700">Consulting + DFY. We handle the habitat build from start to finish.</p>
-            <span className="mt-4 inline-block text-zinc-800">You’re in the right place — Implementation.</span>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6">
-            <h3 className="text-xl font-bold text-black">I already have a plan.</h3>
-            <p className="mt-2 text-zinc-700">We’ll implement your plan with precision and accountability.</p>
-            <span className="mt-4 inline-block text-zinc-800">Also Implementation — let’s build.</span>
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT WE BUILD */}
-      <section className="bg-brand-900">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-            Built for Mature Bucks. Built for You.
-          </h2>
-          <p className="mt-4 max-w-3xl text-white/85">
-            We prioritize predictable daylight movement by stacking advantages: access first, then food, cover,
-            security, and low-pressure hunting architecture.
-          </p>
-
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {[
-              {
-                title: "Undetectable Access",
-                body:
-                  "Roads, trails, and entry/exit that keep your scent and sound off the deer. Screening, terrain usage, and wind-smart routing.",
-              },
-              {
-                title: "Food & Forage Systems",
-                body:
-                  "Plot layout, blends, and rotations that stage daylight usage — micro-plots, destination plots, and kill-plot strategy.",
-              },
-              {
-                title: "Cover & Security",
-                body:
-                  "TSI, edge feathering, hinge cuts (where appropriate), conifer pockets, and bedding orchestration to hold mature deer.",
-              },
-              {
-                title: "Stand & Blind Architecture",
-                body:
-                  "Precision locations with wind/thermal logic, safe access, and shot-window design to create repeatable high-odds sits.",
-              },
-              {
-                title: "Water & Micro-Features",
-                body:
-                  "Water holes, mock scrapes, and travel-influencers that nudge bucks into bow range in daylight.",
-              },
-              {
-                title: "Roads & Infrastructure",
-                body:
-                  "Driveways, dozer work, culverts, gates, and signage to improve usability, value, and resale appeal.",
-              },
-            ].map((card) => (
-              <div key={card.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold text-white">{card.title}</h3>
-                <p className="mt-2 text-white/80">{card.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">How Implementation Works</h2>
-        {/* Removed list numbers */}
-        <ul className="mt-8 grid list-none grid-cols-1 gap-6 pl-0 md:grid-cols-2">
+      {/* =================== PAGE BODY =================== */}
+      <main className="mx-auto max-w-6xl px-6 pb-24 pt-12">
+        {/* QUICK VALUE PITCH (kept, tightened copy) */}
+        <section className="grid gap-6 md:grid-cols-3">
           {[
             {
-              step: "Site Walk & Scope",
+              title: "Purpose-Built Plan",
               body:
-                "We review your goals, constraints, and budget. If you don’t have a plan, we create one; if you do, we pressure-test it.",
+                "Designed around deer behavior, undetectable access, and your goals—not generic tips.",
             },
             {
-              step: "Build Plan & Budget",
+              title: "Map-First Clarity",
               body:
-                "Clear pricing, phasing, and ROI-minded priorities. We keep what moves the needle for mature bucks at the top.",
+                "Actionable maps and a phased plan so you can DIY or hand it to a dozer crew tomorrow.",
             },
             {
-              step: "Mobilize & Execute",
+              title: "ROI Mindset",
               body:
-                "Our team and trusted partners perform work to spec. We communicate progress, photos, and milestones.",
+                "Prioritized for hunting impact and resale value—Engineered for Giants, Built for Legacy.",
             },
-            {
-              step: "Quality Check & Handover",
-              body:
-                "We verify standards, finalize placement, and orient you on access, winds, and usage to preserve daylight movement.",
-            },
-          ].map((item, i) => (
-            <li key={item.step} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft">
-              <div className="text-sm font-semibold tracking-widest text-brand-700">STEP {i + 1}</div>
-              <h3 className="mt-1 text-xl font-bold">{item.step}</h3>
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft"
+            >
+              <h3 className="text-lg font-bold">{item.title}</h3>
               <p className="mt-2 text-zinc-700">{item.body}</p>
-            </li>
+            </div>
           ))}
-        </ul>
-        <div className="mt-8">
-          <CtaSafe href="/contact">Get a Build Quote</CtaSafe>
-        </div>
-      </section>
+        </section>
 
-      {/* DELIVERABLES */}
-      <section className="bg-brand-800">
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">What You’ll Get</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {[
-              {
-                title: "Clear Scope & Timeline",
-                body:
-                  "No surprises. A sequenced plan so the property hunts better every phase, not just when everything is done.",
-              },
-              {
-                title: "Turnkey Build",
-                body:
-                  "We coordinate heavy equipment, forestry work, seed/fertilizer, screens, blinds, and signage to spec.",
-              },
-              {
-                title: "Hunt-Ready Orientation",
-                body:
-                  "Access routes, wind/thermal notes, and a season-by-season usage guide to keep pressure low and odds high.",
-              },
-            ].map((d) => (
-              <div key={d.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <h3 className="text-lg font-bold text-white">{d.title}</h3>
-                <p className="mt-2 text-white/80">{d.body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-lg font-bold text-white">Already have a forestry or habitat plan?</h3>
-            <p className="mt-2 text-white/80">
-              Perfect. We’ll implement it with an obsession for{" "}
-              <span className="font-semibold text-white">undetectable access</span>, low pressure, and mature-buck logic.
+        {/* =================== VISUAL PROCESS =================== */}
+        <section id="process" className="mt-16">
+          <div className="rounded-2xl border border-brand-100 bg-brand-50 p-6 md:p-8">
+            <h2 className="text-2xl font-extrabold tracking-tight">Our Proven Process</h2>
+            <p className="mt-2 max-w-3xl text-zinc-700">
+              Intake ➜ Site Visit ➜ Design Map ➜ Action Plan ➜ Results. We keep pressure low,
+              access undetectable, and decisions crystal-clear.
             </p>
-            <div className="mt-4">
-              <CtaSafe href="/contact" className="bg-white text-brand-900 hover:bg-zinc-100">
-                Schedule a Site Walk
-              </CtaSafe>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CREDIBILITY */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">Why WLS Implementation</h2>
-            <p className="mt-4 text-zinc-700">
-              Led by a professional consulting forester with wildlife and habitat training, plus real-property
-              experience designing and building improvements that actually move mature deer in daylight — and keep
-              them comfortable on your ground.
-            </p>
-            <ul className="mt-6 space-y-3 text-zinc-700">
-              <li>• Plans engineered specifically for mature whitetails</li>
-              <li>• Execution focused on access, pressure, and predictability</li>
-              <li>• Property usability and resale value in mind</li>
-            </ul>
-            <div className="mt-6">
-              <CtaSafe href="/contact">Start Your Build</CtaSafe>
-            </div>
-          </div>
-          <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-soft">
-            <h3 className="text-xl font-bold">Typical Build Elements</h3>
-            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {/* Step cards with arrow separators for a visual “flow” without external icons */}
+            <div className="mt-6 grid gap-4 md:grid-cols-5">
               {[
-                "Access roads & trails",
-                "Screening & edge feathering",
-                "TSI & bedding orchestration",
-                "Food plot construction",
-                "Water holes & scrapes",
-                "Stand/blind installs",
-                "Signage & gates",
-                "Soil tests & amendments",
-              ].map((x) => (
-                <div key={x} className="rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm">
-                  {x}
+                {
+                  t: "Intake",
+                  d: "Goals, pressure, acreage, and context. We align on outcomes and timeline.",
+                },
+                {
+                  t: "Site Visit",
+                  d: "Walk the property; analyze wind, access, hunting pressure, and sign.",
+                },
+                {
+                  t: "Design Map",
+                  d: "Stand sites, access routes, food, TSI, bedding, screening, sanctuaries.",
+                },
+                {
+                  t: "Action Plan",
+                  d: "Phased priorities and scope—DIY or DFY with trusted partners.",
+                },
+                {
+                  t: "Results",
+                  d: "Hunt a system engineered for mature bucks—and protect resale value.",
+                },
+              ].map((s, i, arr) => (
+                <div key={s.t} className="relative">
+                  <div className="rounded-2xl bg-white p-5 shadow-soft border border-zinc-200 h-full">
+                    <div className="text-sm font-semibold tracking-widest text-brand-700">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="mt-1 text-lg font-bold">{s.t}</h3>
+                    <p className="mt-2 text-sm text-zinc-700">{s.d}</p>
+                  </div>
+                  {i < arr.length - 1 && (
+                    <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-2xl">
+                      <span aria-hidden>→</span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="bg-brand-900">
-        <div className="mx-auto max-w-6xl px-6 py-16 text-center md:py-20">
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-            Ready to engineer & build your property for giants?
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-white/85">
-            We’ll design the access, cover, and food systems that make daylight encounters repeatable — then build it
-            to spec.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
-            <Link
-              href="/services/consulting"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-base font-semibold transition bg-white/10 text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/40"
-            >
-              Explore Consulting (DIY)
-            </Link>
+            <div className="mt-6">
+              <CtaSafe href="/contact">Start with a Free Strategy Call</CtaSafe>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* =================== DECISION LOGIC =================== */}
+        <section id="decision" className="mt-16">
+          <div className="rounded-2xl bg-brand-50 p-6 md:p-8 border border-brand-100">
+            <h2 className="text-2xl font-extrabold tracking-tight">Choose Your Path</h2>
+            <p className="mt-2 max-w-3xl text-zinc-700">
+              Start with a plan. Then either do it yourself or have us build it for you. Already have a plan?
+              Skip straight to implementation.
+            </p>
+
+            <div className="mt-6 grid gap-6 md:grid-cols-3">
+              {/* DIY */}
+              <div className="rounded-2xl bg-white p-6 shadow-soft border border-zinc-200">
+                <div className="text-sm font-semibold tracking-widest text-brand-700">
+                  DIY
+                </div>
+                <h3 className="mt-1 text-xl font-bold">Consulting + DIY</h3>
+                <p className="mt-2 text-zinc-700">
+                  We create your Blueprint for Giants. You (or your crew) implement with clear maps,
+                  priorities, and steps—on your timeline.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+                  <li>• Property walk & hunting pressure analysis</li>
+                  <li>• Stand & access placement for wind advantage</li>
+                  <li>• Undetectable access trail design</li>
+                  <li>• Food plots, TSI, bedding, screening, sanctuaries</li>
+                </ul>
+                <div className="mt-5 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-zinc-600">
+                    Plans from $7,500
+                  </span>
+                  <CtaSafe href="/contact" className="justify-center">
+                    Get My Plan
+                  </CtaSafe>
+                </div>
+              </div>
+
+              {/* DFY */}
+              <div className="rounded-2xl bg-white p-6 shadow-soft border border-zinc-200">
+                <div className="text-sm font-semibold tracking-widest text-brand-700">
+                  DFY
+                </div>
+                <h3 className="mt-1 text-xl font-bold">Consulting + Done-For-You</h3>
+                <p className="mt-2 text-zinc-700">
+                  We design your blueprint and manage habitat implementation with our trusted partners—
+                  built right, the first time.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+                  <li>• Everything in DIY consulting, plus build-out</li>
+                  <li>• Project management & quality control</li>
+                  <li>• Sequencing to minimize pressure</li>
+                  <li>• Undetectable access trails implemented</li>
+                </ul>
+                <div className="mt-5 flex items-center justify-between">
+                  <span className="text-sm font-semibold text-zinc-600">
+                    Typical builds $20K–$30K+
+                  </span>
+                  <CtaSafe href="/contact" className="justify-center">
+                    Design & Build It For Me
+                  </CtaSafe>
+                </div>
+              </div>
+
+              {/* Already have a plan */}
+              <div className="rounded-2xl bg-white p-6 shadow-soft border border-zinc-200">
+                <div className="text-sm font-semibold tracking-widest text-brand-700">
+                  BUILD
+                </div>
+                <h3 className="mt-1 text-xl font-bold">I Already Have a Plan</h3>
+                <p className="mt-2 text-zinc-700">
+                  Great—let’s turn that plan into reality with{" "}
+                  <span className="font-semibold">Habitat Implementation</span>.
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-zinc-700">
+                  <li>• Clear scope, budget, and timeline</li>
+                  <li>• On-site execution by pros</li>
+                  <li>• Undetectable access prioritized</li>
+                  <li>• Built for hunting success & resale value</li>
+                </ul>
+                <div className="mt-5">
+                  <Link
+                    href="/services/implementation"
+                    className="inline-flex w-full justify-center items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-brand-700 text-brand-700 hover:bg-brand-50"
+                  >
+                    Go to Implementation
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =================== WHY US (kept, tightened) =================== */}
+        <section className="mt-16 rounded-2xl border border-zinc-200 bg-white p-6 md:p-8 shadow-soft">
+          <h2 className="text-2xl font-extrabold tracking-tight">Why Us</h2>
+          <p className="mt-3 text-zinc-700 max-w-4xl">
+            Our lead consultant, <span className="font-semibold">Kent</span>, blends formal
+            training in forestry and wildlife/habitat from Penn State, research with the PSU deer
+            lab, and years designing and building improvements on real hunting properties. That
+            mix—biology, timber, undetectable access, and on-the-ground execution—produces plans
+            that actually work for big, mature bucks.
+          </p>
+          <div className="mt-5">
+            <CtaSafe href="/contact">Talk With Us</CtaSafe>
+          </div>
+        </section>
+
+        {/* =================== LEGACY ANCHOR STRIP =================== */}
+        <section className="mt-16 rounded-2xl bg-brand-700 px-6 py-10 text-white">
+          <h3 className="text-2xl font-extrabold tracking-tight text-white">
+            Leave your children a hunting property engineered for giants.
+          </h3>
+          <p className="mt-2 text-white/90">
+            Start with a free, no-pressure strategy call. We’ll point you to the best next step—
+            DIY, DFY, or straight to implementation.
+          </p>
+          <div className="mt-5">
+            <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
