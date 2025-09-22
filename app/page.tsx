@@ -1,6 +1,7 @@
 // app/page.tsx
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Reusable components (client-safe)
 import CtaSafe from "@/components/home/CtaSafe";
@@ -19,11 +20,12 @@ export default function Home() {
       <section className="relative w-full h-[72vh] sm:h-screen">
         <Image
           src="/images/hero.jpg"
-          alt="Mature whitetail habitat at golden hour"
+          alt="Kent with mature whitetail in engineered habitat"
           priority
           fill
           sizes="100vw"
-          className="object-cover"
+          // Shift the focal point upward to keep both heads visible
+          className="object-cover object-[center_22%] sm:object-[center_20%] md:object-[center_18%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
 
@@ -36,17 +38,20 @@ export default function Home() {
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
               </p>
+
               <div className="mt-8 flex flex-wrap gap-3">
+                {/* Primary CTA uses your CTA component (green button with white text) */}
                 <CtaSafe href="/services/consulting">
                   Explore Consulting
                 </CtaSafe>
-                {/* Fixed: legible secondary CTA (white bg, dark text, border) */}
-                <CtaSafe
+
+                {/* Secondary CTA: force legible dark text on white via plain Link */}
+                <Link
                   href="/properties"
-                  className="bg-white text-slate-900 border border-slate-200 hover:bg-slate-100"
+                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
                 >
                   Browse Properties
-                </CtaSafe>
+                </Link>
               </div>
             </div>
           </div>
