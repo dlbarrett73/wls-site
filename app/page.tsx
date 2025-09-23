@@ -67,7 +67,7 @@ export default function Home() {
         <div className="grid gap-6 sm:grid-cols-3">
           {/* DIY Plan */}
           <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want a plan I can implement</h3>
+            <h3 className="text-lg font-semibold text-slate-900">I want a plan I can implement...</h3>
             <p className="mt-2 text-sm text-slate-600">
               Our Blueprint for Giants™: a custom habitat and access design emphasizing <em>undetectable access</em>, food, and bedding.
             </p>
@@ -77,7 +77,7 @@ export default function Home() {
           </div>
           {/* DFY Implementation */}
           <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want you to build it for me</h3>
+            <h3 className="text-lg font-semibold text-slate-900">I want you to build it for me...</h3>
             <p className="mt-2 text-sm text-slate-600">
               We design it and manage the work — plots, TSI, trails, blinds — so you can hunt big bucks sooner.
             </p>
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
           {/* Turnkey Property */}
           <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want a turnkey property now</h3>
+            <h3 className="text-lg font-semibold text-slate-900">I want a turnkey property now...</h3>
             <p className="mt-2 text-sm text-slate-600">
               Buy a WLS property engineered for mature bucks — hunt on Day One with confidence.
             </p>
