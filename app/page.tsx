@@ -24,14 +24,24 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-          className="object-cover object-[center_30%]"/>
+          /* Nudge the crop up as screen gets larger so Kent's head + rack stay visible */
+          className="
+            object-cover
+            object-[center_34%]
+            sm:object-[center_30%]
+            md:object-[center_26%]
+            lg:object-[center_22%]
+            xl:object-[center_20%]
+          "
+        />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/35 to-black/20" />
+        {/* Stronger gradient for bulletproof headline contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
 
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight [text-shadow:_0_1px_6px_rgba(0,0,0,0.5)]">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight [text-shadow:_0_1px_6px_rgba(0,0,0,0.55)]">
                 Engineered for Giants.<br />Built for Legacy.
               </h1>
 
@@ -40,12 +50,12 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                {/* Primary CTA uses your CTA component (green button with white text) */}
+                {/* Primary CTA */}
                 <CtaSafe href="/services/consulting">
                   Transform My Property
                 </CtaSafe>
 
-                {/* Secondary CTA: force legible dark text on white via plain Link */}
+                {/* Secondary CTA: dark-on-light for guaranteed legibility */}
                 <Link
                   href="/properties"
                   className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
@@ -58,8 +68,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
+      {/* ============== PROVEN PROCESS (Simple, visual) ============== */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold">How We Build Big Buck Paradises</h2>
+          <p className="mt-2 text-slate-600">
+            Simple. Repeatable. Designed around undetectable access, food, and bedding so you can hunt with confidence.
+          </p>
+        </div>
+        <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 1</div>
+            <h3 className="mt-1 font-semibold text-slate-900">Acquire</h3>
+            <p className="mt-2 text-sm text-slate-600">We target undervalued properties with elite whitetail potential.</p>
+          </li>
+          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 2</div>
+            <h3 className="mt-1 font-semibold text-slate-900">Design</h3>
+            <p className="mt-2 text-sm text-slate-600">Blueprint for Giants™ maps access, food plots, bedding, and stand strategy.</p>
+          </li>
+          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 3</div>
+            <h3 className="mt-1 font-semibold text-slate-900">Build</h3>
+            <p className="mt-2 text-sm text-slate-600">We (or you) implement proven upgrades: plots, TSI, trails, blinds, water.</p>
+          </li>
+          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 4</div>
+            <h3 className="mt-1 font-semibold text-slate-900">Hunt / Sell</h3>
+            <p className="mt-2 text-sm text-slate-600">Hunt mature bucks on Day One — or buy a turnkey WLS property.</p>
+          </li>
+        </ol>
+      </section>
+
+      {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-4">
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Choose Your Path</h2>
           <p className="mt-2 text-slate-600">Three simple ways to work with us — aligned to your goals, time, and budget.</p>
@@ -98,7 +140,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============== BIOLOGICAL PROOF & STORYTELLING ============== */}
+      {/* ============== BIOLOGICAL PROOF & STORYTELLING (Placeholder-ready) ============== */}
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="mb-8">
@@ -122,7 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Your existing content as components ===== */}
+      {/* ===== Your existing content as components (unchanged) ===== */}
       <FeaturedProperty />
       <YouTubeTrailer />
       <PropertyShowcase />
