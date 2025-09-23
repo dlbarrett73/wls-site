@@ -73,17 +73,17 @@ export default function ContactPage() {
           {/* Pathways */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             <PathCard
-              title="Buy Land"
+              title="Buy a Property"
               desc="See hunt-ready properties engineered for giants. Tours and waitlist available."
               href="/properties"
             />
             <PathCard
-              title="Consulting — Blueprint for Giants"
-              desc="Site walk, map, and step-by-step action plan for your exact goals and terrain."
+              title="Get a Land Plan"
+              desc="Blueprint for Giants™: a custom habitat and access design emphasizing undetectable access, food, and bedding."
               href="/services/consulting"
             />
             <PathCard
-              title="Habitat Implementation"
+              title="Have WLS Build It"
               desc="We build roads, plots, access, stands, and structure so the plan gets done right."
               href="/services/implementation"
             />
