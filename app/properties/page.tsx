@@ -37,7 +37,9 @@ export const metadata = {
 
 export default function PropertiesPage() {
   // Ensure we have a plain array of properties
-  const items: Property[] = Object.values(propertiesBySlug as Record<string, Property>);
+  const items: Property[] = Object.values(
+    propertiesBySlug as Record<string, Property>
+  );
 
   return (
     <main>
@@ -60,12 +62,14 @@ export default function PropertiesPage() {
               PROPERTIES
             </p>
             <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Properties Engineered for Giants. <br className="hidden sm:block" />
+              Properties Engineered for Giants.{" "}
+              <br className="hidden sm:block" />
               <span className="text-white/95">Built for Legacy.</span>
             </h1>
             <p className="mt-4 max-w-2xl text-white/90">
-              Explore hunt-ready acreage designed for undetectable access, habitat, and daylight
-              movement—so you can consistently target mature whitetails from day one.
+              Explore hunt-ready acreage designed for undetectable access,
+              habitat, and daylight movement—so you can consistently target
+              mature whitetails from day one.
             </p>
             {/* Optional primary CTA to keep funnel clear without adding new deps/components */}
             <div className="mt-6">
@@ -82,6 +86,12 @@ export default function PropertiesPage() {
 
       {/* Listings grid */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
+        {/* Scarcity / urgency line (added) */}
+        <p className="mb-8 text-lg font-medium text-emerald-800">
+          Inventory is limited. Join alerts to be first in line when we list or
+          acquire new engineered properties.
+        </p>
+
         {items.length === 0 ? (
           <div className="rounded-2xl border border-neutral-200 p-8 text-center shadow-soft">
             <p className="text-neutral-700">
@@ -100,7 +110,8 @@ export default function PropertiesPage() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((p) => {
               const href = `/properties/${p.slug}`;
-              const hero = p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
+              const hero =
+                p.heroImage ?? p.heroSrc ?? "/images/properties/fallback.jpg";
               const price = formatPrice(p.price);
               const acres = formatAcres(p.acres);
 
@@ -148,7 +159,9 @@ export default function PropertiesPage() {
                     </div>
 
                     {p.location ? (
-                      <p className="mt-3 line-clamp-2 text-sm text-neutral-600">{p.location}</p>
+                      <p className="mt-3 line-clamp-2 text-sm text-neutral-600">
+                        {p.location}
+                      </p>
                     ) : null}
 
                     {/* Highlights preview (first 2) */}
