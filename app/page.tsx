@@ -77,37 +77,55 @@ export default function Home() {
       </section>
 
 
-      {/* ============== PROVEN PROCESS (Simple, visual) ============== */}
+           {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold">How We Build Big Buck Paradises</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Choose Your Path</h2>
           <p className="mt-2 text-slate-600">
-            Simple. Repeatable. Designed around undetectable access, food, and bedding so you can hunt with confidence.
+            Three simple ways to work with us — aligned to your goals, time, and budget.
           </p>
         </div>
-        <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 1</div>
-            <h3 className="mt-1 font-semibold text-slate-900">Acquire</h3>
-            <p className="mt-2 text-sm text-slate-600">We target undervalued properties with elite whitetail potential.</p>
-          </li>
-          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 2</div>
-            <h3 className="mt-1 font-semibold text-slate-900">Design</h3>
-            <p className="mt-2 text-sm text-slate-600">Blueprint for Giants™ maps access, food plots, bedding, and stand strategy.</p>
-          </li>
-          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 3</div>
-            <h3 className="mt-1 font-semibold text-slate-900">Build</h3>
-            <p className="mt-2 text-sm text-slate-600">We (or you) implement proven upgrades: plots, TSI, trails, blinds, water.</p>
-          </li>
-          <li className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <div className="text-xs font-semibold tracking-wider text-emerald-700">STEP 4</div>
-            <h3 className="mt-1 font-semibold text-slate-900">Hunt / Sell</h3>
-            <p className="mt-2 text-sm text-slate-600">Hunt mature bucks on Day One — or buy a turnkey WLS property.</p>
-          </li>
-        </ol>
+
+        <div className="grid gap-6 sm:grid-cols-3">
+          {/* BUY */}
+          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Buy a Property</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Turnkey hunting properties engineered for mature bucks — hunt on Day One with confidence.
+            </p>
+            <CtaSafe href="/properties" className="mt-4 w-full justify-center">
+              Buy a Property
+            </CtaSafe>
+            {/* If you prefer to route to the capture page instead, swap href to "/capture/buyer" */}
+          </div>
+
+          {/* GET (Consulting) */}
+          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Get a Land Plan</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Blueprint for Giants™: a custom habitat and access design emphasizing
+              <em> undetectable access</em>, food, and bedding.
+            </p>
+            <CtaSafe href="/services/consulting" className="mt-4 w-full justify-center">
+              Get a Land Plan
+            </CtaSafe>
+            {/* To send directly to the capture page, swap href to "/capture/consulting" */}
+          </div>
+
+          {/* HAVE (Implementation) */}
+          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Have WLS Build It</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              We manage the entire build — plots, TSI, trails, blinds, water — so you can hunt big bucks sooner.
+            </p>
+            <CtaSafe href="/services/implementation" className="mt-4 w-full justify-center">
+              Have WLS Build It
+            </CtaSafe>
+            {/* Or route to the capture page: "/capture/implementation" */}
+          </div>
+        </div>
       </section>
+
 
       {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
       <section className="mx-auto w-full max-w-6xl px-6 pb-4">
