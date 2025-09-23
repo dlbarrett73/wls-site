@@ -126,47 +126,6 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
-      <section className="mx-auto w-full max-w-6xl px-6 pb-4">
-        <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Choose Your Path</h2>
-          <p className="mt-2 text-slate-600">Three simple ways to work with us — aligned to your goals, time, and budget.</p>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-3">
-          {/* DIY Plan */}
-          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want a plan I can implement...</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Our Blueprint for Giants™: a custom habitat and access design emphasizing <em>undetectable access</em>, food, and bedding.
-            </p>
-            <CtaSafe href="/services/consulting" className="mt-4 w-full justify-center">
-              Consulting (DIY)
-            </CtaSafe>
-          </div>
-          {/* DFY Implementation */}
-          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want you to build it for me...</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              We design it and manage the work — plots, TSI, trails, blinds — so you can hunt big bucks sooner.
-            </p>
-            <CtaSafe href="/services/implementation" className="mt-4 w-full justify-center">
-              Consulting + DFY
-            </CtaSafe>
-          </div>
-          {/* Turnkey Property */}
-          <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 className="text-lg font-semibold text-slate-900">I want a turnkey property now...</h3>
-            <p className="mt-2 text-sm text-slate-600">
-              Buy a WLS property engineered for mature bucks — hunt on Day One with confidence.
-            </p>
-            <CtaSafe href="/properties" className="mt-4 w-full justify-center">
-              View Properties
-            </CtaSafe>
-          </div>
-        </div>
-      </section>
-
       {/* ============== BIOLOGICAL PROOF & STORYTELLING (Placeholder-ready) ============== */}
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
