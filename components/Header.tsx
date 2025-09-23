@@ -68,13 +68,13 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-1 md:flex">
           <Link href="/properties" className={navLink}>
-            Properties
+            Land for Sale
           </Link>
           <Link href="/services/consulting" className={navLink}>
-            Consulting
+            Land Plans
           </Link>
           <Link href="/services/implementation" className={navLink}>
-            Implementation
+            Build My Property
           </Link>
           <Link href="/about" className={navLink}>
             About
