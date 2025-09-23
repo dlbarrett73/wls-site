@@ -120,7 +120,7 @@ export default function Header() {
                     className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
                     role="menuitem"
                   >
-                    Buy Land → Browse Properties
+                    Buy a Property
                   </Link>
                   <Link
                     href="/services/consulting"
@@ -128,7 +128,7 @@ export default function Header() {
                     className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
                     role="menuitem"
                   >
-                    Consulting → Blueprint for Giants
+                    Get a Land Plan
                   </Link>
                   <Link
                     href="/services/implementation"
@@ -136,7 +136,7 @@ export default function Header() {
                     className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-800 hover:bg-emerald-50 hover:text-emerald-800"
                     role="menuitem"
                   >
-                    Habitat Implementation → Build It Right
+                    Have WLS Build it for You
                   </Link>
                   <Link
                     href="/contact"
