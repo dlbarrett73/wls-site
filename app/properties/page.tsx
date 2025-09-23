@@ -77,7 +77,7 @@ export default function PropertiesPage() {
                 href="/capture/buyer"
                 className="inline-flex items-center justify-center rounded-xl bg-brand-700 px-5 py-3 text-sm font-semibold text-white transition hover:opacity-95"
               >
-                Join the Waitlist
+                Get Property Alerts
               </Link>
             </div>
           </div>
@@ -88,8 +88,7 @@ export default function PropertiesPage() {
       <section className="mx-auto w-full max-w-6xl px-6 py-16 md:py-24">
         {/* Scarcity / urgency line (added) */}
         <p className="mb-8 text-lg font-medium text-emerald-800">
-          Inventory is limited. Join alerts to be first in line when we list or
-          acquire new engineered properties.
+          Inventory is limited. Join property alerts to be first in line when new engineered properties are available.
         </p>
 
         {items.length === 0 ? (
