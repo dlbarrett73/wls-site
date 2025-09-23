@@ -17,6 +17,7 @@ export default function Home() {
   return (
     <main className="min-h-screen w-full bg-white text-slate-900">
             {/* ================= HERO (Full-Width) ================= */}
+            {/* ================= HERO (Full-Width) ================= */}
       <section className="relative w-full h-[72vh] sm:h-screen">
         <Image
           src="/images/hero.jpg"
@@ -67,14 +68,23 @@ export default function Home() {
                   Get a Land Plan
                 </CtaSafe>
 
-                <CtaSafe href="/services/implementation" className="bg-emerald-800 hover:bg-emerald-900">
+                <CtaSafe
+                  href="/services/implementation"
+                  className="bg-emerald-800 hover:bg-emerald-900"
+                >
                   Have WLS Build It
                 </CtaSafe>
               </div>
+
+              {/* Micro-trust row */}
+              <p className="mt-6 text-sm font-medium text-white/80">
+                PA-based • Whitetail-first designs • Not a broker — we sell our own properties
+              </p>
             </div>
           </div>
         </div>
       </section>
+
 
 
            {/* ============== CHOOSE YOUR PATH (Offer Clarity) ============== */}
