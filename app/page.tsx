@@ -16,7 +16,7 @@ export const revalidate = 3600;
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-white text-slate-900">
-      {/* ================= HERO (Full-Width) ================= */}
+            {/* ================= HERO (Full-Width) ================= */}
       <section className="relative w-full h-[72vh] sm:h-screen">
         <Image
           src="/images/hero.jpg"
@@ -24,7 +24,6 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-          /* Nudge the crop up as screen gets larger so Kent's head + rack stay visible */
           className="
             object-cover
             object-[center_34%]
@@ -35,38 +34,48 @@ export default function Home() {
           "
         />
 
-        {/* Stronger gradient for bulletproof headline contrast */}
+        {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
 
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
+              {/* Brand Tagline */}
               <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight [text-shadow:_0_1px_6px_rgba(0,0,0,0.55)]">
                 Engineered for Giants.<br />Built for Legacy.
               </h1>
 
+              {/* Clear Subhead */}
               <p className="mt-4 text-base sm:text-lg text-white/90">
-                Turnkey hunting properties and custom land plans engineered for mature bucks — and your family legacy.
+                Whether you want to{" "}
+                <strong>buy a turnkey big buck property</strong>,{" "}
+                <strong>design your own land</strong>, or{" "}
+                <strong>have us build it for you</strong> — we engineer habitats
+                that produce mature whitetails and lifelong family memories.
               </p>
 
+              {/* 3 clear CTAs */}
               <div className="mt-8 flex flex-wrap gap-3">
-                {/* Primary CTA */}
-                <CtaSafe href="/services/consulting">
-                  Transform My Property
-                </CtaSafe>
-
-                {/* Secondary CTA: dark-on-light for guaranteed legibility */}
                 <Link
                   href="/properties"
                   className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
                 >
                   Buy a Property
                 </Link>
+
+                <CtaSafe href="/services/consulting">
+                  Get a Land Plan
+                </CtaSafe>
+
+                <CtaSafe href="/services/implementation" className="bg-emerald-800 hover:bg-emerald-900">
+                  Have WLS Build It
+                </CtaSafe>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* ============== PROVEN PROCESS (Simple, visual) ============== */}
       <section className="mx-auto w-full max-w-6xl px-6 py-16">
