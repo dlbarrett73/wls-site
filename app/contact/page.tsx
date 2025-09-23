@@ -53,7 +53,7 @@ export default function ContactPage() {
               Contact
             </p>
             <h1 className="mt-2 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
-              How can we help you build a big-buck property?
+              How can we help you own a big-buck property?
             </h1>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
               Tell us about your acreage, goals, and timeline. We’ll reply
