@@ -67,6 +67,10 @@ export default function ImplementationCapture() {
               >
                 Schedule My Project
               </a>
+              {/* Pricing clarity line */}
+              <p className="mt-3 text-sm text-white/90">
+                Typical projects <span className="font-semibold">$20K–$30K+</span> depending on scope.
+              </p>
             </div>
           </div>
         </div>
@@ -89,8 +93,7 @@ export default function ImplementationCapture() {
             {
               step: "1",
               title: "Scope & Budget",
-              body:
-                "Align on priorities, phases, budget range, and timeline.",
+              body: "Align on priorities, phases, budget range, and timeline.",
             },
             {
               step: "2",
@@ -160,11 +163,22 @@ export default function ImplementationCapture() {
             </div>
 
             {/* Right form */}
-            <div id="lead-form" className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div
+              id="lead-form"
+              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
               <form method="POST" action="/api/lead" className="space-y-5">
                 {/* Hidden routing metadata */}
-                <input type="hidden" name="leadSource" value="Implementation Capture" />
-                <input type="hidden" name="offer" value="Done-For-You Implementation" />
+                <input
+                  type="hidden"
+                  name="leadSource"
+                  value="Implementation Capture"
+                />
+                <input
+                  type="hidden"
+                  name="offer"
+                  value="Done-For-You Implementation"
+                />
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
