@@ -147,10 +147,6 @@ export default function ConsultingPage() {
                 </div>
               ))}
             </div>
-
-            <div className="mt-6">
-              <CtaSafe href="/capture/consulting">Start with a Free Strategy Call</CtaSafe>
-            </div>
           </div>
         </section>
 
@@ -184,9 +180,7 @@ export default function ConsultingPage() {
                   <span className="text-sm font-semibold text-zinc-600">
                     Plans from $7,500
                   </span>
-                  <CtaSafe href="/capture/consulting" className="justify-center">
-                    Get My Plan
-                  </CtaSafe>
+                  
                 </div>
               </div>
 
@@ -210,9 +204,7 @@ export default function ConsultingPage() {
                   <span className="text-sm font-semibold text-zinc-600">
                     Typical builds $20K–$30K+
                   </span>
-                  <CtaSafe href="/capture/consulting" className="justify-center">
-                    Design & Build It For Me
-                  </CtaSafe>
+                  
                 </div>
               </div>
 
@@ -255,9 +247,7 @@ export default function ConsultingPage() {
             mix—biology, timber, undetectable access, and on-the-ground execution—produces plans
             that actually work for big, mature bucks.
           </p>
-          <div className="mt-5">
-            <CtaSafe href="/capture/consulting">Talk With Us</CtaSafe>
-          </div>
+         
         </section>
 
         {/* =================== LEGACY ANCHOR STRIP =================== */}
@@ -269,9 +259,7 @@ export default function ConsultingPage() {
             Start with a free, no-pressure strategy call. We’ll point you to the best next step—
             DIY, DFY, or straight to implementation.
           </p>
-          <div className="mt-5">
-            <CtaSafe href="/capture/consulting">Book a Free Strategy Call</CtaSafe>
-          </div>
+         
         </section>
       </main>
     </>
