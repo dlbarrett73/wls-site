@@ -6,8 +6,7 @@ import Link from "next/link";
 // Reusable components (client-safe)
 import CtaSafe from "../components/home/CtaSafe";
 import FeaturedProperty from "../components/home/FeaturedProperty";
-import YouTubeTrailer from "../components/home/YouTubeTrailer";
-import PropertyShowcase from "../components/home/PropertyShowcase";
+i
 
 // Hard-hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
@@ -162,9 +161,7 @@ export default function Home() {
 
       {/* ===== Your existing content as components (unchanged) ===== */}
       <FeaturedProperty />
-      <YouTubeTrailer />
-      <PropertyShowcase />
-
+ >
       {/* ===================== FOOTER SPACER ===================== */}
       <div className="h-10" />
     </main>
