@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import CtaSafe from "@/components/home/CtaSafe";
+import CtaButton from "@/components/CtaButton";
 
 // Hard-hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
