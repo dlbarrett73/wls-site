@@ -20,7 +20,7 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-        className="object-cover object-center
+        className="object-cover object-center"
         />
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
