@@ -2,30 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-/** Safe CTA import helper (works whether CtaButton is a default or named export).
- * If the component isn't found, it falls back to a styled <Link>.
- */
-import * as Cta from "../../components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  // @ts-ignore
-  const Btn =
-    (Cta && (Cta.CtaButton || Cta.default)) as
-      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
-      | undefined;
-
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-  return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-md transition
-                  bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 ${className}`}
-    >
-      {children}
-    </Link>
-  );
-}
+import CtaButton from "../../components/CtaButton";
 
 // Hard-hint SSG and allow ISR for copy tweaks
 export const dynamic = "force-static";
@@ -67,7 +44,7 @@ export default function Services() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <CtaSafe href="/contact">Book a Free Strategy Call →</CtaSafe>
+              <CtaButton href="/contact">Book a Free Strategy Call →</CtaButton>
               <Link
                 href="/services/consulting"
                 className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold transition
@@ -195,7 +172,7 @@ export default function Services() {
             We’ll scope the work precisely after your design.
           </p>
           <div className="mt-6">
-            <CtaSafe href="/contact">Book a Free Strategy Call →</CtaSafe>
+            <CtaButton href="/contact">Book a Free Strategy Call →</CtaButton>
           </div>
         </div>
       </section>
@@ -212,9 +189,9 @@ export default function Services() {
                 Ready to turn your land into a big-buck paradise your family will enjoy for generations?
               </p>
             </div>
-            <CtaSafe href="/contact" className="bg-white text-emerald-900 hover:bg-emerald-50">
+            <CtaButton href="/contact" className="bg-white text-emerald-900 hover:bg-emerald-50">
               Book a Free Strategy Call →
-            </CtaSafe>
+            </CtaButton>
           </div>
         </div>
       </section>
