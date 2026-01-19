@@ -1,87 +1,13 @@
-/* app/globals.css */
+/* Temporary minimal global styles to restore build stability */
 
-/* Tailwind base layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* -------------------------
-   Global Brand Styles
--------------------------- */
-
-/* Smooth font rendering */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: white;
+  color: #111;
 }
 
-/* Body defaults */
-body {
-  @apply bg-white text-zinc-800 leading-relaxed;
-  font-feature-settings: "kern";
+* {
+  box-sizing: border-box;
 }
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-extrabold text-zinc-900 tracking-tight;
-}
-
-/* Links */
-a {
-  @apply text-brand-700 hover:text-brand-600 transition-colors no-underline;
-}
-
-/* Buttons */
-.btn {
-  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition-colors;
-}
-.btn-primary {
-  @apply bg-brand-700 text-white hover:bg-brand-600;
-}
-.btn-secondary {
-  @apply bg-zinc-100 text-zinc-900 hover:bg-zinc-200;
-}
-
-/* Containers */
-.container { @apply mx-auto w-full max-w-6xl px-6; }
-.container-page {
-  @apply mx-auto w-full max-w-6xl px-6;
-}
-
-/* Shadows */
-.shadow-soft { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-
-/* ===== WLS utilities (safe, additive) ===== */
-.section-eyebrow { @apply text-xs md:text-sm font-semibold tracking-widest text-brand-700; }
-.section-title   { @apply mt-2 text-3xl md:text-5xl font-extrabold tracking-tight text-brand-900; }
-.subtle-card     { @apply rounded-2xl border border-brand-100 bg-white shadow-soft; }
-.accent-chip     { @apply inline-flex items-center rounded-full border border-brand-200 bg-white px-3 py-1 text-neutral-700 hover:border-brand-300 hover:text-brand-800; }
-.compare-th      { @apply sticky top-0 z-10 bg-white px-4 py-3 text-xs font-semibold text-neutral-500 border-b border-brand-200; }
-.compare-td      { @apply px-4 py-4 border-b border-brand-100 align-top; }
-.btn-xs          { @apply px-3 py-1 text-xs; }
-.link-underline  { @apply underline underline-offset-4 decoration-1; }
-
-.divider-accent  { @apply h-1 w-20 rounded-full bg-brand-600/90; }
-.badge-kicker    { @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 border border-brand-100; }
-
-/* globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  .overlay-text {
-    @apply text-white drop-shadow;
-  }
-  .overlay-subtext {
-    @apply text-white/90 drop-shadow;
-  }
-}
-   /* subtle card + divider to match home page */
-.card {
-  @apply rounded-2xl shadow-soft bg-white;
-}
-.divider {
-  @apply h-px bg-neutral-200/80 my-8;
-}
-
