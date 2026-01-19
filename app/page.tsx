@@ -27,9 +27,9 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tigh
-                Stop Guessing What Your Property Can Do.
-              </h1>
+      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+        Stop Guessing What Your Property Can Do.
+      </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 The Blueprint for Giants® Property Audit reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
               </p>
