@@ -6,7 +6,7 @@ import Link from "next/link";
 /** Safe CTA import helper (works whether CtaButton is a default or named export).
  * If the component isn't found, it falls back to a styled <Link>.
  */
-import * as Cta from "@/components/CtaButton";
+import * as Cta from "../../components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
   // @ts-ignore
