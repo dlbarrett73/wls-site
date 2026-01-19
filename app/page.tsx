@@ -20,21 +20,14 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-          className="
-            object-cover
-            object-[center_34%]
-            sm:object-[center_30%]
-            md:object-[center_26%]
-            lg:object-[center_22%]
-            xl:object-[center_20%]
-          "
+        className="object-cover object-center
         />
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight [text-shadow:_0_1px_6px_rgba(0,0,0,0.55)]">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tigh
                 Stop Guessing What Your Property Can Do.
               </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
@@ -45,7 +38,7 @@ export default function Home() {
                   href="/capture/consulting"
                   className="bg-emerald-800 hover:bg-emerald-900"
                 >
-                  Apply for a Property Audit
+                  Apply for a Property Audi
                 </CtaSafe>
                 <Link
                   href="#process"
