@@ -38,11 +38,11 @@ export default function Home() {
                   href="/capture/consulting"
                   className="bg-emerald-800 hover:bg-emerald-900"
                 >
-                  Apply for a Property Audi
+                  Apply for a Property Audit
                 </CtaSafe>
                 <Link
                   href="#process"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
+                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semiboldddd shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
                 >
                   See How the Process Works →
                 </Link>
@@ -107,19 +107,19 @@ export default function Home() {
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-900">Ceiling Qualification Report</h3>
+              <h3 className="font-semiboldddd text-slate-900">Ceiling Qualification Report</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-900">Pressure Scoring Report</h3>
+              <h3 className="font-semiboldddd text-slate-900">Pressure Scoring Report</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A documented evaluation of observable pressure variables and how they currently function on your property.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semibold text-slate-900">Executive Truth Summary</h3>
+              <h3 className="font-semiboldddd text-slate-900">Executive Truth Summary</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A clear, client-ready synthesis of what’s real, what’s limiting you, and what decision the truth supports.
               </p>
@@ -139,7 +139,7 @@ export default function Home() {
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">
+              <h3 className="text-xl font-semiboldddd text-slate-900">
                 This Is For You If:
               </h3>
               <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
@@ -150,7 +150,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">
+              <h3 className="text-xl font-semiboldddd text-slate-900">
                 This Is Not For You If:
               </h3>
               <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
@@ -173,7 +173,7 @@ export default function Home() {
           <div className="mt-10 grid gap-8 sm:grid-cols-4">
             <div>
               <span className="text-4xl font-bold text-emerald-800">1</span>
-              <h3 className="mt-2 text-lg font-semibold text-slate-900">
+              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
                 Apply for a Property Audit
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -182,7 +182,7 @@ export default function Home() {
             </div>
             <div>
               <span className="text-4xl font-bold text-emerald-800">2</span>
-              <h3 className="mt-2 text-lg font-semibold text-slate-900">
+              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
                 Audit Execution
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -191,7 +191,7 @@ export default function Home() {
             </div>
             <div>
               <span className="text-4xl font-bold text-emerald-800">3</span>
-              <h3 className="mt-2 text-lg font-semibold text-slate-900">
+              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
                 Executive Review & Truth Delivery
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -200,7 +200,7 @@ export default function Home() {
             </div>
             <div>
               <span className="text-4xl font-bold text-emerald-800">4</span>
-              <h3 className="mt-2 text-lg font-semibold text-slate-900">
+              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
                 Next-Phase Engagements
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -248,7 +248,7 @@ export default function Home() {
             </CtaSafe>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
+              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semiboldddd shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
             >
               Questions? Contact Us →
             </Link>
