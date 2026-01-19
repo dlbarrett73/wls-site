@@ -49,7 +49,7 @@ export default function AboutPage() {
               we create consistent, high-odds encounters with mature bucks—without burning your property.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <CtaSafe href="/contact">Book a Free Strategy Call</CtaSafe>
+              <CtaButton href="/contact">Book a Free Strategy Call</CtaButton>
               <Link
                 href="/services"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
@@ -316,7 +316,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex gap-3 md:justify-end">
-            <CtaSafe href="/contact" className="min-w-[200px]">Book a Free Strategy Call</CtaSafe>
+            <CtaButton href="/contact">Book a Free Strategy Call</CtaButton>
             <Link
               href="/services"
               className="inline-flex min-w-[160px] items-center justify-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-800 hover:bg-zinc-100"
