@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 // Reusable components (client-safe)
-import CtaSafe from "@/components/home/CtaSafe";
-import FeaturedProperty from "@/components/home/FeaturedProperty";
-import YouTubeTrailer from "@/components/home/YouTubeTrailer";
-import PropertyShowcase from "@/components/home/PropertyShowcase";
+import CtaSafe from "../components/home/CtaSafe";
+import FeaturedProperty from "../components/home/FeaturedProperty";
+import YouTubeTrailer from "../components/home/YouTubeTrailer";
+import PropertyShowcase from "../components/home/PropertyShowcase";
 
 // Hard-hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
