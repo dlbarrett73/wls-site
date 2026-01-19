@@ -2,36 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-/**
- * Safe CTA import helper:
- * Works whether CtaButton is a default or named export.
- * If the component isn't found, it falls back to a styled <Link>.
- */
 import CtaButton from "../../../components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  // @ts-ignore
-  const Btn =
-    (Cta && (Cta.CtaButton || Cta.default)) as
-      | React.ComponentType<{ href: string; className?: string; children: React.ReactNode }>
-      | undefined;
-
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-
-  return (
-    <Link
-      href={href}
-      className={
-        "inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold shadow-sm " +
-        "bg-emerald-700 text-white hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 " +
-        className
-      }
-    >
-      {children}
-    </Link>
-  );
-}
 
 // Hard-hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
@@ -68,7 +39,7 @@ export default function ImplementationPage() {
             plots, bedding, access, and stand setups that hunt right away.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaSafe href="/capture/implementation/">Book a Free Strategy Call</CtaSafe>
+            <CtaButton href="/capture/implementation/">Book a Free Strategy Call</CtaButton>
             <Link
               href="/services/consulting"
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold border border-white/70 text-white hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
