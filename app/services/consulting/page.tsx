@@ -2,32 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-/**
- * Safe CTA import helper:
- * Works whether CtaButton is a default or named export.
- * If the component isn't found, it falls back to a styled <Link>.
- */
 import CtaButton from "../../../components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  const Button =
-    // @ts-ignore
-    (Cta && (Cta.CtaButton || Cta.default)) ||
-    ((props: CtaProps) => (
-      <Link
-        href={props.href}
-        className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-500 bg-brand-700 text-white ${props.className}`}
-      >
-        {props.children}
-      </Link>
-    ));
-  return (
-    <Button href={href} className={className}>
-      {children}
-    </Button>
-  );
-}
 
 export const metadata = {
   title: "Consulting — Whitetail Land Solutions",
@@ -80,7 +55,7 @@ export default function ConsultingPage() {
             </div>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <CtaSafe href="/capture/consulting">Book a Free Strategy Call</CtaSafe>
+              <CtaButton href="/capture/consulting">Book a Free Strategy Call</CtaButton>
               <Link
                 href="#process"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/30 text-white hover:bg-white/10"
