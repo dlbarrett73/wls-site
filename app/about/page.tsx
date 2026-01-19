@@ -11,7 +11,7 @@ const TILE_IMAGES = {
 };
 
 /** Safe CTA import (works if CtaButton is default or named export) */
-import * as Cta from "@/components/CtaButton";
+import * as Cta from "../../components/CtaButton";
 type CtaProps = { href: string; className?: string; children: React.ReactNode };
 function CtaSafe({ href, className = "", children }: CtaProps) {
   const Btn = (Cta as any).CtaButton || (Cta as any).default;
