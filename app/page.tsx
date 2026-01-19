@@ -24,7 +24,7 @@ export default function Home() {
         />
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
       <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
@@ -33,7 +33,7 @@ export default function Home() {
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 The Blueprint for Giants® Property Audit reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <CtaSafe
                   href="/capture/consulting"
                   className="bg-emerald-800 hover:bg-emerald-900"
