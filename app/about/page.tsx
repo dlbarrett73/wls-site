@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CtaButton from "../../../components/CtaButton";
 
 /** ---- LOCAL TILE IMAGES (prevents ReferenceError) ---- */
 const TILE_IMAGES = {
@@ -10,21 +11,6 @@ const TILE_IMAGES = {
   implementation: "/images/implementation.jpg",
 };
 
-/** Safe CTA import (works if CtaButton is default or named export) */
-import * as Cta from "../../components/CtaButton";
-type CtaProps = { href: string; className?: string; children: React.ReactNode };
-function CtaSafe({ href, className = "", children }: CtaProps) {
-  const Btn = (Cta as any).CtaButton || (Cta as any).default;
-  if (Btn) return <Btn href={href} className={className}>{children}</Btn>;
-  return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold shadow-soft transition hover:opacity-90 bg-brand-700 text-white ${className}`}
-    >
-      {children}
-    </Link>
-  );
-}
 
 export const metadata = {
   title: "About — Whitetail Land Solutions",
