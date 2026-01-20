@@ -14,7 +14,7 @@ type HeroDualCtaProps = {
   imageAlt?: string;
 
   // Upgrades
-  minHeightClassName?: string; // e.g. "min-h-[85vh]"
+  minHeightClassName?: string; // e.g. "min-h-[85vh] md:min-h-screen"
   showScrollCue?: boolean;
   scrollCueHref?: string; // e.g. "#process"
 };
@@ -55,15 +55,13 @@ We reveal the true ceiling of your land before you invest another dollar.`,
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-black/85" />
 
-        {/* Subtle vignette for premium feel (no styled-jsx) */}
+        {/* Subtle vignette for premium feel */}
         <div className="pointer-events-none absolute inset-0 [box-shadow:inset_0_0_140px_rgba(0,0,0,0.65)]" />
       </div>
 
       {/* Content */}
       <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-6 py-16 md:py-20">
-        {/* “Entrance” feel without JS: starts slightly transparent on load? (Server render is already visible)
-            We keep it subtle: transform + transition for hover/focus interactions instead of animation. */}
-        <div className="max-w-3xl">
+        <div className="wls-hero-fadeup max-w-3xl">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 backdrop-blur-sm">
             Data-Driven • Pressure-First • Built for Mature Whitetails
           </p>
