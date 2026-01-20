@@ -241,7 +241,7 @@ export default function PropertyAuditPage() {
           </p>
           <div className="mt-5">
             <ButtonLink href="/capture/property-audit" variant="primary">
-              Book the Property Audit
+              Apply for the Property Audit
             </ButtonLink>
           </div>
         </div>
@@ -381,7 +381,7 @@ export default function PropertyAuditPage() {
           <h3 className="text-xl font-bold tracking-tight">Ready to start?</h3>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90">
             If you’re serious about building a property that produces mature buck encounters with discipline, the Blueprint for Giants® 
-            Property Audit is the first step. Book the audit and we’ll take you from uncertainty to truth.
+            Property Audit is the first step. Apply for the audit and we’ll take you from uncertainty to truth.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/capture/property-audit" variant="primary">
@@ -422,7 +422,7 @@ export default function PropertyAuditPage() {
           </Card>
 
           <Card title="How quickly can I get started?">
-            Book the Property Audit and we’ll respond with next steps and the intake process. We move fast—without cutting corners.
+            Apply for the Property Audit and we’ll respond with next steps and the intake process. We move fast—without cutting corners.
           </Card>
         </div>
 
@@ -436,7 +436,7 @@ export default function PropertyAuditPage() {
             </p>
           </div>
           <ButtonLink href="/capture/property-audit" variant="primary">
-            Book the Property Audit
+            Apply for the Property Audit
           </ButtonLink>
         </div>
       </Section>
