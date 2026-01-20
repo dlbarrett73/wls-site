@@ -20,3 +20,29 @@ body {
 *::after {
   box-sizing: border-box;
 }
+
+/* ------------------------------
+   WLS Hero: subtle entrance motion
+   (Server-safe, no styled-jsx)
+--------------------------------- */
+@keyframes wlsFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wls-hero-fadeup {
+  animation: wlsFadeUp 700ms ease-out both;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .wls-hero-fadeup {
+    animation: none !important;
+  }
+}
