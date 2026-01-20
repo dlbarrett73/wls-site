@@ -93,6 +93,10 @@ We reveal the true ceiling of your land before you invest another dollar.`,
 
           {/* Trust / Disqualifier */}
           <div className="mt-6 text-sm text-white/75">
+            <span className="font-semibold text-white/90">Application required.</span>{" "}
+           Not all properties qualify.
+          </div>
+          <div className="mt-6 text-sm text-white/75">
             <span className="font-semibold text-white/90">Not for everyone</span>{" "}
             — only for serious landowners.
           </div>
