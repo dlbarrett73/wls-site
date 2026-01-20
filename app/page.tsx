@@ -22,7 +22,7 @@ export default function Home() {
           subtitle={`Most landowners waste years — and tens of thousands of dollars — chasing tactics.
 We reveal the true ceiling of your land before you invest another dollar.`}
           // Primary CTA = Audit (flagship)
-          primaryHref="/capture/consulting"
+          primaryHref="/property-audit"
           primaryLabel="Get the Truth About Your Property"
           // Secondary CTA = Properties
           secondaryHref="/properties"
@@ -76,7 +76,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <CtaSafe
-              href="/capture/consulting"
+              href="/property-audit"
               className="bg-emerald-800 hover:bg-emerald-900"
             >
               Apply to Begin the Audit
@@ -184,7 +184,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
             <div>
               <span className="text-4xl font-bold text-emerald-800">1</span>
               <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                Apply for a Property Audit
+                Learn more about the Property Audit
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We begin with a short application to ensure fit, readiness, and
@@ -263,7 +263,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
 
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <CtaSafe
-              href="/capture/consulting"
+              href="/property-audit"
               className="bg-emerald-800 hover:bg-emerald-900"
             >
               Get the Truth (Apply)
