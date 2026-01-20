@@ -151,10 +151,10 @@ We reveal the true ceiling of your land before you invest another dollar.`}
                 This Is For You If:
               </h3>
               <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
-                <li>You are serious about consistent mature buck outcomes</li>
-                <li>You want truth and clarity — not opinions or generic advice</li>
-                <li>You are willing to manage access and pressure intentionally</li>
-                <li>You refuse to invest more money or seasons without certainty</li>
+                <li>You are serious about consistent mature buck outcomes.</li>
+                <li>You want truth and clarity — not opinions or generic advice.</li>
+                <li>You are willing to manage access and pressure intentionally.</li>
+                <li>You refuse to invest more money or seasons without certainty.</li>
               </ul>
             </div>
 
@@ -163,10 +163,10 @@ We reveal the true ceiling of your land before you invest another dollar.`}
                 This Is Not For You If:
               </h3>
               <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
-                <li>You want a quick map, stand locations, or tactics</li>
-                <li>You are looking for guarantees or shortcuts</li>
-                <li>You are unwilling to govern pressure</li>
-                <li>You prefer ideas over discipline</li>
+                <li>You want a quick map, stand locations, or tactics.</li>
+                <li>You are looking for guarantees or shortcuts.</li>
+                <li>You are unwilling to govern pressure.</li>
+                <li>You prefer ideas over discipline.</li>
               </ul>
             </div>
           </div>
