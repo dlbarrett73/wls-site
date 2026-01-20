@@ -46,7 +46,7 @@ We reveal the true ceiling of your land before you invest another dollar.`,
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-60"
+            className="object-cover object-[50%_15%] opacity-60"
           />
         ) : (
           <div className="h-full w-full bg-[radial-gradient(1200px_circle_at_20%_20%,rgba(34,197,94,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_10%,rgba(59,130,246,0.14),transparent_50%),linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.9))]" />
