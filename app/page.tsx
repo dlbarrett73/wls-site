@@ -2,10 +2,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Reusable components (client-safe)
+// Reusable components (client‑safe)
 import CtaSafe from "../components/home/CtaSafe";
 
-// Hard-hint SSG + allow ISR for copy tweaks
+// Hard‑hint SSG + allow ISR for copy tweaks
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
@@ -20,33 +20,32 @@ export default function Home() {
           priority
           fill
           sizes="100vw"
-        className="object-cover object-center"
+          className="object-cover object-center"
         />
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
-        <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto w-full max-w-6xl px-6">
-            <div className="max-w-3xl">
-      <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-        Stop Guessing What Your Property Can Do.
-      </h1>
-              <p className="mt-4 text-base sm:text-lg text-white/90">
-                The Blueprint for Giants® Property Audit reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <CtaSafe
-                  href="/capture/consulting"
-                  className="bg-emerald-800 hover:bg-emerald-900"
-                >
-                  Apply for a Property Audi
-                </CtaSafe>
-                <Link
-                  href="#process"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
-                >
-                  See How the Process Works →
-                </Link>
-              </div>
+        {/* Content overlay */}
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+          <div className="mx-auto max-w-3xl">
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              Stop Guessing What Your Property Can Do.
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-white/90">
+              The Blueprint for Giants® Property Audit reveals your property’s true big‑buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <CtaSafe
+                href="/capture/consulting"
+                className="bg-emerald-800 hover:bg-emerald-900"
+              >
+                Apply for a Property Audit
+              </CtaSafe>
+              <Link
+                href="#process"
+                className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
+              >
+                See How the Process Works →
+              </Link>
             </div>
           </div>
         </div>
@@ -78,7 +77,7 @@ export default function Home() {
             The Property Audit is the foundation of everything we do.
           </p>
           <p className="mt-4 text-slate-600">
-            It is a disciplined, evidence-based evaluation of your property as it exists today — designed to answer the most important questions every serious landowner must resolve before investing further:
+            It is a disciplined, evidence‑based evaluation of your property as it exists today — designed to answer the most important questions every serious landowner must resolve before investing further:
           </p>
           <ul className="mt-6 text-left space-y-2 text-slate-600 max-w-2xl mx-auto list-disc pl-6">
             <li>What is this property truly capable of producing?</li>
@@ -86,7 +85,7 @@ export default function Home() {
             <li>Is further investment justified — or wasted?</li>
           </ul>
           <p className="mt-6 text-slate-600">
-            This is not a design, a build plan, or a list of projects. It is a decision-making instrument that replaces guesswork with clarity.
+            This is not a design, a build plan, or a list of projects. It is a decision‑making instrument that replaces guesswork with clarity.
           </p>
           <div className="mt-8">
             <CtaSafe
@@ -109,7 +108,7 @@ export default function Home() {
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
               <h3 className="font-semibold text-slate-900">Ceiling Qualification Report</h3>
               <p className="mt-2 text-sm text-slate-600">
-                A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.
+                A disciplined determination of your property’s true big‑buck ceiling — based on physical constraints, layout, and landscape realities.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
@@ -121,7 +120,7 @@ export default function Home() {
             <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
               <h3 className="font-semibold text-slate-900">Executive Truth Summary</h3>
               <p className="mt-2 text-sm text-slate-600">
-                A clear, client-ready synthesis of what’s real, what’s limiting you, and what decision the truth supports.
+                A clear, client‑ready synthesis of what’s real, what’s limiting you, and what decision the truth supports.
               </p>
             </div>
           </div>
@@ -186,7 +185,7 @@ export default function Home() {
                 Audit Execution
               </h3>
               <p className="mt-2 text-sm text-slate-600">
-                We evaluate your property using a standardized, evidence-based framework focused on ceiling and pressure mechanics.
+                We evaluate your property using a standardized, evidence‑based framework focused on ceiling and pressure mechanics.
               </p>
             </div>
             <div>
@@ -201,7 +200,7 @@ export default function Home() {
             <div>
               <span className="text-4xl font-bold text-emerald-800">4</span>
               <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                Next-Phase Engagements
+                Next‑Phase Engagements
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 Only if the truth supports it, we may discuss system architecture or implementation. No pressure. No obligation.
@@ -239,7 +238,7 @@ export default function Home() {
           <p className="mt-4 text-slate-600">
             If you want clarity before you invest — and discipline before you improve — the Blueprint for Giants® Property Audit is the first step.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <CtaSafe
               href="/capture/consulting"
               className="bg-emerald-800 hover:bg-emerald-900"
@@ -256,6 +255,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Spacer */}
       <div className="h-10" />
     </main>
   );
