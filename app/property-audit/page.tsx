@@ -112,7 +112,7 @@ export default function PropertyAuditPage() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <ButtonLink href="/capture/property-audit" variant="primary">
-              Start with a Property Audit
+              Apply for your Property Audit
             </ButtonLink>
             <ButtonLink href="#what-you-get" variant="secondary">
               See deliverables
@@ -241,7 +241,7 @@ export default function PropertyAuditPage() {
           </p>
           <div className="mt-5">
             <ButtonLink href="/capture/property-audit" variant="primary">
-              Apply for the Property Audit
+              Apply for your Property Audit
             </ButtonLink>
           </div>
         </div>
@@ -385,7 +385,7 @@ export default function PropertyAuditPage() {
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/capture/property-audit" variant="primary">
-              Start with a Property Audit
+              Apply for your Property Audit
             </ButtonLink>
             <Link
               href="#faq"
@@ -422,7 +422,7 @@ export default function PropertyAuditPage() {
           </Card>
 
           <Card title="How quickly can I get started?">
-            Apply for the Property Audit and we’ll respond with next steps and the intake process. We move fast—without cutting corners.
+            Apply for your Property Audit and we’ll respond with next steps and the intake process. We move fast—without cutting corners.
           </Card>
         </div>
 
@@ -436,7 +436,7 @@ export default function PropertyAuditPage() {
             </p>
           </div>
           <ButtonLink href="/capture/property-audit" variant="primary">
-            Apply for the Property Audit
+            Apply for your Property Audit
           </ButtonLink>
         </div>
       </Section>
