@@ -66,38 +66,83 @@ export default function AboutPage() {
 
       {/* ================= TRUST STATS (quick credibility) ================= */}
     
-{/* ================= PURPOSE / BELIEF + VALUES ================= */}
-<section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] bg-zinc-50">
-  <div className="mx-auto max-w-6xl px-6 py-12">
-    <div className="grid gap-8 md:grid-cols-2">
-      {/* LEFT: BELIEF */}
-      <div className="max-w-2xl">
-        <h2 className="text-2xl font-bold tracking-tight">
-          Built for Landowners Who Want Reality
-        </h2>
-        <p className="mt-3 text-zinc-700">
-          Whitetail success is not governed by effort, equipment, or budget. It is governed by{" "}
-          <span className="font-semibold">behavior, pressure, and landscape reality</span>.
-        </p>
-        <p className="mt-4 text-zinc-700">
-          Every property has a hard ceiling. That ceiling is defined by access constraints, surrounding
-          pressure, terrain, fragmentation, recovery limitations, and how deer already use the landscape.
-        </p>
-        <p className="mt-4 text-zinc-700">
-          You cannot raise that ceiling with enthusiasm or projects. You can only identify it, respect it,
-          and design within it. Anything else is fiction.
-        </p>
+      {/* ================= PURPOSE / BELIEF + VALUES ================= */}
+      <section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] bg-zinc-50">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* LEFT: BELIEF */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Built for Landowners Who Want Reality
+              </h2>
 
-        <div className="mt-6 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
-          <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
-          <ul className="mt-3 space-y-2 text-zinc-700">
-            <li>• Sell improvements before establishing truth.</li>
-            <li>• Skip steps to “get to the fun part.”</li>
-            <li>• Promise outcomes the land cannot support.</li>
-            <li>• Drift scope or improvise terminology.</li>
-          </ul>
+              <p className="mt-3 text-zinc-700">
+                Whitetail success is not governed by effort, equipment, or
+                budget. It is governed by{" "}
+                <span className="font-semibold">
+                  behavior, pressure, and landscape reality
+                </span>
+                .
+              </p>
+
+              <p className="mt-4 text-zinc-700">
+                Every property has a hard ceiling. That ceiling is defined by
+                access constraints, surrounding pressure, terrain,
+                fragmentation, recovery limitations, and how deer already use
+                the landscape.
+              </p>
+
+              <p className="mt-4 text-zinc-700">
+                You cannot raise that ceiling with enthusiasm or projects. You
+                can only identify it, respect it, and design within it.
+                Anything else is fiction.
+              </p>
+
+              <div className="mt-6 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
+                <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
+                <ul className="mt-3 space-y-2 text-zinc-700">
+                  <li>• Sell improvements before establishing truth.</li>
+                  <li>• Skip steps to “get to the fun part.”</li>
+                  <li>• Promise outcomes the land cannot support.</li>
+                  <li>• Drift scope or improvise terminology.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* RIGHT: VALUES (SAFE COLORS — ALWAYS VISIBLE) */}
+            <div className="rounded-2xl bg-zinc-900 p-6 text-white md:p-8">
+              <h3 className="text-lg font-semibold">Core Values</h3>
+
+              <ul className="mt-3 space-y-2 text-white/90">
+                <li>
+                  • Integrity: We tell the truth, even when it costs us the
+                  work.
+                </li>
+                <li>
+                  • Stewardship: The land is not a project; it is a
+                  responsibility.
+                </li>
+                <li>
+                  • Conservation: Long-term health outweighs short-term success.
+                </li>
+                <li>• Discipline: Pressure governance determines outcomes.</li>
+                <li>• Service: We treat clients as we would our own families.</li>
+              </ul>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-sm text-white/80">Where we work</p>
+                  <p className="text-base font-semibold">Pennsylvania</p>
+                </div>
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-sm text-white/80">How we help</p>
+                  <p className="text-base font-semibold">Consult • Build • Sell</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* RIGHT: VALUES */}
       <div className="rounded-2xl bg-brand-700 p-6 text-white md:p-8">
