@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "The Blueprint for Giants® Property Audit | Whitetail Land Solutions",
   description:
-    "Start with a truth-first diagnostic. The The Blueprint for Giants® Property Audit reveals what your land can realistically produce, what’s holding it back, and exactly what to do next—without tactics or guesswork.",
+    "Start with a truth-first diagnostic. The Blueprint for Giants® Property Audit reveals what your land can realistically produce, what’s holding it back, and exactly what to do next—without tactics or guesswork.",
 };
 
 function ButtonLink({
@@ -99,11 +99,11 @@ export default function PropertyAuditPage() {
           </p>
 
           <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            The The Blueprint for Giants® Property Audit
+            The Blueprint for Giants® Property Audit
           </h1>
 
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-200 sm:text-lg">
-            The The Blueprint for Giants® Property Audit is Whitetail Land Solutions’{" "}
+            The Blueprint for Giants® Property Audit is Whitetail Land Solutions’{" "}
             <span className="font-semibold text-white">truth-first diagnostic</span>.
             It reveals what your land can realistically produce, what’s preventing it,
             and what the next right move is—{" "}
@@ -150,7 +150,7 @@ export default function PropertyAuditPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <Card title="Definition">
-            The The Blueprint for Giants® Property Audit is a structured evaluation of{" "}
+            The Blueprint for Giants® Property Audit is a structured evaluation of{" "}
             <span className="font-semibold">ceiling</span>,{" "}
             <span className="font-semibold">pressure</span>, and{" "}
             <span className="font-semibold">execution reality</span>—to determine what
