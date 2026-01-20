@@ -46,13 +46,15 @@ export default function AboutPage() {
               <br className="hidden sm:block" /> Everything Else Follows.
             </h1>
             <p className="mt-4 max-w-3xl text-lg text-white/90">
-              Whitetail Land Solutions exists to correct a fundamental failure in
-              the whitetail land space: most landowners are sold tactics before
-              they are given truth. We lead with clarity—so every decision is
-              defensible, disciplined, and aligned with reality.
+              Whitetail Land Solutions exists to correct a fundamental failure
+              in the whitetail land space: most landowners are sold tactics
+              before they are given truth. We lead with clarity—so every
+              decision is defensible, disciplined, and aligned with reality.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <CtaButton href="/property-audit">Start With a Property Audit</CtaButton>
+              <CtaButton href="/property-audit">
+                Start With a Property Audit
+              </CtaButton>
               <Link
                 href="/why-it-matters"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
@@ -64,8 +66,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TRUST STATS (quick credibility) ================= */}
-    
       {/* ================= PURPOSE / BELIEF + VALUES ================= */}
       <section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] bg-zinc-50">
         <div className="mx-auto max-w-6xl px-6 py-12">
@@ -115,12 +115,10 @@ export default function AboutPage() {
 
               <ul className="mt-3 space-y-2 text-white/90">
                 <li>
-                  • Integrity: We tell the truth, even when it costs us the
-                  work.
+                  • Integrity: We tell the truth, even when it costs us the work.
                 </li>
                 <li>
-                  • Stewardship: The land is not a project; it is a
-                  responsibility.
+                  • Stewardship: The land is not a project; it is a responsibility.
                 </li>
                 <li>
                   • Conservation: Long-term health outweighs short-term success.
@@ -144,39 +142,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* RIGHT: VALUES */}
-      <div className="rounded-2xl bg-brand-700 p-6 text-white md:p-8">
-        <h3 className="text-lg font-semibold">Core Values</h3>
-        <ul className="mt-3 space-y-2 text-white/90">
-          <li>• Integrity: We tell the truth, even when it costs us the work.</li>
-          <li>• Stewardship: The land is not a project; it is a responsibility.</li>
-          <li>• Conservation: Long-term health outweighs short-term success.</li>
-          <li>• Discipline: Pressure governance determines outcomes.</li>
-          <li>• Service: We treat clients as we would our own families.</li>
-        </ul>
-
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <div className="rounded-xl bg-white/10 p-4">
-            <p className="text-sm text-white/80">Where we work</p>
-            <p className="text-base font-semibold">Pennsylvania</p>
-          </div>
-          <div className="rounded-xl bg-white/10 p-4">
-            <p className="text-sm text-white/80">How we help</p>
-            <p className="text-base font-semibold">Consult • Build • Sell</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
       {/* ================= WHY AUDIT LEADS (dominant positioning) ================= */}
       <section className="mb-16 rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200 md:p-10">
-        <h2 className="text-2xl font-bold tracking-tight">Why We Lead With the Property Audit</h2>
+        <h2 className="text-2xl font-bold tracking-tight">
+          Why We Lead With the Property Audit
+        </h2>
         <p className="mt-3 max-w-3xl text-zinc-700">
           Most land services begin by recommending improvements. We begin by
           establishing truth. Our process is anchored by the{" "}
-          <span className="font-semibold">Blueprint for Giants® Property Audit</span>
+          <span className="font-semibold">
+            Blueprint for Giants® Property Audit
+          </span>
           —a disciplined, data-driven evaluation that defines what is possible
           before money, labor, or emotion are introduced.
         </p>
@@ -191,6 +167,7 @@ export default function AboutPage() {
               <li>• Whether further action is justified</li>
             </ul>
           </div>
+
           <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
             <h3 className="text-lg font-semibold">What the Audit Is Not</h3>
             <ul className="mt-3 space-y-2 text-zinc-700">
@@ -207,7 +184,9 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <CtaButton href="/property-audit">Start With a Property Audit</CtaButton>
+          <CtaButton href="/property-audit">
+            Start With a Property Audit
+          </CtaButton>
           <Link
             href="/why-it-matters"
             className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-800 hover:bg-zinc-100"
@@ -219,10 +198,12 @@ export default function AboutPage() {
 
       {/* ================= PROCESS (sequence) ================= */}
       <section className="mb-16 rounded-3xl bg-zinc-900 p-6 text-white md:p-10">
-        <h2 className="text-2xl font-bold tracking-tight">Our Process Is Sequential</h2>
+        <h2 className="text-2xl font-bold tracking-tight">
+          Our Process Is Sequential
+        </h2>
         <p className="mt-3 max-w-3xl text-white/90">
-          Whitetail Land Solutions operates on a strict sequence. We do not skip steps. That discipline protects
-          the client, the land, and the outcome.
+          Whitetail Land Solutions operates on a strict sequence. We do not skip
+          steps. That discipline protects the client, the land, and the outcome.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-4">
@@ -267,7 +248,9 @@ export default function AboutPage() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">David Barrett — Strategy &amp; Growth</h3>
+              <h3 className="text-lg font-semibold">
+                David Barrett — Strategy &amp; Growth
+              </h3>
               <p className="mt-2 text-zinc-700">
                 Business and marketing operator focused on clarity, systems, and
                 client results. David leads marketing, finance, and partnerships
@@ -288,12 +271,14 @@ export default function AboutPage() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">Kent Shick — Habitat &amp; Forestry</h3>
+              <h3 className="text-lg font-semibold">
+                Kent Shick — Habitat &amp; Forestry
+              </h3>
               <p className="mt-2 text-zinc-700">
                 Professional consulting forester and habitat designer with
                 hands-on experience building high-odds properties across PA.
-                Educated in wildlife &amp; habitat at Penn State and mentored by the
-                woods. Kent leads field design and implementation.
+                Educated in wildlife &amp; habitat at Penn State and mentored by
+                the woods. Kent leads field design and implementation.
               </p>
             </div>
           </article>
@@ -317,7 +302,9 @@ export default function AboutPage() {
         </div>
 
         <div className="rounded-2xl border border-zinc-200 p-6">
-          <h2 className="text-2xl font-bold tracking-tight">How We Measure Success</h2>
+          <h2 className="text-2xl font-bold tracking-tight">
+            How We Measure Success
+          </h2>
           <p className="mt-3 text-zinc-700">
             Success is not acres altered or projects completed. Success is when
             expectations align with reality, decisions are made with confidence,
@@ -329,7 +316,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-      
+
       {/* ================= FINAL CTA ================= */}
       <section className="mt-16 rounded-3xl bg-gradient-to-br from-zinc-50 to-white p-8 ring-1 ring-zinc-200">
         <div className="grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
@@ -338,12 +325,15 @@ export default function AboutPage() {
               If your land matters, don’t start with a project.
             </h2>
             <p className="mt-3 text-zinc-700">
-              Start with clarity. Begin with a Blueprint for Giants® Property Audit
-              and build from a foundation of truth—no guesswork, no shortcuts.
+              Start with clarity. Begin with a Blueprint for Giants® Property
+              Audit and build from a foundation of truth—no guesswork, no
+              shortcuts.
             </p>
           </div>
           <div className="flex gap-3 md:justify-end">
-            <CtaButton href="/property-audit">Start With a Property Audit</CtaButton>
+            <CtaButton href="/property-audit">
+              Start With a Property Audit
+            </CtaButton>
             <Link
               href="/contact"
               className="inline-flex min-w-[160px] items-center justify-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-800 hover:bg-zinc-100"
@@ -358,26 +348,6 @@ export default function AboutPage() {
 }
 
 /** =============== Local UI Bits =============== */
-function Stat({
-  label,
-  value,
-  note,
-}: {
-  label: string;
-  value: string;
-  note?: string;
-}) {
-  return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-5">
-      <p className="text-sm tracking-wide text-zinc-600">{label}</p>
-      <p className="mt-1 text-3xl font-extrabold tracking-tight text-zinc-900">
-        {value}
-      </p>
-      {note ? <p className="mt-1 text-sm text-zinc-600">{note}</p> : null}
-    </div>
-  );
-}
-
 function Step({
   n,
   title,
