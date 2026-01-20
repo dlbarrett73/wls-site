@@ -102,14 +102,7 @@ We reveal the true ceiling of your land before you invest another dollar.`,
           </div>
 
           {/* Micro-conversion */}
-          <div className="mt-4">
-            <Link
-              href="/why-it-matters"
-              className="text-sm font-semibold text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white/60"
-            >
-              Not sure which path is right? See how it works →
-            </Link>
-          </div>
+          
         </div>
       </div>
 
