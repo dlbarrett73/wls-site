@@ -72,7 +72,7 @@ export default function WhyAuditPage() {
       {/* ================= COMPARISON GRID ================= */}
       <section className="mb-16">
         <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-          Common Approach vs. WLS Audit
+          Common Approach vs. Property Audit
         </h3>
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {/* Common Approach card */}
@@ -133,19 +133,8 @@ export default function WhyAuditPage() {
           you spend a dime on habitat projects or equipment.
         </p>
         <div className="mt-6">
-          <CtaButton href="/contact">Book Your Audit →</CtaButton>
+          <CtaButton href="/contact">Apply for a Property Audit →</CtaButton>
         </div>
-        <p className="mt-4 text-sm text-slate-600">
-          Want to learn how a WLS Audit compares to other options? Explore our
-          <Link href="/services/consulting" className="text-emerald-700 hover:underline">
-            Consulting
-          </Link>{" "}
-          and
-          <Link href="/services/implementation" className="ml-1 text-emerald-700 hover:underline">
-            Implementation
-          </Link>{" "}
-          services for a deeper dive.
-        </p>
       </section>
     </main>
   );
