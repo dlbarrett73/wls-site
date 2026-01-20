@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Property Audit | Whitetail Land Solutions",
+  title: "The Blueprint for Giants® Property Audit | Whitetail Land Solutions",
   description:
-    "Start with a truth-first diagnostic. The Property Audit reveals what your land can realistically produce, what’s holding it back, and exactly what to do next—without tactics or guesswork.",
+    "Start with a truth-first diagnostic. The The Blueprint for Giants® Property Audit reveals what your land can realistically produce, what’s holding it back, and exactly what to do next—without tactics or guesswork.",
 };
 
 function ButtonLink({
@@ -99,11 +99,11 @@ export default function PropertyAuditPage() {
           </p>
 
           <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            The Property Audit
+            The The Blueprint for Giants® Property Audit
           </h1>
 
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-200 sm:text-lg">
-            The Property Audit is Whitetail Land Solutions’{" "}
+            The The Blueprint for Giants® Property Audit is Whitetail Land Solutions’{" "}
             <span className="font-semibold text-white">truth-first diagnostic</span>.
             It reveals what your land can realistically produce, what’s preventing it,
             and what the next right move is—{" "}
@@ -150,7 +150,7 @@ export default function PropertyAuditPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <Card title="Definition">
-            The Property Audit is a structured evaluation of{" "}
+            The The Blueprint for Giants® Property Audit is a structured evaluation of{" "}
             <span className="font-semibold">ceiling</span>,{" "}
             <span className="font-semibold">pressure</span>, and{" "}
             <span className="font-semibold">execution reality</span>—to determine what
@@ -380,7 +380,7 @@ export default function PropertyAuditPage() {
         <div className="mt-10 rounded-2xl bg-emerald-600 p-8 text-white">
           <h3 className="text-xl font-bold tracking-tight">Ready to start?</h3>
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90">
-            If you’re serious about building a property that produces mature buck encounters with discipline, the
+            If you’re serious about building a property that produces mature buck encounters with discipline, the Blueprint for Giants® 
             Property Audit is the first step. Book the audit and we’ll take you from uncertainty to truth.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -407,7 +407,7 @@ export default function PropertyAuditPage() {
       >
         <div id="faq" className="grid gap-6 lg:grid-cols-2">
           <Card title="Will I get stand locations or a hunting plan?">
-            No. The Property Audit is a diagnostic. It establishes truth, constraints, and the real drivers behind your results.
+            No. The Blueprint for Giants® Property Audit is a diagnostic. It establishes truth, constraints, and the real drivers behind your results.
             Tactical prescriptions come later—after truth is acknowledged.
           </Card>
 
@@ -432,7 +432,7 @@ export default function PropertyAuditPage() {
               Make the decisive first move.
             </p>
             <p className="mt-1 text-sm text-zinc-700">
-              Interest → action starts with the Property Audit.
+              Interest → action starts with The Blueprint for Giants® Property Audit.
             </p>
           </div>
           <ButtonLink href="/capture/property-audit" variant="primary">
