@@ -68,7 +68,7 @@ export default function AboutPage() {
     
 {/* ================= PURPOSE / BELIEF + VALUES ================= */}
 <section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] bg-zinc-50">
-  <div className="w-full px-6 py-12">
+  <div className="mx-auto max-w-6xl px-6 py-12">
     <div className="grid gap-8 md:grid-cols-2">
       {/* LEFT: BELIEF */}
       <div className="max-w-2xl">
