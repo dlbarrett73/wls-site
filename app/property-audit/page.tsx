@@ -111,7 +111,7 @@ export default function PropertyAuditPage() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/contact" variant="primary">
+            <ButtonLink href="/capture/property-audit" variant="primary">
               Start with a Property Audit
             </ButtonLink>
             <ButtonLink href="#what-you-get" variant="secondary">
@@ -240,7 +240,7 @@ export default function PropertyAuditPage() {
             real chance of paying off.
           </p>
           <div className="mt-5">
-            <ButtonLink href="/contact" variant="primary">
+            <ButtonLink href="/capture/property-audit" variant="primary">
               Book the Property Audit
             </ButtonLink>
           </div>
@@ -384,7 +384,7 @@ export default function PropertyAuditPage() {
             Property Audit is the first step. Book the audit and we’ll take you from uncertainty to truth.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/contact" variant="primary">
+            <ButtonLink href="/capture/property-audit" variant="primary">
               Start with a Property Audit
             </ButtonLink>
             <Link
@@ -435,7 +435,7 @@ export default function PropertyAuditPage() {
               Interest → action starts with the Property Audit.
             </p>
           </div>
-          <ButtonLink href="/contact" variant="primary">
+          <ButtonLink href="/capture/property-audit" variant="primary">
             Book the Property Audit
           </ButtonLink>
         </div>
