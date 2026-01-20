@@ -10,17 +10,21 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold text-slate-700 sm:flex">
-          <Link href="/services" className="hover:text-slate-900">Services</Link>
-          <Link href="/properties" className="hover:text-slate-900">Properties</Link>
-          <Link href="/about" className="hover:text-slate-900">About</Link>
-          <Link href="/contact" className="hover:text-slate-900">Contact</Link>
+          <Link href="/property-audit">Property Audit</Link>
+<Link href="/why-it-matters">Why It Matters</Link>
+<Link href="/properties">Properties</Link>
+<Link href="/consulting">Consulting</Link>
+<Link href="/services/implementation">Implementation</Link>
+<Link href="/about">About</Link>
+<Link href="/contact">Contact</Link>
         </nav>
 
+        {/* Update CTA to direct visitors to the dedicated audit application */}
         <Link
-          href="/contact"
+          href="/capture/property-audit"
           className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-emerald-800"
         >
-          Book a Call
+          Apply for a Property Audit
         </Link>
       </div>
     </header>

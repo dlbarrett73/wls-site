@@ -11,11 +11,10 @@ const TILE_IMAGES = {
   implementation: "/images/implementation.jpg",
 };
 
-
 export const metadata = {
   title: "About — Whitetail Land Solutions",
   description:
-    "Engineered for Giants. Built for Legacy. Learn who we are, why we exist, and how we design hunt-ready properties and custom habitat plans in Pennsylvania.",
+    "We start with truth. Everything else follows. Learn who we are, what we do, and why the Blueprint for Giants® Property Audit leads every decision.",
 };
 
 export default function AboutPage() {
@@ -34,125 +33,204 @@ export default function AboutPage() {
           />
           {/* Contrast overlays for text legibility on any screen */}
           <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" />
         </div>
 
         <div className="pointer-events-none absolute inset-0 flex items-end">
           <div className="pointer-events-auto mx-auto w-full max-w-6xl px-6 pb-10">
-            <p className="text-sm font-semibold tracking-widest text-white/80">ABOUT US</p>
+            <p className="text-sm font-semibold tracking-widest text-white/80">
+              ABOUT US
+            </p>
             <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-              Engineered for Giants.<br className="hidden sm:block" /> Built for Legacy.
+              We Start With Truth.
+              <br className="hidden sm:block" /> Everything Else Follows.
             </h1>
             <p className="mt-4 max-w-3xl text-lg text-white/90">
-              We design and build hunt-ready properties for serious whitetail hunters in Pennsylvania.
-              By blending whitetail biology, forestry, and <span className="font-semibold">undetectable access</span>,
-              we create consistent, high-odds encounters with mature bucks—without burning your property.
+              Whitetail Land Solutions exists to correct a fundamental failure
+              in the whitetail land space: most landowners are sold tactics
+              before they are given truth. We lead with clarity—so every
+              decision is defensible, disciplined, and aligned with reality.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <CtaButton href="/contact">Book a Free Strategy Call</CtaButton>
+              <CtaButton href="/property-audit">
+                Start With a Property Audit
+              </CtaButton>
               <Link
-                href="/services"
+                href="/why-it-matters"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
               >
-                Explore Services
+                Why Audit First?
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= TRUST STATS (quick credibility) ================= */}
-      <section className="mx-auto mb-16">
-        <div className="grid gap-4 rounded-2xl border border-zinc-200 bg-white p-6 md:grid-cols-3">
-          <Stat label="Engineered Acres" value="130+" note="Designed & improved across PA" />
-          <Stat label="Years in the Woods" value="20+" note="Forestry + habitat + whitetail strategy" />
-          <Stat label="Core Focus" value="Mature Bucks" note="High-odds access, edge, and daylight use" />
+      {/* ================= PURPOSE / BELIEF + VALUES ================= */}
+      <section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] bg-zinc-50">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* LEFT: BELIEF */}
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Built for Landowners Who Want Reality
+              </h2>
+
+              <p className="mt-3 text-zinc-700">
+                Whitetail success is not governed by effort, equipment, or
+                budget. It is governed by{" "}
+                <span className="font-semibold">
+                  behavior, pressure, and landscape reality
+                </span>
+                .
+              </p>
+
+              <p className="mt-4 text-zinc-700">
+                Every property has a hard ceiling. That ceiling is defined by
+                access constraints, surrounding pressure, terrain,
+                fragmentation, recovery limitations, and how deer already use
+                the landscape.
+              </p>
+
+              <p className="mt-4 text-zinc-700">
+                You cannot raise that ceiling with enthusiasm or projects. You
+                can only identify it, respect it, and design within it.
+                Anything else is fiction.
+              </p>
+
+              <div className="mt-6 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
+                <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
+                <ul className="mt-3 space-y-2 text-zinc-700">
+                  <li>• Sell improvements before establishing truth.</li>
+                  <li>• Skip steps to “get to the fun part.”</li>
+                  <li>• Promise outcomes the land cannot support.</li>
+                  <li>• Drift scope or improvise terminology.</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* RIGHT: VALUES (SAFE COLORS — ALWAYS VISIBLE) */}
+            <div className="rounded-2xl bg-zinc-900 p-6 text-white md:p-8">
+              <h3 className="text-lg font-semibold">Core Values</h3>
+
+              <ul className="mt-3 space-y-2 text-white/90">
+                <li>
+                  • Integrity: We tell the truth, even when it costs us the work.
+                </li>
+                <li>
+                  • Stewardship: The land is not a project; it is a responsibility.
+                </li>
+                <li>
+                  • Conservation: Long-term health outweighs short-term success.
+                </li>
+                <li>• Discipline: Pressure governance determines outcomes.</li>
+                <li>• Service: We treat clients as we would our own families.</li>
+              </ul>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-sm text-white/80">Where we work</p>
+                  <p className="text-base font-semibold">Pennsylvania</p>
+                </div>
+                <div className="rounded-xl bg-white/10 p-4">
+                  <p className="text-sm text-white/80">How we help</p>
+                  <p className="text-base font-semibold">Consult • Build • Sell</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ================= PURPOSE & PROMISE ================= */}
-      <section className="mx-auto mb-16 grid gap-8 md:grid-cols-2">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">Our Purpose</h2>
-          <p className="mt-3 text-zinc-700">
-            Help whitetail hunters secure their legacy with properties optimized
-            for consistent, daylight encounters with big, mature bucks—without
-            wasting seasons on guesswork. Every design decision protects
-            movement, maximizes opportunity, and respects the land.
-          </p>
-          <div className="mt-6 rounded-2xl bg-zinc-50 p-6">
-            <h3 className="text-lg font-semibold">Our Promise</h3>
-            <ul className="mt-3 space-y-2 text-zinc-700">
-              <li>• A clear, phased build plan you can actually execute.</li>
-              <li>• <span className="font-semibold">Undetectable access</span> as a first-principle.</li>
-              <li>• Biology-led design that matches how mature bucks move.</li>
-              <li>• Forestry that improves habitat <em>and</em> property value.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="rounded-2xl bg-brand-700 p-6 text-white md:p-8">
-          <h3 className="text-lg font-semibold">Core Values</h3>
-          <ul className="mt-3 space-y-2 text-white/90">
-            <li>• Stewardship: Honor the land and wildlife.</li>
-            <li>• Integrity: Say it straight, build it right.</li>
-            <li>• Craft: Details that compound over seasons.</li>
-            <li>• Legacy: Properties worthy of your family name.</li>
-          </ul>
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="text-sm text-white/80">Where we work</p>
-              <p className="text-base font-semibold">Pennsylvania</p>
-            </div>
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="text-sm text-white/80">How we help</p>
-              <p className="text-base font-semibold">Consult • Build • Sell</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= APPROACH (kept, tightened copy) ================= */}
-      <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
-        <h2 className="text-2xl font-bold tracking-tight">Our Approach</h2>
-        <p className="mt-3 max-w-3xl text-white/90">
-          Everything ladders up to repeatable, high-odds encounters with mature
-          whitetails—without burning the property.
+      {/* ================= WHY AUDIT LEADS (dominant positioning) ================= */}
+      <section className="mb-16 rounded-3xl bg-zinc-50 p-6 ring-1 ring-zinc-200 md:p-10">
+        <h2 className="text-2xl font-bold tracking-tight">
+          Why We Lead With the Property Audit
+        </h2>
+        <p className="mt-3 max-w-3xl text-zinc-700">
+          Most land services begin by recommending improvements. We begin by
+          establishing truth. Our process is anchored by the{" "}
+          <span className="font-semibold">
+            Blueprint for Giants® Property Audit
+          </span>
+          —a disciplined, data-driven evaluation that defines what is possible
+          before money, labor, or emotion are introduced.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl bg-white/5 p-6">
-            <h3 className="text-lg font-semibold">Undetectable Access</h3>
-            <p className="mt-2 text-white/90">
-              Routes, winds, screens, and timing that keep you invisible, silent,
-              and scent-controlled. If access is wrong, nothing else matters.
-            </p>
+          <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
+            <h3 className="text-lg font-semibold">What the Audit Establishes</h3>
+            <ul className="mt-3 space-y-2 text-zinc-700">
+              <li>• The property’s true whitetail ceiling</li>
+              <li>• Pressure and behavioral constraints</li>
+              <li>• The gap between belief and reality</li>
+              <li>• Whether further action is justified</li>
+            </ul>
           </div>
-          <div className="rounded-2xl bg-white/5 p-6">
-            <h3 className="text-lg font-semibold">Biology-Led Design</h3>
-            <p className="mt-2 text-white/90">
-              Bedding, security cover, and daylight edge structure aligned with
-              how mature bucks actually use terrain across seasons.
-            </p>
-          </div>
-          <div className="rounded-2xl bg-white/5 p-6">
-            <h3 className="text-lg font-semibold">Forestry Integration</h3>
-            <p className="mt-2 text-white/90">
-              Timber work that compounds benefit: light, food, cover, corridors,
-              and long-term stand health.
-            </p>
-          </div>
-          <div className="rounded-2xl bg-white/5 p-6">
-            <h3 className="text-lg font-semibold">Build-Ready Plans</h3>
-            <p className="mt-2 text-white/90">
-              Clear maps and step-by-step priorities so you or our crew can
-              install confidently without rework.
+
+          <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
+            <h3 className="text-lg font-semibold">What the Audit Is Not</h3>
+            <ul className="mt-3 space-y-2 text-zinc-700">
+              <li>• A design</li>
+              <li>• A build plan</li>
+              <li>• A tactics checklist</li>
+              <li>• A sales document</li>
+            </ul>
+            <p className="mt-4 text-zinc-700">
+              It is the foundation that makes every other decision either
+              defensible—or indefensible.
             </p>
           </div>
         </div>
+
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <CtaButton href="/property-audit">
+            Start With a Property Audit
+          </CtaButton>
+          <Link
+            href="/why-it-matters"
+            className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-800 hover:bg-zinc-100"
+          >
+            Learn Why This Matters
+          </Link>
+        </div>
       </section>
 
-      {/* ================= TEAM (UNCHANGED per your request) ================= */}
+      {/* ================= PROCESS (sequence) ================= */}
+      <section className="mb-16 rounded-3xl bg-zinc-900 p-6 text-white md:p-10">
+        <h2 className="text-2xl font-bold tracking-tight">
+          Our Process Is Sequential
+        </h2>
+        <p className="mt-3 max-w-3xl text-white/90">
+          Whitetail Land Solutions operates on a strict sequence. We do not skip
+          steps. That discipline protects the client, the land, and the outcome.
+        </p>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-4">
+          <Step
+            n="01"
+            title="Understand"
+            desc="Learn why pressure and behavior—not tactics—govern outcomes."
+          />
+          <Step
+            n="02"
+            title="Diagnose"
+            desc="Establish truth through the Blueprint for Giants® Property Audit."
+          />
+          <Step
+            n="03"
+            title="Decide"
+            desc="Determine whether further action is justified, and at what level."
+          />
+          <Step
+            n="04"
+            title="Execute"
+            desc="Only then do design, implementation, or acquisition pathways exist."
+          />
+        </div>
+      </section>
+
+      {/* ================= TEAM (UNCHANGED from your current page) ================= */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
 
@@ -170,7 +248,9 @@ export default function AboutPage() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">David Barrett — Strategy &amp; Growth</h3>
+              <h3 className="text-lg font-semibold">
+                David Barrett — Strategy &amp; Growth
+              </h3>
               <p className="mt-2 text-zinc-700">
                 Business and marketing operator focused on clarity, systems, and
                 client results. David leads marketing, finance, and partnerships
@@ -191,115 +271,49 @@ export default function AboutPage() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold">Kent Shick — Habitat &amp; Forestry</h3>
+              <h3 className="text-lg font-semibold">
+                Kent Shick — Habitat &amp; Forestry
+              </h3>
               <p className="mt-2 text-zinc-700">
                 Professional consulting forester and habitat designer with
                 hands-on experience building high-odds properties across PA.
-                Educated in wildlife &amp; habitat at Penn State and mentored by the
-                woods. Kent leads field design and implementation.
+                Educated in wildlife &amp; habitat at Penn State and mentored by
+                the woods. Kent leads field design and implementation.
               </p>
             </div>
           </article>
         </div>
       </section>
 
-      {/* ================= STANDARDS ================= */}
-      <section className="mb-16 rounded-2xl bg-zinc-50 p-6">
-        <h2 className="text-2xl font-bold tracking-tight">Standards That Don’t Bend</h2>
-        <ul className="mt-4 grid gap-3 text-zinc-700 md:grid-cols-2">
-          <li>• Access first: every plan is tested against wind &amp; intrusion.</li>
-          <li>• Seasonal routes that protect core areas and daylight use.</li>
-          <li>• Forestry that improves both habitat and long-term value.</li>
-          <li>• Clear phasing: do the right work in the right order.</li>
-          <li>• Stewardship: designs that honor the land and your legacy.</li>
-        </ul>
-      </section>
-
-      {/* ================= VISION & MISSION (adds EOS clarity) ================= */}
+      {/* ================= WHO IT'S FOR + MEASURE SUCCESS ================= */}
       <section className="mb-16 grid gap-8 md:grid-cols-2">
         <div className="rounded-2xl border border-zinc-200 p-6">
-          <h2 className="text-2xl font-bold tracking-tight">Vision</h2>
+          <h2 className="text-2xl font-bold tracking-tight">Who This Is For</h2>
           <p className="mt-3 text-zinc-700">
-            Be Pennsylvania’s leader in turnkey, hunt-ready properties engineered
-            for mature whitetails—and the trusted partner for landowners who want
-            a property worthy of being passed down.
+            We work with landowners who care more about truth than reassurance.
+            If you want guarantees, shortcuts, or validation—we are not a fit.
           </p>
+          <ul className="mt-4 space-y-2 text-zinc-700">
+            <li>• Serious hunters who value discipline over hype</li>
+            <li>• Families building a legacy property</li>
+            <li>• Investors who want clarity before capital is deployed</li>
+            <li>• Owners willing to hear hard truth to get better outcomes</li>
+          </ul>
         </div>
+
         <div className="rounded-2xl border border-zinc-200 p-6">
-          <h2 className="text-2xl font-bold tracking-tight">Mission</h2>
+          <h2 className="text-2xl font-bold tracking-tight">
+            How We Measure Success
+          </h2>
           <p className="mt-3 text-zinc-700">
-            Design and build habitat that creates consistent, daylight encounters
-            with mature bucks by integrating undetectable access, biology-led
-            structure, and value-adding forestry.
+            Success is not acres altered or projects completed. Success is when
+            expectations align with reality, decisions are made with confidence,
+            and the land improves over decades—not seasons.
           </p>
-        </div>
-      </section>
-
-      {/* ================= CHOOSE YOUR PATH (unchanged content, improved contrast) ================= */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Choose Your Path</h2>
-        <p className="mt-2 text-zinc-700">
-          Whether you’re buying land, optimizing your property, or wanting us to
-          build it for you—we’ll meet you where you are.
-        </p>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Land for Sale",
-              href: "/properties",
-              img: TILE_IMAGES.properties,
-              badge: "Turnkey",
-              desc: "Hunt-ready properties engineered for mature bucks—access, food/cover, and stand placements built in.",
-            },
-            {
-              title: "Consulting",
-              href: "/services/consulting",
-              img: TILE_IMAGES.consulting,
-              badge: "Blueprint",
-              desc: "Custom habitat design maps & action plan to transform your acreage into a big-buck paradise.",
-            },
-            {
-              title: "Habitat Implementation",
-              href: "/services/implementation",
-              img: TILE_IMAGES.implementation,
-              badge: "Done-For-You",
-              desc: "We build the plan: trails, plots, screening, stand/blind installs, and access—start hunting sooner.",
-            },
-          ].map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-              aria-label={`${item.title} — Learn more`}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.img})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60" />
-              <div className="relative p-6 text-white">
-                <div className="flex items-start justify-between">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
-                    {item.badge}
-                  </span>
-                </div>
-                <p className="mt-2 text-white/90">{item.desc}</p>
-                <span className="mt-4 inline-flex items-center">
-                  Learn More
-                  <svg
-                    className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          ))}
+          <p className="mt-3 text-zinc-700">
+            Our work is about protecting legacy—of the land, the hunt, and the
+            people who come after.
+          </p>
         </div>
       </section>
 
@@ -308,20 +322,23 @@ export default function AboutPage() {
         <div className="grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">
-              Ready to engineer a property worthy of your family name?
+              If your land matters, don’t start with a project.
             </h2>
             <p className="mt-3 text-zinc-700">
-              Start with a short strategy call. We’ll map your goals, evaluate constraints,
-              and recommend the fastest path to high-odds encounters—DIY or done-for-you.
+              Start with clarity. Begin with a Blueprint for Giants® Property
+              Audit and build from a foundation of truth—no guesswork, no
+              shortcuts.
             </p>
           </div>
           <div className="flex gap-3 md:justify-end">
-            <CtaButton href="/contact">Book a Free Strategy Call</CtaButton>
+            <CtaButton href="/property-audit">
+              Start With a Property Audit
+            </CtaButton>
             <Link
-              href="/services"
+              href="/contact"
               className="inline-flex min-w-[160px] items-center justify-center rounded-xl px-5 py-3 font-semibold ring-1 ring-zinc-300 text-zinc-800 hover:bg-zinc-100"
             >
-              Explore Services
+              Contact Us
             </Link>
           </div>
         </div>
@@ -331,20 +348,20 @@ export default function AboutPage() {
 }
 
 /** =============== Local UI Bits =============== */
-function Stat({
-  label,
-  value,
-  note,
+function Step({
+  n,
+  title,
+  desc,
 }: {
-  label: string;
-  value: string;
-  note?: string;
+  n: string;
+  title: string;
+  desc: string;
 }) {
   return (
-    <div className="rounded-xl border border-zinc-200 bg-white p-5">
-      <p className="text-sm tracking-wide text-zinc-600">{label}</p>
-      <p className="mt-1 text-3xl font-extrabold tracking-tight text-zinc-900">{value}</p>
-      {note ? <p className="mt-1 text-sm text-zinc-600">{note}</p> : null}
+    <div className="rounded-2xl bg-white/10 p-6">
+      <p className="text-xs font-semibold tracking-widest text-white/70">{n}</p>
+      <h3 className="mt-2 text-lg font-semibold">{title}</h3>
+      <p className="mt-2 text-white/90">{desc}</p>
     </div>
   );
 }

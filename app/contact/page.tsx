@@ -6,7 +6,7 @@ import Link from "next/link";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-function Stat({ label }: { label: string }) {
+function Chip({ label }: { label: string }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-white/70 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
       {label}
@@ -42,6 +42,21 @@ function PathCard({
   );
 }
 
+function InfoCard({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+      <div className="mt-2 text-sm leading-6 text-slate-600">{children}</div>
+    </div>
+  );
+}
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen w-full bg-white text-slate-900">
@@ -52,62 +67,75 @@ export default function ContactPage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
               Contact
             </p>
+
             <h1 className="mt-2 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
-              How can we help you own a big-buck property?
+              Start with clarity. Build with confidence.
             </h1>
+
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Tell us about your acreage, goals, and timeline. We’ll reply
-              within <span className="font-semibold text-slate-800">1 business day</span>
-              with clear next steps.
+              If you’re serious about owning a property engineered to consistently
+              produce encounters with mature whitetails, the first step is not a
+              project.
+              <span className="font-semibold text-slate-800">
+                {" "}
+                The first step is establishing truth.
+              </span>
             </p>
 
-            {/* Quick trust chips (subtle) */}
+            {/* Trust / positioning chips */}
             <div className="mt-5 flex flex-wrap gap-2">
-              <Stat label="PA-Based" />
-              <Stat label="Forestry & Habitat Expertise" />
-              <Stat label="Whitetail-First Designs" />
-              <Stat label="Transparent Pricing" />
+              <Chip label="PA-Based" />
+              <Chip label="Forestry & Habitat Expertise" />
+              <Chip label="Pressure & Access Discipline" />
+              <Chip label="Audit-First Process" />
             </div>
           </div>
 
           {/* Pathways */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             <PathCard
-              title="Buy a Property"
-              desc="See hunt-ready properties engineered for giants. Tours and waitlist available."
+              title="Property Audit"
+              desc="Establish the truth: ceiling, pressure variables, constraints, and the real opportunity."
+              href="/property-audit"
+            />
+            <PathCard
+              title="Why It Matters"
+              desc="Understand why tactics without truth waste money—and why audit-first protects outcomes."
+              href="/why-it-matters"
+            />
+            <PathCard
+              title="Properties"
+              desc="Explore hunt-ready properties engineered for giants (limited availability)."
               href="/properties"
-            />
-            <PathCard
-              title="Get a Land Plan"
-              desc="Blueprint for Giants™: a custom habitat and access design emphasizing undetectable access, food, and bedding."
-              href="/services/consulting"
-            />
-            <PathCard
-              title="Have WLS Build It"
-              desc="We build roads, plots, access, stands, and structure so the plan gets done right."
-              href="/services/implementation"
             />
           </div>
         </div>
       </section>
 
-      {/* ============== MAIN: Form + Optional Call CTA ============== */}
+      {/* ============== MAIN: Form + Sidebar ============== */}
       <section className="relative border-t border-slate-200 bg-slate-50/60">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-3">
-          {/* Contact Form */}
+          {/* Contact / Pre-Qual Form */}
           <div className="md:col-span-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <h2 className="text-xl font-semibold text-slate-900">
-                Send us a message
+                Request next steps
               </h2>
+
               <p className="mt-1 text-sm text-slate-600">
-                Prefer email over a call? Use the form and we’ll get back to you
-                within one business day.
+                This form is for serious inquiries only. We don’t provide quick
+                opinions, free evaluations, or tactical recommendations without a
+                completed audit. If your property and objectives align, we’ll
+                invite you to apply for the{" "}
+                <span className="font-semibold text-slate-800">
+                  Blueprint for Giants® Property Audit
+                </span>
+                .
               </p>
 
-              {/* Replace action with your AWeber/API endpoint */}
+              {/* Replace action with your API endpoint / CRM handler */}
               <form
-                action="/api/contact" // ← swap to AWeber embed or handler when ready
+                action="/api/contact"
                 method="POST"
                 className="mt-6 space-y-5"
               >
@@ -137,6 +165,7 @@ export default function ContactPage() {
                       placeholder="Jane Doe"
                     />
                   </div>
+
                   <div>
                     <label
                       htmlFor="email"
@@ -170,16 +199,17 @@ export default function ContactPage() {
                       placeholder="(555) 555-5555"
                     />
                   </div>
+
                   <div>
                     <label
-                      htmlFor="county"
+                      htmlFor="location"
                       className="block text-sm font-medium text-slate-700"
                     >
                       County / State
                     </label>
                     <input
-                      id="county"
-                      name="county"
+                      id="location"
+                      name="location"
                       className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
                       placeholder="Armstrong, PA"
                     />
@@ -192,7 +222,7 @@ export default function ContactPage() {
                       htmlFor="acreage"
                       className="block text-sm font-medium text-slate-700"
                     >
-                      Acreage
+                      Approx. Acreage
                     </label>
                     <input
                       id="acreage"
@@ -201,6 +231,31 @@ export default function ContactPage() {
                       placeholder="e.g., 80"
                     />
                   </div>
+
+                  <div>
+                    <label
+                      htmlFor="ownershipStatus"
+                      className="block text-sm font-medium text-slate-700"
+                    >
+                      Ownership Status
+                    </label>
+                    <select
+                      id="ownershipStatus"
+                      name="ownershipStatus"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Select…
+                      </option>
+                      <option>Owned</option>
+                      <option>Under Contract</option>
+                      <option>Exploring Purchase</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="timeline"
@@ -223,28 +278,53 @@ export default function ContactPage() {
                       <option>90+ days</option>
                     </select>
                   </div>
+
+                  <div>
+                    <label
+                      htmlFor="primaryObjective"
+                      className="block text-sm font-medium text-slate-700"
+                    >
+                      Primary Objective
+                    </label>
+                    <select
+                      id="primaryObjective"
+                      name="primaryObjective"
+                      className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Select…
+                      </option>
+                      <option>Apply for a Property Audit</option>
+                      <option>Improve My Current Property (Audit First)</option>
+                      <option>Evaluate a Property Before Purchase</option>
+                      <option>Buy a Hunt-Ready Property</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>
                   <label
-                    htmlFor="goal"
+                    htmlFor="howHeard"
                     className="block text-sm font-medium text-slate-700"
                   >
-                    Primary Goal
+                    How did you hear about us?
                   </label>
                   <select
-                    id="goal"
-                    name="goal"
+                    id="howHeard"
+                    name="howHeard"
                     className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
                     defaultValue=""
                   >
                     <option value="" disabled>
                       Select…
                     </option>
-                    <option>Buy Land</option>
-                    <option>Tour a Property</option>
-                    <option>Improve My Current Property</option>
-                    <option>Attract & Kill Mature Bucks</option>
+                    <option>YouTube</option>
+                    <option>Google Search</option>
+                    <option>Referral</option>
+                    <option>Social Media</option>
+                    <option>Podcast / Media</option>
                     <option>Other</option>
                   </select>
                 </div>
@@ -254,14 +334,14 @@ export default function ContactPage() {
                     htmlFor="message"
                     className="block text-sm font-medium text-slate-700"
                   >
-                    Message
+                    Notes (optional)
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
                     className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
-                    placeholder="Share any details about your property, access, pressure, or goals."
+                    placeholder="Share your goals, constraints, and any known pressure/access realities. (No need to write a novel.)"
                   />
                 </div>
 
@@ -270,8 +350,27 @@ export default function ContactPage() {
                     type="submit"
                     className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-700 px-5 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-600/40 sm:w-auto"
                   >
-                    Send Message
+                    Submit Inquiry
                   </button>
+                </div>
+
+                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-sm text-slate-700">
+                    <span className="font-semibold text-slate-900">
+                      What happens next:
+                    </span>{" "}
+                    We review every submission personally. If your property and
+                    objectives align with our process, you’ll receive next-step
+                    instructions for the{" "}
+                    <span className="font-semibold text-slate-900">
+                      Blueprint for Giants® Property Audit
+                    </span>
+                    . Please allow{" "}
+                    <span className="font-semibold text-slate-900">
+                      2–3 business days
+                    </span>{" "}
+                    for review.
+                  </p>
                 </div>
 
                 <p className="mt-3 text-xs text-slate-500">
@@ -282,43 +381,62 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Secondary: Quick Call CTA */}
+          {/* Sidebar */}
           <aside className="md:col-span-1">
             <div className="sticky top-6 space-y-6">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900">
-                  Prefer a quick call instead?
-                </h3>
-                <p className="mt-1 text-sm text-slate-600">
-                  Book a free 15-minute strategy call. We’ll quickly map your
-                  situation and next steps. Zero pressure.
-                </p>
-                <Link
-                  href="https://calendly.com/"
-                  target="_blank"
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-700/40"
-                >
-                  Book Free 15-Minute Call
-                </Link>
-                <p className="mt-2 text-xs text-slate-500">
-                  Opens in a new tab. You’ll receive confirmation & reminders.
-                </p>
-              </div>
+              <InfoCard title="Before you reach out">
+                <ul className="mt-2 list-disc space-y-2 pl-5">
+                  <li>
+                    We do <span className="font-semibold">not</span> provide quick
+                    opinions or free evaluations.
+                  </li>
+                  <li>
+                    We do <span className="font-semibold">not</span> start with
+                    habitat projects or tactics.
+                  </li>
+                  <li>
+                    Every engagement begins with the{" "}
+                    <span className="font-semibold">
+                      Blueprint for Giants® Property Audit
+                    </span>
+                    .
+                  </li>
+                  <li>
+                    If you want truth-first clarity and disciplined execution,
+                    you’re in the right place.
+                  </li>
+                </ul>
+              </InfoCard>
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h4 className="text-sm font-semibold text-slate-900">
-                  Office
-                </h4>
-                <p className="mt-1 text-sm text-slate-600">
-                  Physical: 1463 State Route 1042, NuMine, PA 16244
-                  <br />
+              <InfoCard title="Explore the process">
+                <div className="mt-3 space-y-3">
+                  <Link
+                    href="/property-audit"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-700/40"
+                  >
+                    View Property Audit
+                  </Link>
+                  <Link
+                    href="/why-it-matters"
+                    className="inline-flex w-full items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-700/20"
+                  >
+                    Why Audit First?
+                  </Link>
+                </div>
+              </InfoCard>
+
+              <InfoCard title="Office">
+                <p className="mt-1">
                   Mailing: PO Box 167, NuMine, PA 16244
+                  <br />
+                  Physical: 1463 State Route 1042, NuMine, PA 16244
                 </p>
                 <p className="mt-3 text-xs text-slate-500">
-                  We are not a real estate broker; we acquire and sell our own
-                  properties and offer consulting & habitat implementation.
+                  Whitetail Land Solutions, LLC is not a real estate broker. We
+                  acquire and sell our own properties and offer consulting and
+                  implementation services.
                 </p>
-              </div>
+              </InfoCard>
             </div>
           </aside>
         </div>

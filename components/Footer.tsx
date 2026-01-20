@@ -14,10 +14,13 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-4 text-sm font-medium">
-            <Link className="text-slate-700 hover:text-slate-900" href="/services">Services</Link>
-            <Link className="text-slate-700 hover:text-slate-900" href="/properties">Properties</Link>
-            <Link className="text-slate-700 hover:text-slate-900" href="/about">About</Link>
-            <Link className="text-slate-700 hover:text-slate-900" href="/contact">Contact</Link>
+            <Link href="/property-audit">Property Audit</Link>
+<Link href="/why-it-matters">Why It Matters</Link>
+<Link href="/properties">Properties</Link>
+<Link href="/consulting">Consulting</Link>
+<Link href="/services/implementation">Implementation</Link>
+<Link href="/about">About</Link>
+<Link href="/contact">Contact</Link>
           </div>
         </div>
 
