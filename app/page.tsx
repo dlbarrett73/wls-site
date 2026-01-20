@@ -174,37 +174,40 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
             Our Process
           </h2>
-          <div className="mt-10 grid gap-8 sm:grid-cols-4">
-            <div>
-              <span className="text-4xl font-bold text-emerald-800">1</span>
-              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
                 Apply for a Property Audit
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We begin with a short application to ensure fit, readiness, and alignment.
               </p>
             </div>
-            <div>
-              <span className="text-4xl font-bold text-emerald-800">2</span>
-              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
                 Audit Execution
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We evaluate your property using a standardized, evidence-based framework focused on ceiling and pressure mechanics.
               </p>
             </div>
-            <div>
-              <span className="text-4xl font-bold text-emerald-800">3</span>
-              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
+           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
                 Executive Review & Truth Delivery
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 You receive clear documentation and a guided review so you understand exactly what the property can — and cannot — do.
               </p>
             </div>
-            <div>
-              <span className="text-4xl font-bold text-emerald-800">4</span>
-              <h3 className="mt-2 text-lg font-semiboldddd text-slate-900">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
                 Next-Phase Engagements
               </h3>
               <p className="mt-2 text-sm text-slate-600">
