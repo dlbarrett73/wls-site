@@ -79,7 +79,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
               href="/property-audit"
               className="bg-emerald-800 hover:bg-emerald-900"
             >
-              Apply to Begin the Audit
+              Learn more about the Audit
             </CtaSafe>
             <Link
               href="/why-it-matters"
@@ -266,7 +266,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
               href="/property-audit"
               className="bg-emerald-800 hover:bg-emerald-900"
             >
-              Get the Truth (Apply)
+              Get the Truth
             </CtaSafe>
 
             <Link
