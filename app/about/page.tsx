@@ -67,65 +67,57 @@ export default function AboutPage() {
       {/* ================= TRUST STATS (quick credibility) ================= */}
     
       {/* ================= PURPOSE / BELIEF + VALUES ================= */}
-<section className="mb-16 mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-2">
-        <div>
-          <h2 className="text-2xl font-bold tracking-tight">
-            Built for Landowners Who Want Reality
-          </h2>
-          <p className="mt-3 text-zinc-700">
-            Whitetail success is not governed by effort, equipment, or budget. It
-            is governed by <span className="font-semibold">behavior, pressure, and landscape reality</span>.
-          </p>
-          <p className="mt-3 text-zinc-700">
-            Every property has a <span className="font-semibold">hard ceiling</span>. That ceiling is defined by
-            access constraints, surrounding pressure, terrain, fragmentation,
-            recovery limitations, and how deer already use the landscape.
-          </p>
-          <p className="mt-3 text-zinc-700">
-            You cannot raise that ceiling with enthusiasm or projects. You can
-            only identify it, respect it, and design within it. Anything else is
-            fiction.
-          </p>
+      <section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)]">
+        <div className="mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-2">
+          {/* LEFT: BELIEF */}
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">
+              Built for Landowners Who Want Reality
+            </h2>
+            <p className="mt-3 text-zinc-700">
+              Whitetail success is not governed by effort, equipment, or budget. It is governed by{" "}
+              <span className="font-semibold">behavior, pressure, and landscape reality</span>.
+            </p>
+            <p className="mt-4 text-zinc-700">
+              Every property has a hard ceiling. That ceiling is defined by access constraints, surrounding
+              pressure, terrain, fragmentation, recovery limitations, and how deer already use the landscape.
+            </p>
+            <p className="mt-4 text-zinc-700">
+              You cannot raise that ceiling with enthusiasm or projects. You can only identify it, respect it,
+              and design within it. Anything else is fiction.
+            </p>
 
-          <div className="mt-6 rounded-2xl bg-zinc-50 p-6">
-            <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
-            <ul className="mt-3 space-y-2 text-zinc-700">
-              <li>• Sell improvements before establishing truth.</li>
-              <li>• Skip steps to “get to the fun part.”</li>
-              <li>• Promise outcomes the land cannot support.</li>
-              <li>• Drift scope or improvise terminology.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="rounded-2xl bg-brand-700 p-6 text-white md:p-8">
-          <h3 className="text-lg font-semibold">Core Values</h3>
-          <ul className="mt-3 space-y-2 text-white/90">
-            <li>
-              • <span className="font-semibold">Integrity</span>: We tell the truth, even when it costs us the work.
-            </li>
-            <li>
-              • <span className="font-semibold">Stewardship</span>: The land is not a project; it is a responsibility.
-            </li>
-            <li>
-              • <span className="font-semibold">Conservation</span>: Long-term health outweighs short-term success.
-            </li>
-            <li>
-              • <span className="font-semibold">Discipline</span>: Pressure governance determines outcomes.
-            </li>
-            <li>
-              • <span className="font-semibold">Service</span>: We treat clients as we would our own families.
-            </li>
-          </ul>
-
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="text-sm text-white/80">Where we work</p>
-              <p className="text-base font-semibold">Pennsylvania</p>
+            <div className="mt-6 rounded-2xl bg-zinc-50 p-6">
+              <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
+              <ul className="mt-3 space-y-2 text-zinc-700">
+                <li>• Sell improvements before establishing truth.</li>
+                <li>• Skip steps to “get to the fun part.”</li>
+                <li>• Promise outcomes the land cannot support.</li>
+                <li>• Drift scope or improvise terminology.</li>
+              </ul>
             </div>
-            <div className="rounded-xl bg-white/10 p-4">
-              <p className="text-sm text-white/80">How we help</p>
-              <p className="text-base font-semibold">Consult • Build • Sell</p>
+          </div>
+
+          {/* RIGHT: VALUES */}
+          <div className="rounded-2xl bg-brand-700 p-6 text-white md:p-8">
+            <h3 className="text-lg font-semibold">Core Values</h3>
+            <ul className="mt-3 space-y-2 text-white/90">
+              <li>• Integrity: We tell the truth, even when it costs us the work.</li>
+              <li>• Stewardship: The land is not a project; it is a responsibility.</li>
+              <li>• Conservation: Long-term health outweighs short-term success.</li>
+              <li>• Discipline: Pressure governance determines outcomes.</li>
+              <li>• Service: We treat clients as we would our own families.</li>
+            </ul>
+
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="rounded-xl bg-white/10 p-4">
+                <p className="text-sm text-white/80">Where we work</p>
+                <p className="text-base font-semibold">Pennsylvania</p>
+              </div>
+              <div className="rounded-xl bg-white/10 p-4">
+                <p className="text-sm text-white/80">How we help</p>
+                <p className="text-base font-semibold">Consult • Build • Sell</p>
+              </div>
             </div>
           </div>
         </div>
@@ -179,11 +171,11 @@ export default function AboutPage() {
       </section>
 
       {/* ================= PROCESS (sequence) ================= */}
-      <section className="mb-16 rounded-3xl bg-brand-700 p-6 text-white md:p-10">
+      <section className="mb-16 rounded-3xl bg-emerald-950 p-6 text-white md:p-10">
         <h2 className="text-2xl font-bold tracking-tight">Our Process Is Sequential</h2>
         <p className="mt-3 max-w-3xl text-white/90">
-          Whitetail Land Solutions operates on a strict sequence. We do not skip
-          steps. That discipline protects the client, the land, and the outcome.
+          Whitetail Land Solutions operates on a strict sequence. We do not skip steps. That discipline protects
+          the client, the land, and the outcome.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-4">
