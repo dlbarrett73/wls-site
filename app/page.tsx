@@ -65,7 +65,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
             it exists today — designed to answer the most important questions
             every serious landowner must resolve before investing further:
           </p>
-          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-center text-slate-600">
             <li>What is this property truly capable of producing?</li>
             <li>What pressure variables are working against it?</li>
             <li>Is further investment justified — or wasted?</li>
