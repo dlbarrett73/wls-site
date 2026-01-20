@@ -24,7 +24,7 @@ export default function Home() {
         />
         {/* Gradient overlay for legibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
+        <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-6xl px-6">
             <div className="max-w-3xl">
       <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
@@ -33,16 +33,15 @@ export default function Home() {
               <p className="mt-4 text-base sm:text-lg text-white/90">
                 The Blueprint for Giants® Property Audit reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
               </p>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <div className="mt-8 flex flex-wrap gap-3">
                 <CtaSafe
                   href="/capture/consulting"
                   className="bg-emerald-800 hover:bg-emerald-900"
                 >
-                  Apply for a Property Audit
-                </CtaSafe>
+                  Apply for a Property Audit>
                 <Link
                   href="#process"
-                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semiboldddd shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
+                  className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
                 >
                   See How the Process Works →
                 </Link>
@@ -105,25 +104,21 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
             What You Receive
           </h2>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold">Ceiling Qualification Report</h3>
-                  <p className="mt-2 text-sm text-slate-600">
-                    A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.</p>
-              </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <h3 className="font-semibold text-slate-900">Ceiling Qualification Report</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.
+              </p>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 2 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">Pressure Scoring Report</h3>
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <h3 className="font-semibold text-slate-900">Pressure Scoring Report</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A documented evaluation of observable pressure variables and how they currently function on your property.
               </p>
             </div>
-           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 3 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold">Executive Truth Summary</h3>
+            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <h3 className="font-semibold text-slate-900">Executive Truth Summary</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A clear, client-ready synthesis of what’s real, what’s limiting you, and what decision the truth supports.
               </p>
@@ -137,15 +132,13 @@ export default function Home() {
 
       {/* Who This Is For */}
       <section className="bg-slate-50">
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+        <div className="mx-auto w-full max-w-6xl px-6 py-16">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
             Who This Is For
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semiboldddd text-slate-900">
+              <h3 className="text-xl font-semibold text-slate-900">
                 This Is For You If:
               </h3>
               <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
@@ -155,10 +148,8 @@ export default function Home() {
                 <li>You refuse to invest more money or seasons without certainty</li>
               </ul>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+            <div>
+              <h3 className="text-xl font-semibold text-slate-900">
                 This Is Not For You If:
               </h3>
               <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
@@ -178,40 +169,37 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
             Our Process
           </h2>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+          <div className="mt-10 grid gap-8 sm:grid-cols-4">
+            <div>
+              <span className="text-4xl font-bold text-emerald-800">1</span>
+              <h3 className="mt-2 text-lg font-semibold text-slate-900">
                 Apply for a Property Audit
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We begin with a short application to ensure fit, readiness, and alignment.
               </p>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+            <div>
+              <span className="text-4xl font-bold text-emerald-800">2</span>
+              <h3 className="mt-2 text-lg font-semibold text-slate-900">
                 Audit Execution
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We evaluate your property using a standardized, evidence-based framework focused on ceiling and pressure mechanics.
               </p>
             </div>
-           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+            <div>
+              <span className="text-4xl font-bold text-emerald-800">3</span>
+              <h3 className="mt-2 text-lg font-semibold text-slate-900">
                 Executive Review & Truth Delivery
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 You receive clear documentation and a guided review so you understand exactly what the property can — and cannot — do.
               </p>
             </div>
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-              <div className="border border-slate-200 rounded-xl p-6 shadow">
-                <h3 className="text-lg font-bold"
+            <div>
+              <span className="text-4xl font-bold text-emerald-800">4</span>
+              <h3 className="mt-2 text-lg font-semibold text-slate-900">
                 Next-Phase Engagements
               </h3>
               <p className="mt-2 text-sm text-slate-600">
@@ -259,7 +247,7 @@ export default function Home() {
             </CtaSafe>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semiboldddd shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
+              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
             >
               Questions? Contact Us →
             </Link>
