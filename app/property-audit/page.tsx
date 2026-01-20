@@ -31,6 +31,7 @@ function ButtonLink({
 }
 
 function Card({
+
   title,
   children,
 }: {
