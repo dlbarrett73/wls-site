@@ -67,7 +67,7 @@ export default function AboutPage() {
       {/* ================= TRUST STATS (quick credibility) ================= */}
     
       {/* ================= PURPOSE / BELIEF + VALUES ================= */}
-      <section className="mx-auto mb-16 grid gap-8 md:grid-cols-2">
+<section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] px-6 grid gap-8 md:grid-cols-2">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">
             Built for Landowners Who Want Reality
@@ -349,7 +349,7 @@ function Step({
   desc: string;
 }) {
   return (
-    <div className="rounded-2xl bg-white/5 p-6">
+    <div className="rounded-2xl bg-white/10 p-6">
       <p className="text-xs font-semibold tracking-widest text-white/70">{n}</p>
       <h3 className="mt-2 text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-white/90">{desc}</p>
