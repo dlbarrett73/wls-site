@@ -67,7 +67,7 @@ export default function AboutPage() {
       {/* ================= TRUST STATS (quick credibility) ================= */}
     
       {/* ================= PURPOSE / BELIEF + VALUES ================= */}
-<section className="mb-16 w-screen max-w-none mx-[calc(50%-50vw)] px-6 grid gap-8 md:grid-cols-2">
+<section className="mb-16 mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-2">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">
             Built for Landowners Who Want Reality
