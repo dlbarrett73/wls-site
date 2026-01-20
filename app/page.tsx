@@ -13,8 +13,8 @@ export const revalidate = 3600;
 export default function Home() {
   return (
     <main className="min-h-screen w-full bg-white text-slate-900">
-      {/* HERO (Dual CTA) */}
-      <section className="mx-auto w-full max-w-6xl px-6 pt-10">
+      {/* FULL-WIDTH HERO (Dual CTA) */}
+      <section className="w-full">
         <HeroDualCta
           imageSrc="/images/hero.jpg"
           imageAlt="Kent with mature whitetail in engineered habitat"
