@@ -32,7 +32,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
 
       {/* Authority Statement */}
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
           Great Habitat Doesn’t Fail. Unmanaged Pressure Does.
         </h2>
         <p className="mt-4 text-slate-600">
