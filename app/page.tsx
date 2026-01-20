@@ -40,13 +40,13 @@ We reveal the true ceiling of your land before you invest another dollar.`}
           plots, trees, or stand locations. They fail because pressure isn’t
           measured, governed, or understood.
         </p>
-        <p className="mt-4 text-slate-600">
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           At Whitetail Land Solutions, we don’t start with projects or
           prescriptions. We start with truth — a rigorous audit that establishes
           what your property can actually support and what is silently limiting
           it.
         </p>
-        <p className="mt-4 text-slate-600">
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           Because until pressure is governed, improvement is irrelevant.
         </p>
       </section>
