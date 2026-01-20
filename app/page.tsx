@@ -105,21 +105,25 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
             What You Receive
           </h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semiboldddd text-slate-900">Ceiling Qualification Report</h3>
-              <p className="mt-2 text-sm text-slate-600">
-                A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.
-              </p>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold">Ceiling Qualification Report</h3>
+                  <p className="mt-2 text-sm text-slate-600">
+                    A disciplined determination of your property’s true big-buck ceiling — based on physical constraints, layout, and landscape realities.</p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semiboldddd text-slate-900">Pressure Scoring Report</h3>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 2 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">Pressure Scoring Report</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A documented evaluation of observable pressure variables and how they currently function on your property.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 p-6 shadow-sm">
-              <h3 className="font-semiboldddd text-slate-900">Executive Truth Summary</h3>
+           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 3 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold">Executive Truth Summary</h3>
               <p className="mt-2 text-sm text-slate-600">
                 A clear, client-ready synthesis of what’s real, what’s limiting you, and what decision the truth supports.
               </p>
