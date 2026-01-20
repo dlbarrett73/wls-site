@@ -31,14 +31,15 @@ export default function Home() {
         Stop Guessing What Your Property Can Do.
       </h1>
               <p className="mt-4 text-base sm:text-lg text-white/90">
-                The Blueprint for Giants® Property Audit reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
+                The Blueprint for Giants® Property Auditt reveals your property’s true big-buck ceiling and the pressure mechanics that determine outcomes — before you spend another dollar or sacrifice another season.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <CtaSafe
                   href="/capture/consulting"
                   className="bg-emerald-800 hover:bg-emerald-900"
                 >
-                  Apply for a Property Audit>
+                  Apply for a Property Audit
+                </CtaSafe>
                 <Link
                   href="#process"
                   className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white/90 text-slate-900 border border-slate-200 hover:bg-slate-100 focus:ring-emerald-700"
@@ -71,10 +72,10 @@ export default function Home() {
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            The Blueprint for Giants® Property Audit
+            The Blueprint for Giants® Property Auditt
           </h2>
           <p className="mt-4 text-slate-600">
-            The Property Audit is the foundation of everything we do.
+            The Property Auditt is the foundation of everything we do.
           </p>
           <p className="mt-4 text-slate-600">
             It is a disciplined, evidence-based evaluation of your property as it exists today — designed to answer the most important questions every serious landowner must resolve before investing further:
@@ -125,7 +126,7 @@ export default function Home() {
             </div>
           </div>
           <p className="mt-6 text-sm italic text-slate-500 text-center">
-            Important: The Property Audit does not prescribe habitat improvements or hunting tactics. It establishes the truth that makes the next decision obvious.
+            Important: The Property Auditt does not prescribe habitat improvements or hunting tactics. It establishes the truth that makes the next decision obvious.
           </p>
         </div>
       </section>
@@ -173,7 +174,7 @@ export default function Home() {
             <div>
               <span className="text-4xl font-bold text-emerald-800">1</span>
               <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                Apply for a Property Audit
+                Apply for a Property Auditt
               </h3>
               <p className="mt-2 text-sm text-slate-600">
                 We begin with a short application to ensure fit, readiness, and alignment.
@@ -236,14 +237,14 @@ export default function Home() {
             Ready for the Truth?
           </h2>
           <p className="mt-4 text-slate-600">
-            If you want clarity before you invest — and discipline before you improve — the Blueprint for Giants® Property Audit is the first step.
+            If you want clarity before you invest — and discipline before you improve — the Blueprint for Giants® Property Auditt is the first step.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <CtaSafe
               href="/capture/consulting"
               className="bg-emerald-800 hover:bg-emerald-900"
             >
-              Apply for a Property Audit
+              Apply for a Property Auditt
             </CtaSafe>
             <Link
               href="/contact"
