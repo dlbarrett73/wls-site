@@ -65,14 +65,7 @@ export default function AboutPage() {
       </section>
 
       {/* ================= TRUST STATS (quick credibility) ================= */}
-      <section className="mx-auto mb-16">
-        <div className="grid gap-4 rounded-2xl border border-zinc-200 bg-white p-6 md:grid-cols-3">
-          <Stat label="Engineered Acres" value="130+" note="Designed & improved across PA" />
-          <Stat label="Years in the Woods" value="20+" note="Forestry + habitat + whitetail strategy" />
-          <Stat label="Operating Rule" value="Truth First" note="No skipping steps. No scope drift." />
-        </div>
-      </section>
-
+    
       {/* ================= PURPOSE / BELIEF + VALUES ================= */}
       <section className="mx-auto mb-16 grid gap-8 md:grid-cols-2">
         <div>
@@ -297,77 +290,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-
-      {/* ================= CHOOSE YOUR PATH (kept structure; updated copy) ================= */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
-          Choose Your Path
-        </h2>
-        <p className="mt-2 text-zinc-700">
-          Start with truth, then choose the path that matches your goals and the
-          land’s reality.
-        </p>
-
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Properties",
-              href: "/properties",
-              img: TILE_IMAGES.properties,
-              badge: "Turnkey",
-              desc: "Hunt-ready properties we own and sell—engineered to be hunted effectively from day one.",
-            },
-            {
-              title: "Consulting",
-              href: "/services/consulting",
-              img: TILE_IMAGES.consulting,
-              badge: "Blueprint",
-              desc: "Clarity-first guidance and design work—only after truth is established through an Audit.",
-            },
-            {
-              title: "Implementation",
-              href: "/services/implementation",
-              img: TILE_IMAGES.implementation,
-              badge: "Done-For-You",
-              desc: "Execution that follows the sequence—disciplined builds aligned with the land and the plan.",
-            },
-          ].map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-200 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg"
-              aria-label={`${item.title} — Learn more`}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.img})` }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/65" />
-              <div className="relative p-6 text-white">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <span className="shrink-0 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-800">
-                    {item.badge}
-                  </span>
-                </div>
-                <p className="mt-2 text-white/90">{item.desc}</p>
-                <span className="mt-4 inline-flex items-center">
-                  Learn More
-                  <svg
-                    className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path d="M13.172 12 8.222 7.05l1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
+      
       {/* ================= FINAL CTA ================= */}
       <section className="mt-16 rounded-3xl bg-gradient-to-br from-zinc-50 to-white p-8 ring-1 ring-zinc-200">
         <div className="grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
