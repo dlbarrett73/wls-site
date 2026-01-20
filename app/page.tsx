@@ -137,8 +137,10 @@ export default function Home() {
 
       {/* Who This Is For */}
       <section className="bg-slate-50">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
             Who This Is For
           </h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
@@ -153,8 +155,10 @@ export default function Home() {
                 <li>You refuse to invest more money or seasons without certainty</li>
               </ul>
             </div>
-            <div>
-              <h3 className="text-xl font-semiboldddd text-slate-900">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+              <div className="border border-slate-200 rounded-xl p-6 shadow">
+                <h3 className="text-lg font-bold"
                 This Is Not For You If:
               </h3>
               <ul className="mt-4 space-y-2 list-disc pl-6 text-slate-600">
