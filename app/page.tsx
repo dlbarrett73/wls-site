@@ -35,7 +35,7 @@ We reveal the true ceiling of your land before you invest another dollar.`}
         <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
           Great Habitat Doesn’t Fail. Unmanaged Pressure Does.
         </h2>
-        <p className="mt-4 text-slate-600">
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           Most hunting properties don’t underperform because of a lack of food
           plots, trees, or stand locations. They fail because pressure isn’t
           measured, governed, or understood.
