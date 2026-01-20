@@ -13,11 +13,7 @@ type HeroDualCtaProps = {
   imageSrc?: string;
   imageAlt?: string;
 
-  /**
-   * Recommended upgrades:
-   * - Full-bleed hero with controllable height
-   * - Optional scroll cue linking to #process
-   */
+  // Upgrades
   minHeightClassName?: string; // e.g. "min-h-[85vh]"
   showScrollCue?: boolean;
   scrollCueHref?: string; // e.g. "#process"
@@ -49,8 +45,8 @@ We reveal the true ceiling of your land before you invest another dollar.`,
             alt={imageAlt}
             fill
             priority
-            className="object-cover object-center opacity-60"
             sizes="100vw"
+            className="object-cover object-center opacity-60"
           />
         ) : (
           <div className="h-full w-full bg-[radial-gradient(1200px_circle_at_20%_20%,rgba(34,197,94,0.18),transparent_55%),radial-gradient(900px_circle_at_80%_10%,rgba(59,130,246,0.14),transparent_50%),linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.9))]" />
@@ -59,15 +55,16 @@ We reveal the true ceiling of your land before you invest another dollar.`,
         {/* Overlay for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/45 to-black/85" />
 
-        {/* Subtle vignette for premium "cinematic" feel */}
+        {/* Subtle vignette for premium feel (no styled-jsx) */}
         <div className="pointer-events-none absolute inset-0 [box-shadow:inset_0_0_140px_rgba(0,0,0,0.65)]" />
       </div>
 
       {/* Content */}
       <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col justify-center px-6 py-16 md:py-20">
-        {/* Subtle entrance (no JS needed) */}
-        <div className="max-w-3xl motion-safe:animate-[fadeUp_700ms_ease-out_both]">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90">
+        {/* “Entrance” feel without JS: starts slightly transparent on load? (Server render is already visible)
+            We keep it subtle: transform + transition for hover/focus interactions instead of animation. */}
+        <div className="max-w-3xl">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 backdrop-blur-sm">
             Data-Driven • Pressure-First • Built for Mature Whitetails
           </p>
 
@@ -129,20 +126,6 @@ We reveal the true ceiling of your land before you invest another dollar.`,
           </Link>
         </div>
       )}
-
-      {/* Keyframes for subtle entrance */}
-      <style jsx global>{`
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
