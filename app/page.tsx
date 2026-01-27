@@ -33,21 +33,18 @@ export default function Home() {
       {/* Authority Statement */}
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
         <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-          Great Habitat Doesn’t Fail. Unmanaged Pressure Does.
+          Most properties don’t fail because of effort — they fail because of unseen limits.
         </h2>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          Most hunting properties don’t underperform because of a lack of food
-          plots, trees, or stand locations. They fail because pressure isn’t
-          measured, governed, or understood.
+          Food plots get planted. Stands get hung. Access routes get cut.
+And yet… mature bucks disappear, daylight movement collapses, and pressure quietly compounds.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          At Whitetail Land Solutions, we don’t start with projects or
-          prescriptions. We start with truth — a rigorous audit that establishes
-          what your property can actually support and what is silently limiting
-          it.
+          The problem isn’t work ethic.
+The problem is investing without understanding your property’s structural ceiling and pressure costs.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          Because until pressure is governed, improvement is irrelevant.
+          Until those are known, every improvement risks making the system worse — not better.
         </p>
       </section>
 
