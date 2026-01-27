@@ -93,13 +93,7 @@ export default function HeroDualCta({
           {/* Trust / Disqualifier */}
           <div className="mt-6 text-sm text-white/75">
             <span className="font-semibold text-white/90">Application required • Limited monthly availability • Not for casual hunters</span>{" "}
-           Not all properties qualify.
           </div>
-          <div className="mt-6 text-sm text-white/75">
-            <span className="font-semibold text-white/90">Not for everyone</span>{" "}
-            — only for serious landowners.
-          </div>
-
           {/* Micro-conversion */}
           
         </div>
