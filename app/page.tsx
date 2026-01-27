@@ -37,11 +37,15 @@ export default function Home() {
         </h2>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           Food plots get planted. Stands get hung. Access routes get cut.
-And yet… mature bucks disappear, daylight movement collapses, and pressure quietly compounds.
+        </p>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          And yet… mature bucks disappear, daylight movement collapses, and pressure quietly compounds.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           The problem isn’t work ethic.
-The problem is investing without understanding your property’s structural ceiling and pressure costs.
+        </p>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          The problem is investing without understanding your property’s structural ceiling and pressure costs.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           Until those are known, every improvement risks making the system worse — not better.
