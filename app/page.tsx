@@ -23,7 +23,7 @@ export default function Home() {
           Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.`}
           // Primary CTA = Audit (flagship)
           primaryHref="/property-audit"
-          primaryLabel="Get the Truth About Your Property"
+          primaryLabel="Apply for a Property Audit"
           // Secondary CTA = Properties
           secondaryHref="/properties"
           secondaryLabel="Explore Hunt-Ready Properties"
