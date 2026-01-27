@@ -18,9 +18,9 @@ export default function Home() {
         <HeroDualCta
           imageSrc="/images/hero.jpg"
           imageAlt="Kent with mature whitetail in engineered habitat"
-          title="Stop Guessing. Know Exactly What Your Property Can Produce."
-          subtitle={`Most landowners waste years — and tens of thousands of dollars — chasing tactics.
-We reveal the true ceiling of your land before you invest another dollar.`}
+          title="Stop Guessing. Start Knowing."
+          subtitle={`The Blueprint for Giants® Property Audit reveals what your land can truly support — before you spend another dollar, burn another season, or make pressure cheaper.
+          <br>Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.</br>`}
           // Primary CTA = Audit (flagship)
           primaryHref="/property-audit"
           primaryLabel="Get the Truth About Your Property"
