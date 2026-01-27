@@ -21,8 +21,7 @@ type HeroDualCtaProps = {
 
 export default function HeroDualCta({
   title = "Stop Guessing. Start Knowing.",
-  subtitle = `The Blueprint for Giants® Property Audit reveals what your land can truly support — before you spend another dollar, burn another season, or make pressure cheaper.`,
-  <br>Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.</br>
+  subtitle = `The Blueprint for Giants® Property Audit reveals what your land can truly support — before you spend another dollar, burn another season, or make pressure cheaper.  <br>Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.</br>`,
   primaryHref = "/property-audit",
   secondaryHref = "/properties",
   primaryLabel = "Get the Truth About Your Property",
