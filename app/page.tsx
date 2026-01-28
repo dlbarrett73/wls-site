@@ -194,7 +194,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
             Steps
           </h3>
 
-          <ol className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
+          <ol className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
             <li><b>Apply</b> — Not every property qualifies</li>
             <li><b>Evaluate</b> — Pressure, structure, and risk assessed</li>
             <li><b>Deliver Truth</b> — Clear ceiling, floor, and paths forward</li>
