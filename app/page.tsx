@@ -88,7 +88,9 @@ Finally understand why your property behaves the way it does — and whether fix
           <h2 className={HEADING}>Every property has a ceiling. Guessing doesn’t change it.</h2>
 
           <div className="mt-8 space-y-4 text-left">
-            <p className={BODY}>Mature bucks operate within strict structural, security, and pressure constraints.</p>
+            <p className={BODY}>
+              Mature bucks operate within strict governing constraints.
+            </p>
             <p className={BODY}>
               Some properties can support consistent resident mature buck ownership. Others can’t — no matter how
               much money is spent.
@@ -132,7 +134,7 @@ Finally understand why your property behaves the way it does — and whether fix
           </ul>
 
           <p className={`mt-8 ${BODY}`}>
-            This is not a habitat plan. It is the decision-making framework that determines whether any plan will work.
+            This is not a habitat plan. It is the decision-making framework that governs whether any plan can work.
           </p>
         </div>
       </section>
@@ -150,6 +152,8 @@ Finally understand why your property behaves the way it does — and whether fix
               We start with <b>governance</b>.
             </p>
             <p className={BODY}>Before recommending a single improvement, we evaluate:</p>
+            <p className={BODY}>Not tactics — but the governing factors that determine whether tactics succeed or fail.</p>
+
           </div>
 
           <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
@@ -173,7 +177,7 @@ Finally understand why your property behaves the way it does — and whether fix
 
           <div className="mt-8 space-y-4 text-left">
             <p className={BODY}>
-              You’ll know what’s possible, what’s not, and the safest path forward before you spend money or seasons.
+              You’ll know what’s possible, what’s not, and the safest path forward — based on the realities governing your property.
             </p>
             <p className={BODY}>
               Each audit culminates in a set of governing conclusions and risk diagnostics you can rely on — whether you move forward or not.
