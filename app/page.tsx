@@ -48,7 +48,8 @@ export default function Home() {
           imageAlt="Kent with mature whitetail in engineered habitat"
           title="Stop Guessing. Start Knowing."
           subtitle={`The Blueprint for Giants® Property Audit reveals what your land can truly support — before you spend another dollar, burn another season, or make pressure cheaper.
-Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.`}
+Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater. 
+Finally understand why your property behaves the way it does — and whether fixing it is worth it.`}
           primaryHref="/property-audit"
           primaryLabel="Apply for a Property Audit"
           secondaryHref="/properties"
