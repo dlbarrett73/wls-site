@@ -187,20 +187,20 @@ Built for serious landowners who want consistent opportunities at mature bucks �
       <section id="process">
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-            The process is simple — and intentional.
+            What is the Blueprint for Giants® Property Audit?
           </h2>
-
-          <h3 className="text-xl font-semibold text-slate-900">
+          <p className="mt-4 text-slate-600">
             Steps
-          </h3>
+          </p>
 
-          <ol className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
             <li><b>Apply</b> — Not every property qualifies</li>
             <li><b>Evaluate</b> — Pressure, structure, and risk assessed</li>
             <li><b>Deliver Truth</b> — Clear ceiling, floor, and paths forward</li>
             <li><b>Decide</b> — Proceed to System Planning, Execution, or stop</li>
-          </ol>
-          <p className="mt-6 text-center text-sm text-slate-500">
+          </ul>
+
+          <p className="mt-6 text-slate-600">
             The audit protects you whether you move forward or not.
           </p>
         </div>
@@ -210,7 +210,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
-            The audit pays for itself — even if you never work with us again.
+            The process is simple — and intentional.
           </h2>
           <p className="mt-8 text-center italic text-slate-500">
             Many clients save tens of thousands of dollars by discovering:
