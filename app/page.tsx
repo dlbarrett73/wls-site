@@ -175,8 +175,10 @@ Finally understand why your property behaves the way it does — and whether fix
             <p className={BODY}>
               You’ll know what’s possible, what’s not, and the safest path forward before you spend money or seasons.
             </p>
-
-            <ul className="list-disc space-y-2 pl-6 text-slate-600">
+            <p className={BODY}>
+              Each audit culminates in a set of governing conclusions and risk diagnostics you can rely on — whether you move forward or not.
+            </p>
+              <ul className="list-disc space-y-2 pl-6 text-slate-600">
               <li>Executive Truth Summary — clear, unemotional conclusions</li>
               <li>Structural Ceiling Qualification</li>
               <li>Pressure Scoring &amp; Risk Diagnostics</li>
