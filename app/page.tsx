@@ -20,7 +20,7 @@ export default function Home() {
           imageAlt="Kent with mature whitetail in engineered habitat"
           title="Stop Guessing. Start Knowing."
           subtitle={`The Blueprint for Giants® Property Audit reveals what your land can truly support — before you spend another dollar, burn another season, or make pressure cheaper.
-          Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.`}
+Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater.`}
           // Primary CTA = Audit (flagship)
           primaryHref="/property-audit"
           primaryLabel="Apply for a Property Audit"
@@ -52,7 +52,7 @@ export default function Home() {
         </p>
       </section>
 
-{/* Turth Pivot */}
+      {/* Turth Pivot */}
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
         <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
           Every property has a ceiling. Guessing doesn’t change it.
@@ -61,8 +61,7 @@ export default function Home() {
           Mature bucks operate within strict structural, security, and pressure constraints.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          Some properties can support consistent resident mature buck ownership.
-Others can’t — no matter how much money is spent.
+          Some properties can support consistent resident mature buck ownership. Others can’t — no matter how much money is spent.
         </p>
         <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
           The Blueprint for Giants® Property Audit exists for one reason:
@@ -71,7 +70,7 @@ Others can’t — no matter how much money is spent.
           <b>To tell the truth about what your land can actually produce — and why.</b>
         </p>
       </section>
-      
+
       {/* WHAT THE BFG PROPERTY AUDIT IS */}
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
@@ -81,67 +80,65 @@ Others can’t — no matter how much money is spent.
           <p className="mt-4 text-slate-600">
             The Blueprint for Giants® Property Audit is a comprehensive, pressure-first evaluation of your property that defines:
           </p>
-          <p className="mt-4 text-slate-600">
-            <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
-              <li>Your Structural Ceiling (what outcomes are possible — and which aren’t)</li>
-              <li>Your Pressure Floor (how quickly opportunities decay under hunting use)</li>
-              <li>Your Daylight Access Reality (when, where, and why mature bucks are exposed)</li>
-              <li>Your Risk Profile (where capital and effort are being silently burned)</li>
-             </ul>  
-            </p>
+
+          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+            <li>Your Structural Ceiling (what outcomes are possible — and which aren’t)</li>
+            <li>Your Pressure Floor (how quickly opportunities decay under hunting use)</li>
+            <li>Your Daylight Access Reality (when, where, and why mature bucks are exposed)</li>
+            <li>Your Risk Profile (where capital and effort are being silently burned)</li>
+          </ul>
+
           <p className="mt-6 text-slate-600">
-            This is not a habitat plan.
-It is the decision-making framework that determines whether any plan will work.
+            This is not a habitat plan. It is the decision-making framework that determines whether any plan will work.
           </p>
         </div>
       </section>
 
-{/* WHAT MAKES THIS DIFFERENT (POSITIONING VS COMPETITORS) */}
+      {/* WHAT MAKES THIS DIFFERENT (POSITIONING VS COMPETITORS) */}
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
             This isn’t another habitat consultation.
           </h2>
           <p className="mt-4 text-slate-600">
-            Most consulting starts with tactics:
-food, bedding, stand locations, access routes.
-          </p>
-          p className="mt-4 text-slate-600">
-            We start with <b>governance</b>.
-          </p>
-        <p className="mt-4 text-slate-600">
-           Before recommending a single improvement, we evaluate:
+            Most consulting starts with tactics: food, bedding, stand locations, access routes.
           </p>
           <p className="mt-4 text-slate-600">
-            <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
-              <li>Pressure economics</li>
-              <li>Security distribution</li>
-              <li>Surrounding hunting context</li>
-              <li>Structural bottlenecks no tactic can overcome</li>
-             </ul>  
-            </p>
+            We start with <b>governance</b>.
+          </p>
+          <p className="mt-4 text-slate-600">
+            Before recommending a single improvement, we evaluate:
+          </p>
+
+          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+            <li>Pressure economics</li>
+            <li>Security distribution</li>
+            <li>Surrounding hunting context</li>
+            <li>Structural bottlenecks no tactic can overcome</li>
+          </ul>
+
           <p className="mt-6 text-slate-600">
             Because without those answers, execution becomes expensive guessing.
           </p>
         </div>
       </section>
-      
+
       {/* WHAT YOU RECEIVE (DELIVERABLES) */}
       <section>
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             What you receive from the Property Audit
           </h2>
-          <p className="mt-4 text-slate-600">
-            <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
-              <li>Executive Truth Summary — clear, unemotional conclusions</li>
-              <li>Structural Ceiling Qualification</li>
-              <li>Pressure Scoring & Risk Diagnostics</li>
-              <li>Daylight Opportunity Assessment</li>
-              <li>Capital Preservation & Opportunity Guidance</li>
-              <li>Clear next-step recommendations (or hard stops)</li>
-             </ul>  
-            </p>
+
+          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+            <li>Executive Truth Summary — clear, unemotional conclusions</li>
+            <li>Structural Ceiling Qualification</li>
+            <li>Pressure Scoring & Risk Diagnostics</li>
+            <li>Daylight Opportunity Assessment</li>
+            <li>Capital Preservation & Opportunity Guidance</li>
+            <li>Clear next-step recommendations (or hard stops)</li>
+          </ul>
+
           <p className="mt-6 text-center text-sm italic text-slate-500">
             No fluff. No false hope. No selling execution before truth.
           </p>
@@ -189,18 +186,21 @@ food, bedding, stand locations, access routes.
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             The process is simple — and intentional.
           </h2>
-<h3 className="text-xl font-semibold text-slate-900">
-                Steps
-              </h3>
-              <ol className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
-                <li><b>Apply</b> — Not every property qualifies</li>
-                <li><b>Evaluate</b> — Pressure, structure, and risk assessed</li>
-                <li><b>Deliver Truth</b> — Clear ceiling, floor, and paths forward</li>
-                <li><b>Decide</b> — Proceed to System Planning, Execution, or stop</li>
-              </ol>
-              <p className="mt-2 text-sm text-slate-600">
-                The audit protects you whether you move forward or not.
-              </p>
+
+          <h3 className="text-xl font-semibold text-slate-900">
+            Steps
+          </h3>
+
+          <ol className="mt-4 list-disc space-y-2 pl-6 text-slate-600">
+            <li><b>Apply</b> — Not every property qualifies</li>
+            <li><b>Evaluate</b> — Pressure, structure, and risk assessed</li>
+            <li><b>Deliver Truth</b> — Clear ceiling, floor, and paths forward</li>
+            <li><b>Decide</b> — Proceed to System Planning, Execution, or stop</li>
+          </ol>
+
+          <p className="mt-2 text-sm text-slate-600">
+            The audit protects you whether you move forward or not.
+          </p>
         </div>
       </section>
 
@@ -210,9 +210,9 @@ food, bedding, stand locations, access routes.
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             The audit pays for itself — even if you never work with us again.
           </h2>
-            <p className="mt-8 text-center italic text-slate-500">
-              Many clients save tens of thousands of dollars by discovering:
-            </p>
+          <p className="mt-8 text-center italic text-slate-500">
+            Many clients save tens of thousands of dollars by discovering:
+          </p>
           <ul className="mx-auto mt-10 max-w-3xl list-disc space-y-2 pl-6 text-slate-600">
             <li>Their ceiling is lower than assumed</li>
             <li>Pressure costs were miscalculated</li>
@@ -234,7 +234,7 @@ food, bedding, stand locations, access routes.
           <p className="mt-4 text-slate-600">
             The Blueprint for Giants® Property Audit is the required first step for every serious landowner we work with.
           </p>
-           <p className="mt-4 text-slate-600">
+          <p className="mt-4 text-slate-600">
             If your goal is consistent, repeatable opportunities at mature bucks — begin here.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
