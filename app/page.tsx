@@ -51,7 +51,7 @@ export default function Home() {
 Built for serious landowners who want consistent opportunities at mature bucks — not hope, hype, or habitat theater. 
 Finally understand why your property behaves the way it does — and whether fixing it is worth it.`}
           primaryHref="/property-audit"
-          primaryLabel="Apply for a Property Audit"
+          primaryLabel="Start with the Property Audit"
           secondaryHref="/properties"
           secondaryLabel="Explore Hunt-Ready Properties"
         />
@@ -302,7 +302,7 @@ Finally understand why your property behaves the way it does — and whether fix
 
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <CtaSafe href="/property-audit" className="bg-emerald-800 hover:bg-emerald-900">
-              Apply for a Property Audit
+              Start with the Property Audit
             </CtaSafe>
 
             <Link
