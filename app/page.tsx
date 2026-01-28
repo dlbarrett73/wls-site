@@ -160,6 +160,7 @@ Finally understand why your property behaves the way it does — and whether fix
           </ul>
 
           <p className={`mt-8 ${BODY}`}>Because without those answers, execution becomes expensive guessing.</p>
+          <p className={`mt-8 ${BODY}`}>The Property Audit delivers those answers in a clear, structured set of findings — before a single tactic is recommended.</p>
         </div>
       </section>
 
