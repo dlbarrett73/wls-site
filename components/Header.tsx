@@ -26,17 +26,17 @@ export default function Header() {
           <Link href="/why-it-matters" className="hover:text-slate-900">
             Why It Matters
           </Link>
-          <Link href="/properties" className="hover:text-slate-900">
-            Properties
-          </Link>
           <Link href="/consulting" className="hover:text-slate-900">
-            Consulting
+            System Plan
           </Link>
           <Link
             href="/services/implementation"
             className="hover:text-slate-900"
           >
-            Implementation
+            Execution
+          </Link>
+          <Link href="/properties" className="hover:text-slate-900">
+            Properties
           </Link>
           <Link href="/about" className="hover:text-slate-900">
             About
