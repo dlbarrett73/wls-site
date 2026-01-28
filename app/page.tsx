@@ -287,7 +287,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
               href="/properties"
               className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"
             >
-              Explore Properties →
+              Explore Hunt-Ready Properties →
             </Link>
           </div>
 
