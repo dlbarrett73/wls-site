@@ -75,7 +75,6 @@ Built for serious landowners who want consistent opportunities at mature bucks â
 
       {/* WHAT THE BFG PROPERTY AUDIT IS */}
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
-        {/* âœ… FIX: add the missing div that matches the closing </div> below */}
         <div>
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             What is the Blueprint for GiantsÂ® Property Audit?
@@ -96,6 +95,11 @@ Built for serious landowners who want consistent opportunities at mature bucks â
           </p>
         </div>
       </section>
+
+      {/* âœ… Subtle divider for scan-ability */}
+      <div className="mx-auto w-full max-w-6xl px-6" aria-hidden="true">
+        <div className="h-px w-full bg-slate-200" />
+      </div>
 
       {/* WHAT MAKES THIS DIFFERENT (POSITIONING VS COMPETITORS) */}
       <section className="bg-slate-50">
@@ -126,6 +130,7 @@ Built for serious landowners who want consistent opportunities at mature bucks â
         </div>
       </section>
 
+      {/* ...rest of your file unchanged... */}
       {/* WHAT YOU RECEIVE (DELIVERABLES) */}
       <section>
         <div className="mx-auto w-full max-w-6xl px-6 py-16">
@@ -189,9 +194,7 @@ Built for serious landowners who want consistent opportunities at mature bucks â
           <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             What is the Blueprint for GiantsÂ® Property Audit?
           </h2>
-          <p className="mt-4 text-slate-600">
-            Steps
-          </p>
+          <p className="mt-4 text-slate-600">Steps</p>
 
           <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
             <li><b>Apply</b> â€” Not every property qualifies</li>
@@ -240,10 +243,7 @@ Built for serious landowners who want consistent opportunities at mature bucks â
             If your goal is consistent, repeatable opportunities at mature bucks â€” begin here.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <CtaSafe
-              href="/property-audit"
-              className="bg-emerald-800 hover:bg-emerald-900"
-            >
+            <CtaSafe href="/property-audit" className="bg-emerald-800 hover:bg-emerald-900">
               Apply for a Property Audit
             </CtaSafe>
 
