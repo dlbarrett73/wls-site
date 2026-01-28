@@ -2,10 +2,45 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
+const navLinks = [
+  { href: "/property-audit", label: "Property Audit" },
+  { href: "/why-it-matters", label: "Why It Matters" },
+  { href: "/consulting", label: "System Plan" },
+  { href: "/services/execution", label: "Execution" },
+  { href: "/properties", label: "Properties" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
 export default function Header() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  // Close on ESC
+  React.useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
+  // Prevent background scroll when menu is open
+  React.useEffect(() => {
+    if (!mobileOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mobileOpen]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -14,46 +49,99 @@ export default function Header() {
             width={160}
             height={40}
             priority
-            className="h-auto w-[150px] sm:w-[160px]"
+            className="h-auto w-[130px] sm:w-[160px]"
           />
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 text-sm font-semibold text-slate-700 sm:flex">
-          <Link href="/property-audit" className="hover:text-slate-900">
-            Property Audit
-          </Link>
-          <Link href="/why-it-matters" className="hover:text-slate-900">
-            Why It Matters
-          </Link>
-          <Link href="/consulting" className="hover:text-slate-900">
-            System Plan
-          </Link>
-          <Link
-            href="/services/execution"
-            className="hover:text-slate-900"
-          >
-            Execution
-          </Link>
-          <Link href="/properties" className="hover:text-slate-900">
-            Properties
-          </Link>
-          <Link href="/about" className="hover:text-slate-900">
-            About
-          </Link>
-          <Link href="/contact" className="hover:text-slate-900">
-            Contact
-          </Link>
+          {navLinks.map((l) => (
+            <Link key={l.href} href={l.href} className="hover:text-slate-900">
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
-        {/* Primary CTA */}
-        <Link
-          href="/capture/property-audit"
-          className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-700/40"
-        >
-          Apply for a Property Audit
-        </Link>
+        {/* Right side: CTA + Mobile Menu Button */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Primary CTA (always visible; compact on mobile) */}
+          <Link
+            href="/capture/property-audit"
+            className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-2 focus:ring-emerald-700/40 sm:px-4 sm:py-2 sm:text-sm"
+          >
+            <span className="sm:hidden">Apply</span>
+            <span className="hidden sm:inline">Apply for a Property Audit</span>
+          </Link>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-emerald-700/40 sm:hidden"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setMobileOpen((v) => !v)}
+          >
+            {/* Simple hamburger / X */}
+            <span className="relative block h-5 w-5">
+              <span
+                className={[
+                  "absolute left-0 top-[4px] h-[2px] w-5 bg-current transition",
+                  mobileOpen ? "translate-y-[6px] rotate-45" : "",
+                ].join(" ")}
+              />
+              <span
+                className={[
+                  "absolute left-0 top-[10px] h-[2px] w-5 bg-current transition",
+                  mobileOpen ? "opacity-0" : "",
+                ].join(" ")}
+              />
+              <span
+                className={[
+                  "absolute left-0 top-[16px] h-[2px] w-5 bg-current transition",
+                  mobileOpen ? "translate-y-[-6px] -rotate-45" : "",
+                ].join(" ")}
+              />
+            </span>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Overlay + Panel */}
+      {mobileOpen && (
+        <div className="sm:hidden">
+          {/* Backdrop */}
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="fixed inset-0 z-40 cursor-default bg-black/30"
+            onClick={() => setMobileOpen(false)}
+          />
+
+          {/* Panel */}
+          <div
+            id="mobile-nav"
+            className="fixed inset-x-0 top-[73px] z-50 border-b border-slate-200 bg-white shadow-lg"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="mx-auto max-w-6xl px-4 py-4">
+              <nav className="flex flex-col gap-2 text-base font-semibold text-slate-800">
+                {navLinks.map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="rounded-lg px-3 py-2 hover:bg-slate-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    {l.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
