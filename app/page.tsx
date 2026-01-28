@@ -309,6 +309,7 @@ Finally understand why your property behaves the way it does — and whether fix
           </div>
 
           <div className="mt-6">
+            <p className={BODY}>Clarity first. Execution only if it makes sense.</p>
             <Link
               href="/contact"
               className="text-sm font-semibold text-slate-700 underline decoration-slate-300 underline-offset-4 transition hover:text-slate-900 hover:decoration-slate-400"
