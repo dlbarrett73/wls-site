@@ -97,6 +97,19 @@ Finally understand why your property behaves the way it does — and whether fix
             <p className={BODY}>
               <b>To tell the truth about what your land can actually produce — and why.</b>
             </p>
+            <p className={BODY}>
+            By the end of the Property Audit, you will have clear, unemotional answers to three questions every serious landowner eventually faces:
+            What is realistically possible here? What is quietly working against me? And what is the safest path forward — or the smartest place to stop?
+            </p>
+            <p className={BODY}>
+            What is realistically possible here?
+            </p>
+            <p className={BODY}>
+            What is quietly working against me?
+            </p>
+            <p className={BODY}>
+            And what is the safest path forward — or the smartest place to stop?
+            </p>
           </div>
         </div>
       </section>
