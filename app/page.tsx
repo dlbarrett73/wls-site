@@ -204,6 +204,11 @@ Built for serious landowners who want consistent opportunities at mature bucks â
           <p className="mt-2 text-sm text-slate-600">
             The audit protects you whether you move forward or not.
           </p>
+
+          <p className="mt-6 text-center text-sm text-slate-500">
+            No fluff. No false hope. No selling execution before truth.
+          </p>
+          
         </div>
       </section>
 
