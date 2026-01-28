@@ -70,6 +70,7 @@ Finally understand why your property behaves the way it does — and whether fix
               And yet… mature bucks disappear, daylight movement collapses, and pressure quietly compounds.
             </p>
             <p className={BODY}>The problem isn’t work ethic.</p>
+            <p className={BODY}>Most serious landowners aren’t failing — they’re making decisions without the governing constraints clearly defined.</p>
             <p className={BODY}>
               The problem is investing without understanding your property’s structural ceiling and pressure costs.
             </p>
