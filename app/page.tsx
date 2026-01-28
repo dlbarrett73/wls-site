@@ -87,11 +87,10 @@ Built for serious landowners who want consistent opportunities at mature bucks �
           <h2 className={HEADING}>Every property has a ceiling. Guessing doesn’t change it.</h2>
 
           <div className="mt-8 space-y-4 text-left">
+            <p className={BODY}>Mature bucks operate within strict structural, security, and pressure constraints.</p>
             <p className={BODY}>
-              Mature bucks operate within strict structural, security, and pressure constraints.
-            </p>
-            <p className={BODY}>
-              Some properties can support consistent resident mature buck ownership. Others can’t — no matter how much money is spent.
+              Some properties can support consistent resident mature buck ownership. Others can’t — no matter how
+              much money is spent.
             </p>
             <p className={BODY}>The Blueprint for Giants® Property Audit exists for one reason:</p>
             <p className={BODY}>
@@ -108,7 +107,8 @@ Built for serious landowners who want consistent opportunities at mature bucks �
         <div className={`${NARROW} text-center`}>
           <h2 className={HEADING}>What is the Blueprint for Giants® Property Audit?</h2>
           <p className={`mt-6 ${BODY}`}>
-            The Blueprint for Giants® Property Audit is a comprehensive, pressure-first evaluation of your property that defines:
+            The Blueprint for Giants® Property Audit is a comprehensive, pressure-first evaluation of your property that
+            defines:
           </p>
 
           <ul className="mx-auto mt-8 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
@@ -132,9 +132,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
           <h2 className={HEADING}>This isn’t another habitat consultation.</h2>
 
           <div className="mt-8 space-y-4 text-left">
-            <p className={BODY}>
-              Most consulting starts with tactics: food, bedding, stand locations, access routes.
-            </p>
+            <p className={BODY}>Most consulting starts with tactics: food, bedding, stand locations, access routes.</p>
             <p className={BODY}>
               We start with <b>governance</b>.
             </p>
@@ -148,9 +146,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
             <li>Structural bottlenecks no tactic can overcome</li>
           </ul>
 
-          <p className={`mt-8 ${BODY}`}>
-            Because without those answers, execution becomes expensive guessing.
-          </p>
+          <p className={`mt-8 ${BODY}`}>Because without those answers, execution becomes expensive guessing.</p>
         </div>
       </section>
 
@@ -158,23 +154,27 @@ Built for serious landowners who want consistent opportunities at mature bucks �
 
       {/* WHAT YOU RECEIVE (White) */}
       <section className={`bg-white ${SECTION_Y}`}>
-        <div className={`${CONTAINER}`}>
-          <h2 className={`text-center ${HEADING}`}>What you receive from the Property Audit</h2>
-          <p className={`mt-6 ${BODY}`}>
-          You’ll know what’s possible, what’s not, and the safest path forward before you spend money or seasons.
-          </p>
-          <ul className="mx-auto mt-8 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
-            <li>Executive Truth Summary — clear, unemotional conclusions</li>
-            <li>Structural Ceiling Qualification</li>
-            <li>Pressure Scoring & Risk Diagnostics</li>
-            <li>Daylight Opportunity Assessment</li>
-            <li>Capital Preservation & Opportunity Guidance</li>
-            <li>Clear next-step recommendations (or hard stops)</li>
-          </ul>
+        <div className={`${NARROW} text-center`}>
+          <h2 className={HEADING}>What you receive from the Property Audit</h2>
 
-          <p className="mt-8 text-center text-sm italic text-slate-500">
-            No fluff. No false hope. No selling execution before truth.
-          </p>
+          <div className="mt-8 space-y-4 text-left">
+            <p className={BODY}>
+              You’ll know what’s possible, what’s not, and the safest path forward before you spend money or seasons.
+            </p>
+
+            <ul className="list-disc space-y-2 pl-6 text-slate-600">
+              <li>Executive Truth Summary — clear, unemotional conclusions</li>
+              <li>Structural Ceiling Qualification</li>
+              <li>Pressure Scoring &amp; Risk Diagnostics</li>
+              <li>Daylight Opportunity Assessment</li>
+              <li>Capital Preservation &amp; Opportunity Guidance</li>
+              <li>Clear next-step recommendations (or hard stops)</li>
+            </ul>
+
+            <p className="text-sm italic text-slate-500">
+              No fluff. No false hope. No selling execution before truth.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -232,9 +232,7 @@ Built for serious landowners who want consistent opportunities at mature bucks �
               </li>
             </ol>
 
-            <p className="mt-5 text-sm text-slate-600">
-              The audit protects you whether you move forward or not.
-            </p>
+            <p className="mt-5 text-sm text-slate-600">The audit protects you whether you move forward or not.</p>
           </div>
         </div>
       </section>
@@ -273,7 +271,8 @@ Built for serious landowners who want consistent opportunities at mature bucks �
 
           <div className="mt-8 space-y-4 text-left">
             <p className={BODY}>
-              The Blueprint for Giants® Property Audit is the required first step for every serious landowner we work with.
+              The Blueprint for Giants® Property Audit is the required first step for every serious landowner we work
+              with.
             </p>
             <p className={BODY}>
               If your goal is consistent, repeatable opportunities at mature bucks — begin here.
