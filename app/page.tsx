@@ -56,26 +56,28 @@ Built for serious landowners who want consistent opportunities at mature bucks �
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-          Every property has a ceiling. Guessing doesn’t change it.
-        </h2>
-        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          Mature bucks operate within strict structural, security, and pressure constraints.
-        </p>
-        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          Some properties can support consistent resident mature buck ownership. Others can’t — no matter how much money is spent.
-        </p>
-        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          The Blueprint for Giants® Property Audit exists for one reason:
-        </p>
-        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
-          <b>To tell the truth about what your land can actually produce — and why.</b>
-        </p>
+            Every property has a ceiling. Guessing doesn’t change it.
+          </h2>
+          <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+            Mature bucks operate within strict structural, security, and pressure constraints.
+          </p>
+          <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+            Some properties can support consistent resident mature buck ownership. Others can’t — no matter how much money is spent.
+          </p>
+          <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+            The Blueprint for Giants® Property Audit exists for one reason:
+          </p>
+          <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+            <b>To tell the truth about what your land can actually produce — and why.</b>
+          </p>
         </div>
       </section>
 
       {/* WHAT THE BFG PROPERTY AUDIT IS */}
       <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
-        <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+        {/* ✅ FIX: add the missing div that matches the closing </div> below */}
+        <div>
+          <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
             What is the Blueprint for Giants® Property Audit?
           </h2>
           <p className="mt-4 text-slate-600">
