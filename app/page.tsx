@@ -160,7 +160,9 @@ Built for serious landowners who want consistent opportunities at mature bucks �
       <section className={`bg-white ${SECTION_Y}`}>
         <div className={`${CONTAINER}`}>
           <h2 className={`text-center ${HEADING}`}>What you receive from the Property Audit</h2>
-
+          <p className={`mt-8 ${BODY}`}>
+          You’ll know what’s possible, what’s not, and the safest path forward before you spend money or seasons.
+          </p>
           <ul className="mx-auto mt-8 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
             <li>Executive Truth Summary — clear, unemotional conclusions</li>
             <li>Structural Ceiling Qualification</li>
