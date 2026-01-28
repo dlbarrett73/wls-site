@@ -99,7 +99,6 @@ Finally understand why your property behaves the way it does — and whether fix
             </p>
             <p className={BODY}>
             By the end of the Property Audit, you will have clear, unemotional answers to three questions every serious landowner eventually faces:
-            What is realistically possible here? What is quietly working against me? And what is the safest path forward — or the smartest place to stop?
             </p>
             <p className={BODY}>
             What is realistically possible here?
