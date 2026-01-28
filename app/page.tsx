@@ -52,43 +52,47 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Core Offer Introduction */}
+{/* Turth Pivot */}
+      <section className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
+        <h2 className="text-center text-2xl font-bold text-slate-900 sm:text-3xl">
+          Every property has a ceiling. Guessing doesn’t change it.
+        </h2>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          Mature bucks operate within strict structural, security, and pressure constraints.
+        </p>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          Some properties can support consistent resident mature buck ownership.
+Others can’t — no matter how much money is spent.
+        </p>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          The Blueprint for Giants® Property Audit exists for one reason:
+        </p>
+        <p className="mt-4 max-w-3xl mx-auto text-left text-slate-600">
+          <b>To tell the truth about what your land can actually produce — and why.</b>
+        </p>
+      </section>
+      
+      {/* WHAT THE BFG PROPERTY AUDIT IS */}
       <section className="bg-slate-50">
         <div className="mx-auto w-full max-w-4xl px-6 py-16 text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            The Blueprint for Giants® Property Audit
+            What is the Blueprint for Giants® Property Audit?
           </h2>
           <p className="mt-4 text-slate-600">
-            The Property Audit is the foundation of everything we do.
+            The Blueprint for Giants® Property Audit is a comprehensive, pressure-first evaluation of your property that defines:
           </p>
           <p className="mt-4 text-slate-600">
-            It is a disciplined, evidence-based evaluation of your property as
-            it exists today — designed to answer the most important questions
-            every serious landowner must resolve before investing further:
-          </p>
-          <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
-            <li>What is this property truly capable of producing?</li>
-            <li>What pressure variables are working against it?</li>
-            <li>Is further investment justified — or wasted?</li>
-          </ul>
+            <ul className="mx-auto mt-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-slate-600">
+              <li>Your Structural Ceiling (what outcomes are possible — and which aren’t)</li>
+              <li>Your Pressure Floor (how quickly opportunities decay under hunting use)</li>
+              <li>Your Daylight Access Reality (when, where, and why mature bucks are exposed)</li>
+              <li>Your Risk Profile (where capital and effort are being silently burned)</li>
+             </ul>  
+            </p>
           <p className="mt-6 text-slate-600">
-            This is not a design, a build plan, or a list of projects. It is a
-            decision-making instrument that replaces guesswork with clarity.
+            This is not a habitat plan.
+It is the decision-making framework that determines whether any plan will work.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <CtaSafe
-              href="/property-audit"
-              className="bg-emerald-800 hover:bg-emerald-900"
-            >
-              Learn more about the Audit
-            </CtaSafe>
-            <Link
-              href="/why-it-matters"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition-colors hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-2"
-            >
-              Why Audit First? →
-            </Link>
-          </div>
         </div>
       </section>
 
