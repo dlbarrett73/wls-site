@@ -2,11 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 
-const navLinks = [
+const primaryFlowLinks = [
   { href: "/property-audit", label: "Property Audit" },
-  { href: "/why-it-matters", label: "Why It Matters" },
   { href: "/consulting", label: "System Plan" },
   { href: "/services/execution", label: "Execution" },
+] as const;
+
+const secondaryLinks = [
+  { href: "/why-it-matters", label: "Why It Matters" },
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -54,12 +57,27 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-slate-700 sm:flex">
-          {navLinks.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-slate-900">
-              {l.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-4 text-sm font-semibold text-slate-700 sm:flex">
+          {/* Primary doctrine flow: Audit → Plan → Execution */}
+          <div className="flex items-center gap-4">
+            {primaryFlowLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-slate-900">
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <span className="mx-1 h-5 w-px bg-slate-200" aria-hidden="true" />
+
+          {/* Supporting pages */}
+          <div className="flex items-center gap-4">
+            {secondaryLinks.map((l) => (
+              <Link key={l.href} href={l.href} className="hover:text-slate-900">
+                {l.label}
+              </Link>
+            ))}
+          </div>
         </nav>
 
         {/* Right side: CTA + Mobile Menu Button */}
@@ -126,8 +144,28 @@ export default function Header() {
             aria-modal="true"
           >
             <div className="mx-auto max-w-6xl px-4 py-4">
+              {/* Primary doctrine flow first */}
+              <div className="mb-3 rounded-xl border border-slate-200 bg-slate-50 p-2">
+                <div className="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Audit → Plan → Execution
+                </div>
+                <nav className="flex flex-col gap-1 text-base font-semibold text-slate-900">
+                  {primaryFlowLinks.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      className="rounded-lg px-3 py-2 hover:bg-white"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Supporting links */}
               <nav className="flex flex-col gap-2 text-base font-semibold text-slate-800">
-                {navLinks.map((l) => (
+                {secondaryLinks.map((l) => (
                   <Link
                     key={l.href}
                     href={l.href}
