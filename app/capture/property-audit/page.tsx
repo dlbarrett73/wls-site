@@ -1,12 +1,15 @@
 // app/capture/property-audit/page.tsx
 //
-// This page provides a dedicated lead‑capture and pre‑qualification form
-// for land owners who want to book a Whitetail Land Solutions Property Audit.
-// It follows the same structure as the other capture pages (buyer, consulting,
-// implementation) with a hero section, a simple process overview, and a
-// comprehensive form that gathers the details needed to determine fit.  The
-// hidden leadSource and offer fields route submissions through the existing
-// `/api/lead` handler used by the rest of the site.
+// Dedicated lead-capture + pre-qualification form for the WLS Property Audit.
+// Updated to align 100% with current doctrine + offer stack (Audit → Plan → Execution),
+// and with the $2,500 Audit investment as the source of truth.
+//
+// Key updates:
+// - Price corrected to $2,500 (and positioned as “investment”).
+// - Removed “create mature-buck opportunity” language (doctrine-safe).
+// - “Budget Range” clarified as Implementation / Improvement budget (optional) and ranges updated.
+// - Copy tightened to “truth-first” ceiling/floor/pressure/daylight framing.
+// - Kept structure consistent with other capture pages; no fragile imports.
 
 import React from "react";
 import Image from "next/image";
@@ -14,7 +17,7 @@ import Link from "next/link";
 
 /**
  * Simple CTA component that renders a link styled as a button.
- * We define it here to avoid fragile imports from other components.
+ * Defined here to avoid fragile imports from other components.
  */
 function Cta({
   href,
@@ -40,16 +43,15 @@ function Cta({
 }
 
 // Generate a static page with light revalidation to allow copy tweaks without
-// requiring a full rebuild.  See other capture pages for the same pattern.
+// requiring a full rebuild. See other capture pages for the same pattern.
 export const dynamic = "force-static";
 export const revalidate = 1800;
 
 // Metadata defines the document title and description for SEO and sharing.
 export const metadata = {
-  title:
-    "Property Audit Application — Lead Capture | Whitetail Land Solutions",
+  title: "Property Audit Application — Lead Capture | Whitetail Land Solutions",
   description:
-    "Apply for a Property Audit: get objective truth about your land’s potential, what’s holding it back, and exactly what to do next.",
+    "Apply for a Property Audit: get objective truth about your land’s structural ceiling, pressure floor, and daylight reality—plus the safest path forward.",
 };
 
 export default function PropertyAuditCapture() {
@@ -72,10 +74,15 @@ export default function PropertyAuditCapture() {
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
               Property Audit Application
             </h1>
+
             <p className="mt-4 text-white/90 text-lg sm:text-xl max-w-2xl">
-              Get objective truth about your land’s potential and a clear path
-              forward. Apply now for your Property Audit.
+              Get objective truth about your property’s{" "}
+              <span className="font-semibold">structural ceiling</span>,{" "}
+              <span className="font-semibold">pressure floor</span>, and{" "}
+              <span className="font-semibold">daylight reality</span>—and the
+              safest path forward.
             </p>
+
             <div className="mt-6">
               <a
                 href="#start"
@@ -83,9 +90,11 @@ export default function PropertyAuditCapture() {
               >
                 Start My Application
               </a>
-              {/* Pricing clarity line */}
+
+              {/* Pricing clarity line (source of truth) */}
               <p className="mt-3 text-sm text-white/90">
-                Audits start at <span className="font-semibold">$1,500</span>.
+                Property Audit investment:{" "}
+                <span className="font-semibold">$2,500</span>.
               </p>
             </div>
           </div>
@@ -100,7 +109,7 @@ export default function PropertyAuditCapture() {
           </h2>
           <p className="mt-2 text-slate-600">
             A simple, proven process to uncover the truth about your property and
-            unlock its potential.
+            determine the safest path forward.
           </p>
         </div>
 
@@ -110,19 +119,19 @@ export default function PropertyAuditCapture() {
               step: "1",
               title: "Submit Your Details",
               body:
-                "Tell us about your land, goals, and challenges—location, acreage, current access, and key questions.",
+                "Tell us about your land, goals, and constraints—location, acreage, access realities, and the decisions you’re trying to make.",
             },
             {
               step: "2",
               title: "We Review & Reach Out",
               body:
-                "Our team reviews your submission, verifies fit, and connects to schedule your audit.",
+                "We review your submission, confirm fit and scope, and coordinate next steps for your audit.",
             },
             {
               step: "3",
               title: "Receive Your Audit",
               body:
-                "Get a comprehensive evaluation and actionable next steps to create mature-buck opportunity.",
+                "Get clear findings and governing conclusions you can rely on—what’s possible, what’s limiting, and what to do next (or the smartest place to stop).",
             },
           ].map((s) => (
             <div
@@ -153,31 +162,36 @@ export default function PropertyAuditCapture() {
                 Apply for Your Property Audit
               </h2>
               <p className="mt-3 text-slate-700">
-                Share a few details and we’ll confirm fit and schedule your audit.
+                Share a few details and we’ll confirm fit and coordinate the next
+                step.
               </p>
 
               <ul className="mt-6 space-y-3 text-slate-700">
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-emerald-700" />
                   <span>
-                    Objective assessment of ceiling, pressure, and execution
+                    Objective assessment of <strong>ceiling</strong>,{" "}
+                    <strong>pressure</strong>, and <strong>daylight</strong>{" "}
                     reality
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-emerald-700" />
-                  <span>Actionable next steps tailored to your property</span>
+                  <span>
+                    Clear decision guidance: proceed to <strong>System Plan</strong>,
+                    pursue <strong>Execution</strong>, or stop confidently
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-emerald-700" />
-                  <span>No hype, tactics, or guesswork—just truth</span>
+                  <span>No hype, no guesswork—just truth</span>
                 </li>
               </ul>
 
               <div className="mt-6">
                 <Cta href="#lead-form">Start My Application</Cta>
                 <p className="mt-3 text-sm text-slate-500">
-                  We’ll respond within one business day.
+                  We’ll respond within 1–2 business days.
                 </p>
               </div>
             </div>
@@ -286,7 +300,7 @@ export default function PropertyAuditCapture() {
                     >
                       <option value="">Choose…</option>
                       <option>Assess potential for mature bucks</option>
-                      <option>Identify habitat improvements</option>
+                      <option>Identify habitat & pressure constraints</option>
                       <option>Evaluate access & layout</option>
                       <option>Other</option>
                     </select>
@@ -312,20 +326,25 @@ export default function PropertyAuditCapture() {
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="block text-sm font-medium text-slate-700">
-                      Budget Range
+                      Improvement / Implementation Budget (optional)
                     </label>
                     <select
                       name="budget"
                       className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2"
                     >
                       <option value="">Choose…</option>
-                      <option>Under $2K</option>
-                      <option>$2K–$5K</option>
+                      <option>Under $5K</option>
                       <option>$5K–$10K</option>
-                      <option>$10K+</option>
+                      <option>$10K–$25K</option>
+                      <option>$25K+</option>
                       <option>Not sure</option>
                     </select>
+                    <p className="mt-2 text-xs text-slate-500">
+                      This is not the Audit investment. It helps us understand
+                      potential implementation constraints.
+                    </p>
                   </div>
+
                   <div>
                     <label className="block text-sm font-medium text-slate-700">
                       Do you have a current habitat plan?
@@ -336,7 +355,7 @@ export default function PropertyAuditCapture() {
                     >
                       <option value="">Choose…</option>
                       <option>No, this is my first plan</option>
-                      <option>Yes, but needs evaluation</option>
+                      <option>Yes, but it needs evaluation</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -349,7 +368,7 @@ export default function PropertyAuditCapture() {
                   <textarea
                     name="questions"
                     rows={4}
-                    placeholder="What concerns or questions do you want the audit to address?"
+                    placeholder="What decisions are you trying to make? What outcomes matter most—and what feels uncertain right now?"
                     className="mt-2 w-full rounded-xl border border-slate-300 px-3 py-2"
                   />
                 </div>
