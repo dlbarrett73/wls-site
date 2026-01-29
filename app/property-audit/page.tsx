@@ -133,25 +133,25 @@ export default function PropertyAuditPage() {
           </p>
 
           {/* CTA + benefit-driven reinforcement line */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <div className="flex flex-col gap-2">
-              <ButtonLink href="/capture/property-audit" variant="primary">
-                Apply for a Property Audit
-              </ButtonLink>
-              <p className="text-sm font-medium text-zinc-200">
-                Apply for a Property Audit — Designed to tell you what’s true before you spend another dollar.
-              </p>
-            </div>
+<div className="mt-8 flex flex-col gap-4">
+  <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <ButtonLink href="/capture/property-audit" variant="primary">
+      Apply for a Property Audit
+    </ButtonLink>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ButtonLink href="#what-you-get" variant="secondary">
-                What you receive
-              </ButtonLink>
-              <ButtonLink href="#investment" variant="secondary">
-                Investment &amp; next steps
-              </ButtonLink>
-            </div>
-          </div>
+    <ButtonLink href="#what-you-get" variant="secondary">
+      What you receive
+    </ButtonLink>
+
+    <ButtonLink href="#investment" variant="secondary">
+      Investment &amp; next steps
+    </ButtonLink>
+  </div>
+
+  <p className="max-w-2xl text-sm font-medium text-zinc-200">
+    Designed to tell you what’s true before you spend another dollar.
+  </p>
+</div>
 
           {/* Trust signals (explicit, compact) */}
           <div className="mt-6 flex flex-wrap gap-2">
@@ -160,7 +160,6 @@ export default function PropertyAuditPage() {
             <Badge>Decision-grade</Badge>
             <Badge>For landowners &amp; hunting clubs</Badge>
             <Badge>Built for PA pressure realities</Badge>
-            <Badge>No obligation to continue</Badge>
           </div>
         </div>
       </section>
