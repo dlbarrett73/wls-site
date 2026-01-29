@@ -68,6 +68,22 @@ export default function Footer() {
           optimize, and sell our own properties, and provide consulting services
           to private landowners.
         </p>
+        {/* Micro legal footer */}
+<div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+  <div className="flex gap-4 text-xs font-medium text-slate-600">
+    <Link href="/terms" className="hover:text-slate-900">
+      Terms
+    </Link>
+    <Link href="/privacy" className="hover:text-slate-900">
+      Privacy
+    </Link>
+  </div>
+
+  <p className="text-xs text-slate-500">
+    Information provided is educational in nature. Outcomes may vary and are not guaranteed.
+  </p>
+</div>
+
       </div>
     </footer>
   );
