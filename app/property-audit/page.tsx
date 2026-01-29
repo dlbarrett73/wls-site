@@ -418,15 +418,7 @@ export default function PropertyAuditPage() {
             </ul>
           </Card>
         </div>
-
-        ///{/* Social proof placeholder note (no fake testimonials) */
-        <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold text-zinc-900">Social proof</p>
-          <p className="mt-1 max-w-3xl text-sm text-zinc-700">
-            We’ll add client testimonials and case notes here as they become available. WLS does not
-            use fabricated quotes or stock “results” to sell audits.
-          </p>
-        </div>///)
+        
       </Section>
 
       <Divider />
