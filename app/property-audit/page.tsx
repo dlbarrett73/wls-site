@@ -447,7 +447,7 @@ export default function PropertyAuditPage() {
         title="Timeline & expectations"
         subtitle="Clear expectations keep the engagement clean — and protect outcomes."
       >
-        <div className="grid gap-6 lg:grid-cols-2}>
+        <div className="grid gap-6 lg:grid-cols-2">
           <Card title="Timeline">
             <ul className="mt-1 space-y-2">
               <li>• Typical timeline: 2–4 weeks from acceptance (season and scope may vary)</li>
