@@ -89,11 +89,7 @@ function Divider() {
   );
 }
 
-function Badge({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function Badge({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-900/10">
       {children}
@@ -118,7 +114,7 @@ export default function PropertyAuditPage() {
             </p>
             <span className="text-xs text-zinc-400">•</span>
             <p className="text-xs font-medium text-zinc-300">
-              Built for high-pressure, real-world properties (including Pennsylvania)
+              Built for Pennsylvania pressure-heavy properties — and similar high-pressure regions
             </p>
           </div>
 
@@ -132,26 +128,38 @@ export default function PropertyAuditPage() {
           </p>
 
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-300">
-            This audit is the required first step before any planning or execution work.
-            It is designed to protect you from premature projects and wasted seasons.
+            This audit is the required first step before any planning or execution work. It is
+            designed to protect you from premature projects and wasted seasons.
           </p>
 
+          {/* CTA + benefit-driven reinforcement line */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/capture/property-audit" variant="primary">
-              Apply for a Property Audit
-            </ButtonLink>
-            <ButtonLink href="#what-you-get" variant="secondary">
-              What you receive
-            </ButtonLink>
-            <ButtonLink href="#investment" variant="secondary">
-              Investment &amp; next steps
-            </ButtonLink>
+            <div className="flex flex-col gap-2">
+              <ButtonLink href="/capture/property-audit" variant="primary">
+                Apply for a Property Audit
+              </ButtonLink>
+              <p className="text-sm font-medium text-zinc-200">
+                Apply for a Property Audit — Designed to tell you what’s true before you spend another dollar.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink href="#what-you-get" variant="secondary">
+                What you receive
+              </ButtonLink>
+              <ButtonLink href="#investment" variant="secondary">
+                Investment &amp; next steps
+              </ButtonLink>
+            </div>
           </div>
 
+          {/* Trust signals (explicit, compact) */}
           <div className="mt-6 flex flex-wrap gap-2">
             <Badge>Truth-first</Badge>
             <Badge>Pressure-first</Badge>
             <Badge>Decision-grade</Badge>
+            <Badge>For landowners &amp; hunting clubs</Badge>
+            <Badge>Built for PA pressure realities</Badge>
             <Badge>No obligation to continue</Badge>
           </div>
         </div>
@@ -224,6 +232,37 @@ export default function PropertyAuditPage() {
           </Card>
         </div>
 
+        {/* Outcome statements (integrated near "What you receive") */}
+        <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <p className="text-sm font-semibold text-zinc-900">What this changes for you</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Know what not to build</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Avoid projects that feel productive but quietly destroy daylight opportunity.
+              </p>
+            </div>
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Stop guessing</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Replace opinions with decision boundaries grounded in your property’s reality.
+              </p>
+            </div>
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Protect capital</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Identify where pressure gets cheap and where it compounds season after season.
+              </p>
+            </div>
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Make the next step obvious</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Proceed to a plan, proceed to execution, or stop — cleanly and confidently.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Deliverables visualization (simple + tangible, no new deps) */}
         <div className="mt-8 rounded-2xl border border-black/10 bg-zinc-50 p-6">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -287,7 +326,7 @@ export default function PropertyAuditPage() {
 
       <Divider />
 
-            {/* INVESTMENT + DECISION RELIEF */}
+      {/* INVESTMENT + DECISION RELIEF */}
       <Section
         id="investment"
         eyebrow="Investment"
@@ -320,9 +359,7 @@ export default function PropertyAuditPage() {
             <p className="text-sm text-zinc-700">
               If the audit confirms a viable path and you choose to proceed to a Blueprint for Giants®
               System Plan, your{" "}
-              <span className="font-semibold text-zinc-900">
-                full $2,500 audit investment
-              </span>{" "}
+              <span className="font-semibold text-zinc-900">full $2,500 audit investment</span>{" "}
               is credited forward toward that plan.
             </p>
 
@@ -357,7 +394,6 @@ export default function PropertyAuditPage() {
 
       <Divider />
 
-
       {/* PROOF (CURATED, DOCTRINE-ALIGNED) */}
       <Section
         eyebrow="Proof"
@@ -366,13 +402,13 @@ export default function PropertyAuditPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <Card title="The common trap">
-            Most properties don’t fail because the owner didn’t work hard. They fail because
-            effort was applied before the governing constraints were understood.
+            Most properties don’t fail because the owner didn’t work hard. They fail because effort
+            was applied before the governing constraints were understood.
           </Card>
 
           <Card title="What we optimize for">
-            Repeatable, sustainable daylight opportunity — created by respecting structure and pressure,
-            not by chasing tactics that collapse the system.
+            Repeatable, sustainable daylight opportunity — created by respecting structure and
+            pressure, not by chasing tactics that collapse the system.
           </Card>
 
           <Card title="What this protects you from">
@@ -384,35 +420,13 @@ export default function PropertyAuditPage() {
           </Card>
         </div>
 
-        {/* Testimonials placeholders (safe to ship now; replace copy later) */}
+        {/* Social proof placeholder note (no fake testimonials) */}
         <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold text-zinc-900">Client notes (examples)</p>
+          <p className="text-sm font-semibold text-zinc-900">Social proof</p>
           <p className="mt-1 max-w-3xl text-sm text-zinc-700">
-            Swap these placeholders with real testimonials as soon as you have them. Keep them specific and doctrine-aligned.
+            We’ll add client testimonials and case notes here as they become available. WLS does not
+            use fabricated quotes or stock “results” to sell audits.
           </p>
-
-          <div className="mt-6 grid gap-4 lg:grid-cols-3">
-            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
-              <p className="text-sm text-zinc-800">
-                “The audit showed us what was actually limiting mature buck ownership. We stopped doing the wrong things immediately.”
-              </p>
-              <p className="mt-3 text-xs font-semibold text-zinc-700">— Landowner, PA</p>
-            </div>
-
-            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
-              <p className="text-sm text-zinc-800">
-                “For the first time, we had decision boundaries. It wasn’t ‘do more.’ It was ‘do less, better’ — with a clear reason.”
-              </p>
-              <p className="mt-3 text-xs font-semibold text-zinc-700">— Multi-hunter property</p>
-            </div>
-
-            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
-              <p className="text-sm text-zinc-800">
-                “We chose not to proceed after the audit — and that was the win. It saved us a season and a pile of money.”
-              </p>
-              <p className="mt-3 text-xs font-semibold text-zinc-700">— Serious DIY owner</p>
-            </div>
-          </div>
         </div>
       </Section>
 
