@@ -7,16 +7,22 @@ export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
       <div className="mx-auto max-w-6xl px-6 py-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           {/* Company Info */}
-          <div>
+          <div className="max-w-sm">
             <div className="font-semibold text-slate-900">
               Whitetail Land Solutions, LLC
             </div>
+
             <div className="mt-1 text-sm text-slate-600">
+              Engineered for Giants. Built for Legacy.
+            </div>
+
+            <div className="mt-2 text-sm text-slate-600">
               PO Box 167 • NuMine, PA 16244
             </div>
-            <div className="mt-1 text-sm text-slate-600">
+
+            <div className="mt-2 text-xs text-slate-500">
               © {year} • All rights reserved
             </div>
           </div>
@@ -24,28 +30,28 @@ export default function Footer() {
           {/* Footer Navigation */}
           <nav
             aria-label="Footer navigation"
-            className="flex flex-wrap gap-4 text-sm font-medium text-slate-700"
+            className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-slate-700"
           >
-            {/* Orientation-first */}
+            {/* Doctrine-first flow */}
+            <Link href="/property-audit" className="hover:text-slate-900">
+              Property Audit
+            </Link>
+            <Link href="/system-plan" className="hover:text-slate-900">
+              System Plan
+            </Link>
             <Link
-              href="/property-audit"
+              href="/services/execution"
               className="hover:text-slate-900"
             >
-              Start with the Property Audit
+              Execution
             </Link>
 
             {/* Supporting pages */}
-            <Link href="/why-it-matters" className="hover:text-slate-900">
-              Why It Matters
-            </Link>
             <Link href="/properties" className="hover:text-slate-900">
               Properties
             </Link>
-            <Link href="/consulting" className="hover:text-slate-900">
-              Consulting
-            </Link>
-            <Link href="/services/implementation" className="hover:text-slate-900">
-              Execution
+            <Link href="/why-it-matters" className="hover:text-slate-900">
+              Why It Matters
             </Link>
             <Link href="/about" className="hover:text-slate-900">
               About
@@ -57,8 +63,10 @@ export default function Footer() {
         </div>
 
         {/* Disclosure */}
-        <p className="mt-6 text-xs text-slate-500">
-          We are not real estate brokers. We buy and sell our own properties.
+        <p className="mt-8 text-xs text-slate-500">
+          Whitetail Land Solutions is not a real estate brokerage. We buy,
+          optimize, and sell our own properties, and provide consulting services
+          to private landowners.
         </p>
       </div>
     </footer>
