@@ -287,7 +287,7 @@ export default function PropertyAuditPage() {
 
       <Divider />
 
-      {/* INVESTMENT + DECISION RELIEF */}
+            {/* INVESTMENT + DECISION RELIEF */}
       <Section
         id="investment"
         eyebrow="Investment"
@@ -295,22 +295,20 @@ export default function PropertyAuditPage() {
         subtitle="The audit exists to protect you from wasting money on projects that cannot deliver — and to make the next decision obvious."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          <Card title="Audit investment (transparent)">
+          <Card title="Audit investment (fixed)">
             <p className="text-sm text-zinc-700">
-              The Blueprint for Giants® Property Audit is a paid diagnostic engagement.
-              You’ll see the exact investment after your application is reviewed and we confirm fit.
+              The Blueprint for Giants® Property Audit is a paid diagnostic engagement with a fixed
+              investment of{" "}
+              <span className="font-semibold text-zinc-900">$2,500</span>.
             </p>
 
             <div className="mt-4 rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
-              <p className="text-sm font-semibold text-zinc-900">Typical range</p>
-              <p className="mt-1 text-sm text-zinc-700">
-                Most audits fall within{" "}
-                <span className="font-semibold text-zinc-900">$2,500–$4,500</span>{" "}
-                depending on acreage, complexity, and data requirements.
-              </p>
-              <p className="mt-2 text-sm text-zinc-700">
-                If your scope requires a higher level of work, we’ll tell you before you accept.
-              </p>
+              <p className="text-sm font-semibold text-zinc-900">How we keep it clean</p>
+              <ul className="mt-2 space-y-2 text-sm text-zinc-700">
+                <li>• Applications are reviewed individually to confirm fit and scope.</li>
+                <li>• You’ll know exactly what’s included before you accept.</li>
+                <li>• If your situation requires expanded scope, we’ll tell you upfront.</li>
+              </ul>
             </div>
 
             <p className="mt-4 text-sm italic text-zinc-600">
@@ -318,11 +316,21 @@ export default function PropertyAuditPage() {
             </p>
           </Card>
 
-          <Card title="Credit-forward (if you proceed)">
+          <Card title="100% credit-forward (if you proceed)">
             <p className="text-sm text-zinc-700">
-              If the audit confirms a viable path and you choose to proceed to a Blueprint for Giants® System Plan,
-              a portion of your audit investment is credited forward.
+              If the audit confirms a viable path and you choose to proceed to a Blueprint for Giants®
+              System Plan, your{" "}
+              <span className="font-semibold text-zinc-900">
+                full $2,500 audit investment
+              </span>{" "}
+              is credited forward toward that plan.
             </p>
+
+            <p className="mt-2 text-sm text-zinc-700">
+              Credit applies when the System Plan is purchased within{" "}
+              <span className="font-semibold text-zinc-900">30 days</span> of audit delivery.
+            </p>
+
             <ul className="mt-4 space-y-2">
               <li>• We only recommend planning if it makes sense.</li>
               <li>• We only recommend execution if the plan is viable.</li>
@@ -348,6 +356,7 @@ export default function PropertyAuditPage() {
       </Section>
 
       <Divider />
+
 
       {/* PROOF (CURATED, DOCTRINE-ALIGNED) */}
       <Section
