@@ -89,6 +89,18 @@ function Divider() {
   );
 }
 
+function Badge({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-emerald-900/10">
+      {children}
+    </span>
+  );
+}
+
 export default function PropertyAuditPage() {
   return (
     <main className="bg-white">
@@ -100,21 +112,28 @@ export default function PropertyAuditPage() {
         </div>
 
         <div className="relative mx-auto w-full max-w-6xl px-6 py-16 sm:py-20">
-          <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
-            Start here
-          </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
+              Start here
+            </p>
+            <span className="text-xs text-zinc-400">•</span>
+            <p className="text-xs font-medium text-zinc-300">
+              Built for high-pressure, real-world properties (including Pennsylvania)
+            </p>
+          </div>
 
           <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
             The Blueprint for Giants® Property Audit
           </h1>
 
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-200 sm:text-lg">
-            A comprehensive, pressure-first evaluation that defines what your property
-            can realistically support — before you invest further time, money, or seasons.
+            A comprehensive, pressure-first evaluation that defines what your property can
+            realistically support — before you invest further time, money, or seasons.
           </p>
 
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-300">
             This audit is the required first step before any planning or execution work.
+            It is designed to protect you from premature projects and wasted seasons.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -124,6 +143,16 @@ export default function PropertyAuditPage() {
             <ButtonLink href="#what-you-get" variant="secondary">
               What you receive
             </ButtonLink>
+            <ButtonLink href="#investment" variant="secondary">
+              Investment &amp; next steps
+            </ButtonLink>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            <Badge>Truth-first</Badge>
+            <Badge>Pressure-first</Badge>
+            <Badge>Decision-grade</Badge>
+            <Badge>No obligation to continue</Badge>
           </div>
         </div>
       </section>
@@ -136,8 +165,8 @@ export default function PropertyAuditPage() {
       >
         <div className="grid gap-6 lg:grid-cols-3">
           <Card title="In plain terms">
-            The Property Audit establishes what’s realistically possible, what’s quietly
-            working against you, and what the safest path forward is — or the smartest place to stop.
+            The Property Audit establishes what’s realistically possible, what’s quietly working
+            against you, and what the safest path forward is — or the smartest place to stop.
           </Card>
 
           <Card title="What this is">
@@ -166,10 +195,10 @@ export default function PropertyAuditPage() {
         id="what-you-get"
         eyebrow="What you receive"
         title="What you receive"
-        subtitle="Each audit culminates in a set of clear findings and diagnostics you can rely on — whether you move forward or not."
+        subtitle="Each audit culminates in a decision-grade package — built to clarify what’s true, what’s risky, and what’s premature."
       >
         <div className="grid gap-6 lg:grid-cols-3">
-          <Card title="Deliverables">
+          <Card title="Deliverables (what’s inside the package)">
             <ul className="mt-1 space-y-2">
               <li>• Executive Truth Summary</li>
               <li>• Structural Ceiling Qualification</li>
@@ -184,15 +213,197 @@ export default function PropertyAuditPage() {
             </p>
           </Card>
 
-          <Card title="What it does for you">
+          <Card title="How it helps you decide">
             It turns uncertainty into a decision you can trust: what to do next, what not to do,
             and what would be premature based on the realities governing your property.
           </Card>
 
-          <Card title="What you keep">
-            The audit deliverables are yours to keep and use — regardless of whether you ever engage
-            WLS for planning or execution.
+          <Card title="What you keep (even if you stop)">
+            The audit deliverables are yours to keep and use — regardless of whether you ever
+            engage WLS for planning or execution.
           </Card>
+        </div>
+
+        {/* Deliverables visualization (simple + tangible, no new deps) */}
+        <div className="mt-8 rounded-2xl border border-black/10 bg-zinc-50 p-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-zinc-900">At a glance</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                The audit is built like a specialist report: findings, diagnostics, and decision boundaries.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Badge>Findings</Badge>
+              <Badge>Diagnostics</Badge>
+              <Badge>Decision paths</Badge>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Executive Truth Summary</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                The honest “state of the property” in plain language, with your safest next step.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Structural Ceiling</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                What the property can realistically support based on structure and context.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Pressure &amp; Risk Diagnostics</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Where pressure becomes cheap, where it compounds, and what it threatens first.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Daylight Opportunity</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                What conditions are required for repeatable daylight opportunities to exist.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Decision Boundaries</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Clear “do / don’t / not yet” guidance so you don’t waste seasons on premature moves.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Paths Forward (or stop)</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                System Plan, Execution, or a clean stop — whichever protects outcomes.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-5 text-sm text-zinc-700">
+            Want a preview of the format? We can share a sample page set after acceptance.
+          </p>
+        </div>
+      </Section>
+
+      <Divider />
+
+      {/* INVESTMENT + DECISION RELIEF */}
+      <Section
+        id="investment"
+        eyebrow="Investment"
+        title="Audit investment & decision relief"
+        subtitle="The audit exists to protect you from wasting money on projects that cannot deliver — and to make the next decision obvious."
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Card title="Audit investment (transparent)">
+            <p className="text-sm text-zinc-700">
+              The Blueprint for Giants® Property Audit is a paid diagnostic engagement.
+              You’ll see the exact investment after your application is reviewed and we confirm fit.
+            </p>
+
+            <div className="mt-4 rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm font-semibold text-zinc-900">Typical range</p>
+              <p className="mt-1 text-sm text-zinc-700">
+                Most audits fall within{" "}
+                <span className="font-semibold text-zinc-900">$2,500–$4,500</span>{" "}
+                depending on acreage, complexity, and data requirements.
+              </p>
+              <p className="mt-2 text-sm text-zinc-700">
+                If your scope requires a higher level of work, we’ll tell you before you accept.
+              </p>
+            </div>
+
+            <p className="mt-4 text-sm italic text-zinc-600">
+              This is not a sales call disguised as an audit. It’s decision insurance.
+            </p>
+          </Card>
+
+          <Card title="Credit-forward (if you proceed)">
+            <p className="text-sm text-zinc-700">
+              If the audit confirms a viable path and you choose to proceed to a Blueprint for Giants® System Plan,
+              a portion of your audit investment is credited forward.
+            </p>
+            <ul className="mt-4 space-y-2">
+              <li>• We only recommend planning if it makes sense.</li>
+              <li>• We only recommend execution if the plan is viable.</li>
+              <li>• You’re never pressured to “keep going.”</li>
+            </ul>
+          </Card>
+
+          <Card title="Decision relief (built in)">
+            <p className="text-sm text-zinc-700">
+              It is completely acceptable — and sometimes wise — to stop after the audit.
+              A “stop” is not a failed outcome; it’s often the most protective decision you can make.
+            </p>
+            <ul className="mt-4 space-y-2">
+              <li>• If the ceiling is low, we will say so.</li>
+              <li>• If your goals exceed what the property can support, we will say so.</li>
+              <li>• If your next move would be premature, we will say so.</li>
+            </ul>
+            <p className="mt-4 text-sm text-zinc-700">
+              The audit is successful if it prevents wasted seasons — even if you never hire us again.
+            </p>
+          </Card>
+        </div>
+      </Section>
+
+      <Divider />
+
+      {/* PROOF (CURATED, DOCTRINE-ALIGNED) */}
+      <Section
+        eyebrow="Proof"
+        title="Why serious landowners start here"
+        subtitle="This isn’t about hype. It’s about protecting outcomes with truth-first governance."
+      >
+        <div className="grid gap-6 lg:grid-cols-3">
+          <Card title="The common trap">
+            Most properties don’t fail because the owner didn’t work hard. They fail because
+            effort was applied before the governing constraints were understood.
+          </Card>
+
+          <Card title="What we optimize for">
+            Repeatable, sustainable daylight opportunity — created by respecting structure and pressure,
+            not by chasing tactics that collapse the system.
+          </Card>
+
+          <Card title="What this protects you from">
+            <ul className="mt-1 space-y-2">
+              <li>• Spending money to “improve” a property that cannot hold mature bucks</li>
+              <li>• Creating pressure debt that destroys daylight movement</li>
+              <li>• Building projects that produce hope — but not outcomes</li>
+            </ul>
+          </Card>
+        </div>
+
+        {/* Testimonials placeholders (safe to ship now; replace copy later) */}
+        <div className="mt-8 rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+          <p className="text-sm font-semibold text-zinc-900">Client notes (examples)</p>
+          <p className="mt-1 max-w-3xl text-sm text-zinc-700">
+            Swap these placeholders with real testimonials as soon as you have them. Keep them specific and doctrine-aligned.
+          </p>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm text-zinc-800">
+                “The audit showed us what was actually limiting mature buck ownership. We stopped doing the wrong things immediately.”
+              </p>
+              <p className="mt-3 text-xs font-semibold text-zinc-700">— Landowner, PA</p>
+            </div>
+
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm text-zinc-800">
+                “For the first time, we had decision boundaries. It wasn’t ‘do more.’ It was ‘do less, better’ — with a clear reason.”
+              </p>
+              <p className="mt-3 text-xs font-semibold text-zinc-700">— Multi-hunter property</p>
+            </div>
+
+            <div className="rounded-xl bg-zinc-50 p-4 ring-1 ring-black/10">
+              <p className="text-sm text-zinc-800">
+                “We chose not to proceed after the audit — and that was the win. It saved us a season and a pile of money.”
+              </p>
+              <p className="mt-3 text-xs font-semibold text-zinc-700">— Serious DIY owner</p>
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -236,7 +447,7 @@ export default function PropertyAuditPage() {
         title="Timeline & expectations"
         subtitle="Clear expectations keep the engagement clean — and protect outcomes."
       >
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2}>
           <Card title="Timeline">
             <ul className="mt-1 space-y-2">
               <li>• Typical timeline: 2–4 weeks from acceptance (season and scope may vary)</li>
