@@ -11,7 +11,6 @@ const primaryFlowLinks = [
 ] as const;
 
 const secondaryLinks = [
-  { href: "/why-it-matters", label: "Why It Matters" },
   { href: "/properties", label: "Properties" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
