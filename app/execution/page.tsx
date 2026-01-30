@@ -813,21 +813,23 @@ export default function ExecutionPage() {
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-              <ButtonLink
-                href="/capture/execution"
-                variant="primary"
-                className="bg-white text-slate-900 hover:bg-slate-100"
-              >
-                Apply for Execution
-              </ButtonLink>
-              <ButtonLink
-                href="/property-audit"
-                variant="secondary"
-                className="bg-transparent text-white ring-white/20 hover:bg-white/5"
-              >
-                Review the Audit
-              </ButtonLink>
-            </div>
+  <ButtonLink
+    href="/capture/execution"
+    variant="primary"
+    className="!bg-white !text-slate-900 hover:!bg-slate-100"
+  >
+    Apply for Execution
+  </ButtonLink>
+
+  <ButtonLink
+    href="/property-audit"
+    variant="secondary"
+    className="!bg-transparent !text-white !ring-white/20 hover:!bg-white/5"
+  >
+    Review the Audit
+  </ButtonLink>
+</div>
+
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-between gap-4 text-sm text-slate-600">
