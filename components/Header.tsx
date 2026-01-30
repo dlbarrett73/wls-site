@@ -7,7 +7,7 @@ import React from "react";
 const primaryFlowLinks = [
   { href: "/property-audit", label: "Property Audit" },
   { href: "/system-plan", label: "System Plan" },
-  { href: "/services/execution", label: "Execution" },
+  { href: "/execution", label: "Execution" },
 ] as const;
 
 const secondaryLinks = [
