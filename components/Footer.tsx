@@ -50,9 +50,6 @@ export default function Footer() {
             <Link href="/properties" className="hover:text-slate-900">
               Properties
             </Link>
-            <Link href="/why-it-matters" className="hover:text-slate-900">
-              Why It Matters
-            </Link>
             <Link href="/about" className="hover:text-slate-900">
               About
             </Link>
