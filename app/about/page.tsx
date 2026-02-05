@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "../../components/CtaButton";
 
-/** ---- LOCAL TILE IMAGES (prevents ReferenceError) ---- */
+/** ---- LOCAL TILE IMAGES (prevents ReferenceError) ----
+ *  Kept for compatibility with your existing pattern, even if unused on this page.
+ */
 const TILE_IMAGES = {
   properties: "/images/property.jpg",
   consulting: "/images/consulting.png",
@@ -47,9 +49,10 @@ export default function AboutPage() {
             </h1>
             <p className="mt-4 max-w-3xl text-lg text-white/90">
               Whitetail Land Solutions exists to correct a fundamental failure
-              in the whitetail land space: most landowners are sold tactics
-              before they are given truth. We lead with clarity—so every
-              decision is defensible, disciplined, and aligned with reality.
+              in the whitetail land space: landowners are often sold projects
+              before they’re shown what’s true. We lead with clarity—so every
+              decision is disciplined, defensible, and aligned with the
+              realities of deer behavior, pressure, and landscape structure.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <CtaButton href="/property-audit">
@@ -77,34 +80,35 @@ export default function AboutPage() {
               </h2>
 
               <p className="mt-3 text-zinc-700">
-                Whitetail success is not governed by effort, equipment, or
-                budget. It is governed by{" "}
+                Whitetail outcomes aren’t governed by effort, gear, or budget.
+                They’re governed by{" "}
                 <span className="font-semibold">
-                  behavior, pressure, and landscape reality
+                  behavior, pressure, access, and landscape structure
                 </span>
                 .
               </p>
 
               <p className="mt-4 text-zinc-700">
-                Every property has a hard ceiling. That ceiling is defined by
-                access constraints, surrounding pressure, terrain,
-                fragmentation, recovery limitations, and how deer already use
-                the landscape.
+                Every property has a ceiling. That ceiling is defined by
+                surrounding pressure context, security distribution, access
+                constraints, terrain and fragmentation, recovery limitations,
+                and how deer already use the larger neighborhood.
               </p>
 
               <p className="mt-4 text-zinc-700">
-                You cannot raise that ceiling with enthusiasm or projects. You
-                can only identify it, respect it, and design within it.
-                Anything else is fiction.
+                You don’t raise the ceiling with enthusiasm or random projects.
+                You identify it, respect it, and design within it—so your time,
+                money, and effort create real leverage instead of expensive
+                noise.
               </p>
 
               <div className="mt-6 rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
                 <h3 className="text-lg font-semibold">What We Refuse to Do</h3>
                 <ul className="mt-3 space-y-2 text-zinc-700">
-                  <li>• Sell improvements before establishing truth.</li>
+                  <li>• Recommend improvements before establishing truth.</li>
                   <li>• Skip steps to “get to the fun part.”</li>
-                  <li>• Promise outcomes the land cannot support.</li>
-                  <li>• Drift scope or improvise terminology.</li>
+                  <li>• Promise outcomes the structure can’t support.</li>
+                  <li>• Drift scope, improvise terms, or move goalposts.</li>
                 </ul>
               </div>
             </div>
@@ -113,18 +117,27 @@ export default function AboutPage() {
             <div className="rounded-2xl bg-zinc-900 p-6 text-white md:p-8">
               <h3 className="text-lg font-semibold">Core Values</h3>
 
-              <ul className="mt-3 space-y-2 text-white/90">
+              <ul className="mt-3 space-y-3 text-white/90">
                 <li>
-                  • Integrity: We tell the truth, even when it costs us the work.
+                  • <span className="font-semibold">Integrity:</span> We tell
+                  the truth—even when it costs us the work.
                 </li>
                 <li>
-                  • Stewardship: The land is not a project; it is a responsibility.
+                  • <span className="font-semibold">Stewardship:</span> The land
+                  is not a project; it is a responsibility.
                 </li>
                 <li>
-                  • Conservation: Long-term health outweighs short-term success.
+                  • <span className="font-semibold">Conservation:</span>{" "}
+                  Long-term health outweighs short-term success.
                 </li>
-                <li>• Discipline: Pressure governance determines outcomes.</li>
-                <li>• Service: We treat clients as we would our own families.</li>
+                <li>
+                  • <span className="font-semibold">Discipline:</span> Pressure
+                  governance determines outcomes.
+                </li>
+                <li>
+                  • <span className="font-semibold">Service:</span> We treat
+                  clients as we would our own families.
+                </li>
               </ul>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
@@ -138,6 +151,22 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* VALUES → BEHAVIOR (small, high-trust add) */}
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <ValueProof
+              title="Truth before tactics"
+              desc="We don’t lead with food plots, hinge-cuts, or stand sites. We lead with what the property can truly support."
+            />
+            <ValueProof
+              title="Pressure-first thinking"
+              desc="We treat hunting pressure like a governing variable—because it is. Bad pressure ruins good habitat."
+            />
+            <ValueProof
+              title="Legacy-aligned decisions"
+              desc="We optimize for decades, not weekends—so your land improves with time instead of getting “burned out.”"
+            />
           </div>
         </div>
       </section>
@@ -153,19 +182,24 @@ export default function AboutPage() {
           <span className="font-semibold">
             Blueprint for Giants® Property Audit
           </span>
-          —a disciplined, data-driven evaluation that defines what is possible
-          before money, labor, or emotion are introduced.
+          —a disciplined evaluation that defines what’s realistic{" "}
+          <span className="font-semibold">before</span> money, labor, or emotion
+          are introduced.
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
             <h3 className="text-lg font-semibold">What the Audit Establishes</h3>
             <ul className="mt-3 space-y-2 text-zinc-700">
-              <li>• The property’s true whitetail ceiling</li>
+              <li>• Structural ceiling and realistic potential</li>
               <li>• Pressure and behavioral constraints</li>
-              <li>• The gap between belief and reality</li>
-              <li>• Whether further action is justified</li>
+              <li>• Access and recovery limitations</li>
+              <li>• What is worth doing—and what is not</li>
             </ul>
+            <p className="mt-4 text-zinc-700">
+              The goal is not to “sell you a plan.” The goal is to protect your
+              capital and prevent expensive missteps.
+            </p>
           </div>
 
           <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
@@ -177,7 +211,7 @@ export default function AboutPage() {
               <li>• A sales document</li>
             </ul>
             <p className="mt-4 text-zinc-700">
-              It is the foundation that makes every other decision either
+              It’s the foundation that makes every later decision either
               defensible—or indefensible.
             </p>
           </div>
@@ -202,7 +236,7 @@ export default function AboutPage() {
           Our Process Is Sequential
         </h2>
         <p className="mt-3 max-w-3xl text-white/90">
-          Whitetail Land Solutions operates on a strict sequence. We do not skip
+          Whitetail Land Solutions operates on a strict sequence. We don’t skip
           steps. That discipline protects the client, the land, and the outcome.
         </p>
 
@@ -210,7 +244,7 @@ export default function AboutPage() {
           <Step
             n="01"
             title="Understand"
-            desc="Learn why pressure and behavior—not tactics—govern outcomes."
+            desc="Learn why behavior and pressure—not hype—govern outcomes."
           />
           <Step
             n="02"
@@ -220,17 +254,33 @@ export default function AboutPage() {
           <Step
             n="03"
             title="Decide"
-            desc="Determine whether further action is justified, and at what level."
+            desc="Choose the right pathway based on ceiling, constraints, and goals."
           />
           <Step
             n="04"
             title="Execute"
-            desc="Only then do design, implementation, or acquisition pathways exist."
+            desc="Only then do design, implementation, or acquisition moves make sense."
+          />
+        </div>
+
+        {/* Simple “what happens next” ladder (no pricing, no stories) */}
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <ProcessCard
+            title="Audit → System Plan"
+            desc="When the audit shows real leverage, we translate truth into a practical system plan with priority sequencing."
+          />
+          <ProcessCard
+            title="Audit → Execution"
+            desc="When execution is justified, we build with discipline—protecting security, access, and recovery so the system holds."
+          />
+          <ProcessCard
+            title="Audit → Acquisition"
+            desc="When the best move is to buy better structure, we help you avoid expensive properties with low ceilings."
           />
         </div>
       </section>
 
-      {/* ================= TEAM (UNCHANGED from your current page) ================= */}
+      {/* ================= TEAM ================= */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold tracking-tight">Who We Are</h2>
 
@@ -253,8 +303,9 @@ export default function AboutPage() {
               </h3>
               <p className="mt-2 text-zinc-700">
                 Business and marketing operator focused on clarity, systems, and
-                client results. David leads marketing, finance, and partnerships
-                so the vision and execution stay aligned with your outcomes.
+                client outcomes. David leads marketing, finance, and partnerships
+                so the vision, messaging, and execution stay aligned with what
+                your land can actually support.
               </p>
             </div>
           </article>
@@ -291,14 +342,34 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold tracking-tight">Who This Is For</h2>
           <p className="mt-3 text-zinc-700">
             We work with landowners who care more about truth than reassurance.
-            If you want guarantees, shortcuts, or validation—we are not a fit.
+            If you want guarantees, shortcuts, or validation—we’re not a fit.
           </p>
-          <ul className="mt-4 space-y-2 text-zinc-700">
-            <li>• Serious hunters who value discipline over hype</li>
-            <li>• Families building a legacy property</li>
-            <li>• Investors who want clarity before capital is deployed</li>
-            <li>• Owners willing to hear hard truth to get better outcomes</li>
-          </ul>
+
+          <div className="mt-5 space-y-4">
+            <Persona
+              title="Legacy Landowners"
+              desc="Families building a property to be hunted, stewarded, and handed down—with decisions that hold up over time."
+            />
+            <Persona
+              title="Serious Hunters"
+              desc="Owners who value discipline over hype and want a system that performs without burning out the property."
+            />
+            <Persona
+              title="Strategic Investors"
+              desc="Buyers who want clarity before capital is deployed—so they don’t pay for acres that can’t produce outcomes."
+            />
+          </div>
+
+          <div className="mt-6 rounded-2xl bg-zinc-50 p-5 ring-1 ring-zinc-200">
+            <p className="text-sm font-semibold text-zinc-900">
+              Fit filter (simple truth)
+            </p>
+            <p className="mt-2 text-sm text-zinc-700">
+              If you’re willing to hear hard truth, we can help. If you need a
+              guarantee, a shortcut, or someone to tell you what you want to
+              hear—save your time.
+            </p>
+          </div>
         </div>
 
         <div className="rounded-2xl border border-zinc-200 p-6">
@@ -314,6 +385,21 @@ export default function AboutPage() {
             Our work is about protecting legacy—of the land, the hunt, and the
             people who come after.
           </p>
+
+          <div className="mt-6 grid gap-4">
+            <MetricCard
+              title="Decision confidence"
+              desc="You know what’s realistic, what’s not, and why."
+            />
+            <MetricCard
+              title="Capital protection"
+              desc="You avoid expensive projects that don’t move outcomes."
+            />
+            <MetricCard
+              title="System durability"
+              desc="Security, access, and recovery are protected—so the property holds up year after year."
+            />
+          </div>
         </div>
       </section>
 
@@ -362,6 +448,42 @@ function Step({
       <p className="text-xs font-semibold tracking-widest text-white/70">{n}</p>
       <h3 className="mt-2 text-lg font-semibold">{title}</h3>
       <p className="mt-2 text-white/90">{desc}</p>
+    </div>
+  );
+}
+
+function ValueProof({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-2xl bg-white p-6 shadow-soft ring-1 ring-zinc-200">
+      <p className="text-sm font-semibold text-zinc-900">{title}</p>
+      <p className="mt-2 text-sm text-zinc-700">{desc}</p>
+    </div>
+  );
+}
+
+function ProcessCard({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-2xl bg-white/10 p-6 ring-1 ring-white/10">
+      <p className="text-sm font-semibold text-white">{title}</p>
+      <p className="mt-2 text-sm text-white/90">{desc}</p>
+    </div>
+  );
+}
+
+function Persona({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-2xl bg-white p-5 shadow-soft ring-1 ring-zinc-200">
+      <p className="text-sm font-semibold text-zinc-900">{title}</p>
+      <p className="mt-2 text-sm text-zinc-700">{desc}</p>
+    </div>
+  );
+}
+
+function MetricCard({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div className="rounded-2xl bg-zinc-50 p-5 ring-1 ring-zinc-200">
+      <p className="text-sm font-semibold text-zinc-900">{title}</p>
+      <p className="mt-2 text-sm text-zinc-700">{desc}</p>
     </div>
   );
 }
