@@ -49,6 +49,9 @@ export default function WhyItMattersPage() {
               can build a legacy on.
             </p>
 
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <CtaButton href="/property-audit">Start With the Property Audit →</CtaButton>
+            </div>
           </div>
         </div>
       </section>
