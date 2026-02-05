@@ -89,6 +89,35 @@ export default function ContactPage() {
               <Chip label="Pressure & Access Discipline" />
               <Chip label="Audit-First Process" />
             </div>
+
+            {/* Best-fit guidance */}
+            <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">
+                Best fit for this form
+              </h2>
+              <p className="mt-1 text-sm leading-6 text-slate-600">
+                This is for landowners and buyers who want disciplined, truth-first
+                direction—not quick opinions.
+              </p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
+                <li>
+                  You want a clear answer on what’s realistically possible on your
+                  property (or a property you’re considering).
+                </li>
+                <li>
+                  You care about access, pressure, and long-term success—not just
+                  “more plots” or random improvements.
+                </li>
+                <li>
+                  You’re willing to invest in a process that protects outcomes by
+                  starting with diagnosis.
+                </li>
+              </ul>
+              <p className="mt-3 text-xs text-slate-500">
+                If you’re unsure whether you’re a fit, start with the Property Audit
+                page below—it explains the process and expectations.
+              </p>
+            </div>
           </div>
 
           {/* Pathways */}
@@ -100,7 +129,7 @@ export default function ContactPage() {
             />
             <PathCard
               title="Why It Matters"
-              desc="Understand why tactics without truth waste money—and why audit-first protects outcomes."
+              desc="Why tactics without truth waste money—and why audit-first protects outcomes."
               href="/why-it-matters"
             />
             <PathCard
@@ -132,6 +161,17 @@ export default function ContactPage() {
                 </span>
                 .
               </p>
+
+              <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-sm text-slate-700">
+                  <span className="font-semibold text-slate-900">
+                    Helpful context:
+                  </span>{" "}
+                  The audit is designed to reveal the true ceiling, the pressure/access
+                  realities, and the constraints that determine outcomes—so your
+                  investment is aimed at what actually moves the needle.
+                </p>
+              </div>
 
               {/* Replace action with your API endpoint / CRM handler */}
               <form
@@ -230,6 +270,10 @@ export default function ContactPage() {
                       className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
                       placeholder="e.g., 80"
                     />
+                    <p className="mt-1 text-xs text-slate-500">
+                      Enter your best estimate. Smaller parcels can still work if
+                      pressure/access is manageable.
+                    </p>
                   </div>
 
                   <div>
@@ -341,8 +385,12 @@ export default function ContactPage() {
                     name="message"
                     rows={5}
                     className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder-slate-400 shadow-sm focus:border-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-600/20"
-                    placeholder="Share your goals, constraints, and any known pressure/access realities. (No need to write a novel.)"
+                    placeholder="Tell us what you’re trying to accomplish—and anything you already know about hunting pressure, access challenges, neighbors, or constraints. (No need to write a novel.)"
                   />
+                  <p className="mt-1 text-xs text-slate-500">
+                    The more clearly you describe the constraint, the faster we can
+                    determine fit.
+                  </p>
                 </div>
 
                 <div className="pt-2">
@@ -360,12 +408,14 @@ export default function ContactPage() {
                       What happens next:
                     </span>{" "}
                     We review every submission personally. If your property and
-                    objectives align with our process, you’ll receive next-step
-                    instructions for the{" "}
+                    objectives align, you’ll receive next-step instructions to apply
+                    for the{" "}
                     <span className="font-semibold text-slate-900">
                       Blueprint for Giants® Property Audit
-                    </span>
-                    . Please allow{" "}
+                    </span>{" "}
+                    (including what we’ll need from you). If it’s not a fit right now,
+                    we’ll still reply with a clear direction on the best next step.
+                    Please allow{" "}
                     <span className="font-semibold text-slate-900">
                       2–3 business days
                     </span>{" "}
@@ -392,7 +442,7 @@ export default function ContactPage() {
                   </li>
                   <li>
                     We do <span className="font-semibold">not</span> start with
-                    habitat projects or tactics.
+                    habitat projects or random tactics.
                   </li>
                   <li>
                     Every engagement begins with the{" "}
@@ -406,6 +456,14 @@ export default function ContactPage() {
                     you’re in the right place.
                   </li>
                 </ul>
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-sm text-slate-700">
+                    <span className="font-semibold text-slate-900">Good to know:</span>{" "}
+                    Our work is designed for long-term, repeatable encounters with
+                    mature bucks—not short-term “activity” that fades when pressure
+                    spikes.
+                  </p>
+                </div>
               </InfoCard>
 
               <InfoCard title="Explore the process">
@@ -423,6 +481,10 @@ export default function ContactPage() {
                     Why Audit First?
                   </Link>
                 </div>
+                <p className="mt-3 text-xs text-slate-500">
+                  Not ready to apply yet? Start here to understand the “why” and the
+                  expectations before you reach out.
+                </p>
               </InfoCard>
 
               <InfoCard title="Office">
