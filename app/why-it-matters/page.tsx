@@ -49,15 +49,6 @@ export default function WhyItMattersPage() {
               can build a legacy on.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <CtaButton href="/property-audit">Start With the Property Audit →</CtaButton>
-              <Link
-                href="/properties"
-                className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15"
-              >
-                View Properties for Sale
-              </Link>
-            </div>
           </div>
         </div>
       </section>
