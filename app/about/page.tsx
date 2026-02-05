@@ -62,7 +62,7 @@ export default function AboutPage() {
                 href="/why-it-matters"
                 className="inline-flex items-center rounded-xl px-5 py-3 font-semibold ring-1 ring-white/40 text-white hover:bg-white/10"
               >
-                Why Audit First?
+                See How the Audit Works
               </Link>
             </div>
           </div>
