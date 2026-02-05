@@ -13,7 +13,7 @@ import CtaButton from "../../components/CtaButton";
 export const metadata = {
   title: "Why It Matters | Whitetail Land Solutions",
   description:
-    "Most properties don’t fail because of effort—they fail because of unseen limits and unmanaged pressure. Learn why truth must come before tactics, and why every serious plan starts with diagnosis.",
+    "Most properties don’t fall short because of effort—they fall short because unseen limits and unmanaged pressure were never diagnosed. Learn why truth must come before tactics.",
 };
 
 export default function WhyItMattersPage() {
@@ -44,6 +44,10 @@ export default function WhyItMattersPage() {
               Most properties don’t fall short because of effort. They fall short
               because the truth was never established.
             </p>
+            <p className="mt-3 max-w-3xl text-base sm:text-lg text-white/85">
+              This is the difference between hope and guesswork—and confidence you
+              can build a legacy on.
+            </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
               <CtaButton href="/property-audit">Start With the Property Audit →</CtaButton>
@@ -64,17 +68,38 @@ export default function WhyItMattersPage() {
           Truth Precedes Tactics
         </h2>
         <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
-          Habitat work, gear, seed, hinge cuts—those things can be useful. But
-          they are not the governing force behind mature-buck outcomes. What
-          governs outcomes is what your property is capable of supporting{" "}
+          Food plots, hinge cuts, screening, access trails—those tools can be
+          useful. But they aren’t the governing force behind consistent mature-buck
+          outcomes. What governs outcomes is what your property is truly capable
+          of supporting{" "}
           <span className="font-semibold">and</span> how human pressure changes
           deer behavior on that specific ground.
         </p>
         <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
-          If you don’t establish the truth first, you end up doing “good work” in
-          the wrong places, for the wrong reasons, while expecting results the
-          property can’t consistently produce.
+          If you don’t establish the truth first, you can do “good work” in the
+          wrong places, for the wrong reasons—while expecting results the property
+          can’t consistently produce.
         </p>
+      </section>
+
+      {/* ================= BRAND MANIFESTO (LIGHT) ================= */}
+      <section className="mb-16">
+        <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-soft">
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+            What We Believe at Whitetail Land Solutions
+          </h3>
+          <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
+            We believe land has logic—and serious landowners deserve a roadmap
+            rooted in truth, not hype. Our purpose is to help you understand your
+            property’s real ceiling and the real pressure forces acting on it, so
+            you invest only where true opportunity exists.
+          </p>
+          <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
+            When you build from what’s true, you stop chasing noise. You protect
+            time, money, and seasons—and you build a property that’s engineered
+            for giants and built for legacy.
+          </p>
+        </div>
       </section>
 
       {/* ================= THE REAL REASONS ================= */}
@@ -100,7 +125,7 @@ export default function WhyItMattersPage() {
               <li>• Behavior changes before biology.</li>
               <li>• Pressure reshapes daylight movement.</li>
               <li>• Access and intrusion create invisible limits.</li>
-              <li>• Some ceilings are structural, not motivational.</li>
+              <li>• Some ceilings are structural—not motivational.</li>
             </ul>
           </div>
         </div>
@@ -108,8 +133,8 @@ export default function WhyItMattersPage() {
         <p className="mt-6 max-w-4xl text-base sm:text-lg text-slate-700">
           Mature bucks don’t respond to optimism. They respond to security. When
           access, pressure, and predictability are mismanaged—even subtly—deer
-          adapt. They shift bedding. They go nocturnal. They relocate. And your
-          “better habitat” becomes a better place to avoid you.
+          adapt. They shift bedding. They reduce daylight movement. They relocate.
+          And your “better habitat” becomes a better place to avoid you.
         </p>
       </section>
 
@@ -128,9 +153,9 @@ export default function WhyItMattersPage() {
               What is your property’s true ceiling?
             </h4>
             <p className="mt-3 text-slate-700">
-              Not what you wish it was. Not what a neighbor claims. The ceiling
-              is the structural potential your ground can consistently support
-              under real-world conditions.
+              Not what you wish it was. Not what a neighbor claims. The ceiling is
+              the structural potential your ground can consistently support under
+              real-world conditions.
             </p>
           </div>
 
@@ -142,9 +167,9 @@ export default function WhyItMattersPage() {
               How is pressure shaping deer behavior right now?
             </h4>
             <p className="mt-3 text-slate-700">
-              Mature bucks are not “somewhere else” by accident. They move, bed,
-              and travel based on risk. Pressure is the tax you pay on every
-              decision.
+              Mature bucks aren’t “somewhere else” by accident. They move, bed,
+              and travel based on risk. Every intrusion teaches them something—
+              and that lesson shows up in daylight movement.
             </p>
           </div>
         </div>
@@ -152,7 +177,24 @@ export default function WhyItMattersPage() {
         <p className="mt-6 max-w-4xl text-base sm:text-lg text-slate-700">
           When you get honest about those two questions, the noise falls away.
           False options disappear. And you stop spending money and time chasing
-          outcomes that your current reality cannot deliver.
+          outcomes your current reality can’t deliver.
+        </p>
+      </section>
+
+      {/* ================= LEGACY BRIDGE ================= */}
+      <section className="mb-16">
+        <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+          Legacy Requires Clarity
+        </h3>
+        <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
+          Most landowners don’t just want a “better season.” They want confidence
+          that the property will keep producing for years—so their family can
+          create memories, traditions, and a legacy that lasts.
+        </p>
+        <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
+          Establishing the truth early protects decades of future seasons. It
+          keeps you from burning opportunity with well-intended changes that
+          quietly increase risk and reduce daylight activity.
         </p>
       </section>
 
@@ -169,8 +211,8 @@ export default function WhyItMattersPage() {
         <p className="mt-4 max-w-4xl text-base sm:text-lg text-slate-700">
           That’s why the first step at Whitetail Land Solutions is always the
           same: begin with a Property Audit. Not because it’s a product we want
-          to sell—but because it’s the only responsible way to pursue a mature-buck
-          outcome with confidence.
+          to sell—but because it’s the most responsible way to pursue a mature-buck
+          outcome with clarity and confidence.
         </p>
       </section>
 
