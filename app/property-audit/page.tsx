@@ -318,48 +318,6 @@ export default function PropertyAuditPage() {
             improve it.
           </p>
         </StatementCard>
-
-function AuditPreview() {
-  return (
-    <div className="mt-16 flex justify-center">
-      <div className="relative w-[320px] sm:w-[380px] md:w-[420px]">
-
-        {/* BACK SHADOW CARD */}
-        <div className="absolute top-6 left-6 w-full h-full rounded-2xl bg-zinc-900/40 blur-xl" />
-
-        {/* STACKED BACK PAGE */}
-        <div className="absolute -top-3 -left-3 w-full h-full rounded-2xl bg-white border border-zinc-200 shadow-md rotate-[-3deg]" />
-
-        {/* STACKED MID PAGE */}
-        <div className="absolute -top-1 -left-1 w-full h-full rounded-2xl bg-white border border-zinc-200 shadow-md rotate-[-1deg]" />
-
-        {/* MAIN PAGE */}
-        <div className="relative rounded-2xl border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.15)] p-8">
-
-          <h3 className="text-xl font-bold text-zinc-900 leading-snug">
-            BLUEPRINT FOR GIANTS®<br />
-            PROPERTY AUDIT
-          </h3>
-
-          <div className="mt-6 space-y-2 text-sm text-zinc-700">
-            <p><strong>Property Name:</strong> Your Property</p>
-            <p><strong>Client Name:</strong> John Smith</p>
-            <p><strong>Acreage:</strong> 180.25</p>
-            <p><strong>Location:</strong> Any County</p>
-            <p><strong>Date:</strong> March 1, 2026</p>
-          </div>
-
-          <div className="mt-10 border-t pt-6 text-center">
-            <p className="text-xs text-zinc-500">
-              Engineered for Giants. Built for Legacy.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  );
-}
         
       </Section>
 
