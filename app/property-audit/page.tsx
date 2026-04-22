@@ -1,5 +1,6 @@
 // app/property-audit/page.tsx
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -42,11 +43,7 @@ function Section({
   muted?: boolean;
 }) {
   return (
-    <section
-      className={`py-20 sm:py-24 ${
-        muted ? "bg-zinc-50/70" : "bg-white"
-      }`}
-    >
+    <section className={`py-20 sm:py-24 ${muted ? "bg-zinc-50/70" : "bg-white"}`}>
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl">
           <div className="mb-4 h-px w-14 bg-emerald-500/70" />
@@ -96,6 +93,37 @@ function Divider() {
   return (
     <div className="mx-auto max-w-6xl px-6">
       <div className="h-px w-full bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
+    </div>
+  );
+}
+
+function AuditPreview() {
+  return (
+    <div className="mt-14 flex flex-col items-center">
+      <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-emerald-600">
+        Sample Deliverable
+      </p>
+
+      <div className="relative mt-6 w-full max-w-5xl">
+        <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-3xl" />
+
+        <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
+          <Image
+            src="/images/property-audit-mockup.png"
+            alt="Blueprint for Giants Property Audit sample deliverable"
+            width={1600}
+            height={900}
+            className="h-auto w-full object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      <p className="mt-6 max-w-2xl text-center text-sm text-zinc-500">
+        Actual Blueprint for Giants® Property Audit deliverable. Every engagement
+        produces a structured, decision-grade report designed to reveal what your
+        property can truly support—and why.
+      </p>
     </div>
   );
 }
@@ -154,9 +182,7 @@ export default function PropertyAuditPage() {
       {/* PROBLEM */}
       <Section title="Why Most Properties Underperform">
         <div className="space-y-6">
-          <p>
-            Most properties fail for one reason:
-          </p>
+          <p>Most properties fail for one reason:</p>
 
           <StatementCard className="border-zinc-300 bg-zinc-50">
             <p className="text-xl font-semibold text-zinc-950">
@@ -164,9 +190,7 @@ export default function PropertyAuditPage() {
             </p>
           </StatementCard>
 
-          <p>
-            Not habitat. Not genetics. Not “not enough deer.”
-          </p>
+          <p>Not habitat. Not genetics. Not “not enough deer.”</p>
 
           <p className="font-semibold text-zinc-950">Pressure.</p>
 
@@ -318,7 +342,8 @@ export default function PropertyAuditPage() {
             improve it.
           </p>
         </StatementCard>
-        
+
+        <AuditPreview />
       </Section>
 
       <Divider />
