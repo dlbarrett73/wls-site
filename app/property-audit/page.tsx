@@ -99,31 +99,48 @@ function Divider() {
 
 function AuditPreview() {
   return (
-    <div className="mt-14 flex flex-col items-center">
-      <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-emerald-600">
-        Sample Deliverable
-      </p>
+    <div className="mt-16 rounded-3xl bg-zinc-100/60 px-6 py-12">
+      <div className="flex flex-col items-center">
+        <p className="text-center text-sm font-semibold uppercase tracking-[0.18em] text-emerald-600">
+          Sample Deliverable
+        </p>
 
-      <div className="relative mt-6 w-full max-w-5xl">
-        <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-3xl" />
+        <p className="mt-3 text-center text-sm font-semibold uppercase tracking-[0.18em] text-zinc-700">
+          18+ Page System Audit
+        </p>
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
-          <Image
-            src="/images/property-audit-mockup.png"
-            alt="Blueprint for Giants Property Audit sample deliverable"
-            width={1600}
-            height={900}
-            className="h-auto w-full object-cover"
-            priority
-          />
+        <div className="relative mt-6 w-full max-w-5xl">
+          <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-3xl" />
+
+          <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_30px_80px_rgba(0,0,0,0.15)]">
+            <Image
+              src="/images/property-audit-mockup.png"
+              alt="Blueprint for Giants Property Audit sample deliverable"
+              width={1600}
+              height={900}
+              className="h-auto w-full object-cover"
+              priority
+            />
+          </div>
         </div>
-      </div>
 
-      <p className="mt-6 max-w-2xl text-center text-sm text-zinc-500">
-        Actual Blueprint for Giants® Property Audit deliverable. Every engagement
-        produces a structured, decision-grade report designed to reveal what your
-        property can truly support—and why.
-      </p>
+        <p className="mt-6 max-w-2xl text-center text-sm text-zinc-500">
+          Every Blueprint for Giants® Property Audit is a comprehensive, 18+ page
+          report that includes system diagnostics, pressure analysis, movement
+          evaluation, and clear decision paths.
+        </p>
+
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-zinc-500">
+          <span>18+ Pages</span>
+          <span>System Diagnostics</span>
+          <span>Property Mapping</span>
+          <span>Decision Framework</span>
+        </div>
+
+        <p className="mt-3 text-center text-xs text-zinc-400">
+          Based on real client properties in Pennsylvania and similar pressure-heavy regions.
+        </p>
+      </div>
     </div>
   );
 }
@@ -168,9 +185,13 @@ export default function PropertyAuditPage() {
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <ButtonLink href="/capture/property-audit" variant="primary">
-                Apply for a Property Audit
+                Apply for Your Property Audit
               </ButtonLink>
             </div>
+
+            <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold">
+              $2,500 Diagnostic • 30-Day Credit Toward System Plan
+            </p>
 
             <p className="mt-4 text-sm text-zinc-400">
               Limited monthly availability. Serious landowners only.
@@ -302,6 +323,36 @@ export default function PropertyAuditPage() {
           </div>
         </div>
 
+        <div className="mt-8 space-y-6">
+          <p>
+            This doesn’t mean habitat, food, or deer management don’t matter.
+          </p>
+          <p>
+            It means they only work when the system supports them.
+          </p>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="rounded-xl border border-zinc-200 bg-white p-4 text-center shadow-sm">
+            <p className="text-sm font-semibold text-zinc-900">Habitat</p>
+            <p className="mt-1 text-xs text-zinc-500">
+              Only works if security is protected
+            </p>
+          </div>
+          <div className="rounded-xl border border-zinc-200 bg-white p-4 text-center shadow-sm">
+            <p className="text-sm font-semibold text-zinc-900">Food</p>
+            <p className="mt-1 text-xs text-zinc-500">
+              Shapes movement, doesn’t create it
+            </p>
+          </div>
+          <div className="rounded-xl border border-zinc-200 bg-white p-4 text-center shadow-sm">
+            <p className="text-sm font-semibold text-zinc-900">Deer Management</p>
+            <p className="mt-1 text-xs text-zinc-500">
+              Fails without system alignment
+            </p>
+          </div>
+        </div>
+
         <StatementCard className="mt-10 border-zinc-300 bg-zinc-50">
           <p className="text-lg font-semibold text-zinc-950">
             We don’t design what your system can’t support.
@@ -350,7 +401,11 @@ export default function PropertyAuditPage() {
 
       {/* INVESTMENT */}
       <Section title="Investment">
-        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+        <p className="text-sm uppercase tracking-[0.18em] text-zinc-500">
+          Fixed Investment • Decision-Grade Engagement
+        </p>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <StatementCard className="border-zinc-300 bg-zinc-50">
             <p className="text-sm uppercase tracking-[0.18em] text-zinc-500">
               Blueprint for Giants® Property Audit
@@ -442,7 +497,7 @@ export default function PropertyAuditPage() {
 
             <div className="mt-8">
               <ButtonLink href="/capture/property-audit" variant="primary">
-                Apply for a Property Audit
+                Apply for Your Property Audit
               </ButtonLink>
             </div>
 
