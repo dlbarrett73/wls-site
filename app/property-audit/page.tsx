@@ -189,7 +189,7 @@ export default function PropertyAuditPage() {
               </ButtonLink>
             </div>
 
-            <p className="text-xs uppercase tracking-[0.18em] text-emerald-400 font-semibold">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-400">
               $2,500 Diagnostic • 30-Day Credit Toward System Plan
             </p>
 
@@ -274,8 +274,62 @@ export default function PropertyAuditPage() {
 
       <Divider />
 
+      {/* PROCESS */}
+      <Section title="One Process. Up to Three Steps.">
+        <div className="grid gap-6 lg:grid-cols-3">
+          <StatementCard className="border-emerald-200 bg-emerald-50/40">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-emerald-700">
+              Step 1
+            </p>
+            <h3 className="mt-3 text-xl font-semibold text-zinc-950">
+              Property Audit
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-zinc-700">
+              Diagnose the truth about the property, identify constraints, and
+              define decision boundaries before money is spent in the wrong place.
+            </p>
+          </StatementCard>
+
+          <StatementCard>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-500">
+              Step 2
+            </p>
+            <h3 className="mt-3 text-xl font-semibold text-zinc-950">
+              System Plan
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-zinc-700">
+              If the audit confirms a viable opportunity, we engineer the
+              property system: access, stands, pressure rules, movement, habitat,
+              food, and implementation priorities.
+            </p>
+          </StatementCard>
+
+          <StatementCard>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-zinc-500">
+              Step 3
+            </p>
+            <h3 className="mt-3 text-xl font-semibold text-zinc-950">
+              Execution
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-zinc-700">
+              When appropriate, we help bring the system to life in the field
+              through disciplined implementation.
+            </p>
+          </StatementCard>
+        </div>
+
+        <StatementCard className="mt-8 border-zinc-300 bg-zinc-50">
+          <p className="text-lg font-semibold leading-relaxed text-zinc-950">
+            Most serious clients already know they want a plan. The audit simply
+            makes sure the plan is built on truth.
+          </p>
+        </StatementCard>
+      </Section>
+
+      <Divider />
+
       {/* DIFFERENTIATOR */}
-      <Section title="Built on Pressure Governance">
+      <Section title="Built on Pressure Governance" muted>
         <div className="grid gap-6 lg:grid-cols-3">
           <StatementCard>
             <p className="text-sm font-semibold uppercase tracking-[0.14em] text-zinc-500">
@@ -363,7 +417,7 @@ export default function PropertyAuditPage() {
       <Divider />
 
       {/* WHAT YOU GET */}
-      <Section title="What You Walk Away With" muted>
+      <Section title="What You Walk Away With">
         <div className="grid gap-4 md:grid-cols-2">
           {[
             "Executive Truth Summary",
@@ -400,7 +454,7 @@ export default function PropertyAuditPage() {
       <Divider />
 
       {/* INVESTMENT */}
-      <Section title="Investment">
+      <Section title="Investment" muted>
         <p className="text-sm uppercase tracking-[0.18em] text-zinc-500">
           Fixed Investment • Decision-Grade Engagement
         </p>
@@ -414,8 +468,8 @@ export default function PropertyAuditPage() {
               $2,500
             </p>
             <p className="mt-5 text-lg leading-relaxed text-zinc-700">
-              100% of your audit is credited toward a System Plan if you proceed
-              within 30 days.
+              100% of your audit is credited toward a System Plan if the audit
+              confirms the right path and you proceed within 30 days.
             </p>
           </StatementCard>
 
@@ -434,7 +488,7 @@ export default function PropertyAuditPage() {
       <Divider />
 
       {/* FILTER */}
-      <Section title="This Is Not for Everyone" muted>
+      <Section title="This Is Not for Everyone">
         <div className="grid gap-6 lg:grid-cols-2">
           <StatementCard>
             <p className="text-sm uppercase tracking-[0.16em] text-zinc-500">
@@ -463,7 +517,7 @@ export default function PropertyAuditPage() {
       <Divider />
 
       {/* SCARCITY */}
-      <Section title="Limited Availability">
+      <Section title="Limited Availability" muted>
         <p>
           We take on a limited number of audits each month to maintain quality.
         </p>
@@ -492,7 +546,7 @@ export default function PropertyAuditPage() {
         <div className="relative mx-auto max-w-5xl px-6 text-center">
           <div className="mx-auto max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 px-8 py-12 backdrop-blur-sm">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Get the Truth About Your Property
+              Start with the Audit. Advance Only if the Truth Supports It.
             </h2>
 
             <div className="mt-8">
@@ -502,7 +556,8 @@ export default function PropertyAuditPage() {
             </div>
 
             <p className="mt-5 text-base text-zinc-400">
-              Stop wasting time, money, and opportunities on guesswork.
+              The audit is the first step. The right next step may be a System
+              Plan, Execution, or a disciplined stop.
             </p>
           </div>
         </div>
