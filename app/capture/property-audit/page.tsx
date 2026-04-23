@@ -388,7 +388,6 @@ export default function PropertyAuditCapturePage() {
       {/* SALES FLOW */}
       <Section
         title="What happens after you apply"
-        subtitle="This page should qualify, not just collect names. Here is the sales flow the application supports."
       >
         <div className="grid gap-4 lg:grid-cols-4">
           {[
@@ -739,7 +738,6 @@ export default function PropertyAuditCapturePage() {
       {/* FAQ / OBJECTION HANDLING */}
       <Section
         title="Common questions"
-        subtitle="This section helps handle friction before it hits your inbox."
       >
         <div className="grid gap-4 md:grid-cols-2">
           <Card
