@@ -170,24 +170,35 @@ export default function PropertyAuditPage() {
               at mature bucks, it’s not a deer problem—it’s a system failure.
             </p>
 
-            <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-zinc-400 sm:text-lg">
-              <p>
-                Most landowners spend years improving habitat, adding food, and
-                hanging stands—yet still experience inconsistent or declining
-                results.
-              </p>
-              <p>Not because they aren’t working hard.</p>
-              <p>
-                Because they’re working without understanding how their property
-                actually functions under pressure.
-              </p>
-              <p>
-                The Property Audit is Step 1 in the Blueprint for Giants® process.
-                It diagnoses the system first. If the audit reveals that your
-                property justifies deeper design work, the next step is a full BFG
-                System Plan — followed by optional execution support.
-              </p>
-            </div>
+           <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-zinc-400 sm:text-lg">
+  <p>
+    Most landowners spend years improving habitat, adding food, and hanging stands—yet still experience inconsistent or declining results.
+  </p>
+
+  <p>
+    Not because they lack effort. Not because they lack deer.
+  </p>
+
+  <p className="font-semibold text-white">
+    Because the property is being hunted in a way the system cannot support.
+  </p>
+
+  <p>
+    Access routes educate deer. Pressure accumulates. Movement shifts. Daylight opportunity disappears.
+  </p>
+
+  <p>
+    The result is a property that looks good on paper—but fails when it matters.
+  </p>
+
+  <p className="pt-2 text-white font-semibold">
+    The Property Audit exposes how your property actually functions under pressure—and what is truly limiting your results.
+  </p>
+
+  <p>
+    This is Step 1 in the Blueprint for Giants® process. Diagnose the system first. Only then decide whether a full System Plan or execution work is justified.
+  </p>
+</div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <ButtonLink href="/capture/property-audit" variant="primary">
