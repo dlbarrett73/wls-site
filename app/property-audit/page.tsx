@@ -181,6 +181,12 @@ export default function PropertyAuditPage() {
                 Because they’re working without understanding how their property
                 actually functions under pressure.
               </p>
+              <p>
+                The Property Audit is Step 1 in the Blueprint for Giants® process.
+                It diagnoses the system first. If the audit reveals that your
+                property justifies deeper design work, the next step is a full BFG
+                System Plan — followed by optional execution support.
+              </p>
             </div>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -384,6 +390,12 @@ export default function PropertyAuditPage() {
           <p>
             It means they only work when the system supports them.
           </p>
+          <p>
+            Pressure Governance does not mean we ignore habitat, food, bedding,
+            timber, travel corridors, or stand placement. It means we evaluate all
+            of them through the factor that determines whether mature bucks
+            actually remain killable in daylight: human pressure.
+          </p>
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -418,27 +430,35 @@ export default function PropertyAuditPage() {
 
       {/* WHAT YOU GET */}
       <Section title="What You Walk Away With">
-        <div className="grid gap-4 md:grid-cols-2">
-          {[
-            "Executive Truth Summary",
-            "Structural Ceiling Assessment",
-            "Pressure Risk Analysis",
-            "Movement & Corridor Evaluation",
-            "Primary Limiting Factor Diagnosis",
-            "Clear decision path: what to do, not do, ignore",
-          ].map((item) => (
-            <div
-              key={item}
-              className="rounded-2xl border border-zinc-200 bg-white px-5 py-5 shadow-sm"
-            >
-              <div className="flex items-start gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500" />
-                <p className="text-base font-medium leading-relaxed text-zinc-800">
-                  {item}
-                </p>
+        <div className="space-y-6">
+          <p>
+            Every audit produces a structured, decision-grade report — often 18+
+            pages — built to show you how your property actually functions under
+            pressure.
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              "Executive Truth Summary",
+              "Structural Ceiling Assessment",
+              "Pressure Risk Analysis",
+              "Movement & Corridor Evaluation",
+              "Primary Limiting Factor Diagnosis",
+              "Clear decision path: what to do, not do, ignore",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl border border-zinc-200 bg-white px-5 py-5 shadow-sm"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                  <p className="text-base font-medium leading-relaxed text-zinc-800">
+                    {item}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <StatementCard className="mt-8 border-zinc-300 bg-zinc-950 text-white shadow-[0_20px_50px_rgba(0,0,0,0.14)]">
