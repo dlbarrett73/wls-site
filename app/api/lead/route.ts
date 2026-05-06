@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const WEBHOOK_URL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+const WEBHOOK_URL = "const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyDF-wAgUfrPvTMcJryq-fcRJm3hsFwehBEVPCCla-H-SkNLqW9FoxBUG1yZwV-vA/exec";
 
 function get(formData: FormData, key: string) {
   const value = formData.get(key);
