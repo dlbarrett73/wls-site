@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-const WEBHOOK_URL = "const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyDF-wAgUfrPvTMcJryq-fcRJm3hsFwehBEVPCCla-H-SkNLqW9FoxBUG1yZwV-vA/exec";
+const WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbyDF-wAgUfrPvTMcJryq-fcRJm3hsFwehBEVPCCla-H-SkNLqW9FoxBUG1yZwV-vA/exec";
 
 function get(formData: FormData, key: string) {
   const value = formData.get(key);
@@ -45,6 +46,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
+      cache: "no-store",
     });
 
     if (!response.ok) {
