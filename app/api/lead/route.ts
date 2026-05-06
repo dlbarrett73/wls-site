@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+const WEBHOOK_URL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+
 function get(formData: FormData, key: string) {
   const value = formData.get(key);
   return typeof value === "string" ? value.trim() : "";
@@ -37,16 +39,7 @@ export async function POST(request: Request) {
       funnelVersion: get(formData, "funnelVersion"),
     };
 
-    const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-
-    if (!webhookUrl) {
-      return NextResponse.json(
-        { ok: false, error: "Missing LEAD_WEBHOOK_URL" },
-        { status: 500 }
-      );
-    }
-
-    const response = await fetch(webhookUrl, {
+    const response = await fetch(WEBHOOK_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,8 +48,14 @@ export async function POST(request: Request) {
     });
 
     if (!response.ok) {
+      const text = await response.text();
+
       return NextResponse.json(
-        { ok: false, error: "Webhook failed" },
+        {
+          ok: false,
+          error: "Google webhook failed",
+          detail: text,
+        },
         { status: 500 }
       );
     }
@@ -67,7 +66,11 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     return NextResponse.json(
-      { ok: false, error: "Lead submission failed" },
+      {
+        ok: false,
+        error: "Lead submission failed",
+        detail: error instanceof Error ? error.message : "Unknown error",
+      },
       { status: 500 }
     );
   }
