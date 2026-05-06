@@ -23,13 +23,7 @@ export default function HomePage() {
             >
               Start With a Property Audit
             </a>
-
-            <a
-              href="/apply"
-              className="rounded-xl border border-zinc-600 px-7 py-4 text-center text-base font-bold text-white transition hover:border-[#c9a45c]"
-            >
-              Apply to Work With Us
-            </a>
+            
           </div>
 
           <p className="mt-6 max-w-2xl text-sm text-zinc-400">
@@ -275,13 +269,7 @@ export default function HomePage() {
             >
               Start With a Property Audit
             </a>
-
-            <a
-              href="/apply"
-              className="rounded-xl border border-zinc-600 px-8 py-4 text-base font-bold text-white transition hover:border-[#c9a45c]"
-            >
-              Apply Now
-            </a>
+            
           </div>
         </div>
       </section>
