@@ -188,6 +188,10 @@ export default function PropertyAuditPage() {
   </p>
 
   <p>
+    The stand that “should” work never produces. The field gets activity—after dark. The buck you’re hunting changes patterns the moment you hunt him.
+  </p>
+
+  <p>
     The result is a property that looks good on paper—but fails when it matters.
   </p>
 
